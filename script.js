@@ -1,26 +1,50 @@
-let brand1 = 'Suunto';
-const brand2 = 'Garmin';
-console.log(brand1, brand2);
+// global scoped items
 
-// and now to get an error message: "Assignment to constant variable.""
-
-// brand2 = 'Apple';
-
-// console.log(brand2);
-
-// If we reassign brand1 we will not get an error
-brand1 = 'Apple';
-console.log(brand1);
-
-const screamBrand = () => {
-    let brand4 = 'Fitbit';
-    if (brand2 === 'Garmin') {
-        let brand3 = 'Suunto';
-        console.log(`Our watch brands are ${brand1}, ${brand2} and ${brand3}!`)
+const books = [
+    {
+        title: 'The Unbearable Lightness of Being',
+        author: 'Ismail Kadare',
+        format: 'printed',
+        rating: 'good'
+    },
+    {
+        title: 'La Peste',
+        author: 'Albert Camus',
+        format: 'printed',
+        rating: 'good'
+    },
+    {
+        title: 'Le Camino Seule, enfin presque',
+        author: 'Cam Dewoods',
+        format: 'kindle',
+        rating: 'good'
+    },
+    {
+        title: 'Last Book to Woodstock',
+        author: 'Colin Dexter',
+        format: 'audible',
+        rating: 'good'
     }
-    console.log(brand4);
+]
+
+const screamBooks = () => {
+    // global variable books available
+    console.log(books);
+
+    books.map((book) => {
+        if (book.format === 'audible') {
+            // block-scoped format
+            let format = book.format;
+            console.log(`'${book.title}', is an ${book.format} book!`);
+        }
+        if (book.format === 'kindle') {
+            // block-scoped format
+            let format = book.format;
+            console.log(`'${book.title}', is a ${book.format} book!`);
+        }
+
+        // console.log(format);
+    })
 }
 
-screamBrand();
-// Warrior3 is out of scope. 
-// console.log(warrior3);
+screamBooks();
