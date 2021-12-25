@@ -1,31 +1,26 @@
-// global variable
+let brand1 = 'Suunto';
+const brand2 = 'Garmin';
+console.log(brand1, brand2);
 
-var numberOfSchool = 68;
+// and now to get an error message: "Assignment to constant variable.""
 
-const school = () => {
-    // local variable 
-    let fishPerSchool = 320;
+// brand2 = 'Apple';
 
-    // Second local variable
-    let totalFish = numberOfSchool * fishPerSchool;
+// console.log(brand2);
 
-    return `Our collection of fish is ${totalFish} large`;
+// If we reassign brand1 we will not get an error
+brand1 = 'Apple';
+console.log(brand1);
+
+const screamBrand = () => {
+    let brand4 = 'Fitbit';
+    if (brand2 === 'Garmin') {
+        let brand3 = 'Suunto';
+        console.log(`Our watch brands are ${brand1}, ${brand2} and ${brand3}!`)
+    }
+    console.log(brand4);
 }
 
-console.log(school());
-
-// global variable
-
-var numberOfBoxes = 200;
-
-const ppe = () => {
-    // local variable
-    let masksPerBox = 50;
-
-    // second variable
-    let totalMasks = numberOfBoxes * masksPerBox;
-
-    return `Our collection of masks is ${totalMasks} strong`;
-}
-
-console.log(ppe());
+screamBrand();
+// Warrior3 is out of scope. 
+// console.log(warrior3);
