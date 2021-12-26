@@ -5,3 +5,9 @@ and this is another line \
 and this is a third \
 Use option shift 7 \
 for the correct slash"
+
+var myLocation = "Spain", myOtherLocation = "Switzerland";
+
+myLocation === myOtherLocation; // false
+
+myLocation !== myOtherLocation; // true
