@@ -46,5 +46,3 @@ const screamBooks = () => {
         // console.log(format);
     })
 }
-
-screamBooks();
