@@ -14,7 +14,7 @@ switch (expr) {
     console.log(`Sorry, we are out of ${expr}.`);
 }
 
-const mask = 'surgicalMask';
+const mask = 'masks';
 switch (mask) {
     case 'surgicalMask': 
         console.log('Surgical Masks are not considered enough');
@@ -25,6 +25,6 @@ switch (mask) {
         // expected output: "FFp2 Masks and vaccinations are required."
         break;
     default:
-        console.log(`Sorry, you are not allowed to participate without ${mask}.`);
+        console.log(`Sorry, we are unable to offer service wihtout ${mask}`);
     }
 
