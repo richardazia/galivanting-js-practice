@@ -1,48 +1,30 @@
-// global scoped items
-
-const books = [
-    {
-        title: 'The Unbearable Lightness of Being',
-        author: 'Ismail Kadare',
-        format: 'printed',
-        rating: 'good'
-    },
-    {
-        title: 'La Peste',
-        author: 'Albert Camus',
-        format: 'printed',
-        rating: 'good'
-    },
-    {
-        title: 'Le Camino Seule, enfin presque',
-        author: 'Cam Dewoods',
-        format: 'kindle',
-        rating: 'good'
-    },
-    {
-        title: 'Last Book to Woodstock',
-        author: 'Colin Dexter',
-        format: 'audible',
-        rating: 'good'
-    }
-]
-
-const screamBooks = () => {
-    // global variable books available
-    console.log(books);
-
-    books.map((book) => {
-        if (book.format === 'audible') {
-            // block-scoped format
-            let format = book.format;
-            console.log(`'${book.title}', is an ${book.format} book!`);
-        }
-        if (book.format === 'kindle') {
-            // block-scoped format
-            let format = book.format;
-            console.log(`'${book.title}', is a ${book.format} book!`);
-        }
-
-        // console.log(format);
-    })
+// Playing with switch
+// source (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/switch)
+const expr = 'Oranges';
+switch (expr) {
+  case 'Oranges':
+    console.log('Oranges are $0.59 a pound.');
+    break;
+  case 'Mangoes':
+  case 'Papayas':
+    console.log('Mangoes and papayas are $2.79 a pound.');
+    // expected output: "Mangoes and papayas are $2.79 a pound."
+    break;
+  default:
+    console.log(`Sorry, we are out of ${expr}.`);
 }
+
+const mask = 'surgicalMask';
+switch (mask) {
+    case 'surgicalMask': 
+        console.log('Surgical Masks are not considered enough');
+        break;
+    case 'ffp2Masks':
+    case 'Vaccinations':
+        console.log('FFp2 Masks and vaccinations are required.');
+        // expected output: "FFp2 Masks and vaccinations are required."
+        break;
+    default:
+        console.log(`Sorry, you are not allowed to participate without ${mask}.`);
+    }
+
