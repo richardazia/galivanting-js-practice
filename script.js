@@ -45,3 +45,11 @@ switch (answer2) {
         console.log("Ane de Buridan ;-)");
         break;
 }
+
+var pandemic = "maskWearing"
+
+pandemic === "maskWearing"
+    ? console.log("You will be safe")
+    : console.log("It was nice knowing you");
+
+    
