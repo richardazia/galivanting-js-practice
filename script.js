@@ -28,3 +28,20 @@ switch (mask) {
         console.log(`Sorry, we are unable to offer service wihtout ${mask}`);
     }
 
+// switch continued 
+const answer2 = 'yes';
+
+switch (answer2) {
+    case "yes": 
+        console.log("You chose 'Yes, of course'");
+        break;
+    case "Maybe": 
+        console.log("Your mind is not made up yet.");
+        break;
+    case "No":
+        console.log("You decided not to");
+        break;
+    default: 
+        console.log("Ane de Buridan ;-)");
+        break;
+}
