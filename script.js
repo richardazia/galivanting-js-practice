@@ -49,7 +49,6 @@ switch (answer2) {
 var pandemic = "maskWearing"
 
 pandemic === "maskWearing"
-    ? console.log("You will be safe")
-    : console.log("It was nice knowing you");
+    ? console.log("You will be safe") // When true
+    : console.log("It was nice knowing you"); // When false
 
-    
