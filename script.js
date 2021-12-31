@@ -52,3 +52,7 @@ pandemic === "maskWearing"
     ? console.log("You will be safe") // When true
     : console.log("It was nice knowing you"); // When false
 
+// ternary as a single line
+var animal = "cat";
+var job = animal === "cat" ? "cat herder" : "dog catcher"; 
+
