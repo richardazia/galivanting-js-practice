@@ -66,3 +66,24 @@ var float = 12.345432
 console.log(typeof float); // still counts as a number
 
 console.log(typeof pandemic); // string
+
+// Playing with arrays
+
+thing = {};
+
+console.log(typeof thing); // object
+
+thing = [];
+
+console.log(typeof thing); // object
+
+console.log(typeof thing === "object" && thing.hasOwnProperty("length")) // resolves to true
+
+thing = {};
+
+console.log(typeof thing === "object" && thing.hasOwnProperty("length")) // resolves to false
+
+// to check numbers
+
+console.log(Number.isNaN()); // false
+
