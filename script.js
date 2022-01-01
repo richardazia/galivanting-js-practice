@@ -56,3 +56,13 @@ pandemic === "maskWearing"
 var animal = "cat";
 var job = animal === "cat" ? "cat herder" : "dog catcher"; 
 
+console.log(typeof job) // this is a string
+
+var number = 12; 
+
+console.log(typeof number); // this is a number
+
+var float = 12.345432
+console.log(typeof float); // still counts as a number
+
+console.log(typeof pandemic); // string
