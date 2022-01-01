@@ -87,3 +87,12 @@ console.log(typeof thing === "object" && thing.hasOwnProperty("length")) // reso
 
 console.log(Number.isNaN()); // false
 
+// Sequential loops. The index starts at 0 and gets to 9 before stopping. 
+
+for (var i = 0; i < 10; i += 1)  {
+    console.log(i);
+}
+ // count from 0 to 10
+for (var i = 0; i <= 10; i += 1)  {
+    console.log(i);
+}
