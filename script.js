@@ -96,3 +96,21 @@ for (var i = 0; i < 10; i += 1)  {
 for (var i = 0; i <= 10; i += 1)  {
     console.log(i);
 }
+
+// iterate over an array
+
+var pageNames = [
+    "home",
+    "about me",
+    "contact info",
+    "The Romans",
+    "Geography",
+    "My blog",
+    "Environmental Systems",
+    "Social Media"
+];
+
+for (var p in pageNames) {
+    console.log(p, pageNames[p]);
+}
+
