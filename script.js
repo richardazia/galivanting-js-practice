@@ -114,3 +114,18 @@ for (var p in pageNames) {
     console.log(p, pageNames[p]);
 }
 
+// iterate over an object
+var pages = {
+    first: "Home",
+    Second: "Blog",
+    third: "Photo Gallery",
+    Fourth: "My Studies",
+    Fifth: "Random Thoughts"
+};
+
+for (var p in pages) {
+    if (pages.hasOwnProperty(p)) {
+        console.log(p, pages[p]); 
+    }
+}
+
