@@ -164,3 +164,33 @@ do {
         );
         mySecondItem = mySecondArray.pop();
 } while (mySecondItem !== false);
+
+// Letter changing
+letterChanging("Hello World");
+
+function letterChanging(speech) {
+    if (typeof speech !== "string") {
+        return "Not a string";
+    }
+
+    // Otherwise change these letters
+    speech = speech.replace(/e/g, "3");
+    speech = speech.replace(/o/g, "0");
+    speech = speech.replace(/a/g, "@");
+    speech = speech.replace(/l/g, "1");
+    speech = speech.replace(/s/g, "$");
+    speech = speech.replace(/t/g, "7");
+    speech = speech.replace(/i/g, "!");
+    speech = speech.replace(/g/g, "9");
+    speech = speech.replace(/b/g, "8");
+    speech = speech.replace(/c/g, "(");
+    speech = speech.replace(/d/g, ")");
+    speech = speech.replace(/f/g, "|=");
+    speech = speech.replace(/h/g, "#");
+
+
+    return speech;
+}
+
+var utterance = letterChanging("The quick brown fox jumped over the lazy dog."); // The message is now encoded. 
+console.log(utterance);
