@@ -137,3 +137,15 @@ while (i < 10) {
     console.log(i + " Are we at ten yet?");
     i += 1;
 }
+
+var myArray = [true, true, false, true, false, true, false, true, false, true];
+
+var myItem = null;
+
+while (myItem !== false) {
+    console.log(
+        "myArray has " + 
+        myArray.length +
+        " items in it. When this is false it will stop.");
+        myItem = myArray.pop();
+}
