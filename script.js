@@ -128,7 +128,7 @@ for (var p in pages) {
         console.log(p, pages[p]); 
     }
 }
-
+// Learning the Javascript Language 5. Iterating with Loops
 // Play with a While Loop
 
 var i = 0;
@@ -149,3 +149,18 @@ while (myItem !== false) {
         " items in it. When this is false it will stop.");
         myItem = myArray.pop();
 }
+
+// The Do While Loop
+
+var mySecondArray = [true, true, false, true, false, true, false, true, false, true];
+
+var mySecondItem = false;
+
+do {
+    console.log(
+        "mySecondArray has " + 
+        mySecondArray.length +
+        " items in it. When this is false it will stop."
+        );
+        mySecondItem = mySecondArray.pop();
+} while (mySecondItem !== false);
