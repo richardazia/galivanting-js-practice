@@ -129,3 +129,11 @@ for (var p in pages) {
     }
 }
 
+// Play with a While Loop
+
+var i = 0;
+
+while (i < 10) {
+    console.log(i + " Are we at ten yet?");
+    i += 1;
+}
