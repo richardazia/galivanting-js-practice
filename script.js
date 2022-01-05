@@ -194,3 +194,24 @@ function letterChanging(speech) {
 
 var utterance = letterChanging("The quick brown fox jumped over the lazy dog."); // The message is now encoded. 
 console.log(utterance);
+
+// More on Arguments
+
+function speakSomething(what, howMany) {
+    var what = (typeof what !== "undefined") ? what : "World";
+    var howMany = (typeof howMany !== "undefined") ? howMany : 12;
+
+// pipe version
+
+// what = what || 'default speech';
+// howMany = howMany || 12;
+
+    for (var i = 0; i < howMany; i += 1) {
+        console.log(what + "( " + i + " )");
+    }
+}
+
+console.log(speakSomething("Hello", 3));
+console.log(speakSomething("Hello"));
+console.log(speakSomething("Good Morning World", 3));
+console.log(speakSomething("I was vaccinated for Covid", 3));
