@@ -226,3 +226,21 @@ var obj = {
 
 
 console.log(obj.sayHello());
+
+// Callback functions
+
+function doubleIt(number) {
+    return number *= 2;
+}
+
+var myNumbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+var myDoubles = myNumbers.map(doubleIt);
+
+console.log(myDoubles);
+
+myNumbers.forEach(function(number) {
+    console.log("My array contains", number);
+});
+
+doubleIt = number => number *= 2;
