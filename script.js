@@ -215,3 +215,14 @@ console.log(speakSomething("Hello", 3));
 console.log(speakSomething("Hello"));
 console.log(speakSomething("Good Morning World", 3));
 console.log(speakSomething("I was vaccinated for Covid", 3));
+
+// Functions as objects
+
+var obj = {
+    sayHello: function() {
+        console.log("Hello");
+    } 
+};
+
+
+console.log(obj.sayHello());
