@@ -4,10 +4,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EcmaScript Scope - learning more</title>
+
+    <style>
+        #box {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #box > div {
+            height: 5em;
+            width: 5em;
+            background-color: blue;
+        }
+    </style>
+
 </head>
 <body>
     <h1>EcmaScript Scope - learning more</h1>
     <p>Use inspect and console to see more</p>
+
+    <div id="box"></div>
+
     <script>
         var a = "Hello";
         var b = "World";
@@ -22,5 +39,16 @@
         }
 
         console.log("global", topic);
+
+        var div; 
+        var box = document.getElementById("box");
+
+        for (var i=0; i<5; i++) {
+            div = document.createElement("div");
+            div.onclick = function() {
+                console.log("This is box #" + i);
+            }
+            box.appendChild(div);
+        }
     </script>
 </html>
