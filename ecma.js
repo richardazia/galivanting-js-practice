@@ -20,3 +20,10 @@ function createConfirmation(firstName, price) {
 }
 
 createConfirmation("Romulus", 100);
+
+// Searching for a substring
+
+const name = "Richard";
+console.log(name.startsWith("Rich")); // true
+console.log(name.endsWith("rich")); //false
+console.log(name.includes("ha")); //true
