@@ -112,3 +112,18 @@ console.log(backpackingMeals);
 
 console.log(First)
 console.log(third);
+
+// Destructuring Objects
+
+const weekendAway = {
+    destination: "Tour D'aï",
+    travelers: 4,
+    activity: "Via Ferrata",
+    cost: "half a fuel tank"
+};
+
+function socialNetwork({ destination, activity}) {
+    return `Come to ${destination} to enjoy two nice ${activity}`;	
+}
+
+console.log(socialNetwork(weekendAway));
