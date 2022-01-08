@@ -73,3 +73,12 @@ console.log("Has Encyclopedia of Recreational Diving", books.has("Encyclopedia o
 books.forEach(function (item){
     console.log(item);
 })
+
+// The Spread operator is three dots ...
+
+let cats = ["Biggles", "Boots", "Bootsie"];
+let dogs = ["White Fang", "Lassie", "Brutus"];
+
+let animals = ["Wilfred", "Fiona", "Shrek", ...cats, ...dogs]; // remove the three dots for nested arrays.
+
+console.log(animals);
