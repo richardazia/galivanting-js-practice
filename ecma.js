@@ -82,3 +82,17 @@ let dogs = ["White Fang", "Lassie", "Brutus"];
 let animals = ["Wilfred", "Fiona", "Shrek", ...cats, ...dogs]; // remove the three dots for nested arrays.
 
 console.log(animals);
+
+// Destructuring Arrays
+
+let [First, third] = [
+    "Lausanne",
+    "Nyon",
+    "Genève",
+    "Thones",
+    "Versoix",
+    "Les Diablerets",
+]
+
+console.log(First)
+console.log(third);
