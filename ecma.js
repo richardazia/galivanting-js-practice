@@ -53,3 +53,23 @@ course.set("jest", { description: "testing" });
 console.log(course);
 console.log(course.react);
 console.log(course.get("react"));
+
+// Revision - Working with sets
+
+let books = new Set();
+books.add("Biggles Goes West");
+books.add("The Hobbit");
+books.add("The Unbearable Lightness of Being");
+books.add("La Peste");
+// books.add("Encyclopedia of Recreational Diving");
+
+console.log(books);
+console.log(books.size);
+
+console.log("Has Encyclopedia of Recreational Diving", books.has("Encyclopedia of Recreational Diving"));
+
+// We cannot use map, we need to use a foreach loop
+
+books.forEach(function (item){
+    console.log(item);
+})
