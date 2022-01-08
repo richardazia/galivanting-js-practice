@@ -94,5 +94,21 @@ let [First, third] = [
     "Les Diablerets",
 ]
 
+// Creating Objects with the spread operator
+
+const daytime = {
+    breakfast: "Muesli",
+    lunch: "Pizza"
+};
+
+const nighttime = "Entrecôte sur Ardoise";
+
+const backpackingMeals = {
+    ...daytime,
+    nighttime
+};
+
+console.log(backpackingMeals);
+
 console.log(First)
 console.log(third);
