@@ -127,3 +127,66 @@ function socialNetwork({ destination, activity}) {
 }
 
 console.log(socialNetwork(weekendAway));
+
+// Iterating with the for of loop
+for (let letter of "The Quick Brown Fox Jumped over the Lazy Dog") {
+    console.log(letter);
+}
+
+let sports = ["Hiking", "Cycling", "Canyoning", "Via Ferrata", "Caving"];
+
+for (let sport of sports) {
+    console.log(sport);
+}
+
+// Creating a route (pronounced root, not grout)
+
+let subjects = new Map();
+subjects.set("HTML", "/topic/html");
+subjects.set("CSS", "/topic/css");
+subjects.set("JavaScript", "/topic/javascript");
+subjects.set("React", "/topic/react");
+subjects.set("Node", "/topic/node");
+subjects.set("Express", "/topic/express");
+subjects.set("MongoDB", "/topic/mongodb");
+
+// For the route
+for (let subject of subjects) {
+    console.log(subject);
+}
+
+// To return the key
+for (let subject of subjects.keys()) {
+    console.log(subject);
+}
+
+// To return the value
+
+for (let route of subjects.values()) {
+    console.log(`The course subject can be found at ${route}`);
+}
+
+// For Value Pairs
+for (let subject of subjects.entries()) {
+    console.log(subject);
+}
+
+// use class and constructor
+
+class Animal {
+    constructor(description, limbs, ears) {
+        this.description = description;
+        this.limbs = limbs;
+        this.ears = ears; 
+    }
+    describeAnimal() {
+        console.log(`A ${this.description} has ${this.limbs} legs and ${this.ears} ears`);
+    }
+}
+
+let dog = new Animal("dog", 4, 2);
+
+console.log(dog);
+console.log(dog.describeAnimal());
+
+
