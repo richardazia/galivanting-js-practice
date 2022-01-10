@@ -299,3 +299,19 @@ console.log(countdown.next());  // { value: "Action!", done: false }
 console.log(countdown.next());  // { value: undefined, done: true }
 
 // For more info about generators: https://javascript.info/generators
+
+// Revision - Building promises
+
+const delay = (seconds) => 
+    new Promise((resolve, reject) => {
+        if (typeof seconds !== "number") {
+            reject(`${seconds} is not a number`);
+    }
+    setTimeout(resolve, seconds * 1000)
+    });
+
+    console.log("Zero seconds"); // Zero seconds - to check that it works
+    delay(1).then(() => console.log("One second")); // One second
+    delay(5).then(() => console.log("Five seconds")); // Five seconds
+
+    delay("twitter").then(() => console.log("Twitter")); // Error - twitter is not a number
