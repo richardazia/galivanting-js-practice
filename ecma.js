@@ -270,7 +270,7 @@ let individual = {
     name: "Bigglesworth",
     hobbies: ["flying, ", "diving, ", "straffing", "surviving", "returning home"],
     printHobbies: function() {
-        let _this = this;
+        // let _this = this; // this is not needed in arrow functions
         // this.hobbies.forEach(function (hobby) { // written normally
         this.hobbies.forEach(hobby => { // written as an arrow function
             let string = `${_this.name} likes ${hobby}`;
