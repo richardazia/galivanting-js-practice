@@ -189,4 +189,25 @@ let dog = new Animal("dog", 4, 2);
 console.log(dog);
 console.log(dog.describeAnimal());
 
+// The Getters and Setters
 
+let attendance = {
+    _list: [],
+    set addName(name) {
+        this._list.push(name);
+    },
+    get list() {
+        return this._list.join(", ");
+    }
+}
+
+attendance.addName = "Barney Stinson";
+
+console.log(attendance.list);
+
+attendance.addName = "Oncle Picsou";
+attendance.addName = "Asterix Le Gaulois";
+attendance.AddName = "Mr BigglesWorth";
+attendance.addName = "Albert Camus";
+
+console.log(attendance.list);
