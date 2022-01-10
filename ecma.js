@@ -211,3 +211,23 @@ attendance.AddName = "Mr BigglesWorth";
 attendance.addName = "Albert Camus";
 
 console.log(attendance.list);
+
+// Getters and Setters Part II
+
+class Hike {
+    constructor(distance, pace, elevation) {
+        this.distance = distance;
+        this.pace = pace;
+        this.elevation = elevation;
+    }
+    get lengthInHours() {
+        return `It will take ${this.calcLength()} hours to walk this path.`;
+    }
+    calcLength() {
+        return this.distance / this.pace;
+    }
+};
+
+const laDole = new Hike(7, 5, 200);
+
+console.log(laDole.lengthInHours);
