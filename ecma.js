@@ -263,3 +263,20 @@ list.map(function(item) {
 // As an arrow function
 
 list.map(item => console.log(item));
+
+// Using this in an arrow function
+
+let individual = {
+    name: "Bigglesworth",
+    hobbies: ["flying, ", "diving, ", "straffing", "surviving", "returning home"],
+    printHobbies: function() {
+        let _this = this;
+        // this.hobbies.forEach(function (hobby) { // written normally
+        this.hobbies.forEach(hobby => { // written as an arrow function
+            let string = `${_this.name} likes ${hobby}`;
+            console.log(string);
+        });
+    }
+};
+
+individual.printHobbies();
