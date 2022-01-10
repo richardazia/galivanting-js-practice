@@ -314,4 +314,27 @@ const delay = (seconds) =>
     delay(1).then(() => console.log("One second")); // One second
     delay(5).then(() => console.log("Five seconds")); // Five seconds
 
-    delay("twitter").then(() => console.log("Twitter")); // Error - twitter is not a number
+    // delay("twitter").then(() => console.log("Twitter")); // Error - twitter is not a number
+
+    // Loading Remote Data - the long way
+
+    const astronauts = () => {
+        return new Promise((resolves, reject) => {
+            const api = 
+            "http://api.open-notify.org/astros.json";
+            const request = new XMLHttpRequest();
+            request.open("GET", api); // request some data from the API
+            request.onload = () => {
+                if (request.status === 200) {
+                    resolves(JSON.parse(request.response)); // parse the data
+                } else {
+                    rejects(Error(request.statusText));    // reject the promise
+                }
+            };
+            request.onerror = err => reject(err);
+            request.send();
+            });
+        };
+
+        astronauts().then(data => 
+            console.log(data));
