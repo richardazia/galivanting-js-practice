@@ -231,3 +231,23 @@ class Hike {
 const laDole = new Hike(7, 5, 200);
 
 console.log(laDole.lengthInHours);
+
+// Setting defaults
+
+function add(x = 3, Y = 12) {
+    console.log(x + Y);
+}
+
+add(4, 8);
+
+function beActive(
+    activityName = "procrastinating",
+    time = 3) {
+        console.log(`I am ${activityName} ${time} hours a day `);
+    }
+
+    beActive(); // I am procrastinating 3 hours a day   - default values
+    beActive("Climbing", 5);    // I am Climbing 5 hours a day
+    beActive("cooking", 2);    // I am cooking 2 hours a day
+    beActive("running", 0.5);   // I am running 0.5 hours a day
+
