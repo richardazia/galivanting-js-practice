@@ -221,7 +221,7 @@ class Hike {
         this.elevation = elevation;
     }
     get lengthInHours() {
-        return `It will take ${this.calcLength()} hours to walk this path.`;
+        return `It will take ${this.calcLength()} hours to walk ${this.distance} kilometres.`;
     }
     calcLength() {
         return this.distance / this.pace;
