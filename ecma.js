@@ -270,7 +270,7 @@ let individual = {
     name: "Bigglesworth",
     hobbies: ["flying, ", "diving, ", "straffing", "surviving", "returning home"],
     printHobbies: function() {
-        // let _this = this; // this is not needed in arrow functions
+        let _this = this;
         // this.hobbies.forEach(function (hobby) { // written normally
         this.hobbies.forEach(hobby => { // written as an arrow function
             let string = `${_this.name} likes ${hobby}`;
@@ -280,3 +280,22 @@ let individual = {
 };
 
 individual.printHobbies();
+
+// Working with generators function*
+
+function* director() {
+    yield "three";
+    yield "two";
+    yield "one";
+    yield "Action!";
+}
+
+let countdown = director();
+
+console.log(countdown.next().value);  // three
+console.log(countdown.next().value);  // two  
+console.log(countdown.next().value);  // one
+console.log(countdown.next());  // { value: "Action!", done: false }
+console.log(countdown.next());  // { value: undefined, done: true }
+
+// For more info about generators: https://javascript.info/generators
