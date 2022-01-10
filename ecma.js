@@ -251,3 +251,15 @@ function beActive(
     beActive("cooking", 2);    // I am cooking 2 hours a day
     beActive("running", 0.5);   // I am running 0.5 hours a day
 
+// Shortening code with arrow functions
+
+// original code
+
+let list = ["tricycle", "bike", "Penny farthing"];
+list.map(function(item) {
+    console.log(item);
+});
+
+// As an arrow function
+
+list.map(item => console.log(item));
