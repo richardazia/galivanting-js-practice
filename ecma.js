@@ -354,4 +354,12 @@ getAstronauts().then((data =>
 
 getAstronauts().then(console.log); // Shorter option
 
+let orbitalNames = () =>
+    getAstronauts()
+    .then((json) => json.people)
+    .then((people) => people.map((p) => p.name)) // To return the names
+    .then((names) => names.join(", "));
+
+orbitalNames().then(console.log);
+
 
