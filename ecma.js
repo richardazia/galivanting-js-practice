@@ -338,3 +338,20 @@ const delay = (seconds) =>
 
         astronauts().then(data => 
             console.log(data));
+
+// Loading Remote Data - the short way - using fetch
+
+let getAstronauts = () =>
+fetch(
+    "http://api.open-notify.org/astros.json"
+//).then(console.log);    // to check that it works
+).then((res) => res.json());
+// .then(console.log);    To output the data directly within the app
+
+getAstronauts().then((data => 
+    console.log(data)
+));
+
+getAstronauts().then(console.log); // Shorter option
+
+
