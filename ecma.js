@@ -302,21 +302,21 @@ console.log(countdown.next());  // { value: undefined, done: true }
 
 // Revision - Building promises
 
-const delay = (seconds) => 
-    new Promise((resolve, reject) => {
-        if (typeof seconds !== "number") {
-            reject(`${seconds} is not a number`);
-    }
-    setTimeout(resolve, seconds * 1000)
-    });
+// const delay = (seconds) => 
+//     new Promise((resolve, reject) => {
+//         if (typeof seconds !== "number") {
+//             reject(`${seconds} is not a number`);
+//     }
+//     setTimeout(resolve, seconds * 1000)
+//     });
 
-    console.log("Zero seconds"); // Zero seconds - to check that it works
-    delay(1).then(() => console.log("One second")); // One second
-    delay(5).then(() => console.log("Five seconds")); // Five seconds
+//     console.log("Zero seconds"); // Zero seconds - to check that it works
+//     delay(1).then(() => console.log("One second")); // One second
+//     delay(5).then(() => console.log("Five seconds")); // Five seconds
 
-    // delay("twitter").then(() => console.log("Twitter")); // Error - twitter is not a number
+//     // delay("twitter").then(() => console.log("Twitter")); // Error - twitter is not a number
 
-    // Loading Remote Data - the long way
+//     // Loading Remote Data - the long way
 
     const astronauts = () => {
         return new Promise((resolves, reject) => {
@@ -362,4 +362,21 @@ let orbitalNames = () =>
 
 orbitalNames().then(console.log);
 
+const delay = (seconds) =>
+    new Promise((resolves) => 
+    setTimeout(resolves, seconds * 1000));
 
+const countToFive = async () => {
+    await delay(1);
+    console.log("One");
+    await delay(1);
+    console.log("Two");
+    await delay(1);
+    console.log("Three");
+    await delay(1);
+    console.log("Four");
+    await delay(1);
+    console.log("Five");
+}
+
+countToFive();
