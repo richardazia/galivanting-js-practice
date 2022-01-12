@@ -380,3 +380,14 @@ const countToFive = async () => {
 }
 
 countToFive();
+
+const githubRequest = async (login) => {
+    let response = await fetch(
+        `https://api.github.com/users/${login}`
+        );
+    let json = await response.json();
+    let summary = `${json.name} is a ${json.bio}`;
+    console.log(summary)
+};
+
+    githubRequest("google");
