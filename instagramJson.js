@@ -3,7 +3,7 @@ fetch('posts_1.json')
 .then(res => res.json())
 .then(data => console.log(data));
 instagram();
-console.log(data.json());
+
 
 
 // .then(console.log);
