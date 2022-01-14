@@ -4,6 +4,15 @@ fetch('posts_1.json')
 .then(data => console.log(data));
 instagram();
 
+var posts = JSON.parse(data);
+console.log(data);
+var stringify = JSON.stringify(data); 
+console.log(stringify[1]);
+
+//try json-loader
+const json = require('posts_1.json');
+console.log(json);
+
 
 
 // .then(console.log);
