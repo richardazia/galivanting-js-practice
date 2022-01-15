@@ -14,6 +14,9 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log('new browser instance connected');
+  socket.on('disconnect', () => {
+      console.log('browser instance disconnected');
+  });
 });
 
 server.listen(3000, () => {
