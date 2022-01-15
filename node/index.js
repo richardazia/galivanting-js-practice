@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const http = require('http');
 const server = http.createServer(app);
-const { Server} = require('socket.io');
+const { Server } = require("socket.io");
 const io = new Server(server);
 
 app.get('/', (req, res) => {
@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log('New browser instance started');
+  console.log('new browser instance connected');
 });
 
 server.listen(3000, () => {
