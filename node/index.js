@@ -13,12 +13,17 @@ app.get('/', (req, res) => {
 });
 
 io.on('connection', (socket) => {
-  console.log('new browser instance connected');
+  console.log('a user connected');  
   socket.on('disconnect', () => {
-      console.log('browser instance disconnected');
+    console.log('user disconnected');
+    console.log('user left');
+  });
+  socket.on('chat message', (msg) => {
+    socket.on('chat message', (msg) => {
+      io.emit('chat message', msg);
   });
 });
 
 server.listen(3000, () => {
-  console.log('listening on *:3000');
+  console.log('listening on localhost:3000');
 });
