@@ -258,3 +258,15 @@ var add10 = makeAdder(10);
 
 console.log(add5(2));   // returns 10
 console.log(add10(2));  // returns 20
+
+function multiplier(w) {
+    return function(z) {
+        return w * z;
+    };
+}
+
+var multiplyBy5 = multiplier(5);
+var multiplyBy10 = multiplier(10);
+
+console.log(multiplyBy5(2));   // returns 10
+console.log(multiplyBy10(2));  // returns 20
