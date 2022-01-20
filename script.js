@@ -270,3 +270,36 @@ var multiplyBy10 = multiplier(10);
 
 console.log(multiplyBy5(2));   // returns 10
 console.log(multiplyBy10(2));  // returns 20
+
+// More on Closures
+
+function init() {
+    var name = 'mozilla';
+    function displayName() {
+        console.log(name);
+    }
+    displayName();
+}
+
+init();
+
+function duck() {
+    var noise = 'couac couac';
+    function displayNoise() {
+        console.log(noise);
+    }
+    displayNoise();
+}
+
+duck();
+
+function cook() {
+    var food = 'lasagna';
+    function displayFood() {
+        console.log(food);
+    }
+    displayFood();
+}
+
+cook();
+
