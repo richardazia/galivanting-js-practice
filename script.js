@@ -315,7 +315,7 @@ function knotsToKilometres(){
 
 knotsToKilometres();
 
-// see index.html
+// see index.html for result and https://blog.bajarangisoft.com/blog/how-can-i-convert-kph-to-knots-using-javascript. 
 
 function speedConverter(valNum) {
     document.getElementById("outputKnots").innerHTML = valNum * 1.852;

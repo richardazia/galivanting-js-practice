@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <title>ecma-script-6 - learning more</title>
 </head>
 <body>
@@ -15,5 +16,28 @@
     </script>
     <a href="ecma-script-6.html">ECMA Script 6</a>
     <a href="instagram.html">Instagram</a>
+<div class="container">
+    <div class="well">
+        <div class="text-center">
+            <h1>Convert knots to kilometres</h1>
+            <p>Use the formula:</p>
+            <p>knots = 1.852 * km/h</p>
+        </div>
+        <div class="well">
+            <p>
+                <label>kmh</label>
+                <input id="inputKMH" 
+                class="form-control" 
+                type="number" 
+                placeholder="KMH"
+                oninput="speedConverter(this.value)" 
+                onchange="speedConverter(this.value)">
+            </p>
+            <p>Knots: <span id="outputKnots"></span></p>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
