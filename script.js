@@ -303,3 +303,18 @@ function cook() {
 
 cook();
 
+// convert km to knots
+function knotsToKilometres(){
+    var knots = 1
+    var kmh = 1.852
+    var km = knots * kmh
+    console.log(knots);
+    console.log(km);
+    console.log(km);
+};
+
+knotsToKilometres();
+
+
+
+
