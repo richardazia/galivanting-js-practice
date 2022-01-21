@@ -315,6 +315,11 @@ function knotsToKilometres(){
 
 knotsToKilometres();
 
+// see index.html
+
+function speedConverter(valNum) {
+    document.getElementById("outputKnots").innerHTML = valNum * 1.852;
+}
 
 
 
