@@ -53,11 +53,31 @@ class Car {
     }
 }
 
+//Use super
+
+class campingCar extends Car{
+    constructor(wheels, fuel, top, brand, carInfo) {
+        super(wheels, fuel, top, carInfo);
+        this.brand = brand;
+        this.wheels = 6;
+        this.tv = true;
+        this.bed = true;
+    }
+    myBed() {
+        return console.log(`This ${this.brand} has a bed: ${this.bed} and a TV: ${this.tv}!`);
+    }
+}
+
 const barchetta = new Car(4, "petrol", "red");
 const tesla = new Car(4, "electric", "black");
+const camper = new campingCar(4, "petrol", "red", "Ford", "This is a camper");
 
 console.log(barchetta);
 console.log(barchetta.carInfo());
+
+console.log(camper);
+console.log(camper.carInfo());
+console.log(camper.myBed());
 
 console.log(tesla);
 console.log(tesla.carInfo());
