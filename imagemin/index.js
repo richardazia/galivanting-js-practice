@@ -4,7 +4,7 @@ import imageminJpegtran from 'imagemin-jpegtran';
 import imageminPngquant from 'imagemin-pngquant';
 
 const files = await imagemin(['img*.{jpg,png}'], {
-	destination: 'img',
+	destination: 'img/',
 	plugins: [
 		imageminJpegtran(),
 		imageminPngquant({
