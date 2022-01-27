@@ -2,10 +2,15 @@
   "name": "imagemin",
   "version": "1.0.0",
   "description": "experiment",
-  "main": "index.js",
+  "main": "index.cjs",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-pngquant": "^9.0.2"
+  }
 }
