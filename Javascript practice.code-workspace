@@ -7,5 +7,7 @@
 			"path": "..\\Ex_Files_Learning_App_Building_VanillaJS"
 		}
 	],
-	"settings": {}
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Ex_Files_Learning_App_Building_VanillaJS"
+	}
 }
