@@ -1,8 +1,8 @@
 'use strict';
 // added for xhr to work: see: https://stackoverflow.com/questions/32604460/xmlhttprequest-module-not-defined-found
 
-var XMLHttpRequest = require('xhr2');
-var xhr = new XMLHttpRequest();
+// var XMLHttpRequest = require('xhr2');
+// var xhr = new XMLHttpRequest();
 
 //test url
 
