@@ -8,7 +8,9 @@
 
 // For Street addresses
 
-const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&street=1428%20Post%20Aly&street2=&city=Seattle&state=WA&zipcode=98101&candidates=10&match=invalid';
+//const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&street=1428%20Post%20Aly&street2=&city=Seattle&state=WA&zipcode=98101&candidates=10&match=invalid';
+
+const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436';
 
 const addressField = document.querySelector('#address');
 const cityField = document.querySelector('#city');
@@ -39,6 +41,19 @@ const createRequest = function(url) {
     httpRequest.open('GET', url);
     httpRequest.send();
 };
+
+const checkCompletion = function() {
+    if (addressField.value !== '' &&
+        cityField.value !== '' &&
+        stateField.value !== '') {
+            const requestURL = url + 
+            '&street=' + addressField.value + 
+            '&city=' + cityField.value + 
+            '&state=' + stateField.value;
+            createRequest(requestURL);
+        }
+}
+
 createRequest(url);
 
 
