@@ -56,6 +56,10 @@ const checkCompletion = function() {
 
 createRequest(url);
 
+addressField.addEventListener('blur', checkCompletion);
+cityField.addEventListener('blur', checkCompletion);
+stateField.addEventListener('blur', checkCompletion);
+
 
 
 /*
