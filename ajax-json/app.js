@@ -7,8 +7,13 @@
 //test url
 
 // For Street addresses
-/*
+
 const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&street=1428%20Post%20Aly&street2=&city=Seattle&state=WA&zipcode=98101&candidates=10&match=invalid';
+
+const addressField = document.querySelector('#address');
+const cityField = document.querySelector('#city');
+const stateField = document.querySelector('#state');
+const zipField = document.querySelector('#zip');
 
 const updateUISuccess = function(data) {
     console.log(data);
@@ -35,8 +40,10 @@ const createRequest = function(url) {
     httpRequest.send();
 };
 createRequest(url);
-*/
 
+
+
+/*
 // For National parks
 
 const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=yourkeyhere';
@@ -66,4 +73,4 @@ const createRequest = function(url) {
     httpRequest.send();
 };
 createRequest(urlPark);
-
+*/
