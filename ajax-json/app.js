@@ -21,8 +21,8 @@ const stateField = document.querySelector('#state');
 const zipField = document.querySelector('#zip');
 const parkThumb = document.querySelector('#specials h2 img');
 const parkSection = document.querySelector('#specials');
-const parkTitle = document.querySelector('#specials h2');
-const parkHyperlink = document.querySelector('#specials a');
+const parkName = document.querySelector('#specials h2 a');
+const parkDesc = document.querySelector('#specials p');
 
 const UrlUpdateUISuccess = function(data) {
     const parsedData = JSON.parse(data);
@@ -34,12 +34,13 @@ const UrlUpdateUISuccess = function(data) {
 };
 
 const ParkUpdateUISuccess = function(data) {
-    const parsedParkData = JSON.parse(data);
-//    console.log(data);
-    const parkTitle = parsedParkData.data[0].fullName;
-    const parkHyperlink = parsedParkData.data[0].url;
-    console.log(parkTitle);
-    console.log(parkHyperlink);
+    const parsedData = JSON.parse(data);
+    console.log(parsedData);
+    const number = Math.floor(Math.random() * parsedData.data.length);
+    parkName.textContent = parsedData.data[number].fullName;
+    parkDesc.textContent = parsedData.data[number].description;
+    parkName.href = parsedData.data[number].url;
+    parkDesc.textContent = parsedData.data[number].description;
     parkThumb.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/690px-Logo_of_the_United_States_National_Park_Service.svg.png';
     parkSection.classList.remove('hidden');
 };
