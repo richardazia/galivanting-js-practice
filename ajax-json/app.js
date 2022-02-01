@@ -12,6 +12,9 @@
 
 const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
 
+const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=yourkeyhere';
+
+
 const addressField = document.querySelector('#address');
 const cityField = document.querySelector('#city');
 const stateField = document.querySelector('#state');
@@ -26,23 +29,31 @@ const UrlUpdateUISuccess = function(data) {
     zipField.value = zip + '-' + plus4
 };
 
-const updateUIError = function(error) {
+const ParkUpdateUISuccess = function(data) {
+    console.log(data);
+};
+
+const UrlUpdateUIError = function(error) {
     console.log(error);
 };
 
-const responseMethod = function(httpRequest) {
+const ParkUpdateUIError = function(error) {
+    console.log(error);
+};
+
+const responseMethod = function(httpRequest, succeed, fail) {
     if (httpRequest.readyState === 4) {
         if (httpRequest.status === 200) {
-            UrlUpdateUISuccess(httpRequest.responseText);
+            succeed(httpRequest.responseText);
         } else {
-            updateUIError(httpRequest.status + ': ' + httpRequest.responseText);
+            fail(httpRequest.status + ': ' + httpRequest.responseText);
         }
     }
 }
 
-const createRequest = function(url) {
+const createRequest = function(url, succeed, fail) {
     const httpRequest = new XMLHttpRequest(url);
-    httpRequest.addEventListener('readystatechange', (url) => responseMethod(httpRequest));
+    httpRequest.addEventListener('readystatechange', (url) => responseMethod(httpRequest, succeed, fail));
     httpRequest.open('GET', url);
     httpRequest.send();
 };
@@ -55,7 +66,7 @@ const checkCompletion = function() {
             '&street=' + addressField.value + 
             '&city=' + cityField.value + 
             '&state=' + stateField.value;
-            createRequest(requestURL);
+            createRequest(requestURL, UrlUpdateUISuccess, UrlUpdateUIError);
         }
 }
 
@@ -65,12 +76,10 @@ addressField.addEventListener('blur', checkCompletion);
 cityField.addEventListener('blur', checkCompletion);
 stateField.addEventListener('blur', checkCompletion);
 
-
+createRequest(urlPark, ParkUpdateUISuccess, ParkUpdateUIError);
 
 /*
 // For National parks
-
-const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=yourkeyhere';
 
 const updateUISuccess = function(data) {
     console.log(data);
@@ -96,5 +105,5 @@ const createRequest = function(url) {
     httpRequest.open('GET', url);
     httpRequest.send();
 };
-createRequest(urlPark);
+
 */
