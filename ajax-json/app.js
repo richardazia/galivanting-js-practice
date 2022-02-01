@@ -10,7 +10,7 @@
 
 //const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&street=1428%20Post%20Aly&street2=&city=Seattle&state=WA&zipcode=98101&candidates=10&match=invalid';
 
-const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
+// const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
 
 const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=2kZIKxXVShijBdScR0T9mNI2CeiGWpLIFwCnX2Tr';
 
@@ -21,6 +21,8 @@ const stateField = document.querySelector('#state');
 const zipField = document.querySelector('#zip');
 const parkThumb = document.querySelector('#specials h2 img');
 const parkSection = document.querySelector('#specials');
+const parkTitle = document.querySelector('#specials h2');
+const parkHyperlink = document.querySelector('#specials a');
 
 const UrlUpdateUISuccess = function(data) {
     const parsedData = JSON.parse(data);
@@ -32,7 +34,12 @@ const UrlUpdateUISuccess = function(data) {
 };
 
 const ParkUpdateUISuccess = function(data) {
-    console.log(data);
+    const parsedParkData = JSON.parse(data);
+//    console.log(data);
+    const parkTitle = parsedParkData.data[0].fullName;
+    const parkHyperlink = parsedParkData.data[0].url;
+    console.log(parkTitle);
+    console.log(parkHyperlink);
     parkThumb.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/690px-Logo_of_the_United_States_National_Park_Service.svg.png';
     parkSection.classList.remove('hidden');
 };
