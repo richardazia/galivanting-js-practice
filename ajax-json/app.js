@@ -12,13 +12,15 @@
 
 const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
 
-const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=yourkeyhere';
+const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=2kZIKxXVShijBdScR0T9mNI2CeiGWpLIFwCnX2Tr';
 
 
 const addressField = document.querySelector('#address');
 const cityField = document.querySelector('#city');
 const stateField = document.querySelector('#state');
 const zipField = document.querySelector('#zip');
+const parkThumb = document.querySelector('#specials h2 img');
+const parkSection = document.querySelector('#specials');
 
 const UrlUpdateUISuccess = function(data) {
     const parsedData = JSON.parse(data);
@@ -31,6 +33,8 @@ const UrlUpdateUISuccess = function(data) {
 
 const ParkUpdateUISuccess = function(data) {
     console.log(data);
+    parkThumb.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/690px-Logo_of_the_United_States_National_Park_Service.svg.png';
+    parkSection.classList.remove('hidden');
 };
 
 const UrlUpdateUIError = function(error) {
@@ -70,13 +74,12 @@ const checkCompletion = function() {
         }
 }
 
-createRequest(url);
+//createRequest(url);
+createRequest(urlPark, ParkUpdateUISuccess, ParkUpdateUIError);
 
 addressField.addEventListener('blur', checkCompletion);
 cityField.addEventListener('blur', checkCompletion);
 stateField.addEventListener('blur', checkCompletion);
-
-createRequest(urlPark, ParkUpdateUISuccess, ParkUpdateUIError);
 
 /*
 // For National parks
