@@ -17,12 +17,13 @@ const cityField = document.querySelector('#city');
 const stateField = document.querySelector('#state');
 const zipField = document.querySelector('#zip');
 
-const updateUISuccess = function(data) {
+const UrlUpdateUISuccess = function(data) {
     const parsedData = JSON.parse(data);
-    console.log(parsedData);
+//    console.log(parsedData);
     const zip = parsedData[0].components.zipcode;
     const plus4 =parsedData[0].components.plus4_code;
-    console.log(zip + '-' + plus4);
+//    console.log(zip + '-' + plus4);
+    zipField.value = zip + '-' + plus4
 };
 
 const updateUIError = function(error) {
@@ -32,7 +33,7 @@ const updateUIError = function(error) {
 const responseMethod = function(httpRequest) {
     if (httpRequest.readyState === 4) {
         if (httpRequest.status === 200) {
-            updateUISuccess(httpRequest.responseText);
+            UrlUpdateUISuccess(httpRequest.responseText);
         } else {
             updateUIError(httpRequest.status + ': ' + httpRequest.responseText);
         }
