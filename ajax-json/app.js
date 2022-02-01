@@ -18,7 +18,11 @@ const stateField = document.querySelector('#state');
 const zipField = document.querySelector('#zip');
 
 const updateUISuccess = function(data) {
-    console.log(data);
+    const parsedData = JSON.parse(data);
+    console.log(parsedData);
+    const zip = parsedData[0].components.zipcode;
+    const plus4 =parsedData[0].components.plus4_code;
+    console.log(zip + '-' + plus4);
 };
 
 const updateUIError = function(error) {
