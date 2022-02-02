@@ -2,7 +2,7 @@
 
 //const smartyUrl = 'https://us-street.api.smartystreets.com/street-address?auth-id=19785289899902913&candidates=10&street=86%20Frontage%20Road&city=Belmont&state=MA';
 const smartyApiKey = '117142354042657436'; // replace with your API key
-const smartyUrl = 'https://us-streets.api.smartystreets.com/street-address?key=' + smartyApiKey + 'candidates=10';
+const smartyUrl = 'https://us-street.api.smartystreets.com/street-address?key=' + smartyApiKey + '&candidates=10';
 
 //const smartyUrl = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
 
