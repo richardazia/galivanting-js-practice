@@ -1,6 +1,12 @@
 'use strict';
 
 const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
+const urlInit = {
+    headers: {
+        'Content-Type': 'application/json',
+        Host: 'us-street.api.smartystreets.com',
+    },
+};
 
 const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=2kZIKxXVShijBdScR0T9mNI2CeiGWpLIFwCnX2Tr';
 
@@ -14,8 +20,8 @@ const parkSection = document.querySelector('#specials');
 const parkName = document.querySelector('#specials h2 a');
 const parkDesc = document.querySelector('#specials p');
 
-const UrlUpdateUISuccess = function(data) {
-    const parsedData = JSON.parse(data);
+const UrlUpdateUISuccess = function(parsedData) {
+//    const parsedData = JSON.parse(data);
 //    console.log(parsedData);
     const zip = parsedData[0].components.zipcode;
     const plus4 =parsedData[0].components.plus4_code;
@@ -70,8 +76,8 @@ const handleErrors = function(response) {
 
 // use fetch to make the request
 
-const createRequest = function(url, succeed, fail) {
-    fetch(url)
+const createRequest = function(url, succeed, fail, init) {
+    fetch(url, init)
         .then((response) => handleErrors(response))
         .then((data) => succeed(data))
         .catch((error) => fail(error));
@@ -85,7 +91,7 @@ const checkCompletion = function() {
             '&street=' + addressField.value + 
             '&city=' + cityField.value + 
             '&state=' + stateField.value;
-            createRequest(requestURL, UrlUpdateUISuccess, UrlUpdateUIError);
+            createRequest(requestURL, UrlUpdateUISuccess, UrlUpdateUIError, urlInit);
         }
 }
 
