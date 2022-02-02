@@ -28,7 +28,6 @@ const ParkUpdateUISuccess = function(parsedData) {
     console.log(parsedData);
     const number = Math.floor(Math.random() * parsedData.data.length);
     parkName.textContent = parsedData.data[number].fullName;
-    parkDesc.textContent = parsedData.data[number].description;
     parkName.href = parsedData.data[number].url;
     parkDesc.textContent = parsedData.data[number].description;
     parkThumb.src = 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Logo_of_the_United_States_National_Park_Service.svg/690px-Logo_of_the_United_States_National_Park_Service.svg.png';
@@ -60,12 +59,22 @@ const ParkUpdateUIError = function(error) {
 //     httpRequest.send();
 // };
 
+// error handling
+
+const handleErrors = function(response) {
+    if(!response.ok) {
+        throw(response.status + ': ' + response.statusText);
+    }
+    return response.json();
+}
+
 // use fetch to make the request
 
 const createRequest = function(url, succeed, fail) {
     fetch(url)
-        .then((response) => response.json())
-        .then((data) => succeed(data));
+        .then((response) => handleErrors(response))
+        .then((data) => succeed(data))
+        .catch((error) => fail(error));
 }
 
 const checkCompletion = function() {
