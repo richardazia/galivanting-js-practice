@@ -1,15 +1,18 @@
 'use strict';
 
 //const smartyUrl = 'https://us-street.api.smartystreets.com/street-address?auth-id=19785289899902913&candidates=10&street=86%20Frontage%20Road&city=Belmont&state=MA';
-const smartyApiKey = '19785289899902913'; // replace with your API key
-const smartyUrl = 'https://us-streets.api.smartystreets.com/street-address?auth-id=' + smartyApiKey + 'candidates=10';
+const smartyApiKey = '117142354042657436'; // replace with your API key
+const smartyUrl = 'https://us-streets.api.smartystreets.com/street-address?key=' + smartyApiKey + 'candidates=10';
+
+//const smartyUrl = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
+
 const smartyInit = {
   headers: {
     'Content-Type': 'application/json',
     Host: 'us-street.api.smartystreets.com',
   },
 };
-const parksUrl = 'https://developer.nps.gov/api/v1/parks?stateCode=ca&api_key=7NPUhkm1jtqX7Muj86oafxkn0XLycFvDN8jwjWE1';
+const parksUrl = 'https://developer.nps.gov/api/v1/parks?api_key=2kZIKxXVShijBdScR0T9mNI2CeiGWpLIFwCnX2Tr';
 const parksFallback = {
   "description": "Alcatraz Island offers a close-up look at the site of the first lighthouse and US built fort on the West Coast, the infamous federal penitentiary long off-limits to the public, and the history making 18 month occupation by Indians of All Tribes. Rich in history, there is also a natural side to the Rock—gardens, tide pools, bird colonies, and bay views beyond compare.",
   "fullName": "Alcatraz Island",
