@@ -1,13 +1,11 @@
 'use strict';
 
-const url = 'https://warzabidul.herokuapp.com/us-street/street-address?';
+const url = 'https://warzabidul.herokuapp.com/streets/street-address?';
 //const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
 const urlInit = {
     headers: {
         'Content-Type': 'application/json',
         Host: 'us-street.api.smartystreets.com',
-        Origin: 'https://warzabidul.herokuapp.com',
-        'Access-Control-Allow-Origin': '127.0.0.1:8080',
     },
 };
 
