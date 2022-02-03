@@ -8,8 +8,13 @@ const urlInit = {
     },
 };
 
-const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=2kZIKxXVShijBdScR0T9mNI2CeiGWpLIFwCnX2Tr';
-
+//  const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=2kZIKxXVShijBdScR0T9mNI2CeiGWpLIFwCnX2Tr';
+const urlPark = 'https://warzabidul.herokuapp.com/nps/api/v1/parks?stateCode=ca';
+const parksFallback = {
+    "description": "Alcatraz Island offers a close-up look at the site of the first lighthouse and US built fort on the West Coast, the infamous federal penitentiary long off-limits to the public, and the history making 18 month occupation by Indians of All Tribes. Rich in history, there is also a natural side to the Rock—gardens, tide pools, bird colonies, and bay views beyond compare.",
+    "fullName": "Alcatraz Island",
+    "url": "https://www.nps.gov/alca/index.htm",
+  };
 
 const addressField = document.querySelector('#address');
 const cityField = document.querySelector('#city');
@@ -46,7 +51,12 @@ const UrlUpdateUIError = function(error) {
 
 const ParkUpdateUIError = function(error) {
     console.log(error);
-};
+    parkName.textContent = parksFallback.fullName;
+    parkName.href = parksFallback.url;
+    parkDesc.textContent = parksFallback.description;
+    parkThumb.src = 'https://www.nps.gov/common/commonspot/templates/assetsCT/images/branding/logo.png';
+    parkSection.classList.remove('hidden');
+  };
 
 // const responseMethod = function(httpRequest, succeed, fail) {
 //     if (httpRequest.readyState === 4) {
