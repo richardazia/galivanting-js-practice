@@ -5,3 +5,8 @@ fetch('posts_1.json')
     .then(data => {
         console.log(data);
     });
+
+const igSuccess = function(data) {
+    const parsedData = JSON.parse(data);
+    console.log(parsedData);
+};
