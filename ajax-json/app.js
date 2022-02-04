@@ -1,7 +1,6 @@
 'use strict';
 
 const url = 'https://warzabidul.herokuapp.com/streets/street-address?';
-//const url = 'https://us-street.api.smartystreets.com/street-address?key=117142354042657436&';
 const urlInit = {
     headers: {
         'Content-Type': 'application/json',
@@ -9,7 +8,6 @@ const urlInit = {
     },
 };
 
-//  const urlPark = 'https://developer.nps.gov/api/v1/parks?api_key=2kZIKxXVShijBdScR0T9mNI2CeiGWpLIFwCnX2Tr';
 const urlPark = 'https://warzabidul.herokuapp.com/nps/api/v1/parks?stateCode=ca';
 const parksFallback = {
     "description": "Alcatraz Island offers a close-up look at the site of the first lighthouse and US built fort on the West Coast, the infamous federal penitentiary long off-limits to the public, and the history making 18 month occupation by Indians of All Tribes. Rich in history, there is also a natural side to the Rock—gardens, tide pools, bird colonies, and bay views beyond compare.",
