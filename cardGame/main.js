@@ -1,25 +1,30 @@
-/*
+;(function(window){
 
-game
-info section
-deck
-discard pile
-Rules
-deck
-cards
------
-shuffle
-stack
+// game
+var Game = function(el, option) {
 
-cards
-val
-suit
----
-flip
+}
+// info section
+// deck
+// discard pile
+// Rules
+// deck
+// cards
+// -----
+// shuffle
+// stack
 
-Discard pile
-holders
----
-accept or reject
+// cards
+// val
+// suit
+// ---
+// flip
 
-*/
+// Discard pile
+// holders
+// ---
+// accept or reject
+
+window.Game = Game;
+
+})(window);
