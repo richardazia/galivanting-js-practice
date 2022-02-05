@@ -2,7 +2,8 @@
 
 // game
 var Game = function(el, option) {
-
+    this.el = document.querySelector(el);
+    this.option = option;
 }
 // info section
 // deck
