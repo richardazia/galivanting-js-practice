@@ -2,13 +2,13 @@
 
 // game
 var Game = function(el, option) {
-    this.el = document.querySelector(el);
+    this.el = document.getElementById(el);
     this.option = option;
     // Add info div
     this.info_div = document.createElement('div');
     this.info_div.id = "info_div";
     //create Deck div
-    this.deck_div = document.createElement('div');
+    this.deck_div = document.createElement("div");
     this.deck_div.id = "deck_div";
     this.gameDeck = new Deck(this.deck_div, option); //create new deck
     this.gameDeck.buildDeck(); //build deck
@@ -39,9 +39,6 @@ var Deck = function(deck_div, option){
 // discard pile
 // Rules
 // deck
-var Deck = function(){
-
-}
 // cards
 // -----
 // shuffle
@@ -49,7 +46,39 @@ var Deck = function(){
 
 // card
 var Card = function(){
-    var card = new Card();
+    this.id = "";
+    this.data = "";
+    this.cardCont = document.createElement("div");
+    this.cardCont.className = "card_container";
+    this.cardFront = document.createElement("div");
+    this.cardFront.className = "card_front";
+    this.cardBack = document.createElement("div");
+    this.cardBack.className = "card_back";
+    this.buildCard = function(parentFrag){
+        var flipDiv = document.createElement("div"),
+            frontValDiv = document.createElement("div"),
+            backValDiv = document.createElement("div"),
+            catDiv = document.createElement("div");
+        flipDiv.className = "flip";
+        frontValDiv.className ="front_val";
+        backValDiv.className = "back_val";
+        catDiv.className = "cat_val";
+
+        frontValDiv.innerHTML = this.data.q;
+        backValDiv.innerHTML = this.data.a;
+        catDiv.innerHTML = this.data.category;
+
+        this.cardFront.appendChild(frontValDiv);
+        this.cardFront.appendChild(catDiv);
+        this.cardBack.appendChild(backValDiv);
+
+        flipDiv.appendChild(this.cardFront);
+        flipDiv.appendChild(this.cardBack);
+
+        this.cardCont.id = this.id;
+        this.cardCont.appendChild(flipDiv);
+        parentFrag.appendChild(this.cardCont);
+    }
 }
 // val
 // suit
