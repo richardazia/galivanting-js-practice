@@ -77,6 +77,11 @@ var Card = function(){
 
         this.cardCont.id = this.id;
         this.cardCont.appendChild(flipDiv);
+        this.cardCont.onclick = function(e){
+            console.log(e.target, e.currentTarget);
+            console.log(e.currentTarget.className, e.currentTarget.classList);
+            console.log(this);
+        }
         parentFrag.appendChild(this.cardCont);
     }
 }
