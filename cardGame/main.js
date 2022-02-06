@@ -12,6 +12,13 @@ var Game = function(el, option) {
     this.deck_div.id = "deck_div";
     this.gameDeck = new Deck(this.deck_div, option); //create new deck
     this.gameDeck.buildDeck(); //build deck
+
+    var shuffleBtn = document.createElement("button");
+    shuffleBtn.innerHTML = "Shuffle";
+    shuffleBtn.onclick = this.gameDeck.shuffle.bind(this);
+    
+    this.info_div.appendChild(shuffleBtn);
+
     // add info_div and deck_div to el
     this.el.appendChild(this.info_div);
     this.el.appendChild(this.deck_div);
@@ -34,6 +41,7 @@ var Deck = function(deck_div, option){
         }
         deck_div.appendChild(parentFrag); //append to deck_div
     }
+    this.shuffle();
 }
 
 // discard pile
@@ -42,6 +50,11 @@ var Deck = function(deck_div, option){
 // cards
 // -----
 // shuffle
+
+Deck.prototype.shuffle = function(){
+    console.log(this);
+}
+
 // stack
 
 // card
