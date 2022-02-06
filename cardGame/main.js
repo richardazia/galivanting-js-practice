@@ -16,7 +16,7 @@ var Game = function(el, option) {
     var shuffleBtn = document.createElement("button");
     shuffleBtn.innerHTML = "Shuffle";
     shuffleBtn.onclick = this.gameDeck.shuffle.bind(this);
-    
+
     this.info_div.appendChild(shuffleBtn);
 
     // add info_div and deck_div to el
@@ -52,7 +52,16 @@ var Deck = function(deck_div, option){
 // shuffle
 
 Deck.prototype.shuffle = function(){
-    console.log(this);
+    var cardsToShuffle = this.gameDeck.deckData;
+    var m = cardsToShuffle.length, t, i;
+    while(m){
+        i = Math.floor(Math.random() * m--);
+        t = cardsToShuffle[m]; 
+        cardsToShuffle[m] = cardsToShuffle[i];
+        cardsToShuffle[i] = t;
+    }
+    this.gameDeck.checkData = cardsToShuffle;
+    this.gameDeck.buildDeck(this.deck_div);
 }
 
 // stack
