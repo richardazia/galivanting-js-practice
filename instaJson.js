@@ -16,7 +16,14 @@ fetch('posts_1.json')
         var creation = data[number].media[0].creation_stamp;
         var uri = data[number].media[0].uri;
         var postTitle = data[number].media[0].title;
-        var phrase = `I was created on ${date}, showing "${postTitle}" and I can be found at ${uri}. I am post No: ${number}.`;
+        // var phrase = `I was created on ${date}, showing "${postTitle}" and I can be found at \<a href=\"${uri}\"here"\</a>\. I am post No: ${number}.`;
+        var phrase = "I was created on " + date + ", showing \"" + postTitle + "\"I am post No: " + number + ".";
+        var img = document.createElement('img');
+        document.querySelector('body').appendChild(img);
+        img.src = data[number].media[0].uri; 
+        // img.alt = data[number].media[0].title;  // alt text
+        document.body.appendChild(img);
+        document.body.innerHTML += phrase;
         console.log(phrase);
         var post = document.getElementById('posts');
         post.innerHTML = phrase;
