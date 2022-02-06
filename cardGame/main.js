@@ -41,7 +41,7 @@ var Deck = function(deck_div, option){
         }
         deck_div.appendChild(parentFrag); //append to deck_div
     }
-    this.shuffle();
+    
 }
 
 // discard pile
