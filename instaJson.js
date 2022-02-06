@@ -18,6 +18,9 @@ fetch('posts_1.json')
         var postTitle = data[number].media[0].title;
         var phrase = `I was created on ${date}, showing "${postTitle}" and I can be found at ${uri}. I am post No: ${number}.`;
         console.log(phrase);
+        var post = document.getElementById('posts');
+        post.innerHTML = phrase;
+        
     });
 
     // const instaSuccess = function(data) {
