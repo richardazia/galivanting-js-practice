@@ -16,7 +16,7 @@ fetch('posts_1.json')
         var creation = data[number].media[0].creation_stamp;
         var uri = data[number].media[0].uri;
         var postTitle = data[number].media[0].title;
-        var phrase = `I was created on ${date}, showing "${postTitle}" and I can be found at ${uri}`;
+        var phrase = `I was created on ${date}, showing "${postTitle}" and I can be found at ${uri}. I am post No: ${number}.`;
         console.log(phrase);
     });
 
