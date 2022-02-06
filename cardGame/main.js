@@ -79,6 +79,7 @@ var Card = function(){
         this.cardCont.appendChild(flipDiv);
         this.cardCont.onclick = function(e){
             e.currentTarget.classList.toggle("flip_card");
+            e.currentTarget.classList.toggle("slide_over");
         }
         parentFrag.appendChild(this.cardCont);
     }
