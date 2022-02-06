@@ -13,6 +13,11 @@ fetch('posts_1.json')
         console.log(unix_timestamp);
         var date = new Date(unix_timestamp * 1000);
         console.log(date);
+        var creation = data[number].media[0].creation_stamp;
+        var uri = data[number].media[0].uri;
+        var postTitle = data[number].media[0].title;
+        var phrase = `I was created on ${date}, showing "${postTitle}" and I can be found at ${uri}`;
+        console.log(phrase);
     });
 
     // const instaSuccess = function(data) {
