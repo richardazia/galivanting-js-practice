@@ -98,6 +98,17 @@ var Card = function(){
 
         frontValDiv.innerHTML = this.data.q;
         backValDiv.innerHTML = this.data.a;
+        var learnMore = document.createElement("a");
+        learnMore.text = "Learn More";
+        learnMore.href = this.data.url;
+        console.log(this.data.url);
+        learnMore.target = "_blank";
+
+        var infoImage = document.createElement("img");
+        infoImage.src = "images/info.svg";
+        learnMore.appendChild(infoImage);
+        backValDiv.appendChild(learnMore);
+
         catDiv.innerHTML = this.data.category;
 
         this.cardFront.appendChild(frontValDiv);
