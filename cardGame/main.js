@@ -40,6 +40,7 @@ var Deck = function(deck_div, option){
             card.buildCard(parentFrag); //build card
         }
         deck_div.appendChild(parentFrag); //append to deck_div
+        this.stack(deck_div);
     }
     
 }
@@ -65,6 +66,15 @@ Deck.prototype.shuffle = function(){
 }
 
 // stack
+
+Deck.prototype.stack = function(deck_div){
+    var cards = deck_div.children;
+    for (var i = cards.length - 1; i >= 0; i--) {
+        cards[i].style.top = i + "px"; // 
+        cards[i].style.left = i + "px"; //set left
+        cards[i].classList.add("stacked_card"); //add class
+    }
+}
 
 // card
 var Card = function(){
