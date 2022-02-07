@@ -107,6 +107,9 @@ var Card = function(){
         var infoImage = document.createElement("img");
         infoImage.src = "images/info.svg";
         learnMore.appendChild(infoImage);
+        learnMore.addEventListener("click", function(e){
+            e.stopPropagation();
+        });
         backValDiv.appendChild(learnMore);
 
         catDiv.innerHTML = this.data.category;
