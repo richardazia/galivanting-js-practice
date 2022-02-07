@@ -109,13 +109,22 @@ var Card = function(){
 
         this.cardCont.id = this.id;
         this.cardCont.appendChild(flipDiv);
-        this.cardCont.onclick = function(e){
-            e.currentTarget.classList.toggle("flip_card");
-            e.currentTarget.classList.toggle("slide_over");
-        }
+        this.cardCont.onclick = cardClick;
         parentFrag.appendChild(this.cardCont);
     }
 }
+var cardClick = (function(e){
+    var counter = 0; //count clicks
+    return function (e){
+        e.currentTarget.classList.toggle("flip_card");
+        e.currentTarget.classList.toggle("slide_over");
+        e.currentTarget.style.zIndex = counter;
+        counter++;
+        console.log(counter);
+    }
+})()
+
+
 // val
 // suit
 // ---
