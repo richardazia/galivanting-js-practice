@@ -10,8 +10,8 @@ var Game = function(el, option) {
     //create Deck div
     this.deck_div = document.createElement("div");
     this.deck_div.id = "deck_div";
-    this.gameDeck = new Deck(this.deck_div, option); //create new deck
-    this.gameDeck.buildDeck(); //build deck
+    this.gameDeck = new Deck(option); //create new deck
+    this.gameDeck.buildDeck.call(this); //build deck
 
     var shuffleBtn = document.createElement("button");
     shuffleBtn.innerHTML = "Shuffle";
@@ -26,21 +26,21 @@ var Game = function(el, option) {
 // info section
 // deck
 
-var Deck = function(deck_div, option){
+var Deck = function(option){
     //parse data
     this.deckData = option.data;
     // build loop
     this.buildDeck = function(){
         var parentFrag = document.createDocumentFragment();
-        deck_div.innerHTML = ""; //empty deck_div
-        for(var i = this.deckData.length - 1; i >= 0; i--){
+        this.deck_div.innerHTML = ""; //empty deck_div
+        for(var i = this.option.data.length - 1; i >= 0; i--){
             var card = new Card();
             card.id = "card-" + i; //set id
-            card.data = this.deckData[i]; //set data
+            card.data = this.option.data[i]; //set data
             card.buildCard(parentFrag); //build card
         }
-        deck_div.appendChild(parentFrag); //append to deck_div
-        this.stack(deck_div);
+        this.deck_div.appendChild(parentFrag); //append to deck_div
+        this.gameDeck.stack.call(this); //stack cards
     }
     
 }
@@ -62,13 +62,13 @@ Deck.prototype.shuffle = function(){
         cardsToShuffle[i] = t;
     }
     this.gameDeck.checkData = cardsToShuffle;
-    this.gameDeck.buildDeck(this.deck_div);
+    this.gameDeck.buildDeck.call(this);
 }
 
 // stack
 
-Deck.prototype.stack = function(deck_div){
-    var cards = deck_div.children;
+Deck.prototype.stack = function(g){
+    var cards = this.deck_div.children;
     for (var i = cards.length - 1; i >= 0; i--) {
         cards[i].style.top = i + "px"; // 
         cards[i].style.left = i + "px"; //set left
