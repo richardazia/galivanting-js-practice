@@ -33,7 +33,7 @@ body{
 }
 #discard_div{
 	width:auto;
-	float:left;
+	float:right;
 }
 .suit_container {
     height: 60px;

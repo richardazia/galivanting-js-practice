@@ -197,7 +197,8 @@ var DiscardPile = function(){
         var holderContainer = document.createElement("div"),
         holderLabel = document.createElement("div"),
         holderTarget = document.createElement("div");
-
+        holderTarget.ondragover = function(e){preventDefault();};
+        holderTarget.ondrop = this.cardDrop;
         holderContainer.className = "holder_container";
         holderLabel.className = "holder_label";
         holderTarget.className = "holder_target";
@@ -208,6 +209,14 @@ var DiscardPile = function(){
 
         return holderContainer; 
     }
+}
+
+DiscardPile.prototype.cardDrop = function(){
+    var cardID = e.dataTransfer.getData("text/plain");
+    var cardDragging = document.getElementById(cardID);
+    cardDragging.style.top = "0px";
+    cardDragging.style.left = "0px";
+    e.currentTarget.appendChild(cardDragging);
 }
 
 // ---
