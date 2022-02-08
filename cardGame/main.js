@@ -1,5 +1,7 @@
 ;(function(window){
 
+// course link: https://www.linkedin.com/learning/web-portfolio-projects-binding-and-propagation/
+
 // game
 var Game = function(el, option) {
     this.el = document.getElementById(el);
