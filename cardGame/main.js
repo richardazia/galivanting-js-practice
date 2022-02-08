@@ -34,7 +34,7 @@ var Game = function(el, option) {
             }
         }
     }
-    
+
     // discard pile
     this.buildDiscard = function() {
         for (var i = this.rules.discardRow.length -1; i >= 0; i--) {
@@ -57,6 +57,7 @@ var Game = function(el, option) {
     // add info_div and deck_div to el
     this.el.appendChild(this.info_div);
     this.el.appendChild(this.deck_div);
+    this.buildDiscard();
 }
 // info section
 // deck
