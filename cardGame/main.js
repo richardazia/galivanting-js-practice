@@ -19,6 +19,41 @@ var Game = function(el, option) {
 
     this.info_div.appendChild(shuffleBtn);
 
+    this.rules = {
+        discardRow : [
+            {
+                name: " Got It! ",
+                droppable: true,
+                maxcards: this.deck_div.children.length,
+                piles: 1
+            }
+        ],
+        gameComplete: function(e){
+            if (e.currentTarget.childNode.length === this.discardRow[0].maxcards){
+                console.log("You win");
+            }
+        }
+    }
+    
+    // discard pile
+    this.buildDiscard = function() {
+        for (var i = this.rules.discardRow.length -1; i >= 0; i--) {
+            var zone = document.createElement("div");
+            zone.className = "zone";
+            var discardRule = this.rules.discardRow[i];
+            var c = 0;
+            while(c < discardRule.piles){
+                var discardObj = new DiscardPile();
+                discardObj.name = discardRule.name;
+                discardObj.droppable = discardRule.droppable;
+                discardObj.id = "pile-" + c;
+                var buildObj = discardObj.init();
+                zone.appendChild(buildObj);
+                c++;
+            }
+            this.appendChild(zone);
+        }
+    }
     // add info_div and deck_div to el
     this.el.appendChild(this.info_div);
     this.el.appendChild(this.deck_div);
@@ -45,8 +80,10 @@ var Deck = function(option){
     
 }
 
-// discard pile
+
 // Rules
+
+
 // deck
 // cards
 // -----
