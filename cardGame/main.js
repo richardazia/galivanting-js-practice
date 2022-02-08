@@ -162,6 +162,8 @@ var Card = function(){
         this.cardCont.id = this.id;
         this.cardCont.appendChild(flipDiv);
         this.cardCont.onclick = cardClick;
+        this.cardCont.draggable = true;
+        this.cardCont.ondragstart = cardDrag;
         parentFrag.appendChild(this.cardCont);
     }
 }
@@ -174,6 +176,10 @@ var cardClick = (function(e){
         counter++;
     }
 })()
+
+function cardDrag(){
+    e.dataTransfer.setData("text/plain", e.currentTarget.id);
+}
 
 
 // val
