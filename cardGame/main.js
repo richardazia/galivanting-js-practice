@@ -51,7 +51,7 @@ var Game = function(el, option) {
                 zone.appendChild(buildObj);
                 c++;
             }
-            this.appendChild(zone);
+            this.el.appendChild(zone);
         }
     }
     // add info_div and deck_div to el
@@ -172,7 +172,6 @@ var cardClick = (function(e){
         e.currentTarget.classList.toggle("slide_over");
         e.currentTarget.style.zIndex = counter;
         counter++;
-        console.log(counter);
     }
 })()
 
@@ -184,9 +183,27 @@ var cardClick = (function(e){
 
 // Discard pile
 var DiscardPile = function(){
+    this.name = "";
+    this.droppable;
+    this.id = "";
+    this.init = function(){
+        // holders
+        var holderContainer = document.createElement("div"),
+        holderLabel = document.createElement("div"),
+        holderTarget = document.createElement("div");
 
+        holderContainer.className = "holder_container";
+        holderLabel.className = "holder_label";
+        holderTarget.className = "holder_target";
+        holderLabel.innerText = this.name;
+
+        holderContainer.appendChild(holderLabel);
+        holderContainer.appendChild(holderTarget);
+
+        return holderContainer; 
+    }
 }
-// holders
+
 // ---
 // accept or reject
 
