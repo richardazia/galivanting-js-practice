@@ -8,4 +8,9 @@ img {
     height: 300px;
   }
 
-  
+  #insta_div {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    height: 400px;
+  }
