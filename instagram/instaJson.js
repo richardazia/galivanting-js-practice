@@ -17,12 +17,11 @@ fetch('posts_1.json')
         console.log(year);
         // Define post title
         let postTitle = data[number].media[0].title;
-        // set src attribute to img element
+        // Define post image
         let img = document.createElement('img');
         // Define phrase to display 
         let phrase = "I was taken on the " + date + ", showing \"" + postTitle + "\"I am post No: " 
         + number + ".";
-        // 
         document.querySelector('div').appendChild(img);
         // Find image URI
         img.src = data[number].media[0].uri; 
