@@ -25,6 +25,8 @@ fetch('posts_1.json')
         document.querySelector('div').appendChild(img);
         // Find image URI
         img.src = data[number].media[0].uri; 
-        let post = document.getElementById('posts');
+        let post = document.getElementById('text');
         post.innerHTML = phrase;
+        let photo = document.getElementById('photo');
+        photo.appendChild(img);
     });
