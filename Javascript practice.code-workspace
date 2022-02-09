@@ -4,10 +4,10 @@
 			"path": "."
 		},
 		{
-			"path": "..\\Ex_Files_Learning_App_Building_VanillaJS"
+			"path": "..\\Ex_Files_JavaScipt_Modern_APIs"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "Ex_Files_Learning_App_Building_VanillaJS"
+		"liveServer.settings.multiRootWorkspaceName": "galivanting-scope-practice"
 	}
 }
