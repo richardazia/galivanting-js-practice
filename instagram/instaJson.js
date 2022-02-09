@@ -19,14 +19,20 @@ fetch('posts_1.json')
         let postTitle = data[number].media[0].title;
         // Define post image
         let img = document.createElement('img');
+        console.log(img);
         // Define phrase to display 
-        let phrase = "I was taken on the " + date + ", showing \"" + postTitle + "\"I am post No: " 
-        + number + ".";
-        document.querySelector('div').appendChild(img);
+        let phrase = 
+            "I was taken on the " 
+            + date + ", showing \"" 
+            + postTitle + "\". I am post No: " 
+            + number + ".";
+        console.log(phrase);
+        document.querySelector('div')
+            .appendChild(img);
         // Find image URI
         img.src = data[number].media[0].uri; 
         let post = document.getElementById('text');
-        post.innerHTML = phrase;
+            post.innerHTML = phrase;
         let photo = document.getElementById('photo');
-        photo.appendChild(img);
+            photo.appendChild(img);
     });
