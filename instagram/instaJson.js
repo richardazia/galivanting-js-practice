@@ -17,6 +17,13 @@ fetch('posts_1.json')
         console.log(year);
         // Define post title
         let postTitle = data[number].media[0].title;
+        
+        // If there is no post title show "Untitled"
+        if (postTitle == false) {
+            postTitle = 'Untitled';
+        }
+
+
         // Define post image
         let img = document.createElement('img');
         console.log(img);
