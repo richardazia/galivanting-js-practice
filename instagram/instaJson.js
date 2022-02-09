@@ -6,12 +6,12 @@ fetch('posts_1.json')
         // generate random number to select a post
         const number = Math.floor(Math.random() * data.length);
         // retrieve unix timestamp from post
-        const unix_timestamp = data[number].media[0].creation_timestamp;
+        let unix_timestamp = data[number].media[0].creation_timestamp;
         // convert timestamp to human readable date
         let date = new Date(unix_timestamp * 1000);
-        var day = date.getDate();
-        var month = date.getMonth() + 1;
-        var year = date.getFullYear();
+        let day = date.getDate();
+        let month = date.getMonth() + 1;
+        let year = date.getFullYear();
         console.log(day);
         console.log(month);
         console.log(year);
