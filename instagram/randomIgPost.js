@@ -22,8 +22,6 @@ fetch('posts_1.json')
         if (postTitle == false) {
             postTitle = 'Untitled';
         }
-
-
         // Define post image
         let img = document.createElement('img');
         console.log(img);

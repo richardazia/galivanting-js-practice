@@ -14,9 +14,12 @@ fetch('posts_1.json')
                 if (postTitle == false) {
                     postTitle = 'Untitled';
                     }
+                console.log(postTitle);
             let img = data[n].media[0].uri;
-            img.src = data[n].media[0].uri;
-            console.log(img);
+            var postImg = document.createElement('img');
+            postImg.src = img;
+            console.log(postImg);
+            console.log("img: " + img);
             let unix_timestamp = data[n].media[0].creation_timestamp;
             // convert timestamp to human readable date
             let date = new Date(unix_timestamp * 1000);
@@ -26,11 +29,10 @@ fetch('posts_1.json')
                 + date + ", showing \"" 
                 + postTitle + "\". I am post No: " 
                 + n + ".";
-            document.getElementById('insta_div')
+            img.src = data[n].media[0].uri;
             let post = document.getElementById('text');
                 post.innerHTML = phrase;
             let photo = document.getElementById('photo');
-            console.log(photo);
-                photo.replaceChildren(img);
+                photo.appendChild(img);
             }
     });
