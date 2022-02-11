@@ -6,7 +6,7 @@ fetch('posts_1.json')
         const totalPosts = data.length;
         console.log(totalPosts); // 5257
         var n = totalPosts;
-        while (n > 5200) {
+        while (n > 5254) {
             n--;
             // generate random number to select a post
             let postTitle = data[n].media[0].title;
@@ -31,6 +31,6 @@ fetch('posts_1.json')
                 post.innerHTML = phrase;
             let photo = document.getElementById('photo');
             console.log(photo);
-                document.body.appendChild(img);
+                photo.replaceChildren(img);
             }
     });
