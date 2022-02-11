@@ -1,38 +1,53 @@
-// This should display ten posts at a time
+// I still want to display ten posts, but at least it displays the first post.
 
-fetch('posts_1.json') 
-    .then(response => response.json())
-    .then(data => {
-        const totalPosts = data.length;
-        console.log(totalPosts); // 5257
-        var n = totalPosts;
-        while (n > 5254) {
-            n--;
+    'use strict';
+
+    fetch('posts_1.json') 
+        .then(response => response.json())
+        .then(data => {
             // generate random number to select a post
-            let postTitle = data[n].media[0].title;
-            console.log(postTitle);
-                if (postTitle == false) {
-                    postTitle = 'Untitled';
-                    }
-                console.log(postTitle);
-            let img = data[n].media[0].uri;
-            var postImg = document.createElement('img');
-            postImg.src = img;
-            console.log(postImg);
-            console.log("img: " + img);
-            let unix_timestamp = data[n].media[0].creation_timestamp;
+        const totalPosts = data.length;
+         console.log(totalPosts); // 5257
+        
+        var number = totalPosts;
+
+        while (number > 5247) {
+            number--;
+        }
+            console.log("The number: " +number);
+            // retrieve unix timestamp from post
+            let unix_timestamp = data[number].media[0].creation_timestamp;
             // convert timestamp to human readable date
             let date = new Date(unix_timestamp * 1000);
-            console.log(date);
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+            console.log(day);
+            console.log(month);
+            console.log(year);
+            // Define post title
+            let postTitle = data[number].media[0].title;
+            
+            // If there is no post title show "Untitled"
+            if (postTitle == false) {
+                postTitle = 'Untitled';
+            }
+            // Define post image
+            let img = document.createElement('img');
+            console.log(img);
+            // Define phrase to display 
             let phrase = 
                 "I was taken on the " 
                 + date + ", showing \"" 
                 + postTitle + "\". I am post No: " 
-                + n + ".";
-            img.src = data[n].media[0].uri;
+                + number + ".";
+            console.log(phrase);
+            document.querySelector('div')
+                .appendChild(img);
+            // Find image URI
+            img.src = data[number].media[0].uri; 
             let post = document.getElementById('text');
                 post.innerHTML = phrase;
             let photo = document.getElementById('photo');
                 photo.appendChild(img);
-            }
-    });
+        });
