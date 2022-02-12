@@ -52,7 +52,7 @@ fetch("posts_1.json")
     // Find image URI
     img.src = data[number].media[0].uri;
     let post = document.getElementById("text");
-    post.innerHTML = postTitle;
+    post.innerHTML += postTitle;
     let photo = document.getElementById("photo");
     photo.appendChild(img);
     }
