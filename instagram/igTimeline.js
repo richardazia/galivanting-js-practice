@@ -28,19 +28,21 @@ fetch("posts_1.json")
         postTitle = "Untitled";
       }
     // Define post image
-    let img = document.createElement("img");
+     let img = document.createElement("img");
     // Find image URI
     img.src = data[index].media[0].uri;
     const element = document.createElement("instagram-post");
-    const e = document.createElement("div-post");
+    // const e = document.createElement("div-post");
     // e.innerHTML = "post: " + index;
-    e.innerHTML = postTitle;
-    document.body.appendChild(e);
+    element.innerHTML = postTitle;
+    // document.body.appendChild(e);
     var textnode = document.createTextNode(postTitle);
     // element.appendChild(textnode);
     element.appendChild(img);
     console.log(img);
     document.body.appendChild(element);
+    var textnode = document.createTextNode(postTitle);
+    // e.appendChild(textnode); 
     // let post = document.getElementById("insta_div");
     // e.innerHTML += (postTitle);
     // let photo = document.getElementById("insta_div");
