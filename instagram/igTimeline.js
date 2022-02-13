@@ -33,6 +33,7 @@ fetch("posts_1.json")
     img.src = data[index].media[0].uri;
     const element = document.createElement("instagram-post");
     element.innerHTML = postTitle;
+    // document.body.appendChild(e);
     var textnode = document.createTextNode(postTitle);
     // element.appendChild(textnode);
     element.appendChild(img);
