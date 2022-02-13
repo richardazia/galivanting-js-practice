@@ -31,13 +31,14 @@ fetch("posts_1.json")
      let img = document.createElement("img");
     // Find image URI
     img.src = data[index].media[0].uri;
-    const element = document.createElement("instagram-post");
-    element.innerHTML = postTitle;
-    // document.body.appendChild(e);
-    // var textnode = document.createTextNode(postTitle); 
-    // element.appendChild(textnode);
-    element.appendChild(img);
-    document.body.appendChild(element);
+    let createPost = document.createElement("div-post");
+    const caption = document.createElement("p");
+    const captionText = document.createTextNode(postTitle);
+    caption.setAttribute("id", index);
+    caption.appendChild(captionText);
+    document.body.appendChild(caption);
+    createPost.appendChild(img);
+    document.body.appendChild(createPost);
     }
     console.log("The number outside: " + index);
   });
