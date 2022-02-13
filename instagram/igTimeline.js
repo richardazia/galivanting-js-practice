@@ -20,25 +20,31 @@ fetch("posts_1.json")
     while (index > 5247) {
       index--;
       console.log("The number inside: " + index);
-          let unix_timestamp = data[index].media[0].creation_timestamp;
-    // convert timestamp to human readable date
-    let date = new Date(unix_timestamp * 1000);
+          let unix_timestamp = data[index].media[0].creation_timestamp;    
     // Define post title
     let postTitle = data[index].media[0].title;
     // If there is no post title show "Untitled"
-    if (postTitle == false) {
-      postTitle = "Untitled";
-    }
+      if (postTitle == false) {
+        postTitle = "Untitled";
+      }
     // Define post image
     let img = document.createElement("img");
-    console.log(img);
-    document.querySelector("div").appendChild(img);
     // Find image URI
     img.src = data[index].media[0].uri;
-    let post = document.getElementById("text");
-    post.innerHTML += postTitle;
-    let photo = document.getElementById("photo");
-    photo.appendChild(img);
+    const element = document.createElement("instagram-post");
+    const e = document.createElement("div-post");
+    // e.innerHTML = "post: " + index;
+    e.innerHTML = postTitle;
+    document.body.appendChild(e);
+    var textnode = document.createTextNode(postTitle);
+    // element.appendChild(textnode);
+    element.appendChild(img);
+    console.log(img);
+    document.body.appendChild(element);
+    // let post = document.getElementById("insta_div");
+    // e.innerHTML += (postTitle);
+    // let photo = document.getElementById("insta_div");
+    // document.body.appendChild(img);
     }
     console.log("The number outside: " + index);
   });
