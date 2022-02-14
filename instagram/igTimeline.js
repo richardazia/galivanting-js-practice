@@ -32,6 +32,7 @@ fetch("posts_1.json")
     // Find image URI
     img.src = data[index].media[0].uri;
     let createPost = document.createElement("div-post");
+    createPost.setAttribute("class", "div-post");
     const caption = document.createElement("p");
     const captionText = document.createTextNode(postTitle);
     caption.setAttribute("id", index);

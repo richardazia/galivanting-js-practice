@@ -15,7 +15,7 @@ img {
   height: 400px;
 }
 
-#title {
+.title {
   text-align: center;
   font-size: 30px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -23,14 +23,9 @@ img {
   color: #000;
 }
 
-/* #instagram-post {
-  margin-left: auto;
-  margin-right: auto;
-  width: 400px;
-  height: 400px;
-} */
-
-#instagram-post{
+.div-post {
   display: grid;
   grid-template-columns: repeat(auto-fill, 300px);
+  margin-left: auto;
+  margin-right: auto;
 }
