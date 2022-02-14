@@ -33,12 +33,16 @@ fetch("posts_1.json")
     img.src = data[index].media[0].uri;
     let createPost = document.createElement("div-post");
     createPost.setAttribute("class", "div-post");
-    const caption = document.createElement("p");
-    const captionText = document.createTextNode(postTitle);
+    let caption = document.createElement("p");
+    let captionText = document.createTextNode(postTitle);
     caption.setAttribute("id", index);
-    caption.appendChild(captionText);
-    document.body.appendChild(caption);
+    // caption.appendChild(captionText);
+    // document.body.appendChild(caption);
     createPost.appendChild(img);
+    // createPost.innerHTML += captionText;
+    createPost.innerHTML += `<p>${postTitle}</p>`;
+    console.log("caption: " + caption);
+    console.log("captionText: " + captionText);
     document.body.appendChild(createPost);
     }
     console.log("The number outside: " + index);
