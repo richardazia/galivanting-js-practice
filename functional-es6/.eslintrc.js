@@ -9,6 +9,10 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 'latest',
   },
+  plugins: [
+    'immutable',
+  ],
   rules: {
+    'immutable/no-mutation': 2,
   },
 };

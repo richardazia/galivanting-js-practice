@@ -13765,3 +13765,8 @@ functional-es6/node_modules/tsconfig-paths/src/register.ts
 functional-es6/node_modules/tsconfig-paths/src/try-path.ts
 functional-es6/node_modules/tsconfig-paths/src/tsconfig-loader.ts
 functional-es6/node_modules/tsconfig-paths/src/tsconfig.json
+functional-es6/node_modules/eslint-plugin-immutable/.npmignore
+functional-es6/node_modules/eslint-plugin-immutable/index.js
+functional-es6/node_modules/eslint-plugin-immutable/LICENSE
+functional-es6/node_modules/eslint-plugin-immutable/package.json
+functional-es6/node_modules/eslint-plugin-immutable/README.md
