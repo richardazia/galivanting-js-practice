@@ -27,6 +27,11 @@ fetch("posts_1.json")
       if (postTitle == false) {
         postTitle = "Untitled";
       }
+      // attempt to use ternary operator to display post title
+      // const postTitle = true
+      // ? (postTitle) => postTitle
+      // : (postTitle) => "Untitled";
+
     // Define post image
      let img = document.createElement("img");
     // Find image URI
