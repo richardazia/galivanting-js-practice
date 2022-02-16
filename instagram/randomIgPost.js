@@ -11,12 +11,8 @@ fetch('posts_1.json')
         let date = new Date(unix_timestamp * 1000);
         let day = date.toLocaleString();
         console.log(day);
-        console.log(day);
-        console.log(month);
-        console.log(year);
         // Define post title
         let postTitle = data[number].media[0].title;
-        
         // If there is no post title show "Untitled"
         if (postTitle == false) {
             postTitle = 'Untitled';
