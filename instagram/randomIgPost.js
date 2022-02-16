@@ -9,9 +9,8 @@ fetch('posts_1.json')
         let unix_timestamp = data[number].media[0].creation_timestamp;
         // convert timestamp to human readable date
         let date = new Date(unix_timestamp * 1000);
-        let day = date.getDate();
-        let month = date.getMonth() + 1;
-        let year = date.getFullYear();
+        let day = date.toLocaleString();
+        console.log(day);
         console.log(day);
         console.log(month);
         console.log(year);
@@ -28,7 +27,7 @@ fetch('posts_1.json')
         // Define phrase to display 
         let phrase = 
             "I was taken on the " 
-            + date + ", showing \"" 
+            + day + ", showing \"" 
             + postTitle + "\". I am post No: " 
             + number + ".";
         console.log(phrase);
