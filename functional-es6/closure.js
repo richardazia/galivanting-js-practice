@@ -1,12 +1,11 @@
-// // a closure still has access to the outer scope
+// a closure still has access to the outer scope
 
 
-// const createTypewriter = () => {
-//     const myFavouriteMask = 'FFp2';
+const createTypewriter = () => {
+    const myFavouriteMask = 'FFp2';
 
-//     return () => console.log(`I prefer when people wear ${myFavouriteMask} masks around me.`);
-// };
+    return () => console.log(`I prefer when people wear ${myFavouriteMask} masks around me.`);
+};
 
-// const carbonPaper = createTypewriter();
-// carbonPaper();
-
+const carbonPaper = createTypewriter();
+carbonPaper();
