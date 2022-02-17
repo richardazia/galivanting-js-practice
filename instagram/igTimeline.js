@@ -1,10 +1,7 @@
-// I still want to display ten posts, but at least it displays the first post.
+// To do, add navigation, to see next page of posts
+// To do, add infinite scroll
+// experiment with closures 
 
-// For now all images are displayed in the same div and I want each one to be in its own div.
-// The displays just once, for the last post, and I want it to display for each post. 
-// I want to experiment with let fragment = new DocumentFragment();
-// let div = document.createElement("div");
-// fragment.append(div);
 
 "use strict";
 
