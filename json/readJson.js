@@ -29,6 +29,15 @@ const post2 ={
 }
 
 const jsonString = JSON.stringify(post2);
+    fs.writeFile("play.json", jsonString, (err) => {
+    if (err) {
+        console.log("Error writing file:", err);
+        return;
+    }else {
+        console.log("Successfully wrote file");
+    }
+});
+
 console.log(jsonString); // returns {"title":"A fun cloud","uri":"https://www.google.com/adsense/","creation_date":"2018-03-07"}
 
 
