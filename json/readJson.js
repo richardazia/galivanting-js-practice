@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { stringify } = require("querystring");
 
 // using this tutorial: https://heynode.com/tutorial/readwrite-json-files-nodejs/
 
@@ -18,3 +19,16 @@ fs.readFile("play.json", "utf8", (err, jsonString) => {
         return; 
     }
 });
+
+// Write to a file using the fs module
+
+const post2 ={
+    "title": "A fun cloud",
+    "uri": "https://www.google.com/adsense/",
+    "creation_date": "2018-03-07"
+}
+
+const jsonString = JSON.stringify(post2);
+console.log(jsonString); // returns {"title":"A fun cloud","uri":"https://www.google.com/adsense/","creation_date":"2018-03-07"}
+
+
