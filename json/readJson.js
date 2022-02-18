@@ -28,8 +28,20 @@ const post2 ={
     "creation_date": "2018-03-07"
 }
 
-const jsonString = JSON.stringify(post2);
-    fs.writeFile("play.json", jsonString, (err) => {
+// This code overwrites previous data
+// const jsonString = JSON.stringify(post2);
+//     fs.writeFile("play.json", jsonString, (err) => {
+//     if (err) {
+//         console.log("Error writing file:", err);
+//         return;
+//     }else {
+//         console.log("Successfully wrote file");
+//     }
+// });
+
+// Add a new post to the file
+post2.order_count += 1;
+fs.writeFile("playWrite.json", JSON.stringify(post2), (err) => {
     if (err) {
         console.log("Error writing file:", err);
         return;
@@ -37,7 +49,3 @@ const jsonString = JSON.stringify(post2);
         console.log("Successfully wrote file");
     }
 });
-
-console.log(jsonString); // returns {"title":"A fun cloud","uri":"https://www.google.com/adsense/","creation_date":"2018-03-07"}
-
-
