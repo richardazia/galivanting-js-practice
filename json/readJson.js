@@ -1,4 +1,7 @@
 const fs = require("fs");
+
+// using this tutorial: https://heynode.com/tutorial/readwrite-json-files-nodejs/
+
 fs.readFile("play.json", "utf8", (err, jsonString) => {
     if (err) {
         console.log("Error reading file from disk:", err);
