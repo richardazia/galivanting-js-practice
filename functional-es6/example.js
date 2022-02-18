@@ -1,36 +1,23 @@
-//Using the some method
-// This can be used to check that all fields in a form are filled before submitting
+//Sort through items using a function. 
 
-const staff = [{
-    name: 'Jane Doe',
-    salary: 1000
-    }, {
-    name: 'John Dough',
-    salary: 2000
-    }, {
-    name: 'Jill Do',
-    salary: 3000
-    }, {
-    name: 'Dill Do',
-    salary: 4000
-    }];
+const mixedUpNumbers = [1, 2, 3, 4, 10, 2, 56, 3, 5, 2, 2, 12, 73, 14, 23, 6, 15];
 
-const MakesMoreThan2000 = staff => 
-    staff.salary > 2000;
+const ascending = (a, b) => {
+    if (a < b) return -1; 
+    if (a > b) return 1;
+    return 0;
+}
 
-const result = staff.some(MakesMoreThan2000);
+const descending = (a, b) => {
+    if (a > b) return -1; 
+    if (a < b) return 1;
+    return 0;
+}
 
-console.log(result);
+const sortedNumbers = mixedUpNumbers.slice().sort(ascending);
 
-const formValues = [
-    'Kalenji',
-    'shoehorn',
-    'Divonne',
-    '',
-];
+console.log(sortedNumbers);
 
-const isNotEmpty = string => !!string;
+const sortedDownNumbers = mixedUpNumbers.slice().sort(descending);
 
-const allFieldsFilled = formValues.every(isNotEmpty);
-
-console.log(allFieldsFilled);
+console.log(sortedDownNumbers);
