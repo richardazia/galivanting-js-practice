@@ -1,3 +1,12 @@
-const mymodule = require('./mymodule.js')
+var filterFn = require('./mymodule.js')
+var dir = process.argv[2];
+var filterStr = process.argv[3];
 
-console.log(mymodule.counter);
+filterFn(dir, filterStr, function (err, list) {
+    if (err) 
+        return console.log.error('There was an error: ', err);
+        
+        list.forEach(function (file) {
+            console.log(file);
+        });
+    });
