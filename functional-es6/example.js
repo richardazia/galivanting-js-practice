@@ -36,3 +36,20 @@ const employees = [{
     jobTitle: 'developer',
     salary: 90000,
 }];
+
+const developers = employees.filter(employee => 
+    employee.jobTitle === 'developer');
+// console.log(developers);
+const developerSalaries = developers.map(developer => developer.salary);
+const totDevSal = developerSalaries.reduce((acc, x) => acc + x, 0);
+const avgDevSal = totDevSal / developers.length;
+console.log(`Non Developers have an average salary of : USD${avgDevSal}`);
+
+const nonDevelopers = employees.filter(employee =>
+    employee.jobTitle !== 'developer');
+//  console.log(nonDevelopers);
+const nonDevSal = nonDevelopers.map(nonDevelopers => nonDevelopers.salary);
+// console.log(nonDevSal);
+const totNonDevSal = nonDevSal.reduce((acc, x) => acc + x, 0);
+const avgNonDevSal = totNonDevSal / nonDevelopers.length;
+console.log(`The non developer average salary is ${avgNonDevSal}`);
