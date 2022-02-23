@@ -20,3 +20,12 @@ const add5and6 = add5(6);
 const sum = add5and6(7);
 
 console.log(sum);
+
+// Familiar recursive functions
+const countUp = x => {
+    if(x > 10) return;
+    console.log(x);
+    countUp(x + 1);
+}
+
+countUp(0);
