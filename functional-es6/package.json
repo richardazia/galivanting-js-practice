@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "type": "module",
     "an-array-of-english-words": "^2.0.0"
   }
 }
