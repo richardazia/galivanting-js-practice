@@ -8,7 +8,8 @@
     <output id="output"></output>
 
     <script>
-        navigator.serviceWorker.register("serviceworker.js")
+        navigator.serviceWorker.register("serviceworker.js", 
+            { scope: "/" })
             .then( registration => {
                 document.querySelector("#output").innerHTML = "Service Worker Registered";
                 console.log("Service Worker Registered");
