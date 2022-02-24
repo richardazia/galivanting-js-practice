@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>First Service Worker</title>
+</head>
+<body>
+    <h1>Service Worker Test</h1>
+    <output id="output"></output>
+
+    <script>
+        navigator.serviceWorker.register("serviceworker.js")
+            .then( registration => {
+                document.querySelector("#output").innerHTML = "Service Worker Registered";
+                console.log("Service Worker Registered");
+                return navigator.serviceWorker.ready;
+            })
+            .catch(error => {
+                document.querySelector("#output").innerHTML = "Service Worker Failed to Register";
+                console.log("Service Worker Failed to Register", error);
+            })
+            .then( () => {
+                document.querySelector("#output").innerHTML = "Service Worker Ready";
+                console.log("Service Worker Ready");
+            });
+    </script>
+
+</body>
+    
+</html>
