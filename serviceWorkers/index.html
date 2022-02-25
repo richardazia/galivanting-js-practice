@@ -9,7 +9,7 @@
 
     <script>
         navigator.serviceWorker.register("serviceworker.js", 
-            { scope: "/" })
+            { scope: "serviceWorkers" })
             .then( registration => {
                 document.querySelector("#output").innerHTML = "Service Worker Registered";
                 console.log("Service Worker Registered");
