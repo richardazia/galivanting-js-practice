@@ -1,45 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>First Service Worker</title>
-</head>
-<body>
-    <h1>Service Worker Test</h1>
-    <output id="output"></output>
 
-    <script>
+<h1>Service Worker Test</h1>
+<output id="output"></output>
+
+<button onclick="update()">Update Check</button>
+
+<script>
+function update() {
+    navigator.serviceWorker.getRegistration()
+    .then(registration => {
+        registration.update();
+    });
+}
+
+if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register("serviceworker.js", 
             { scope: "serviceWorkers" })
             .then( registration => {
                 const scope = registration.scope;
-                document.querySelector("#output").innerHTML = "Service Worker Registered properly";
-                console.log(`Service Worker Registered Properly at ${scope}`);
-                return navigator.serviceWorker.ready;
+                document.querySelector("#output").innerHTML = 
+                `Service Worker Registered Properly at ${scope}`;
             })
             .catch(error => {
-                document.querySelector("#output").innerHTML = "Service Worker Failed to Register";
-                console.log("Service Worker Failed to Register", error);
-            })
-            .then( () => {
-                document.querySelector("#output").innerHTML = "Service Worker Ready";
-                console.log("Service Worker Ready");
+                document.querySelector("#output").innerHTML = 
+                "Service Worker Failed to Register";
             });
+} else {
+    document.querySelector("#output").innerHTML =
+    "Service Worker Not Available";
+}
 
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistration()
-                .then( registration => {
-                    registration.addEventListener("updatefound", event => {
-                        const swInstalling = registration.installing;
-                        if (swInstalling.state=='installed') {
-                            document.querySelector("#output").innerHTML = "Service Worker Installed";
-                            console.log("Service Worker Installed");
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.log("Service Worker Failed to Get Registration", error);
-                });
-        }
+ if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistration()
+        .then( registration => {
+            registration.addEventListener("updatefound", event => {
+            const swInstalling = registration.installing;
+            swInstalling.addEventListener("statechange", () => {
+            if (swInstalling.state=='installed') {
+                document.querySelector("#output").innerHTML = "Service Worker Installed";
+            } else {
+                document.querySelector("#output").innerHTML = "Service Worker Updated";
+            }
+            });
+            });
+        })
+        .catch(error => {
+        console.log("Service Worker Failed to Get Registration", error);
+        });
+}
 
         </script>
 
