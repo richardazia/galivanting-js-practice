@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<title>First Service Worker</title>
 
 <h1>Service Worker Test</h1>
 <output></output>
@@ -10,33 +10,33 @@
 <script>
 function update() {
     navigator.serviceWorker.getRegistration()
-    .then(registration => {
-        registration.update();
-    });
+        .then(registration => {
+            registration.update();
+        });
 }
 
 function unregister() {
     navigator.serviceWorker.getRegistration()
-    .then(registration => {
-        registration.unregister();
-    });
+        .then(registration => {
+            registration.unregister();
+        });
 }
 
 if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register("serviceworker.js", 
-            { scope: "serviceWorkers" })
-            .then( registration => {
-                const scope = registration.scope;
-                document.querySelector("output").innerHTML = 
-                `Service Worker Registered Properly at ${scope}`;
-            })
-            .catch(error => {
-                document.querySelector("output").innerHTML = 
-                "Service Worker Failed to Register";
-            });
+    navigator.serviceWorker.register("serviceworker.js",
+        { scope: "serviceWorkers" })
+        .then( registration => {
+            const scope = registration.scope;
+            document.querySelector("output").innerHTML = 
+                `Service Worker registered properly at ${scope}`;
+        })
+        .catch( error => {
+            document.querySelector("output").innerHTML = 
+                "Service Worker NOT registered";
+        });
 } else {
-    document.querySelector("#output").innerHTML =
-    "Service Worker Not Available";
+    document.querySelector("output").innerHTML = 
+                "Service Worker NOT available";
 }
 
 if ('serviceWorker' in navigator) {
@@ -56,12 +56,9 @@ if ('serviceWorker' in navigator) {
             });
         })
         .catch( error => {
-            console.log("oups")
+
         });
 }
 
-        </script>
 
-</body>
-    
-</html>
+</script>

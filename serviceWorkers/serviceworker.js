@@ -1,7 +1,10 @@
-// Version 3
+// version 3
+console.log("We are a service worker");
 
-console.log("I exist!");
+try {
+    importScripts("events.js");
+} catch (e) {
+    
+}
 
-importScripts("events.js");
-
-console.log("The script has loaded");
+console.log("after loading the events.js script");
