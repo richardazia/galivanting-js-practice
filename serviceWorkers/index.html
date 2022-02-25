@@ -2,7 +2,7 @@
 <html lang="en">
 
 <h1>Service Worker Test</h1>
-<output id="output"></output>
+<output></output>
 
 <button onclick="update()">Update Check</button>
 
@@ -19,11 +19,11 @@ if ('serviceWorker' in navigator) {
             { scope: "serviceWorkers" })
             .then( registration => {
                 const scope = registration.scope;
-                document.querySelector("#output").innerHTML = 
+                document.querySelector("output").innerHTML = 
                 `Service Worker Registered Properly at ${scope}`;
             })
             .catch(error => {
-                document.querySelector("#output").innerHTML = 
+                document.querySelector("output").innerHTML = 
                 "Service Worker Failed to Register";
             });
 } else {
@@ -31,22 +31,24 @@ if ('serviceWorker' in navigator) {
     "Service Worker Not Available";
 }
 
- if ('serviceWorker' in navigator) {
+if ('serviceWorker' in navigator) {
     navigator.serviceWorker.getRegistration()
         .then( registration => {
             registration.addEventListener("updatefound", event => {
-            const swInstalling = registration.installing;
-            swInstalling.addEventListener("statechange", () => {
-            if (swInstalling.state=='installed') {
-                document.querySelector("#output").innerHTML = "Service Worker Installed";
-            } else {
-                document.querySelector("#output").innerHTML = "Service Worker Updated";
-            }
-            });
+                const swInstalling = registration.installing;
+                swInstalling.addEventListener("statechange", () => {
+                    if (swInstalling.state=='installed') {
+                        document.querySelector("output").innerHTML = 
+                "A new Service Worker is installed and waiting";                        
+                    } else {
+                        document.querySelector("output").innerHTML = 
+                "A new Service Worker is now controlling the page";
+                    }
+                });
             });
         })
-        .catch(error => {
-        console.log("Service Worker Failed to Get Registration", error);
+        .catch( error => {
+
         });
 }
 
