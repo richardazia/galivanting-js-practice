@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Service Worker Test</title>
+<h1>Getting Things to work</h1>
+<output></output>
+<button id="update">Update Check</button>
+
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerRegistration/update">Where I got the example to experiment with</a>
+<script>
+    if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/serviceWorkers/workerRegistration.js')
+    .then(function(registration) {
+        console.log("Service worker registered with scope: ", registration.scope);
+        document.getElementById('update').onclick = function() {
+        // button.addEventListener('click', function() {
+            registration.showNotification('Hello world!', {
+                body: 'This is a notification from a service worker',
+                icon: 'images/icons/icon-128x128.png'
+            });
+        };
+    })
+    .catch(function(err) {
+        console.log("Service worker registration failed: ", err);
+    });
+}
+</script>
+</html>
