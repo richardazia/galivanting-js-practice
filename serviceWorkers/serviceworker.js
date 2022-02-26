@@ -1,10 +1,19 @@
 // version 3
-console.log("We are a service worker");
-
+console.log('Service Worker Loaded...');
 try {
     importScripts("events.js");
 } catch (e) {
-    console.log("Error importing events.js");
+    
 }
 
-console.log("after loading the events.js script");
+self.addEventListener('fetch', (event) => {
+    event.respondWith(
+        caches.match(event.request)
+            .then((response) => {
+                if (response) {
+                    return response;
+                }
+                return fetch(event.request);
+            })
+    );
+});
