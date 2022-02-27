@@ -1,4 +1,4 @@
-const precacheList = [
+[
     "/", "mission.html", "resources.html", "tours.html", 
     "app.js", "weather.js",
     "_css/fonts.css", "_css/main.css", "_css/mobile.css", "_css/tablet.css",
@@ -8,14 +8,5 @@ const precacheList = [
     "_images/calm_desc_bug.gif", "_images/kids_desc_bug.gif", "_images/star_bullet.gif",
     "_images/cycle_desc_bug.gif", "_images/logo.gif", "_images/taste_bug.gif",
     "_images/cycle_logo.png", "_images/looking.jpg", "_images/taste_desc_bug.gif",
-    "_images/desert_bug.gif", "_images/mission_look.jpg", "_images/tour_badge.png"];
-
-self.addEventListener("install", event => {
-    event.waitUntil(
-        caches.open("california-assets-v3")
-            .then( cache => {
-                cache.addAll(precacheList);
-            }
-        )
-    );
-});
+    "_images/desert_bug.gif", "_images/mission_look.jpg", "_images/tour_badge.png"
+]
