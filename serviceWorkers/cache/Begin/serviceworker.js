@@ -1,15 +1,16 @@
 const precacheList = [
     "/", 
-    "mission.html",
+    "mission.html", 
     "resources.html",
-    "about.html",
-    "tours.html",
-    "weather.html"
+    "tours.html"
 ];
 
 self.addEventListener("install", event => {
-    caches.open("california-assets-v1")
-    .then(cache => {
-        cache.addAll(precacheList);
-    });
+    event.waitUntil(
+        caches.open("california-assets-v1")
+            .then( cache => {
+                cache.addAll(precacheList);
+            }
+        )
+    );
 });
