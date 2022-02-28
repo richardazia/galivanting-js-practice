@@ -39,9 +39,25 @@ self.addEventListener("fetch", event => {
                 .then( response => {
                     if (response) {
                         return response;
-                    }
+                    } else {
+                        if (parsedUrl.pathname.match(/^\/_fonts*/)) {
+                            const fetchRequest = 
+                            fetch(event.request).then(
+                                networkResponse => {
+                                    caches.open("california-fonts-v1")
+                                        .then( cache => {
+                                            cache.put(event.request, networkResponse.clone());
+                                            return networkResponse();
+                                        }
+                                    );
+                                }
+                            );
+                            return fetchRequest;
+                        } else {
                     return fetch(event.request);
-                })
-            );
+                    }
+                }
+            })  
+        );
     }
 });
