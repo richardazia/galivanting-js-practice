@@ -10,12 +10,28 @@ const precacheList = [
     "_images/cycle_logo.png", "_images/looking.jpg", "_images/taste_desc_bug.gif",
     "_images/desert_bug.gif", "_images/mission_look.jpg", "_images/tour_badge.png"];
 
+//Put files in the cache
+
 self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open("california-assets-v3")
+        caches.open("california-assets-v4")
             .then( cache => {
                 cache.addAll(precacheList);
             }
         )
+    );
+});
+
+// Get files back from the cache - Cache first Policy
+
+self.addEventListener("fetch", event => {
+    event.respondWith(
+        caches.match(event.request)
+            .then( response => {
+                if (response) {
+                    return response;
+                }
+                return fetch(event.request);
+            })
     );
 });
