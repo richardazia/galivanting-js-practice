@@ -14,7 +14,7 @@ const precacheList = [
 
 self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open("california-assets-v4")
+        caches.open("california-assets-v2")
             .then( cache => {
                 cache.addAll(precacheList);
             }
@@ -22,18 +22,33 @@ self.addEventListener("install", event => {
     );
 });
 
-// Get files back from the cache - Cache first Policy
 self.addEventListener("fetch", event => {
     const parsedUrl = new URL(event.request.url);
-    if (parsedUrl.pathname.match(/^\/_css*/)) {
-        // Network first policy
-        event.respondWith(
-            fetch(event.request)
-            .catch(error => {
-                return caches.match(event.request);
-            })
-        )
-    } else {
+
+    if(parsedUrl.host =="explorecalifornia.org" && !navigator.online) {
+        event.respondWith(fetch("offline.json"));
+    } else if (parsedUrl.pathname.match(/^\/_css*/)) {
+
+    //Stale while Revalidate (Le Poisson pas frais)
+    event.respondWith(
+    caches.match(event.request)
+        .then( response => {
+            const networKFetch = fetch(event.request)
+                .then(networkResponse => {
+                    return caches.open("california-assets-v2")
+                        .then( cache => {
+                            cache.put(
+                                event.request, 
+                                networkResponse.clone()
+                            )
+                            return networkResponse;
+                        })
+                });
+            return response || networkFetch;
+        })
+    )
+} else {
+// Get files back from the cache - Cache first Policy
         event.respondWith(
             caches.match(event.request)
                 .then( response => {
