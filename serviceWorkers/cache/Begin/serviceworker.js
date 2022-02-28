@@ -23,15 +23,25 @@ self.addEventListener("install", event => {
 });
 
 // Get files back from the cache - Cache first Policy
-
 self.addEventListener("fetch", event => {
-    event.respondWith(
-        caches.match(event.request)
-            .then( response => {
-                if (response) {
-                    return response;
-                }
-                return fetch(event.request);
+    const parsedUrl = new URL(event.request.url);
+    if (parsedUrl.pathname.match(/^\/_css*/)) {
+        // Network first policy
+        event.respondWith(
+            fetch(event.request)
+            .catch(error => {
+                return caches.match(event.request);
             })
-    );
+        );
+    } else {
+        event.respondWith(
+            caches.match(event.request)
+                .then( response => {
+                    if (response) {
+                        return response;
+                    }
+                    return fetch(event.request);
+                })
+            );
+    }
 });
