@@ -44,7 +44,7 @@ self.addEventListener("fetch", event => {
                             const fetchRequest = 
                             fetch(event.request).then(
                                 networkResponse => {
-                                    caches.open("california-fonts-v1")
+                                    return caches.open("california-fonts-v1")
                                         .then( cache => {
                                             cache.put(event.request, networkResponse.clone());
                                             return networkResponse();
