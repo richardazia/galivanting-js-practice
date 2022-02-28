@@ -32,7 +32,7 @@ self.addEventListener("fetch", event => {
             .catch(error => {
                 return caches.match(event.request);
             })
-        );
+        )
     } else {
         event.respondWith(
             caches.match(event.request)
@@ -48,16 +48,15 @@ self.addEventListener("fetch", event => {
                                         .then( cache => {
                                             cache.put(event.request, networkResponse.clone());
                                             return networkResponse();
-                                        }
-                                    );
+                                        })
                                 }
-                            );
+                            )
                             return fetchRequest;
                         } else {
-                    return fetch(event.request);
+                            return fetch(event.request);
+                        }
                     }
-                }
-            })  
+                })  
         );
     }
-});
+})
