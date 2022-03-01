@@ -1,5 +1,5 @@
 const precacheList = [
-    "/", "mission.html", "resources.html", "tours.html", 
+    "/", "index.html", "mission.html", "resources.html", "tours.html", 
     "app.js", "weather.js", "offline.json",
     "_css/fonts.css", "_css/main.css", "_css/mobile.css", "_css/tablet.css",
     "_images/back_bug.gif", "_images/desert_desc_bug.gif", "_images/nature_desc_bug.gif",
@@ -14,11 +14,28 @@ const precacheList = [
 
 self.addEventListener("install", event => {
     event.waitUntil(
-        caches.open("california-assets-v2")
+        caches.open("california-assets-v3")
             .then( cache => {
                 cache.addAll(precacheList);
             }
         )
+    );
+});
+
+self.addEventListener("activate", event => {
+    const cacheWhileList = ["california-assets-v3"];
+    event.waitUntil(
+        caches.keys()
+            .then( Names => {
+            return Promise.all(
+                Names.map( cacheName => {
+                    if (cacheWhileList.indexOf(cacheName) === -1) {
+                        // cache is redundant
+                        return caches.delete(cacheName);
+                    }
+                })
+            )
+        })
     );
 });
 
@@ -37,7 +54,7 @@ self.addEventListener("fetch", event => {
         .then( response => {
             const networKFetch = fetch(event.request)
                 .then(networkResponse => {
-                    return caches.open("california-assets-v2")
+                    return caches.open("california-assets-v3")
                         .then( cache => {
                             cache.put(
                                 event.request, 
