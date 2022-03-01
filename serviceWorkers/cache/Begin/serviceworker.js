@@ -1,6 +1,6 @@
 const precacheList = [
     "/", "mission.html", "resources.html", "tours.html", 
-    "app.js", "weather.js",
+    "app.js", "weather.js", "offline.json",
     "_css/fonts.css", "_css/main.css", "_css/mobile.css", "_css/tablet.css",
     "_images/back_bug.gif", "_images/desert_desc_bug.gif", "_images/nature_desc_bug.gif",
     "_images/backpack_bug.gif", "_images/flag.jpg", "_images/snow_desc_bug.gif",
@@ -25,7 +25,9 @@ self.addEventListener("install", event => {
 self.addEventListener("fetch", event => {
     const parsedUrl = new URL(event.request.url);
 
-    if(parsedUrl.host =="explorecalifornia.org" && !navigator.online) {
+    if (parsedUrl.host=="explorationcalifornia.org" && !navigator.onLine) {
+        event.respondWith(fetch("offline.json"));
+    } else if (parsedUrl.host =="explorecalifornia.org" && !navigator.online) {
         event.respondWith(fetch("offline.json"));
     } else if (parsedUrl.pathname.match(/^\/_css*/)) {
 
