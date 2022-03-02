@@ -39,6 +39,19 @@ self.addEventListener("activate", event => {
     );
 });
 
+self.addEventListener("message", event => {
+    const message = event.data;
+    switch (message.action) {
+        case "update-resources":
+            caches.open("california-assets-v3")
+                .then( cache => {
+                    cache.addAll(precacheList);
+                }
+            )
+            break;
+    }
+});
+
 self.addEventListener("fetch", event => {
     const parsedUrl = new URL(event.request.url);
 

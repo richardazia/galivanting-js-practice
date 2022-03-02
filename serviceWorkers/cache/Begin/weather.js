@@ -6,9 +6,7 @@ window.addEventListener("load", () => {
                 response.json()
                     .then(data => {
                         let li; 
-                        if (data[0].error) {
-                            li `<li>Offline</li>`;
-                        } else {
+                        if (data) {
                             li = `<li>${data[0].name}: 
                                 ${Math.round(data[0].forecast[0].temp_min)}F -
                                 ${Math.round(data[0].forecast[0].temp_max)}F</li>`;
@@ -19,7 +17,10 @@ window.addEventListener("load", () => {
         })
 });
 
+
+
 function fetchWeather(city) {
     return fetch('http://explorecalifornia.org/api/weather/?city=' + 
     encodeURIComponent(city));
+    
 }
