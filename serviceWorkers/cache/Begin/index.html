@@ -89,6 +89,26 @@
         <li><button onclick="update()">Update the app</button></li>
       </ul>
     </section>
+
+    <section id="message">
+      <script>
+      if (navigator.serviceWorker) {
+
+        navigator.serviceWorker.register('service-worker.js');
+      
+        navigator.serviceWorker.addEventListener('message', event => {
+          // event is a MessageEvent object
+          console.log(`The service worker sent me a message: ${event.data}`);
+        });
+      
+        navigator.serviceWorker.ready.then( registration => {
+          registration.active.postMessage("Hi service worker");
+        });
+      
+      }
+    </script>
+    </section>
+
     <section id="companyInfo">
     <h1>Contact</h1>
     <h2>Explore California</h2>

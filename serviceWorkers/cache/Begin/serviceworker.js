@@ -39,18 +39,27 @@ self.addEventListener("activate", event => {
     );
 });
 
-self.addEventListener("message", event => {
-    const message = event.data;
-    switch (message.action) {
-        case "update-resources":
-            caches.open("california-assets-v3")
-                .then( cache => {
-                    cache.addAll(precacheList);
-                }
-            )
-            break;
-    }
-});
+// self.addEventListener("message", event => {
+//     const message = event.data;
+//     switch (message.action) {
+//         case "update-resources":
+//             caches.open("california-assets-v3")
+//                 .then( cache => {
+//                     cache.addAll(precacheList);
+//                 }
+//             )
+//             break;
+//     }
+// });
+
+// The code from the course did not work so I used it from here: 
+// https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/message_event
+addEventListener('message', event => {
+    // event is an ExtendableMessageEvent object
+    console.log(`The client sent me a message: ${event.data}`);
+  
+    event.source.postMessage(`Hello I am not a cat`);
+  });
 
 self.addEventListener("fetch", event => {
     const parsedUrl = new URL(event.request.url);
