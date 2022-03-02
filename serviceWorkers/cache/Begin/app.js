@@ -6,7 +6,7 @@ function sendMessageToSW(message) {
     if (navigator.serviceWorker.controller) {
         navigator.serviceWorker.controller.postMessage(message);
     } else {
-        console.log('No service worker');
+        console.log("There is no SW controlling this page");
     }
 }
 
