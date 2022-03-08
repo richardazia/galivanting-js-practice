@@ -3,7 +3,18 @@
 document.addEventListener('DOMContentLoaded', () => {
     const ingredients = document.getElementById('ingredients');
 
+    let total = 0;
+
     Array.prototype.forEach.call(ingredients.children, (tr) => {
-        console.log(tr);
+        const td = tr.children[1];
+
+        if (tr.id == 'totals') {
+            console.log('In Totals row');
+            td.innerText = total;
+        } else {
+            const weight = parseFloat(td.innerText);
+            total += weight;
+            console.log(tr, total);
+        }
     });
 });
