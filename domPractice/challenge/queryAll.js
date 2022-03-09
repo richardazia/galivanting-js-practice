@@ -1,3 +1,4 @@
+// Source: https://github.com/LinkedInLearning/vanilla-js-DOM-2876283/tree/main/Chapter1/01_05
 /* eslint no-undef: "error" */
 /* eslint-env browser */
 
@@ -28,6 +29,10 @@ document.addEventListener('DOMContentLoaded', () => {
             case 'textify': {
                 textifyMatches();
             } break;
+
+            case 'highlight': {
+                highlightMatches();
+        }   break;
         }
     });
 
@@ -74,6 +79,18 @@ function textifyMatches() {
     output.querySelectorAll(selector).forEach((el) => {
         const text = document.createTextNode(el.innerText);
         el.parentElement.replaceChild(text, el);
+    });
+
+    refreshQuery(selector);
+}
+
+function highlightMatches() {
+    const output = document.querySelector('#output');
+
+    const selector = document.forms.queryall.selector.value;
+
+    output.querySelectorAll(selector).forEach((el) => {
+        el.style.border = 'red solid 4px';
     });
 
     refreshQuery(selector);
