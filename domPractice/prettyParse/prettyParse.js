@@ -63,6 +63,14 @@ class Lexer {
         return this.source.substring(start_pointer, this.file_pointer);
     }
 
+    readIdentifier() {
+        return this.readUntil((lexer) => !lexer.match(/\w/));
+    }
+
+    skipWhiteSpace() {
+        return this.readUntil((lexer) => !lexer.match(/\s/));
+    }
+
 
     get eof() {
         return this.file_pointer >= this.source.length;
@@ -92,5 +100,11 @@ function testLexer(html) {
 
     console.assert(lexer.consumeMatch('<!--'));
     const comment = lexer.readUntil(lexer => lexer.match('-->'));
+    lexer.consumeMatch('-->');
     console.log('comment:', comment);
+
+    lexer.skipWhiteSpace();
+    console.assert(lexer.consumeMatch('<'));
+    const tag = lexer.readIdentifier();
+    console.log('tag:', tag);
 }
