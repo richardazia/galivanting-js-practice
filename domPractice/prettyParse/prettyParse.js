@@ -15,7 +15,7 @@ function refreshOutput(html) {
     const output = document.querySelector('pp-output');
 
     output.innerText = '';
-    testLexer(html);
+    output.appendChild(prettyParse(html));
 }
 
 class Lexer {
@@ -81,30 +81,56 @@ class Lexer {
     }
 }
 
-function testLexer(html) {
+function prettyParse(html) {
     const lexer = new Lexer(html);
 
-    let output = '';
+    function parseContent() {
+        let text = '';
+        const fragment = document.createDocumentFragment();
 
-    while (!lexer.eof) {
-        output += lexer.read(); 
+        function flushText() {
+            if (text.length) {
+                fragment.appendChild(document.createTextNode(text));
+                text = '';
+            }
+        }
+
+        while (!lexer.eof) {
+            text += lexer.read();
+        }
+
+        flushText();
+
+        return fragment;
     }
 
-    console.assert(output === html);
-    // console.assert(html != output); //Checks that code is being run
-
-    lexer.rewind();
-
-    console.assert(lexer.match('<!--'));
-    console.assert(!lexer.match('random text'));
-
-    console.assert(lexer.consumeMatch('<!--'));
-    const comment = lexer.readUntil(lexer => lexer.match('-->'));
-    lexer.consumeMatch('-->');
-    console.log('comment:', comment);
-
-    lexer.skipWhiteSpace();
-    console.assert(lexer.consumeMatch('<'));
-    const tag = lexer.readIdentifier();
-    console.log('tag:', tag);
+    return parseContent();
 }
+
+// function testLexer(html) {
+//     const lexer = new Lexer(html);
+
+//     let output = '';
+
+//     while (!lexer.eof) {
+//         output += lexer.read(); 
+//     }
+
+//     console.assert(output === html);
+//     // console.assert(html != output); //Checks that code is being run
+
+//     lexer.rewind();
+
+//     console.assert(lexer.match('<!--'));
+//     console.assert(!lexer.match('random text'));
+
+//     console.assert(lexer.consumeMatch('<!--'));
+//     const comment = lexer.readUntil(lexer => lexer.match('-->'));
+//     lexer.consumeMatch('-->');
+//     console.log('comment:', comment);
+
+//     lexer.skipWhiteSpace();
+//     console.assert(lexer.consumeMatch('<'));
+//     const tag = lexer.readIdentifier();
+//     console.log('tag:', tag);
+// }
