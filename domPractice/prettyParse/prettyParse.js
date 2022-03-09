@@ -84,6 +84,13 @@ class Lexer {
 function prettyParse(html) {
     const lexer = new Lexer(html);
 
+    function parseComment() {
+        const comment = lexer.readUntil((lexer) => lexer.match('-->'));
+        lexer.consumeMatch('-->');
+
+        return document.createComment(comment);
+    }
+
     function parseContent() {
         let text = '';
         const fragment = document.createDocumentFragment();
@@ -96,9 +103,13 @@ function prettyParse(html) {
         }
 
         while (!lexer.eof) {
+            if (lexer.consumeMatch('<!--')) {
+                flushText();
+                fragment.appendChild(parseComment());
+            } else {
             text += lexer.read();
+            }
         }
-
         flushText();
 
         return fragment;
