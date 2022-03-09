@@ -53,6 +53,16 @@ class Lexer {
         return false; // no match
     }
 
+    readUntil(condition) {
+        const start_pointer = this.file_pointer;
+
+        while (!this.eof && !condition(this)){
+            this.file_pointer++;
+        }
+
+        return this.source.substring(start_pointer, this.file_pointer);
+    }
+
 
     get eof() {
         return this.file_pointer >= this.source.length;
@@ -81,4 +91,6 @@ function testLexer(html) {
     console.assert(!lexer.match('random text'));
 
     console.assert(lexer.consumeMatch('<!--'));
+    const comment = lexer.readUntil(lexer => lexer.match('-->'));
+    console.log('comment:', comment);
 }
