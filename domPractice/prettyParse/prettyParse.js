@@ -96,7 +96,7 @@ function prettyParse(html) {
         const element = document.createElement(tagName);
 
         // To Do: Parse attributes
-        console.log(lexer.readUntil((lexer) => lexer.match(/\?>/)));
+        console.log(lexer.readUntil((lexer) => lexer.match(/\/?>/)));
 
         if (lexer.consumeMatch('>')) {
             element.appendChild(parseChildren());
@@ -121,7 +121,7 @@ function prettyParse(html) {
             }
         }
 
-        while (!lexer.eof && !lexer.match('<')) {
+        while (!lexer.eof && !lexer.match('</')) {
             if (lexer.consumeMatch('<!--')) {
                 flushText();
                 fragment.appendChild(parseComment());
@@ -129,7 +129,7 @@ function prettyParse(html) {
                 flushText();
                 fragment.appendChild(parseElement());
             } else {
-            text += lexer.read();
+                text += lexer.read();
             }
         }
         flushText();
