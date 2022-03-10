@@ -1,4 +1,5 @@
 // https://github.com/LinkedInLearning/vanilla-js-DOM-2876283/blob/main/Chapter2/02_01/prettyparse.js
+// Void elements: area, base, br, col, embed, hr, img, input, link, meta, param, source, track, wbr
 /* eslint no-undef: "error" */
 /* eslint-env browser */
 
