@@ -99,7 +99,7 @@ function prettyParse(html) {
         console.log(lexer.readUntil((lexer) => lexer.match(/\/?>/)));
 
         if (lexer.consumeMatch('>')) {
-            element.appendChild(parseChildren());
+            element.appendChild(parseContent());
 
             lexer.consumeMatch('</');
             lexer.readUntil((lexer) => lexer.consumeMatch('>'));
