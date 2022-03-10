@@ -91,12 +91,37 @@ function prettyParse(html) {
         return document.createComment(comment);
     }
 
+    function parseAttribute() {
+        const attributeName = lexer.readIdentifier();
+        const attribute = document.createAttribute(attributeName);
+
+        if(lexer.consumeMatch(/\s*=\s*/)) {
+            let value;
+
+            if(lexer.match(/['"]/)) {
+                const closingChar = lexer.read();
+
+                value = lexer.readUntil((lexer) => lexer.match(closingChar));
+                lexer.consumeMatch(closingChar);
+            } else {
+                value = lexer.readUntil((lexer) => lexer.match(/[\s\/>]/));
+            }
+
+            attribute.value = value;
+        }
+
+        return attribute;
+    }
+
     function parseElement() {
         const tagName = lexer.readIdentifier();
         const element = document.createElement(tagName);
 
-        // To Do: Parse attributes
-        console.log(lexer.readUntil((lexer) => lexer.match(/\/?>/)));
+        lexer.skipWhiteSpace();
+        while (!lexer.eof && !lexer.match(/\/?>/)) {
+            element.setAttributeNode(parseAttribute());
+            lexer.skipWhiteSpace();
+        }
 
         if (lexer.consumeMatch('>')) {
             element.appendChild(parseContent());
