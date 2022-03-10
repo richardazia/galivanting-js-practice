@@ -115,6 +115,7 @@ function prettyParse(html) {
     }
 
     function parseElement() {
+        const voidElements = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr'];
         const tagName = lexer.readIdentifier();
         const element = document.createElement(tagName);
 
@@ -125,10 +126,12 @@ function prettyParse(html) {
         }
 
         if (lexer.consumeMatch('>')) {
-            element.appendChild(parseContent());
+            if (!voidElements.includes(tagName)) {
+                element.appendChild(parseContent());
 
-            lexer.consumeMatch('</');
-            lexer.readUntil((lexer) => lexer.consumeMatch('>'));
+                lexer.consumeMatch('</');
+                lexer.readUntil((lexer) => lexer.consumeMatch('>'));
+            }
         } else {
             lexer.consumeMatch('/>');
         }
