@@ -91,6 +91,25 @@ function prettyParse(html) {
         return document.createComment(comment);
     }
 
+    function parseElement() {
+        const tagName = lexer.readIdentifier();
+        const element = document.createElement(tagName);
+
+        // To Do: Parse attributes
+        console.log(lexer.readUntil((lexer) => lexer.match(/\?>/)));
+
+        if (lexer.consumeMatch('>')) {
+            element.appendChild(parseChildren());
+
+            lexer.consumeMatch('</');
+            lexer.readUntil((lexer) => lexer.consumeMatch('>'));
+        } else {
+            lexer.consumeMatch('/>');
+        }
+
+        return element;
+    }
+
     function parseContent() {
         let text = '';
         const fragment = document.createDocumentFragment();
@@ -102,10 +121,13 @@ function prettyParse(html) {
             }
         }
 
-        while (!lexer.eof) {
+        while (!lexer.eof && !lexer.match('<')) {
             if (lexer.consumeMatch('<!--')) {
                 flushText();
                 fragment.appendChild(parseComment());
+            } else if (lexer.consumeMatch('<')) {
+                flushText();
+                fragment.appendChild(parseElement());
             } else {
             text += lexer.read();
             }
@@ -117,31 +139,3 @@ function prettyParse(html) {
 
     return parseContent();
 }
-
-// function testLexer(html) {
-//     const lexer = new Lexer(html);
-
-//     let output = '';
-
-//     while (!lexer.eof) {
-//         output += lexer.read(); 
-//     }
-
-//     console.assert(output === html);
-//     // console.assert(html != output); //Checks that code is being run
-
-//     lexer.rewind();
-
-//     console.assert(lexer.match('<!--'));
-//     console.assert(!lexer.match('random text'));
-
-//     console.assert(lexer.consumeMatch('<!--'));
-//     const comment = lexer.readUntil(lexer => lexer.match('-->'));
-//     lexer.consumeMatch('-->');
-//     console.log('comment:', comment);
-
-//     lexer.skipWhiteSpace();
-//     console.assert(lexer.consumeMatch('<'));
-//     const tag = lexer.readIdentifier();
-//     console.log('tag:', tag);
-// }
