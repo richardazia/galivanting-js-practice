@@ -15,7 +15,7 @@ fetch('posts_1.json')
         let postTitle = data[number].media[0].title;
         // If there is no post title show "Untitled"
         if (postTitle == false) {
-            postTitle = 'Untitled';
+            postTitle = 'Rename me!';
         }
         // Define post image
         let img = document.createElement('img');
