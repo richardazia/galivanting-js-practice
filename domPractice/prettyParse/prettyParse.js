@@ -132,8 +132,9 @@ function prettyParse(html) {
                 lexer.consumeMatch('</');
                 lexer.readUntil((lexer) => lexer.consumeMatch('>'));
             }
-        } else {
+            } else {
             lexer.consumeMatch('/>');
+            
         }
 
         return element;
@@ -207,11 +208,14 @@ function prettyPrint(node) {
 
             if (node.hasChildNodes()) {
                 element.appendChild(printChildNodes(node));
+                const closeTag = document.createElement('pp-closetag');
+                closeTag.appendChild(tagName.cloneNode(true));
+                element.appendChild(closeTag);
+            } else {
+                opentTag.classList.add('empty');
             }
 
-            const closeTag = document.createElement('pp-closetag');
-            closeTag.appendChild(tagName.cloneNode(true));
-            element.appendChild(closeTag);
+            
 
             return element;
         }

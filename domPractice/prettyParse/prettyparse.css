@@ -33,6 +33,10 @@ pp-opentag::after, pp-closetag::after {
     content: ">";
 }
 
+pp-opentag.empty::after {
+    content: "/>";
+}
+
 pp-attrname {
     color: #ca6836;
 }
