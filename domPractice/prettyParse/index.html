@@ -9,6 +9,11 @@
     <meta name="author" content="Scott Means for LinkedIn Learning">
     <link rel="stylesheet" type="text/css" href="prettyparse.css">
     <style>
+        @media print {
+            header, #input, #output>label {
+                display: none;
+            }
+        }
         textarea[name=source] {
             min-height: 10em;
         }
