@@ -184,10 +184,34 @@ function prettyPrint(node) {
         case Node.COMMENT_NODE:
             const comment = document.createElement('pp-comment');
             comment.innerText = node.nodeValue;
-            
+
             return comment;
         case Node.DOCUMENT_FRAGMENT_NODE: {
             return printChildNodes(node);
+        }
+
+        case Node.ELEMENT_NODE: {
+            const element = document.createElement('pp-element');
+
+            const opentTag = document.createElement('pp-opentag');
+
+            const tagName = document.createElement('pp-tagname');
+            tagName.innerText = node.nodeName.toLowerCase();
+            opentTag.appendChild(tagName);
+
+            // todo: process element attributes
+
+            element.appendChild(opentTag);
+
+            if (node.hasChildNodes()) {
+                element.appendChild(printChildNodes(node));
+            }
+
+            const closeTag = document.createElement('pp-closetag');
+            closeTag.appendChild(tagName.cloneNode(true));
+            element.appendChild(closeTag);
+
+            return element;
         }
     }
 
