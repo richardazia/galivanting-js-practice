@@ -16,7 +16,13 @@ img {
     font-weight: bold;
   }
 
-#insta_div {
+#timeline {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  justify-content: center;
   margin-left: auto;
   margin-right: auto;
   width: 400px;
@@ -32,8 +38,8 @@ img {
 }
 
 .div-post {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
+  width: 400px;
+  height: 400px;
   margin-left: auto;
   margin-right: auto;
   align-items: center;

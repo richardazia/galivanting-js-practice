@@ -17,12 +17,16 @@ fetch("posts_1.json")
     while (index > 5247) {
       index--;
       console.log("The number inside: " + index);
-          let unix_timestamp = data[index].media[0].creation_timestamp;    
+          let unix_timestamp = data[index].media[0].creation_timestamp;
+          let date = new Date(unix_timestamp * 1000);
+          let day = date.getDate();
+          let month = date.getMonth() + 1;
+          let year = date.getFullYear();
     // Define post title
     let postTitle = data[index].media[0].title;
     // If there is no post title show "Untitled"
       if (postTitle == false) {
-        postTitle = "Untitled";
+        postTitle = "I will be renamed soon";
       }
       // attempt to use ternary operator to display post title
       // const postTitle = true
@@ -33,8 +37,11 @@ fetch("posts_1.json")
      let img = document.createElement("img");
     // Find image URI
     img.src = data[index].media[0].uri;
+    let timeline = document.querySelector("#timeline");
+    timeline.appendChild(img);
+    
     let createPost = document.createElement("div-post");
-    createPost.setAttribute("class", "div-post");
+    timeline.setAttribute("class", "div-post");
     let caption = document.createElement("p");
     let captionText = document.createTextNode(postTitle);
     caption.setAttribute("id", index);
@@ -42,10 +49,13 @@ fetch("posts_1.json")
     // document.body.appendChild(caption);
     createPost.appendChild(img);
     // createPost.innerHTML += captionText;
-    createPost.innerHTML += `<p>${postTitle}</p>`;
+    createPost.innerHTML += `<p>${postTitle}</p>
+      <p>Date Taken: ${day}/${month}/${year}</p>`;
     console.log("caption: " + caption);
     console.log("captionText: " + captionText);
     document.body.appendChild(createPost);
     }
     console.log("The number outside: " + index);
   });
+
+  
