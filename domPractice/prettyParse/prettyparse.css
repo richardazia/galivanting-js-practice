@@ -32,3 +32,19 @@ pp-closetag::before {
 pp-opentag::after, pp-closetag::after {
     content: ">";
 }
+
+pp-attrname {
+    color: #ca6836;
+}
+
+pp-attribute::before {
+    content: " ";
+}
+
+pp-attrvalue::before {
+    content: '="';
+}
+
+pp-attrvalue::after {
+    content: '"';
+}

@@ -199,7 +199,9 @@ function prettyPrint(node) {
             tagName.innerText = node.nodeName.toLowerCase();
             opentTag.appendChild(tagName);
 
-            // todo: process element attributes
+            Array.from(node.attributes).forEach((attr) => {
+                opentTag.appendChild(prettyPrint(attr));
+            });
 
             element.appendChild(opentTag);
 
@@ -212,6 +214,22 @@ function prettyPrint(node) {
             element.appendChild(closeTag);
 
             return element;
+        }
+
+        case Node.ATTRIBUTE_NODE: {
+            const attribute = document.createElement('pp-attribute');
+
+            const attrName = document.createElement('pp-attrname');
+            attrName.innerText = node.nodeName.toLowerCase();
+            attribute.appendChild(attrName);
+
+            if (node.nodeValue !== '') {
+                const attrValue = document.createElement('pp-attrvalue');
+                attrValue.innerText = node.nodeValue;
+                attribute.appendChild(attrValue);
+            }
+
+            return attribute;
         }
     }
 
