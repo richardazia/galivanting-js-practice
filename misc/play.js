@@ -63,11 +63,43 @@ const ageJohn = thisYear - 1990;
 
 // console.log(markTallHigherBMI);
 
-console.log('I want to span \n\
-several lines\n\
-\n\
-and I have succeeded');
+// console.log('I want to span \n\
+// several lines\n\
+// \n\
+// and I have succeeded');
 
-console.log(`I am a string literal
-and I span a few
-lines too.`)
+// console.log(`I am a string literal
+// and I span a few
+// lines too.`)
+
+// const age = 19;
+const age = 12;
+const isNotTooYoung = age >= 18;
+const timeToWait = 18 - age;
+
+if (isNotTooYoung) {
+    console.log("You are not too young for this.");
+}
+
+if (age >= 18) {
+    console.log("You are old enough to vote.");
+} else {
+    console.log(`You are not old enough to vote. You must wait ${timeToWait} years.`);
+}
+
+const birthYear = 1984;
+
+let century; 
+    if (birthYear <= 2000) {
+        century = 20;
+    } else {
+        century = 21;
+    }
+
+console.log(century);
+
+// const isMale = true;
+// const isFemale = false;
+
+// if (isMale) {
+//     console.log("You are a
