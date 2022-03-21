@@ -35,33 +35,45 @@ const ageJohn = thisYear - 1990;
 
 // console.log("The challenge");
 
-// markHeight = 1.69;
-// markMass = 78;
-// markHeightTall = 1.88;
-// markMassTall = 95;
+markHeight = 1.69;
+markMass = 78;
+markHeightTall = 1.88;
+markMassTall = 95;
 
-// JohnHeight = 1.95;
-// JohnMass = 92;
-// JohnSmallHeight = 1.76;
-// JohnSmallMass = 85;
+JohnHeight = 1.95;
+JohnMass = 92;
+JohnSmallHeight = 1.76;
+JohnSmallMass = 85;
 
-// markBmi = markMass / markHeight ** 2; 
-// johnBMI = JohnMass / (JohnHeight * JohnHeight);
+markBmi = markMass / markHeight ** 2; 
+johnBMI = JohnMass / (JohnHeight * JohnHeight);
 
-// markTallBMI = markMassTall / markHeightTall ** 2;
-// johnTallBMI = JohnMass / (JohnSmallHeight * JohnSmallHeight);
+markTallBMI = markMassTall / markHeightTall ** 2;
+johnTallBMI = JohnMass / (JohnSmallHeight * JohnSmallHeight);
 
-// markTallHigherBMI = markTallBMI > markBmi;
+markTallHigherBMI = markTallBMI > markBmi;
 
-// console.log(markBmi, johnBMI);
+console.log(markBmi, johnBMI);
 
-// console.log(markTallBMI, johnTallBMI);
+console.log(markTallBMI, johnTallBMI);
 
-// markHigherBMI = markBmi > johnBMI;
+markHigherBMI = markBmi > johnBMI;
 
-// console.log(markHigherBMI);
+console.log(markHigherBMI);
 
-// console.log(markTallHigherBMI);
+console.log(markTallHigherBMI);
+
+if (markBmi > johnBMI) {
+    console.log(`Mark's BMI: (${markBmi}) is higher than John's: (${johnBMI}).`);
+} else {
+    console.log(`John's BMI: (${johnBMI}) is higher than Mark's: (${markBmi})`);
+}
+
+if (markTallBMI > johnTallBMI) {
+    console.log(`Tall Mark's BMI: (${markTallBMI}) is higher than John's: (${johnTallBMI})`);
+} else {
+    console.log(`Tall John's BMI: (${johnTallBMI}) is higher than Mark's (${markTallBMI}).`);
+}
 
 // console.log('I want to span \n\
 // several lines\n\
