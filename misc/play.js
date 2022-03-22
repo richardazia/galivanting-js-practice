@@ -1,7 +1,7 @@
-const thisYear = new Date().getFullYear();
+// const thisYear = new Date().getFullYear();
 
-const ageBob = thisYear - 1984;
-const ageJohn = thisYear - 1990;
+// const ageBob = thisYear - 1984;
+// const ageJohn = thisYear - 1990;
 
 // console.log("Bob is " + ageBob + " and John is " + ageJohn);
 
@@ -35,45 +35,45 @@ const ageJohn = thisYear - 1990;
 
 // console.log("The challenge");
 
-markHeight = 1.69;
-markMass = 78;
-markHeightTall = 1.88;
-markMassTall = 95;
+// markHeight = 1.69;
+// markMass = 78;
+// markHeightTall = 1.88;
+// markMassTall = 95;
 
-JohnHeight = 1.95;
-JohnMass = 92;
-JohnSmallHeight = 1.76;
-JohnSmallMass = 85;
+// JohnHeight = 1.95;
+// JohnMass = 92;
+// JohnSmallHeight = 1.76;
+// JohnSmallMass = 85;
 
-markBmi = markMass / markHeight ** 2; 
-johnBMI = JohnMass / (JohnHeight * JohnHeight);
+// markBmi = markMass / markHeight ** 2; 
+// johnBMI = JohnMass / (JohnHeight * JohnHeight);
 
-markTallBMI = markMassTall / markHeightTall ** 2;
-johnTallBMI = JohnMass / (JohnSmallHeight * JohnSmallHeight);
+// markTallBMI = markMassTall / markHeightTall ** 2;
+// johnTallBMI = JohnMass / (JohnSmallHeight * JohnSmallHeight);
 
-markTallHigherBMI = markTallBMI > markBmi;
+// markTallHigherBMI = markTallBMI > markBmi;
 
-console.log(markBmi, johnBMI);
+// console.log(markBmi, johnBMI);
 
-console.log(markTallBMI, johnTallBMI);
+// console.log(markTallBMI, johnTallBMI);
 
-markHigherBMI = markBmi > johnBMI;
+// markHigherBMI = markBmi > johnBMI;
 
-console.log(markHigherBMI);
+// console.log(markHigherBMI);
 
-console.log(markTallHigherBMI);
+// console.log(markTallHigherBMI);
 
-if (markBmi > johnBMI) {
-    console.log(`Mark's BMI: (${markBmi}) is higher than John's: (${johnBMI}).`);
-} else {
-    console.log(`John's BMI: (${johnBMI}) is higher than Mark's: (${markBmi})`);
-}
+// if (markBmi > johnBMI) {
+//     console.log(`Mark's BMI: (${markBmi}) is higher than John's: (${johnBMI}).`);
+// } else {
+//     console.log(`John's BMI: (${johnBMI}) is higher than Mark's: (${markBmi})`);
+// }
 
-if (markTallBMI > johnTallBMI) {
-    console.log(`Tall Mark's BMI: (${markTallBMI}) is higher than John's: (${johnTallBMI})`);
-} else {
-    console.log(`Tall John's BMI: (${johnTallBMI}) is higher than Mark's (${markTallBMI}).`);
-}
+// if (markTallBMI > johnTallBMI) {
+//     console.log(`Tall Mark's BMI: (${markTallBMI}) is higher than John's: (${johnTallBMI})`);
+// } else {
+//     console.log(`Tall John's BMI: (${johnTallBMI}) is higher than Mark's (${markTallBMI}).`);
+// }
 
 // console.log('I want to span \n\
 // several lines\n\
@@ -85,33 +85,60 @@ if (markTallBMI > johnTallBMI) {
 // lines too.`)
 
 // const age = 19;
-const age = 12;
-const isNotTooYoung = age >= 18;
-const timeToWait = 18 - age;
+// const age = 12;
+// const isNotTooYoung = age >= 18;
+// const timeToWait = 18 - age;
 
-if (isNotTooYoung) {
-    console.log("You are not too young for this.");
-}
+// if (isNotTooYoung) {
+//     console.log("You are not too young for this.");
+// }
 
-if (age >= 18) {
-    console.log("You are old enough to vote.");
-} else {
-    console.log(`You are not old enough to vote. You must wait ${timeToWait} years.`);
-}
+// if (age >= 18) {
+//     console.log("You are old enough to vote.");
+// } else {
+//     console.log(`You are not old enough to vote. You must wait ${timeToWait} years.`);
+// }
 
-const birthYear = 1984;
+// const birthYear = 1984;
 
-let century; 
-    if (birthYear <= 2000) {
-        century = 20;
-    } else {
-        century = 21;
-    }
+// let century; 
+//     if (birthYear <= 2000) {
+//         century = 20;
+//     } else {
+//         century = 21;
+//     }
 
-console.log(century);
+// console.log(century);
 
 // const isMale = true;
 // const isFemale = false;
 
 // if (isMale) {
 //     console.log("You are a
+
+//Convert string to Number
+
+const inputYear = '1984';
+console.log(Number(inputYear), inputYear);
+console.log(inputYear + 16);
+console.log(Number(inputYear) + 16);
+
+console.log(typeof inputYear);
+
+console.log(String(42));
+
+console.log(Number('three')); // NaN
+
+// Type Coercion
+
+console.log('I am ' + 20 + ' minutes into the ' + 11 + 'th hour.');
+console.log('I am ' + String(20) + ' minutes into the ' + String(11) + 'th hour.');
+
+console.log('12' + '10' + 4); // 121014
+console.log('23' - '10' - 3); // 10
+console.log('21' * '2'); // 42
+console.log('21' / '2'); // 10.5
+
+let n = '1' + 1; // '11'
+n = n - 1; // '10' because the minus operator turns it into a number so 11 is a number, minus one for ten 
+console.log(n);
