@@ -118,27 +118,40 @@
 
 //Convert string to Number
 
-const inputYear = '1984';
-console.log(Number(inputYear), inputYear);
-console.log(inputYear + 16);
-console.log(Number(inputYear) + 16);
+// const inputYear = '1984';
+// console.log(Number(inputYear), inputYear);
+// console.log(inputYear + 16);
+// console.log(Number(inputYear) + 16);
 
-console.log(typeof inputYear);
+// console.log(typeof inputYear);
 
-console.log(String(42));
+// console.log(String(42));
 
-console.log(Number('three')); // NaN
+// console.log(Number('three')); // NaN
 
-// Type Coercion
+// // Type Coercion
 
-console.log('I am ' + 20 + ' minutes into the ' + 11 + 'th hour.');
-console.log('I am ' + String(20) + ' minutes into the ' + String(11) + 'th hour.');
+// console.log('I am ' + 20 + ' minutes into the ' + 11 + 'th hour.');
+// console.log('I am ' + String(20) + ' minutes into the ' + String(11) + 'th hour.');
 
-console.log('12' + '10' + 4); // 121014
-console.log('23' - '10' - 3); // 10
-console.log('21' * '2'); // 42
-console.log('21' / '2'); // 10.5
+// console.log('12' + '10' + 4); // 121014
+// console.log('23' - '10' - 3); // 10
+// console.log('21' * '2'); // 42
+// console.log('21' / '2'); // 10.5
 
-let n = '1' + 1; // '11'
-n = n - 1; // '10' because the minus operator turns it into a number so 11 is a number, minus one for ten 
-console.log(n);
+// let n = '1' + 1; // '11'
+// n = n - 1; // '10' because the minus operator turns it into a number so 11 is a number, minus one for ten 
+// console.log(n);
+
+console.log(Boolean(0)); // false
+console.log(Boolean(1)); // true
+console.log(Boolean('')); // false
+console.log(Boolean(' ')); // true
+console.log(Boolean({})); // true
+
+const cycleDistance = 0;
+if(cycleDistance !== 0) {
+    console.log(`You are ${cycleDistance}km away from your goal.`);
+} else {
+    console.log("You have not cycled.");
+}
