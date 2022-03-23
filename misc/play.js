@@ -143,15 +143,46 @@
 // n = n - 1; // '10' because the minus operator turns it into a number so 11 is a number, minus one for ten 
 // console.log(n);
 
-console.log(Boolean(0)); // false
-console.log(Boolean(1)); // true
-console.log(Boolean('')); // false
-console.log(Boolean(' ')); // true
-console.log(Boolean({})); // true
+// console.log(Boolean(0)); // false
+// console.log(Boolean(1)); // true
+// console.log(Boolean('')); // false
+// console.log(Boolean(' ')); // true
+// console.log(Boolean({})); // true
 
-const cycleDistance = 0;
-if(cycleDistance !== 0) {
-    console.log(`You are ${cycleDistance}km away from your goal.`);
-} else {
-    console.log("You have not cycled.");
-}
+// const cycleDistance = 0;
+// if(cycleDistance !== 0) {
+//     console.log(`You are ${cycleDistance}km away from your goal.`);
+// } else {
+//     console.log("You have not cycled.");
+// }
+
+
+// const favourite = prompt("What is your favourite colour?");
+
+// console.log(favourite);
+
+// console.log(typeof favourite);
+
+// if (favourite === 'red') {
+//     console.log("Red like A Fiat Barchetta.");
+// }
+
+// const favourite = Number(prompt("What is your favourite number?"));
+// console.log(favourite);
+// console.log(typeof favourite);
+
+// if (favourite === 42) {
+//     console.log(`You have discovered the HitchHiker's Guide to the Galaxy);`);
+// } else if (favourite === 16) {
+//     console.log("Oh to be sweet 16 again.");
+// } else {
+//     console.log("42 and 16 are the two answers I was inspired to write a comment on");
+// }
+
+console.log("playing with logical operators");
+
+var waterPhobia = true;
+var claustrophobia = false;
+
+console.log(waterPhobia && claustrophobia);
+console.log(waterPhobia || claustrophobia);
