@@ -179,25 +179,74 @@
 //     console.log("42 and 16 are the two answers I was inspired to write a comment on");
 // }
 
-console.log("playing with logical operators");
+// console.log("playing with logical operators");
 
-var waterPhobia = true;
-var claustrophobia = true;
-var isExhausted = false;
+// var waterPhobia = true;
+// var claustrophobia = true;
+// var isExhausted = false;
 
-console.log(waterPhobia && claustrophobia);
-console.log(waterPhobia || claustrophobia);
+// console.log(waterPhobia && claustrophobia);
+// console.log(waterPhobia || claustrophobia);
 
-var canScubaDive = waterPhobia && claustrophobia;
+// var canScubaDive = waterPhobia && claustrophobia;
 
-if(canScubaDive) {
-    console.log("You can scuba dive!");
+// if(canScubaDive) {
+//     console.log("You can scuba dive!");
+// } else {
+//     console.log("You can't scuba dive!");
+// }
+
+// if(waterPhobia && claustrophobia && isExhausted) {
+//     console.log("You are not able to scuba dive.");
+// } else { 
+//     console.log("Discuss your concerns with a dive budy or dive master before diving.");
+// }
+
+// Challenge 3. 
+var dolphin = (96 + 108 + 89) / 3;
+// var koalas = (88 + 91 + 110) / 3;
+var koalas = (96 + 108 + 89) / 3;
+console.log(`Challenge 1. 
+            Dolphin score: ${dolphin}, 
+            Koala score: ${koalas}`);
+console.log("Challenge 2. ");
+if (dolphin > koalas) {
+    console.log("The Dolphins win!, Flipper is very happy");
+} else if (dolphin == koalas) {
+    console.log("It's a draw! Exciting to the last second!");
 } else {
-    console.log("You can't scuba dive!");
+    console.log("The Koalas win!, Flipper is very sad");
 }
 
-if(waterPhobia && claustrophobia && isExhausted) {
-    console.log("You are not able to scuba dive.");
-} else { 
-    console.log("Discuss your concerns with a dive budy or dive master before diving.");
+// const dolpinBonusOne = (97+112+101)/3;
+const dolpinBonusTwo = (97+112+101)/3;
+// const dolpinBonusOne = (97+112+101)/2;
+// const dolpinBonusTwo = (97+112+101)/6;
+
+// const koalaBonusOne = (109+95+123)/3;
+const koalaBonusTwo = (109+95+106)/3;
+// const koalaBonusOne = (109+95+123)/3;
+// const koalaBonusTwo = (109+95+106)/6;
+
+// console.log(dolpinBonusOne, dolpinBonusTwo);
+// console.log(koalaBonusOne, koalaBonusTwo);
+
+// if (dolpinBonusOne && koalaBonusOne <= 100) {
+//     console.log("Minimum requirement is not met");
+// } else if (dolpinBonusOne === koalaBonusOne) {
+//     console.log(`The Dolpins equalised with the Koalas by a score of: ${dolpinBonusOne}:${koalaBonusOne}. `);
+// } else if (dolpinBonusOne > koalaBonusOne) {
+//     console.log(`The Dolpins won by a score of: ${dolpinBonusOne} to ${koalaBonusOne}. `);
+// } else {
+//     console.log(`The Koalas won by a score of: ${koalaBonusOne} to ${dolpinBonusOne}. `);
+// }
+
+if (dolpinBonusTwo && koalaBonusTwo <= 100) {
+    console.log("Minimum requirement is not met");
+} else if (dolpinBonusTwo === koalaBonusTwo) {
+    console.log(`The Dolpins equalised with the Koalas by a score of: ${dolpinBonusTwo}:${koalaBonusTwo}. `);
+} else if (dolpinBonusTwo > koalaBonusTwo) {
+    console.log(`The Dolpins won by a score of: ${dolpinBonusTwo} to ${koalaBonusTwo}. `);
+} else {
+    console.log(`The Koalas won by a score of: ${koalaBonusTwo} to ${dolpinBonusTwo}. `);
 }
