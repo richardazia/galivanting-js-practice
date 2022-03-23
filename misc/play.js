@@ -182,7 +182,22 @@
 console.log("playing with logical operators");
 
 var waterPhobia = true;
-var claustrophobia = false;
+var claustrophobia = true;
+var isExhausted = false;
 
 console.log(waterPhobia && claustrophobia);
 console.log(waterPhobia || claustrophobia);
+
+var canScubaDive = waterPhobia && claustrophobia;
+
+if(canScubaDive) {
+    console.log("You can scuba dive!");
+} else {
+    console.log("You can't scuba dive!");
+}
+
+if(waterPhobia && claustrophobia && isExhausted) {
+    console.log("You are not able to scuba dive.");
+} else { 
+    console.log("Discuss your concerns with a dive budy or dive master before diving.");
+}
