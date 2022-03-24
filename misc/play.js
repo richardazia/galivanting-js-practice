@@ -347,12 +347,12 @@ console.log(dive);
 //     Total:  ${bill +(bill * 0.20)}`;
 // console.log(tip);
 
-const bill = 430;
-const tip = bill >50 && bill <=300 ? 
-    `The bill is    ${bill} 
-    + ${(bill * 0.15)} 
-    for a total of  ${bill + (bill * 0.15)}` 
-    : `The bill is  ${bill} + ${(bill * 0.20)} 
-    Total:  ${bill +(bill * 0.20)}`;
-    
-console.log(tip);
+// const bill = 430;
+// const tip = bill >50 && bill <=300 ? 
+//     `The bill is    ${bill} 
+//     + ${(bill * 0.15)} 
+//     for a total of  ${bill + (bill * 0.15)}` 
+//     : `The bill is  ${bill} + ${(bill * 0.20)} 
+//     Total:  ${bill +(bill * 0.20)}`;
+
+// console.log(tip);
