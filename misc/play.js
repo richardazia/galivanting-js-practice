@@ -203,28 +203,28 @@
 // }
 
 // Challenge 3. 
-var dolphin = (96 + 108 + 89) / 3;
-// var koalas = (88 + 91 + 110) / 3;
-var koalas = (96 + 108 + 89) / 3;
-console.log(`Challenge 1. 
-            Dolphin score: ${dolphin}, 
-            Koala score: ${koalas}`);
-console.log("Challenge 2. ");
-if (dolphin > koalas) {
-    console.log("The Dolphins win!, Flipper is very happy");
-} else if (dolphin == koalas) {
-    console.log("It's a draw! Exciting to the last second!");
-} else {
-    console.log("The Koalas win!, Flipper is very sad");
-}
+// var dolphin = (96 + 108 + 89) / 3;
+// // var koalas = (88 + 91 + 110) / 3;
+// var koalas = (96 + 108 + 89) / 3;
+// console.log(`Challenge 1. 
+//             Dolphin score: ${dolphin}, 
+//             Koala score: ${koalas}`);
+// console.log("Challenge 2. ");
+// if (dolphin > koalas) {
+//     console.log("The Dolphins win!, Flipper is very happy");
+// } else if (dolphin == koalas) {
+//     console.log("It's a draw! Exciting to the last second!");
+// } else {
+//     console.log("The Koalas win!, Flipper is very sad");
+// }
 
 // const dolpinBonusOne = (97+112+101)/3;
-const dolpinBonusTwo = (97+112+101)/3;
+// const dolpinBonusTwo = (97+112+101)/3;
 // const dolpinBonusOne = (97+112+101)/2;
 // const dolpinBonusTwo = (97+112+101)/6;
 
 // const koalaBonusOne = (109+95+123)/3;
-const koalaBonusTwo = (109+95+106)/3;
+// const koalaBonusTwo = (109+95+106)/3;
 // const koalaBonusOne = (109+95+123)/3;
 // const koalaBonusTwo = (109+95+106)/6;
 
@@ -241,12 +241,59 @@ const koalaBonusTwo = (109+95+106)/3;
 //     console.log(`The Koalas won by a score of: ${koalaBonusOne} to ${dolpinBonusOne}. `);
 // }
 
-if (dolpinBonusTwo && koalaBonusTwo <= 100) {
-    console.log("Minimum requirement is not met");
-} else if (dolpinBonusTwo === koalaBonusTwo) {
-    console.log(`The Dolpins equalised with the Koalas by a score of: ${dolpinBonusTwo}:${koalaBonusTwo}. `);
-} else if (dolpinBonusTwo > koalaBonusTwo) {
-    console.log(`The Dolpins won by a score of: ${dolpinBonusTwo} to ${koalaBonusTwo}. `);
+// if (dolpinBonusTwo && koalaBonusTwo <= 100) {
+//     console.log("Minimum requirement is not met");
+// } else if (dolpinBonusTwo === koalaBonusTwo) {
+//     console.log(`The Dolpins equalised with the Koalas by a score of: ${dolpinBonusTwo}:${koalaBonusTwo}. `);
+// } else if (dolpinBonusTwo > koalaBonusTwo) {
+//     console.log(`The Dolpins won by a score of: ${dolpinBonusTwo} to ${koalaBonusTwo}. `);
+// } else {
+//     console.log(`The Koalas won by a score of: ${koalaBonusTwo} to ${dolpinBonusTwo}. `);
+// }
+
+const day = 'Birthday';
+
+switch(day) {
+    case 'Monday':
+        console.log('It is Monday');
+        break;
+    case 'Tuesday':
+        console.log('It is Tuesday');
+        break;
+    case 'Wednesday':
+        console.log('Happy Wednesday');
+        break;
+    case 'Thursday':
+        console.log('Happy Thursday');
+        break;
+    case 'Friday':
+        console.log('Happy Friday');
+        break;
+    case 'Saturday':
+    case 'Sunday':
+        console.log('Happy Weekend');
+        break;
+    case 'Birthday':
+        console.log('Happy Birthday');
+    break;
+    default:
+        console.log('It is not a day');
+}
+
+if (day === 'Thursday') {
+    console.log('Happy Thursday');
+} else if (day === 'Friday') {
+    console.log('Happy Friday');
+} else if (day == 'Saturday' || day == 'Sunday') {
+    console.log('Happy Weekend');
+} else if (day === 'Monday') {
+    console.log('It is Monday');
+} else if (day === 'Tuesday') {
+    console.log('It is Tuesday');
+} else if (day === 'Wednesday') {
+    console.log('Happy Hump Day');
+} else if (day === 'Birthday') {
+    console.log('Happy Birthday');
 } else {
-    console.log(`The Koalas won by a score of: ${koalaBonusTwo} to ${dolpinBonusTwo}. `);
+    console.log('It is not a day, or did you forget to capitalise?');
 }
