@@ -251,49 +251,108 @@
 //     console.log(`The Koalas won by a score of: ${koalaBonusTwo} to ${dolpinBonusTwo}. `);
 // }
 
-const day = 'Birthday';
+// const day = 'Birthday';
 
-switch(day) {
-    case 'Monday':
-        console.log('It is Monday');
-        break;
-    case 'Tuesday':
-        console.log('It is Tuesday');
-        break;
-    case 'Wednesday':
-        console.log('Happy Wednesday');
-        break;
-    case 'Thursday':
-        console.log('Happy Thursday');
-        break;
-    case 'Friday':
-        console.log('Happy Friday');
-        break;
-    case 'Saturday':
-    case 'Sunday':
-        console.log('Happy Weekend');
-        break;
-    case 'Birthday':
-        console.log('Happy Birthday');
-    break;
-    default:
-        console.log('It is not a day');
-}
+// switch(day) {
+//     case 'Monday':
+//         console.log('It is Monday');
+//         break;
+//     case 'Tuesday':
+//         console.log('It is Tuesday');
+//         break;
+//     case 'Wednesday':
+//         console.log('Happy Wednesday');
+//         break;
+//     case 'Thursday':
+//         console.log('Happy Thursday');
+//         break;
+//     case 'Friday':
+//         console.log('Happy Friday');
+//         break;
+//     case 'Saturday':
+//     case 'Sunday':
+//         console.log('Happy Weekend');
+//         break;
+//     case 'Birthday':
+//         console.log('Happy Birthday');
+//     break;
+//     default:
+//         console.log('It is not a day');
+// }
 
-if (day === 'Thursday') {
-    console.log('Happy Thursday');
-} else if (day === 'Friday') {
-    console.log('Happy Friday');
-} else if (day == 'Saturday' || day == 'Sunday') {
-    console.log('Happy Weekend');
-} else if (day === 'Monday') {
-    console.log('It is Monday');
-} else if (day === 'Tuesday') {
-    console.log('It is Tuesday');
-} else if (day === 'Wednesday') {
-    console.log('Happy Hump Day');
-} else if (day === 'Birthday') {
-    console.log('Happy Birthday');
-} else {
-    console.log('It is not a day, or did you forget to capitalise?');
-}
+// if (day === 'Thursday') {
+//     console.log('Happy Thursday');
+// } else if (day === 'Friday') {
+//     console.log('Happy Friday');
+// } else if (day == 'Saturday' || day == 'Sunday') {
+//     console.log('Happy Weekend');
+// } else if (day === 'Monday') {
+//     console.log('It is Monday');
+// } else if (day === 'Tuesday') {
+//     console.log('It is Tuesday');
+// } else if (day === 'Wednesday') {
+//     console.log('Happy Hump Day');
+// } else if (day === 'Birthday') {
+//     console.log('Happy Birthday');
+// } else {
+//     console.log('It is not a day, or did you forget to capitalise?');
+// }
+
+// Lesson 28. Ternary operators
+
+const age = 22;
+age >= 9 ? console.log('You are old enough to learn to scuba dive') : console.log('We can go snorkeling');
+
+const dive = age >= 9 ? 'You are old enough to learn to scuba dive' : 'We can go snorkeling';
+console.log(dive);
+
+// Challenge 4
+
+//Steven wants to build a very simple tip calculator for whenever he goes eating in a 
+// restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and 
+// 300. If the value is different, the tip is 20%.
+
+// Your tasks:
+// 1. Calculate the tip, depending on the bill value. Create a variable called 'tip' for 
+// this. It's not allowed to use an if/else statement � (If it's easier for you, you can 
+// start with an if/else statement, and then try to convert it to a ternary 
+// operator!)
+
+// 2. Print a string to the console containing the bill value, the tip, and the final value 
+// (bill + tip). Example: “The bill was 275, the tip was 41.25, and the total value 
+// 316.25”
+// Test data:
+// Data 1: Test for bill values 275, 40 and 430
+// Hints:
+// To calculate 20% of a value, simply multiply it by 20/100 = 0.2
+// Value X is between 50 and 300, if it's >= 50 && <= 300 
+// GOOD LUCK! 
+
+
+// const bill = 275;
+// const tip = bill >50 && bill <=300 ? 
+//     `The bill is    ${bill} 
+//     + ${(bill * 0.15)} 
+//     for a total of  ${bill +(bill * 0.15)}` 
+//     : `The bill is  ${bill} + ${(bill * 0.20)} 
+//     Total:  ${bill +(bill * 0.20)}`;
+// console.log(tip);
+
+// const bill = 40;
+// const tip = bill >50 && bill <=300 ? 
+//     `The bill is    ${bill} 
+//     + ${(bill * 0.15)} 
+//     for a total of  ${bill +(bill * 0.15)}` 
+//     : `The bill is  ${bill} + ${(bill * 0.20)} 
+//     Total:  ${bill +(bill * 0.20)}`;
+// console.log(tip);
+
+const bill = 430;
+const tip = bill >50 && bill <=300 ? 
+    `The bill is    ${bill} 
+    + ${(bill * 0.15)} 
+    for a total of  ${bill + (bill * 0.15)}` 
+    : `The bill is  ${bill} + ${(bill * 0.20)} 
+    Total:  ${bill +(bill * 0.20)}`;
+    
+console.log(tip);
