@@ -37,10 +37,7 @@ fetch("posts_1.json")
      let img = document.createElement("img");
     // Find image URI
     img.src = data[index].media[0].uri;
-    let timeline = document.querySelector("#timeline");
-    timeline.appendChild(img);
-    timeline.appendChild(document.createElement("tagname", postTitle));
-
+    let timeline = document.getElementById("timeline")
     let createPost = document.createElement("div-post");
     timeline.setAttribute("class", "div-post");
     let caption = document.createElement("p");
