@@ -51,3 +51,28 @@ const calcHeight2 = function(peakHeight) {
 const ascent2 = calcHeight2(1677);
 
 console.log(ascent1, ascent2);
+
+// Arrow Functions
+
+const calcHeight3 = peakHeight => peakHeight - 455;
+const ascent3 = calcHeight3(1677);
+console.log(ascent3);
+
+// Needs to be debugged
+// const roadTripRemaining = totalDistance => {
+//     const distanceTravelled = 1300 - totalDistance;
+//     console.log(distanceTravelled)
+//     const tripCompletion = 1300 - distanceTravelled;
+//     console.log(tripCompletion);
+//     return tripCompletion;
+// }
+
+// console.log(roadTripRemaining(800));
+
+const yearsUntilRetirement = birthYear => {
+    const age = 2020 - birthYear;
+    const retirement = 65 - age;
+    return retirement;
+}
+
+console.log(yearsUntilRetirement(1984));
