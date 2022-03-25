@@ -26,17 +26,28 @@
 // const safetyRequirement = viaFerrata(3, 4);
 // console.log(safetyRequirement);
 
-function fruitBlender(mangoes, oranges) {
-    const fruit = `${mangoes} mangoes and ${oranges} oranges are available.`;
-    return fruit;
+// function fruitBlender(mangoes, oranges) {
+//     const fruit = `${mangoes} mangoes and ${oranges} oranges are available.`;
+//     return fruit;
+// }
+
+// const fruitBlend = fruitBlender(3, 4);
+// console.log(fruitBlend);
+
+// const mangoJuice = fruitBlender(5, 0);
+// console.log(mangoJuice);
+// declaration - can be hoisted
+function calcHeight(peakHeight) {
+    return peakHeight - 455;
 }
 
-const fruitBlend = fruitBlender(3, 4);
-console.log(fruitBlend);
+const ascent1 = calcHeight(1677);
 
-const mangoJuice = fruitBlender(5, 0);
-console.log(mangoJuice);
+// Function Expression 
+const calcHeight2 = function(peakHeight) {
+    return peakHeight - 455;
+}
 
+const ascent2 = calcHeight2(1677);
 
-
-
+console.log(ascent1, ascent2);
