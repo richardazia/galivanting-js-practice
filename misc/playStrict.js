@@ -69,12 +69,30 @@ console.log(ascent3);
 
 // console.log(roadTripRemaining(800));
 // Arrow functions.
-const yearsUntilRetirement = (birthYear, firstname) => {
-    const age = 2020 - birthYear;
-    const retirement = 65 - age;
-    // return retirement;
-    console.log(`${firstname} will retire in ${retirement} years.`);
+// const yearsUntilRetirement = (birthYear, firstname) => {
+//     const age = 2020 - birthYear;
+//     const retirement = 65 - age;
+//     // return retirement;
+//     console.log(`${firstname} will retire in ${retirement} years.`);
+// }
+
+// console.log(yearsUntilRetirement(1984, "George"));
+// console.log(yearsUntilRetirement(1981, "Primo"));
+
+function fruitBlender(fruit) {
+    return fruit * 8;
 }
 
-console.log(yearsUntilRetirement(1984, "George"));
-console.log(yearsUntilRetirement(1981, "Primo"));
+function cocktailMaker(apples, pears, oranges, bananas) {
+    // call the function fruitBlender
+    const preparedApples = fruitBlender(apples);
+    const preparedPears = fruitBlender(pears);
+    const preparedOranges = fruitBlender(oranges);
+    const preparedBananas = fruitBlender(bananas);
+
+    const juice = `The Cocktail is made from ${preparedApples} apple pieces, ${preparedPears} pear fragments, ${preparedOranges} orange slices, and ${preparedBananas} sliced banana pieces.`;
+    return juice;
+}
+
+const ready = cocktailMaker(3, 4, 5, 6);
+console.log(ready);
