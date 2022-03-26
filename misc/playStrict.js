@@ -37,26 +37,26 @@
 // const mangoJuice = fruitBlender(5, 0);
 // console.log(mangoJuice);
 // declaration - can be hoisted
-function calcHeight(peakHeight) {
-    return peakHeight - 455;
-}
+// function calcHeight(peakHeight) {
+//     return peakHeight - 455;
+// }
 
-const ascent1 = calcHeight(1677);
+// const ascent1 = calcHeight(1677);
 
-// Function Expression 
-const calcHeight2 = function(peakHeight) {
-    return peakHeight - 455;
-}
+// // Function Expression 
+// const calcHeight2 = function(peakHeight) {
+//     return peakHeight - 455;
+// }
 
-const ascent2 = calcHeight2(1677);
+// const ascent2 = calcHeight2(1677);
 
-console.log(ascent1, ascent2);
+// console.log(ascent1, ascent2);
 
-// Arrow Functions
+// // Arrow Functions
 
-const calcHeight3 = peakHeight => peakHeight - 455;
-const ascent3 = calcHeight3(1677);
-console.log(ascent3);
+// const calcHeight3 = peakHeight => peakHeight - 455;
+// const ascent3 = calcHeight3(1677);
+// console.log(ascent3);
 
 // Needs to be debugged
 // const roadTripRemaining = totalDistance => {
@@ -79,20 +79,42 @@ console.log(ascent3);
 // console.log(yearsUntilRetirement(1984, "George"));
 // console.log(yearsUntilRetirement(1981, "Primo"));
 
-function fruitBlender(fruit) {
-    return fruit * 8;
+// function fruitBlender(fruit) {
+//     return fruit * 8;
+// }
+
+// function cocktailMaker(apples, pears, oranges, bananas) {
+//     // call the function fruitBlender
+//     const preparedApples = fruitBlender(apples);
+//     const preparedPears = fruitBlender(pears);
+//     const preparedOranges = fruitBlender(oranges);
+//     const preparedBananas = fruitBlender(bananas);
+
+//     const juice = `The Cocktail is made from ${preparedApples} apple pieces, ${preparedPears} pear fragments, ${preparedOranges} orange slices, and ${preparedBananas} sliced banana pieces.`;
+//     return juice;
+// }
+
+// const ready = cocktailMaker(3, 4, 5, 6);
+// console.log(ready);
+
+//function review
+
+const findAge = function (birthYear) {
+    return 2040 - birthYear;
 }
 
-function cocktailMaker(apples, pears, oranges, bananas) {
-    // call the function fruitBlender
-    const preparedApples = fruitBlender(apples);
-    const preparedPears = fruitBlender(pears);
-    const preparedOranges = fruitBlender(oranges);
-    const preparedBananas = fruitBlender(bananas);
-
-    const juice = `The Cocktail is made from ${preparedApples} apple pieces, ${preparedPears} pear fragments, ${preparedOranges} orange slices, and ${preparedBananas} sliced banana pieces.`;
-    return juice;
+const yearsUntilFreedom = function (birthYear, nickname) {
+    const age = findAge(birthYear);
+    const liberation = 65 - age;
+    
+    if (liberation > 0) {
+        console.log(`${nickname} has ${liberation} years remaining.`);
+        return liberation;
+    }   else {
+        console.log(`${nickname} is already retired.`);
+        return -1;
+    }
 }
 
-const ready = cocktailMaker(3, 4, 5, 6);
-console.log(ready);
+console.log(yearsUntilFreedom(1984, "George"));
+console.log(yearsUntilFreedom(1906, "Picsou"));
