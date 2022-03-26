@@ -68,11 +68,13 @@ console.log(ascent3);
 // }
 
 // console.log(roadTripRemaining(800));
-
-const yearsUntilRetirement = birthYear => {
+// Arrow functions.
+const yearsUntilRetirement = (birthYear, firstname) => {
     const age = 2020 - birthYear;
     const retirement = 65 - age;
-    return retirement;
+    // return retirement;
+    console.log(`${firstname} will retire in ${retirement} years.`);
 }
 
-console.log(yearsUntilRetirement(1984));
+console.log(yearsUntilRetirement(1984, "George"));
+console.log(yearsUntilRetirement(1981, "Primo"));
