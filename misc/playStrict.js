@@ -131,10 +131,12 @@
 
 // Part 1 
 // 1. Create an arrow function 'calcAverage' to calculate the average of 3 scores
-function calcAverage (score1, score2, score3) {
-    const average = (score1 + score2 + score3) / 3;
-    return average;
-}
+// function calcAverage (score1, score2, score3) {
+//     const average = (score1 + score2 + score3) / 3;
+//     return average;
+// }
+
+const calcAverage = (score1, score2, score3) => (score1 + score2 + score3) / 3;
 
 // 2. Use the function to calculate the average for both teams
 
