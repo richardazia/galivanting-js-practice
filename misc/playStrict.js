@@ -185,24 +185,32 @@ the function you created before
 Test data: 125, 555 and 44
 */
 
-function calcTip (bills) {
-    if (bills < 50) {
-        return bills * 0.15;
-    } else if (bills > 300) {
-        return bills * 0.20;
-    } else {
-        return bills * 0.15;
-    }
-}
+//My solution
+// function calcTip (bills) {
+//     if (bills < 50) {
+//         return bills * 0.15;
+//     } else if (bills > 300) {
+//         return bills * 0.20;
+//     } else {
+//         return bills * 0.15;
+//     }
+// }
 
-function iterator (bills) {
+// Option 2
+// const calcTip = function(bill) {
+//     return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+// }
+// Option 3
+const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
+
+function iterator (bill) {
     const tips = [];
-    for (let i = 0; i < bills.length; i++) {
-        tips.push(calcTip(bills[i]));
+    for (let i = 0; i < bill.length; i++) {
+        tips.push(calcTip(bill[i]));
     }
     const total = [];
-    for (let i = 0; i < bills.length; i++) {
-        total.push(bills[i] + tips[i]);
+    for (let i = 0; i < bill.length; i++) {
+        total.push(bill[i] + tips[i]);
     }
     return [tips, total];
 }
