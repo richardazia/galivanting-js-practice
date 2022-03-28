@@ -222,9 +222,44 @@ Test data: 125, 555 and 44
 
 // Challenge - write a dynamic sentence generator
 
-var firstName = "John";
-var lastName = "Doe";
-var age = 35;
-var friends = ["Jane", "Mark", "Bob"];
+// var firstName = "John";
+// var lastName = "Doe";
+// var age = 35;
+// var friends = ["Jane", "Mark", "Bob"];
 
-console.log (`${firstName}) has ${friends.length} friends, and his best friend is ${friends[0]}.`);
+// console.log (`${firstName}) has ${friends.length} friends, and his best friend is ${friends[0]}.`);
+
+const biggles = {
+    firstName: "Biggles",
+    lastName: "Bigglesworth",
+    birthYear: 1896,
+    job: "pilot",
+    friends: ["Sally", "Sam", "Sue"],
+    hasFlyingAbility: true,
+
+    // calcAge: function(birthYear) {
+    //     return 1914 - birthYear;
+    // }
+
+    // calcAge: function() {
+    //     console.log(this) // returns the entire object
+    //     return 1914 - this.birthYear;
+    // }
+
+    // streamline further
+    calcAge: function() {
+        this.age = 1914 - this.birthYear;
+        return this.age;
+    }
+};
+
+
+// console.log(biggles.calcAge(1900));
+// console.log(biggles['calcAge'](1900));
+console.log(biggles.calcAge());
+console.log(biggles.age);
+console.log(biggles.age);
+console.log(biggles.age);
+console.log(biggles.age);
+
+console.log(`${biggles.firstName} is an ${biggles.age} year old pilot and he can fly.`);
