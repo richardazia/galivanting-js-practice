@@ -290,8 +290,8 @@ const john = {
     },
 }
 
-var johBmi = john.calcBMI();
+var johnBmi = john.calcBMI();
 
-const summary = john.bmi > markBMI ? `${john.firstName} has a higher BMI(${johBmi}) than ${mark.firstName}(${markBMI})` : `${mark.firstName} has a higher BMI(${markBMI}) than ${john.firstName}(${johBmi})`;
+const summary = john.bmi > markBMI ? `${john.firstName} has a higher BMI(${johnBmi}) than ${mark.firstName}(${markBMI})` : `${mark.firstName} has a higher BMI (${markBMI}) than ${john.firstName} (${johnBmi})`;
 
 console.log(summary);
