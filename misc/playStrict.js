@@ -229,38 +229,69 @@ Test data: 125, 555 and 44
 
 // console.log (`${firstName}) has ${friends.length} friends, and his best friend is ${friends[0]}.`);
 
-const biggles = {
-    firstName: "Biggles",
-    lastName: "Bigglesworth",
-    birthYear: 1896,
-    job: "pilot",
-    friends: ["Sally", "Sam", "Sue"],
-    hasFlyingAbility: true,
+// const biggles = {
+//     firstName: "Biggles",
+//     lastName: "Bigglesworth",
+//     birthYear: 1896,
+//     job: "pilot",
+//     friends: ["Sally", "Sam", "Sue"],
+//     hasFlyingAbility: true,
 
-    // calcAge: function(birthYear) {
-    //     return 1914 - birthYear;
-    // }
+//     // calcAge: function(birthYear) {
+//     //     return 1914 - birthYear;
+//     // }
 
-    // calcAge: function() {
-    //     console.log(this) // returns the entire object
-    //     return 1914 - this.birthYear;
-    // }
+//     // calcAge: function() {
+//     //     console.log(this) // returns the entire object
+//     //     return 1914 - this.birthYear;
+//     // }
 
-    // streamline further
-    calcAge: function() {
-        this.age = 1914 - this.birthYear;
-        return this.age;
-    },
+//     // streamline further
+//     calcAge: function() {
+//         this.age = 1914 - this.birthYear;
+//         return this.age;
+//     },
 
-    getSummary: function() {
-        return `${this.firstName} is a ${this.job} who is ${this.age} years old. He ${this.hasFlyingAbility ? 'can': 'cannot'} fly planes.`;
+//     getSummary: function() {
+//         return `${this.firstName} is a ${this.job} who is ${this.age} years old. He ${this.hasFlyingAbility ? 'can': 'cannot'} fly planes.`;
+//     }
+// };
+
+// console.log(biggles.calcAge());
+// console.log(biggles.age);
+// console.log(biggles.age);
+// console.log(biggles.age);
+
+
+// console.log(biggles.getSummary());
+
+const mark = {
+    firstName: "Mark",
+    lastName: "Miller",
+    mass: 78,
+    height: 1.69,
+    calcBMI: function() {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi.toFixed(2);
     }
-};
+}
 
-console.log(biggles.calcAge());
-console.log(biggles.age);
-console.log(biggles.age);
-console.log(biggles.age);
+var markBMI = mark.calcBMI();
+console.log(markBMI);
 
+const john = {
+    firstName: "John",
+    lastName: "Smith",
+    mass: 92,
+    height: 1.95,
+    calcBMI: function() {
+        this.bmi = this.mass / (this.height * this.height);
+        return this.bmi.toFixed(2);
+    },
+}
 
-console.log(biggles.getSummary());
+var johBmi = john.calcBMI();
+
+const summary = john.bmi > markBMI ? `${john.firstName} has a higher BMI(${johBmi}) than ${mark.firstName}(${markBMI})` : `${mark.firstName} has a higher BMI(${markBMI}) than ${john.firstName}(${johBmi})`;
+
+console.log(summary);
