@@ -250,16 +250,17 @@ const biggles = {
     calcAge: function() {
         this.age = 1914 - this.birthYear;
         return this.age;
+    },
+
+    getSummary: function() {
+        return `${this.firstName} is a ${this.job} who is ${this.age} years old. He ${this.hasFlyingAbility ? 'can': 'cannot'} fly planes.`;
     }
 };
 
-
-// console.log(biggles.calcAge(1900));
-// console.log(biggles['calcAge'](1900));
 console.log(biggles.calcAge());
 console.log(biggles.age);
 console.log(biggles.age);
 console.log(biggles.age);
-console.log(biggles.age);
 
-console.log(`${biggles.firstName} is an ${biggles.age} year old pilot and he can fly.`);
+
+console.log(biggles.getSummary());
