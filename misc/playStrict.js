@@ -265,33 +265,47 @@ Test data: 125, 555 and 44
 
 // console.log(biggles.getSummary());
 
-const mark = {
-    firstName: "Mark",
-    lastName: "Miller",
-    mass: 78,
-    height: 1.69,
-    calcBMI: function() {
-        this.bmi = this.mass / (this.height * this.height);
-        return this.bmi.toFixed(2);
-    }
+// const mark = {
+//     firstName: "Mark",
+//     lastName: "Miller",
+//     mass: 78,
+//     height: 1.69,
+//     calcBMI: function() {
+//         this.bmi = this.mass / (this.height * this.height);
+//         return this.bmi.toFixed(2);
+//     }
+// }
+
+// var markBMI = mark.calcBMI();
+// console.log(markBMI);
+
+// const john = {
+//     firstName: "John",
+//     lastName: "Smith",
+//     mass: 92,
+//     height: 1.95,
+//     calcBMI: function() {
+//         this.bmi = this.mass / (this.height * this.height);
+//         return this.bmi.toFixed(2);
+//     },
+// }
+
+// var johnBmi = john.calcBMI();
+
+// const summary = john.bmi > markBMI ? `${john.firstName} has a higher BMI(${johnBmi}) than ${mark.firstName}(${markBMI})` : `${mark.firstName} has a higher BMI (${markBMI}) than ${john.firstName} (${johnBmi})`;
+
+// console.log(summary);
+
+// Joke counter
+
+for (let num = 1; num <= 5; num++) {
+    console.log(`${num} gare`);
 }
 
-var markBMI = mark.calcBMI();
-console.log(markBMI);
+console.log("6 gares = Cigar")
 
-const john = {
-    firstName: "John",
-    lastName: "Smith",
-    mass: 92,
-    height: 1.95,
-    calcBMI: function() {
-        this.bmi = this.mass / (this.height * this.height);
-        return this.bmi.toFixed(2);
-    },
+for (let num = 1; num <= 5; num++) {
+    console.log(`${num} tronc`);
 }
 
-var johnBmi = john.calcBMI();
-
-const summary = john.bmi > markBMI ? `${john.firstName} has a higher BMI(${johnBmi}) than ${mark.firstName}(${markBMI})` : `${mark.firstName} has a higher BMI (${markBMI}) than ${john.firstName} (${johnBmi})`;
-
-console.log(summary);
+console.log("6 troncs = Citrons")
