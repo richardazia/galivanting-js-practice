@@ -298,14 +298,53 @@ Test data: 125, 555 and 44
 
 // Joke counter
 
-for (let num = 1; num <= 5; num++) {
-    console.log(`${num} gare`);
+// for (let num = 1; num <= 5; num++) {
+//     console.log(`${num} gare`);
+// }
+
+// console.log("6 gares = Cigar")
+
+// for (let num = 1; num <= 5; num++) {
+//     console.log(`${num} tronc`);
+// }
+
+// console.log("6 troncs = Citrons")
+
+const bike = [
+    'Genesis',
+    'Equilibrium',
+    2022-2014,
+    'road',
+    ['cycling', 'touring', 'exploration'],
+    true,
+    'https://www.bicycling.com/images/products/genesis-g-series/genesis-g-series-hero-image.jpg',
+];
+
+const types = [];
+console.log(types)
+console.log(' ---- Strings ---- ')
+for (let i = 0; i < bike.length; i++) {
+    if (typeof bike[i] !== 'string') continue;
+    console.log(bike[i], typeof bike[i]);
+
+    types[i] = typeof bike[i];
 }
 
-console.log("6 gares = Cigar")
+console.log("<---- Break ---->")
+for (let i = 0; i < bike.length; i++) {
+    if (typeof bike[i] !== 'string') break;
+    console.log(bike[i], typeof bike[i]);
 
-for (let num = 1; num <= 5; num++) {
-    console.log(`${num} tronc`);
+    types[i] = typeof bike[i];
 }
 
-console.log("6 troncs = Citrons")
+console.log(types)
+
+const cols = [4884, 2670, 1161, 1286];
+const climb = [];
+
+for (let i = 0; i < cols.length; i++) {
+    climb[i] = cols[i] - 484;
+}
+
+console.log(`The cyclist has to climb ${climb} meters`);
