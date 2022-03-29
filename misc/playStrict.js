@@ -348,11 +348,28 @@ Test data: 125, 555 and 44
 // }
 
 // console.log(`The cyclist has to climb ${climb} meters`);
-console.log("The triathlon app.");
-for (let sport = 1; sport < 4; sport++) {
-    console.log(`Starting sport ${sport}`);
-    for (let i = 1; i <= 6; i++) {
-        console.log(`I have covered ${i} kilometres doing sport: ${sport}.`);
-    }
-    console.log(`Ending sport ${sport}`);
-}
+// console.log("The triathlon app.");
+// for (let sport = 1; sport < 4; sport++) {
+//     console.log(`Starting sport ${sport}`);
+//     for (let i = 1; i <= 6; i++) {
+//         console.log(`I have covered ${i} kilometres doing sport: ${sport}.`);
+//     }
+//     console.log(`Ending sport ${sport}`);
+// }
+
+// console.log("While Loop"); 
+// let km = 0; 
+// while (km < 10) {
+//     console.log(`I have covered ${km} km.`);
+//     km++;
+// }
+
+// let dice = Math.trunc(Math.random() * 6) + 1;
+// while (dice !== 6) {
+//     console.log(dice);
+//     dice = Math.trunc(Math.random() * 6) + 1;
+//     if (dice === 6) {
+//         console.log("The fun is over, get back to work!");
+//     }
+// }
+
