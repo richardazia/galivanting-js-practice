@@ -310,41 +310,49 @@ Test data: 125, 555 and 44
 
 // console.log("6 troncs = Citrons")
 
-const bike = [
-    'Genesis',
-    'Equilibrium',
-    2022-2014,
-    'road',
-    ['cycling', 'touring', 'exploration'],
-    true,
-    'https://www.bicycling.com/images/products/genesis-g-series/genesis-g-series-hero-image.jpg',
-];
+// const bike = [
+//     'Genesis',
+//     'Equilibrium',
+//     2022-2014,
+//     'road',
+//     ['cycling', 'touring', 'exploration'],
+//     true,
+//     'https://www.bicycling.com/images/products/genesis-g-series/genesis-g-series-hero-image.jpg',
+// ];
 
-const types = [];
-console.log(types)
-console.log(' ---- Strings ---- ')
-for (let i = 0; i < bike.length; i++) {
-    if (typeof bike[i] !== 'string') continue;
-    console.log(bike[i], typeof bike[i]);
+// const types = [];
+// console.log(types)
+// console.log(' ---- Strings ---- ')
+// for (let i = 0; i < bike.length; i++) {
+//     if (typeof bike[i] !== 'string') continue;
+//     console.log(bike[i], typeof bike[i]);
 
-    types[i] = typeof bike[i];
+//     types[i] = typeof bike[i];
+// }
+
+// console.log("<---- Break ---->")
+// for (let i = 0; i < bike.length; i++) {
+//     if (typeof bike[i] !== 'string') break;
+//     console.log(bike[i], typeof bike[i]);
+
+//     types[i] = typeof bike[i];
+// }
+
+// console.log(types)
+
+// const cols = [4884, 2670, 1161, 1286];
+// const climb = [];
+
+// for (let i = 0; i < cols.length; i++) {
+//     climb[i] = cols[i] - 484;
+// }
+
+// console.log(`The cyclist has to climb ${climb} meters`);
+console.log("The triathlon app.");
+for (let sport = 1; sport < 4; sport++) {
+    console.log(`Starting sport ${sport}`);
+    for (let i = 1; i <= 6; i++) {
+        console.log(`I have covered ${i} kilometres doing sport: ${sport}.`);
+    }
+    console.log(`Ending sport ${sport}`);
 }
-
-console.log("<---- Break ---->")
-for (let i = 0; i < bike.length; i++) {
-    if (typeof bike[i] !== 'string') break;
-    console.log(bike[i], typeof bike[i]);
-
-    types[i] = typeof bike[i];
-}
-
-console.log(types)
-
-const cols = [4884, 2670, 1161, 1286];
-const climb = [];
-
-for (let i = 0; i < cols.length; i++) {
-    climb[i] = cols[i] - 484;
-}
-
-console.log(`The cyclist has to climb ${climb} meters`);
