@@ -378,27 +378,46 @@ Test data: 125, 555 and 44
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
-const arr = [];
-const sum = 0;
 
 const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
 
-function iterator (bill) {
-    const tips = [];
-    for (let i = 0; i < bill.length; i++) {
-        tips.push(calcTip(bill[i]));
-    }
-    const totals = [];
-    for (let i = 0; i < bill.length; i++) {
-        totals.push(bill[i] + tips[i]);
-    }
+// function iterator (bill) {
+//     const tips = [];
+//     for (let i = 0; i < bill.length; i++) {
+//         tips.push(calcTip(bill[i]));
+//     }
+//     const totals = [];
+//     for (let i = 0; i < bill.length; i++) {
+//         totals.push(bill[i] + tips[i]);
+//     }
 
-    let sum = 0;
-    for (let i = 0; i < totals.length; i++) {
-        sum += totals[i];
-    }
-    return  `tips: ${tips}, 
-    total: ${totals},
-    average = ${sum / totals.length};`;
+//     let sum = 0;
+//     for (let i = 0; i < totals.length; i++) {
+//         sum += totals[i];
+//     }
+//     return  `tips: ${tips}, 
+//     total: ${totals},
+//     average = ${sum / totals.length};`;
+// }
+// console.log(iterator(bills));
+
+// Course solution
+for (let i = 0; i < bills.length; i++) {
+    const tip = calcTip(bills[i]);
+    tips.push(tip);
+    totals.push(tip + bills[i]);
 }
-console.log(iterator(bills));
+
+console.log(bills, tips, totals);
+
+const calcAverage = function(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+    }
+    return sum/arr.length;
+}
+
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));
+console.log(calcAverage(bills));
