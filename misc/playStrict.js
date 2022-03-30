@@ -377,18 +377,9 @@ Test data: 125, 555 and 44
 
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
-const total = [];
+const totals = [];
 const arr = [];
 const sum = 0;
-
-function calcAvg(arr) {
-    for (let sum = 0; sum < bills.length; sum++) {
-        sum += arr[sum];
-        console.log("Current sum: " + sum);
-    }
-    console.log("Final average:" + sum); 
-    return sum / arr.length;
-}
 
 const calcTip = bill => bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.20;
 
@@ -397,29 +388,17 @@ function iterator (bill) {
     for (let i = 0; i < bill.length; i++) {
         tips.push(calcTip(bill[i]));
     }
-    const total = [];
+    const totals = [];
     for (let i = 0; i < bill.length; i++) {
-        total.push(bill[i] + tips[i]);
+        totals.push(bill[i] + tips[i]);
     }
 
-    var calcAverage = function calcAvg(arr) {
-        for (let sum = 0; sum < bills.length; sum++) {
-            sum += arr[sum];
-            console.log("Current sum: " + sum);
-        }
-        console.log("Final average:" + sum); 
-        return sum / arr.length;
+    let sum = 0;
+    for (let i = 0; i < totals.length; i++) {
+        sum += totals[i];
     }
-    console.log("Total: " + total);
     return  `tips: ${tips}, 
-    total: ${total}`;
-        
+    total: ${totals},
+    average = ${sum / totals.length};`;
 }
-
-console.log("Ext Total: " + total);
-
 console.log(iterator(bills));
-
-const avgTotal = calcAvg(total); 
-
-console.log(avgTotal);
