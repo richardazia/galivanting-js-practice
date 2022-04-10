@@ -79,10 +79,47 @@
 // 	console.log("Your shopping cart is empty");
 // }
 
-var x = 10;
-let y = 20;
-const z = 30;
+// var x = 10;
+// let y = 20;
+// const z = 30;
 
-console.log(x === window.x); // true
-console.log(y === window.y); // false
-console.log(z === window.z); // false
+// console.log(x === window.x); // true
+// console.log(y === window.y); // false
+// console.log(z === window.z); // false
+
+// Playing with 'this'
+
+// console.log(this);
+
+// const calcAge = function (birthYear) {
+// 	console.log(2022 - birthYear);
+// 	console.log(this);
+// };
+// calcAge(1969);
+
+// arrow function example
+
+// const calcAgeArrow = (birthYear) => {
+// 	console.log(2022 - birthYear);
+// 	console.log(this); // shows the window object
+// };
+// calcAgeArrow(1969);
+
+const twitter = {
+	year: 2006,
+	calcAge: function () {
+		console.log(this);
+		console.log(2022 - this.year);
+	},
+};
+twitter.calcAge();
+
+const picsou = {
+	year: 1948,
+};
+
+picsou.calcAge = twitter.calcAge;
+picsou.calcAge();
+
+const f = twitter.calcAge;
+f();
