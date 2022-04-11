@@ -179,15 +179,37 @@
 // aranet.greet();
 // aranet.calcDioxide();
 // //arguments keyword
-const addExpr = function (a, b) {
-	console.log(arguments);
-	return a + b;
-};
-addExpr(5, 2);
-addExpr(5, 12, 15, 12, 17, 22);
+// const addExpr = function (a, b) {
+// 	console.log(arguments);
+// 	return a + b;
+// };
+// addExpr(5, 2);
+// addExpr(5, 12, 15, 12, 17, 22);
 
-var arrow = (a, b) => {
-	console.log(arguments);
-	return a + b;
+// var arrow = (a, b) => {
+// 	console.log(arguments);
+// 	return a + b;
+// };
+// arrow(5, 2, 3, 4, 5, 6);
+
+let duration = 120;
+let totalDuration = duration;
+duration = 121;
+console.log(duration);
+console.log(totalDuration);
+
+let age = 30;
+let wise = age;
+age = 31;
+console.log(age);
+console.log(wise);
+
+const bee = {
+	name: "Melissa",
+	age: 25,
 };
-arrow(5, 2, 3, 4, 5, 6);
+
+const otherBee = bee;
+otherBee.age = 23;
+console.log("otherBee", otherBee);
+console.log("bee", bee);
