@@ -105,21 +105,89 @@
 // };
 // calcAgeArrow(1969);
 
-const twitter = {
-	year: 2006,
-	calcAge: function () {
-		console.log(this);
-		console.log(2022 - this.year);
-	},
+// const twitter = {
+// 	year: 2006,
+// 	calcAge: function () {
+// 		console.log(this);
+// 		console.log(2022 - this.year);
+// 	},
+// };
+// twitter.calcAge();
+
+// const picsou = {
+// 	year: 1948,
+// };
+
+// picsou.calcAge = twitter.calcAge;
+// picsou.calcAge();
+
+// const f = twitter.calcAge;
+// f();
+
+// 98. Regular functions vs arrows
+
+// const aranet = {
+// 	fullName: "Aranet4",
+// 	year: 2022,
+// 	calcDioxide: function () {
+// 		console.log(this);
+// 		console.log(2037 - this.year);
+// 	},
+// 	// greet: () => console.log(`Hey ${this.fullName}`),
+// 	greet: function () {
+// 		console.log(this);
+// 		console.log(`Hey ${this.fullName}`);
+// 	},
+// };
+// aranet.greet();
+
+// never use an arrow function as a method
+
+// const aranet = {
+// 	fullName: "Aranet4",
+// 	year: 2022,
+// 	calcDioxide: function () {
+// 		console.log(2022 - this.year);
+
+// // Solution 1:
+// const self = this;
+// const isNew = function () {
+// 	console.log(self);
+// 	// console.log(this.year >= 2018 && this.year <= 2023);
+// 	console.log(
+// 		`The product is new: ${self.year >= 2018 && self.year <= 2023}`
+// 	);
+// };
+
+// Solution 2: arrow function
+// 		const isNew = () => {
+// 			console.log(this);
+// 			// console.log(this.year >= 2018 && this.year <= 2023);
+// 			console.log(
+// 				`The product is new: ${this.year >= 2018 && this.year <= 2023}`
+// 			);
+// 		};
+
+// 		isNew();
+// 	},
+// 	// greet: () => console.log(`Hey ${this.fullName}`),
+// 	greet: function () {
+// 		console.log(this);
+// 		console.log(`Hey ${this.fullName}`);
+// 	},
+// };
+// aranet.greet();
+// aranet.calcDioxide();
+// //arguments keyword
+const addExpr = function (a, b) {
+	console.log(arguments);
+	return a + b;
 };
-twitter.calcAge();
+addExpr(5, 2);
+addExpr(5, 12, 15, 12, 17, 22);
 
-const picsou = {
-	year: 1948,
+var arrow = (a, b) => {
+	console.log(arguments);
+	return a + b;
 };
-
-picsou.calcAge = twitter.calcAge;
-picsou.calcAge();
-
-const f = twitter.calcAge;
-f();
+arrow(5, 2, 3, 4, 5, 6);
