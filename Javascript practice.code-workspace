@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "galivanting-scope-practice"
+		"liveServer.settings.multiRootWorkspaceName": "galivanting-scope-practice",
+		"editor.formatOnSave": true
 	}
 }
