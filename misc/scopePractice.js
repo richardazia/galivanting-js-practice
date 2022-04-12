@@ -192,24 +192,54 @@
 // };
 // arrow(5, 2, 3, 4, 5, 6);
 
-let duration = 120;
-let totalDuration = duration;
-duration = 121;
-console.log(duration);
-console.log(totalDuration);
+// let duration = 120;
+// let totalDuration = duration;
+// duration = 121;
+// console.log(duration);
+// console.log(totalDuration);
 
-let age = 30;
-let wise = age;
-age = 31;
-console.log(age);
-console.log(wise);
+// let age = 30;
+// let wise = age;
+// age = 31;
+// console.log(age);
+// console.log(wise);
 
-const bee = {
-	name: "Melissa",
-	age: 25,
+// const bee = {
+// 	name: "Melissa",
+// 	age: 25,
+// };
+
+// const otherBee = bee;
+// otherBee.age = 23;
+// console.log("otherBee", otherBee);
+// console.log("bee", bee);
+
+// Primitives vs Objects part Deux
+// Primitives
+// let lastName = "Rabbit";
+// let oldLastName = lastName;
+// lastName = "Lapin";
+// console.log(lastName, oldLastName);
+// // Reference types
+// const jessica = {
+// 	name: "Jessica",
+// 	lastName: "Rabbit",
+// 	age: 37,
+// };
+
+// const marriedJessica = jessica;
+// marriedJessica.lastName = "Lapin";
+// console.log("Before Marriage: ", jessica);
+// console.log("After Marriage: ", marriedJessica);
+
+const jessica2 = {
+	name: "Jessica",
+	lastName: "Rabbit",
+	age: 37,
 };
 
-const otherBee = bee;
-otherBee.age = 23;
-console.log("otherBee", otherBee);
-console.log("bee", bee);
+// Only creates a shallow copy rather than a deep clone
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = "Lapin";
+console.log("Before Marriage: ", jessica2);
+console.log("After Marriage: ", jessicaCopy);
