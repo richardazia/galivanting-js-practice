@@ -232,14 +232,212 @@
 // console.log("Before Marriage: ", jessica);
 // console.log("After Marriage: ", marriedJessica);
 
-const jessica2 = {
-	name: "Jessica",
-	lastName: "Rabbit",
-	age: 37,
+// const jessica2 = {
+// 	name: "Jessica",
+// 	lastName: "Rabbit",
+// 	age: 37,
+// };
+
+// // Only creates a shallow copy rather than a deep clone
+// const jessicaCopy = Object.assign({}, jessica2);
+// jessicaCopy.lastName = "Lapin";
+// console.log("Before Marriage: ", jessica2);
+// console.log("After Marriage: ", jessicaCopy);
+
+// // 103. Destructuring arrays
+// const arr = [1, 2, 3, 4, 5];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
+// const d = arr[3];
+// const e = arr[4];
+
+// // JavaScript knows how to destructure arrays
+// const [f, g, h, i, j] = arr;
+// console.log(f, g, h, i, j);
+// console.log(arr);
+
+// const climbing = {
+// 	name: "Totem Escalade",
+// 	location: "Gland",
+// 	categories: ["climbing", "indoor", "bouldering", "lessons", "fitness"],
+// 	requirements: ["chalk", "climbing shoes"],
+// 	climbingGrades: ["easy", "moderate", "hard"],
+// 	desire: function (categories, requirements) {
+// 		return [this.requirements[requirements], this.categories[categories]];
+// 	},
+// };
+
+// const [first, , third, fifth] = climbing.categories;
+// console.log(first, third, fifth);
+// console.log(first, third);
+
+// let [main, , secondary] = climbing.categories;
+// console.log(main, secondary);
+
+// // Switching places between main and secondary - option 1
+// // const temp = main;
+// // main = secondary;
+// // secondary = temp;
+// // console.log(main, secondary);
+
+// // Option 2
+// [main, secondary] = [secondary, main];
+// console.log(main, secondary);
+
+// console.log(climbing.desire(1, 0));
+
+// const [requirements, categories] = climbing.desire(1, 0);
+// console.log(requirements, categories);
+
+// const nested = [2, 4, [6, 8]];
+// // const [w, , y] = nested; // shows 2 and the nested array
+// const [w, , [y, z]] = nested;
+// console.log(w, y, z);
+
+// Default values
+// const [s, p, q, r] = ["senatus", "populus", "que"];
+// console.log(s, p, q, r);
+
+const climbing = {
+	name: "Totem Escalade",
+	location: "Gland",
+	categories: ["climbing", "indoor", "bouldering", "lessons", "fitness"],
+	requirements: ["chalk", "climbing shoes"],
+	climbingGrades: ["easy", "moderate", "hard"],
+	snackOption: ["crisps", "chips", "chocolate", "candy", "peanuts"],
+	drinkOption: [
+		"water",
+		"juice",
+		"coke",
+		"coffee",
+		"tea",
+		"hot chocolate",
+		"beer",
+		"wine",
+	],
+	openingHours: {
+		monday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		tuesday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		wednesday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		thursday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		friday: {
+			open: "9:00",
+			close: "22:00",
+		},
+		saturday: {
+			open: "9:00",
+			close: "22:00",
+		},
+		sunday: {
+			open: "9:00",
+			close: "22:00",
+		},
+	},
+
+	desire: function (categories, requirements) {
+		return [this.requirements[requirements], this.categories[categories]];
+	},
+
+	desireDelivery: function ({ snack, drink, time, location }) {
+		console.log(`Ready for delivery at ${time} in ${location}:
+		snack: ${this.snackOption[snack]},
+		drink: ${this.drinkOption[drink]}`);
+	},
+	orderPasta: function (ing1, ing2, ing3) {
+		console.log(
+			`Thank you for ordering the Pasta al ${ing1}, ${ing2} e ${ing3}`
+		);
+	},
 };
 
-// Only creates a shallow copy rather than a deep clone
-const jessicaCopy = Object.assign({}, jessica2);
-jessicaCopy.lastName = "Lapin";
-console.log("Before Marriage: ", jessica2);
-console.log("After Marriage: ", jessicaCopy);
+// climbing.desireDelivery({
+// 	time: "09:30",
+// 	date: "2020-05-01",
+// 	location: "Gland",
+// 	snack: 3,
+// 	drink: 2,
+// });
+
+// const { name, openingHours, categories, requirements } = climbing;
+// console.log(name, openingHours, categories, requirements);
+
+// const {
+// 	name: ClimbingGymName,
+// 	openingHours: hours,
+// 	categories: options,
+// } = climbing;
+// console.log(ClimbingGymName, hours, options);
+
+// // Default values - changing them to what we need, for example to take data from an API and adapt it to our needs
+// const { menu = [], snackOption: snacks = [], drinkOption: drinks } = climbing;
+// console.log(menu, snacks, drinks);
+
+// // Mutating variables
+// let a = 1020;
+// let b = 1930;
+// const obj = { a: 62, b: 32, c: 12 };
+// ({ a, b } = obj);
+// console.log(a, b);
+
+// const {
+// 	friday: { open, close },
+// } = openingHours;
+// console.log(`We are open from ${open} to ${close} on Friday`);
+
+// const { drinkMenu = [], snackOption: snackMenu = [] } = climbing;
+// console.log(`The options are: ${drinkOption},
+// ${snackMenu}`);
+
+// 105. The Spread Operator ...
+
+const arr = [1, 2, 3, 4, 5];
+const badArr = [1, 2, arr[0], arr[1], arr[2], 3, 4, 5];
+const newArr = [...arr];
+
+console.log(badArr);
+console.log(newArr);
+
+// // copy array
+// const mainMenuCopy = [...climbing.menu]; // shallow copy
+
+// // To join two arrays
+
+// const entireMenu = [...climbing.menu, ...climbing.snackOption];
+// console.log(entireMenu);
+
+// Iterables: arrays, strings, maps, sets, typed arrays but not objects
+const str = "Richard";
+let lettersName = [...str, " ", "A."];
+console.log(lettersName);
+
+const str2 = "The Quick Brown fox jumped over the lazy dog";
+let lettersPhrase = [...str2];
+console.log(lettersPhrase);
+
+// const ingredients = [
+// 	prompt("Let's make Pasta with: ingredient 1?"),
+// 	prompt("Ingredient 2?"),
+// 	prompt("Ingredient 3?"),
+// ];
+// console.log(ingredients);
+
+// climbing.orderPasta(...ingredients);
+
+// And now with objects
+const newClimbing = { foundedIn: 2007, ...climbing, owner: "Eiger" };
+console.log(newClimbing);
+
+const climbingShallowCopy = { ...climbing };
