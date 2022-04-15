@@ -475,3 +475,31 @@ add(251, 546, 878, 781, 12, 31);
 
 const addMe = [14, 15, 18, 23, 23, 47, 55, 64, 12, 12];
 add(...addMe);
+
+console.log("(----- OR ------)");
+
+console.log(5 || "Duck");
+console.log("" || "Duck");
+console.log(null || "Duck");
+console.log(undefined || "Duck");
+console.log(undefined || null);
+console.log(true || 0);
+console.log(false || 0);
+console.log(true || false);
+
+// We say that it has short circuited when it has found a truthy value and stopped before the end of the arguments
+
+const climbers = climbing.climbers ? climbing.climbers : 10;
+console.log(climbers);
+
+const squirrels = climbing.climbers || 10;
+console.log(`The Number of Squirrel climbers: ${squirrels}`);
+
+console.log("(----- AND ------)");
+console.log("Duck" && "false");
+console.log("Duck" && "true");
+console.log("Duck" && "null");
+console.log("Duck" && "undefined");
+console.log("Duck" && "0");
+console.log("Duck" && "1");
+console.log("Duck" && "true" && "false");
