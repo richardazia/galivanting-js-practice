@@ -403,12 +403,12 @@ const climbing = {
 
 // 105. The Spread Operator ...
 
-const arr = [1, 2, 3, 4, 5];
-const badArr = [1, 2, arr[0], arr[1], arr[2], 3, 4, 5];
-const newArr = [...arr];
+// const arr = [1, 2, 3, 4, 5];
+// const badArr = [1, 2, arr[0], arr[1], arr[2], 3, 4, 5];
+// const newArr = [...arr];
 
-console.log(badArr);
-console.log(newArr);
+// console.log(badArr);
+// console.log(newArr);
 
 // // copy array
 // const mainMenuCopy = [...climbing.menu]; // shallow copy
@@ -419,13 +419,13 @@ console.log(newArr);
 // console.log(entireMenu);
 
 // Iterables: arrays, strings, maps, sets, typed arrays but not objects
-const str = "Richard";
-let lettersName = [...str, " ", "A."];
-console.log(lettersName);
+// const str = "Richard";
+// let lettersName = [...str, " ", "A."];
+// console.log(lettersName);
 
-const str2 = "The Quick Brown fox jumped over the lazy dog";
-let lettersPhrase = [...str2];
-console.log(lettersPhrase);
+// const str2 = "The Quick Brown fox jumped over the lazy dog";
+// let lettersPhrase = [...str2];
+// console.log(lettersPhrase);
 
 // const ingredients = [
 // 	prompt("Let's make Pasta with: ingredient 1?"),
@@ -437,7 +437,41 @@ console.log(lettersPhrase);
 // climbing.orderPasta(...ingredients);
 
 // And now with objects
-const newClimbing = { foundedIn: 2007, ...climbing, owner: "Eiger" };
-console.log(newClimbing);
+// const newClimbing = { foundedIn: 2007, ...climbing, owner: "Eiger" };
+// console.log(newClimbing);
 
-const climbingShallowCopy = { ...climbing };
+// const climbingShallowCopy = { ...climbing };
+
+// 106. The Rest Operator ...
+// Desctructuring arrays
+const arr = [1, 2, ...[4, 5]];
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [fondue, , raclette, ...otherFood] = [
+	...climbing.snackOption,
+	...climbing.drinkOption,
+];
+console.log(fondue, raclette, otherFood);
+
+// Objects
+
+const { saturday, sunday, ...weekDays } = climbing.openingHours;
+console.log(weekDays);
+
+// Functions
+const add = function (...numbers) {
+	let sum = 0;
+	for (let i = 0; i < numbers.length; i++) {
+		sum += numbers[i];
+	}
+	console.log(sum);
+	return sum;
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+add(251, 546, 878, 781, 12, 31);
+
+const addMe = [14, 15, 18, 23, 23, 47, 55, 64, 12, 12];
+add(...addMe);
