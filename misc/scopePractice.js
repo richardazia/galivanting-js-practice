@@ -444,62 +444,68 @@ const climbing = {
 
 // 106. The Rest Operator ...
 // Desctructuring arrays
-const arr = [1, 2, ...[4, 5]];
-const [a, b, ...others] = [1, 2, 3, 4, 5];
-console.log(a, b, others);
+// const arr = [1, 2, ...[4, 5]];
+// const [a, b, ...others] = [1, 2, 3, 4, 5];
+// console.log(a, b, others);
 
-const [fondue, , raclette, ...otherFood] = [
-	...climbing.snackOption,
-	...climbing.drinkOption,
-];
-console.log(fondue, raclette, otherFood);
+// const [fondue, , raclette, ...otherFood] = [
+// 	...climbing.snackOption,
+// 	...climbing.drinkOption,
+// ];
+// console.log(fondue, raclette, otherFood);
 
-// Objects
+// // Objects
 
-const { saturday, sunday, ...weekDays } = climbing.openingHours;
-console.log(weekDays);
+// const { saturday, sunday, ...weekDays } = climbing.openingHours;
+// console.log(weekDays);
 
-// Functions
-const add = function (...numbers) {
-	let sum = 0;
-	for (let i = 0; i < numbers.length; i++) {
-		sum += numbers[i];
-	}
-	console.log(sum);
-	return sum;
-};
+// // Functions
+// const add = function (...numbers) {
+// 	let sum = 0;
+// 	for (let i = 0; i < numbers.length; i++) {
+// 		sum += numbers[i];
+// 	}
+// 	console.log(sum);
+// 	return sum;
+// };
 
-add(2, 3);
-add(5, 3, 7, 2);
-add(251, 546, 878, 781, 12, 31);
+// add(2, 3);
+// add(5, 3, 7, 2);
+// add(251, 546, 878, 781, 12, 31);
 
-const addMe = [14, 15, 18, 23, 23, 47, 55, 64, 12, 12];
-add(...addMe);
+// const addMe = [14, 15, 18, 23, 23, 47, 55, 64, 12, 12];
+// add(...addMe);
 
-console.log("(----- OR ------)");
+// console.log("(----- OR ------)");
 
-console.log(5 || "Duck");
-console.log("" || "Duck");
-console.log(null || "Duck");
-console.log(undefined || "Duck");
-console.log(undefined || null);
-console.log(true || 0);
-console.log(false || 0);
-console.log(true || false);
+// console.log(5 || "Duck");
+// console.log("" || "Duck");
+// console.log(null || "Duck");
+// console.log(undefined || "Duck");
+// console.log(undefined || null);
+// console.log(true || 0);
+// console.log(false || 0);
+// console.log(true || false);
 
-// We say that it has short circuited when it has found a truthy value and stopped before the end of the arguments
+// // We say that it has short circuited when it has found a truthy value and stopped before the end of the arguments
 
-const climbers = climbing.climbers ? climbing.climbers : 10;
-console.log(climbers);
+// const climbers = climbing.climbers ? climbing.climbers : 10;
+// console.log(climbers);
 
-const squirrels = climbing.climbers || 10;
-console.log(`The Number of Squirrel climbers: ${squirrels}`);
+// const squirrels = climbing.climbers || 10;
+// console.log(`The Number of Squirrel climbers: ${squirrels}`);
 
-console.log("(----- AND ------)");
-console.log("Duck" && "false");
-console.log("Duck" && "true");
-console.log("Duck" && "null");
-console.log("Duck" && "undefined");
-console.log("Duck" && "0");
-console.log("Duck" && "1");
-console.log("Duck" && "true" && "false");
+// console.log("(----- AND ------)");
+// console.log("Duck" && "false");
+// console.log("Duck" && "true");
+// console.log("Duck" && "null");
+// console.log("Duck" && "undefined");
+// console.log("Duck" && "0");
+// console.log("Duck" && "1");
+// console.log("Duck" && "true" && "false");
+
+// // Nullish Coalescing Operator
+
+// let squirrels2 = 0;
+// const squirrelsCorrect = squirrels2 && 10;
+// console.log(squirrelsCorrect);
