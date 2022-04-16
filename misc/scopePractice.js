@@ -363,6 +363,32 @@ const climbing = {
 	},
 };
 
+const climb1 = {
+	name: "Leukerbad",
+	numClimbers: 200,
+};
+
+const climb2 = {
+	name: "Le Moléson",
+	canton: "Fribourg",
+};
+
+// climb1.numClimbers = climb1.numClimbers || 10;
+// climb2.numClimbers = climb2.numClimbers || 10;
+
+// climb1.numClimbers ||= 10;
+// climb2.numClimbers ||= 10;
+// Nullish assignment operator
+climb1.numClimbers ??= 10;
+climb2.numClimbers ??= 10;
+
+// climb2.canton = climb2.canton && "Switzerland";
+
+climb1.canton ??= "Switzerland";
+climb2.canton ??= "Switzerland";
+
+console.log(climb1);
+console.log(climb2);
 // climbing.desireDelivery({
 // 	time: "09:30",
 // 	date: "2020-05-01",
