@@ -56,22 +56,16 @@ function RDP_add_new_fields() {
         ) 
     );
 }
-}
 
 /**
  * Get all the categories for the current post.
  * Make links for each category and string them together.
  * Return string of category links.
- * -- To Do --
- * Get the Previous post ID.
- * The previous post title
- * the previous post link
  */
 function RDP_get_category_links() {
     $categories = get_the_category();
     $separator = ', ';
     $output = '';
-    $prev_post = get_previous_post();
     if ( ! empty( $categories ) ) {
         foreach( $categories as $category ) {
             $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
@@ -80,6 +74,10 @@ function RDP_get_category_links() {
     }
     return $output;
 }
+
+/**
+ * Add previous post info to REST RESPONSE
+ */
 $previous_post = get_previous_post();
 
 function RDP_get_previous_post_ID() {
@@ -91,5 +89,5 @@ function RDP_get_previous_post_title() {
 }
 
 function RDP_get_previous_post_link() {
-    return get_permalink($previous_post->ID);
+    return get_permalink( $previous_post->ID );
 }
