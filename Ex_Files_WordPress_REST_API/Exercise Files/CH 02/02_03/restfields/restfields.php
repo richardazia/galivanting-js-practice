@@ -28,17 +28,50 @@ function RDP_add_new_fields() {
             'schema'          => null,                 // Creates schema for the field.
         ) 
     );
+    register_rest_field( 
+        'post',     // Object(s) the filed is being registered to
+        'previous_post_ID', // Attribute (field) name
+         array(     // Array of arguments
+            'get_callback'    => 'RDP_get_previous_post_ID', // Retrieves the field value.
+            'update_callback' => null,                 // Updates the field value.
+            'schema'          => null,                 // Creates schema for the field.
+        ) 
+    );
+    register_rest_field( 
+        'post',     // Object(s) the filed is being registered to
+        'previous_post_title', // Attribute (field) name
+         array(     // Array of arguments
+            'get_callback'    => 'RDP_get_previous_post_title', // Retrieves the field value.
+            'update_callback' => null,                 // Updates the field value.
+            'schema'          => null,                 // Creates schema for the field.
+        ) 
+    );
+    register_rest_field( 
+        'post',     // Object(s) the filed is being registered to
+        'previous_post_link', // Attribute (field) name
+         array(     // Array of arguments
+            'get_callback'    => 'RDP_get_previous_post_link', // Retrieves the field value.
+            'update_callback' => null,                 // Updates the field value.
+            'schema'          => null,                 // Creates schema for the field.
+        ) 
+    );
+}
 }
 
 /**
  * Get all the categories for the current post.
  * Make links for each category and string them together.
  * Return string of category links.
+ * -- To Do --
+ * Get the Previous post ID.
+ * The previous post title
+ * the previous post link
  */
 function RDP_get_category_links() {
     $categories = get_the_category();
     $separator = ', ';
     $output = '';
+    $prev_post = get_previous_post();
     if ( ! empty( $categories ) ) {
         foreach( $categories as $category ) {
             $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
@@ -46,4 +79,17 @@ function RDP_get_category_links() {
         $output = trim( $output, $separator );
     }
     return $output;
+}
+$previous_post = get_previous_post();
+
+function RDP_get_previous_post_ID() {
+    return $previous_post->ID;
+}
+
+function RDP_get_previous_post_title() {
+    return $previous_post->post_title;
+}
+
+function RDP_get_previous_post_link() {
+    return get_permalink($previous_post->ID);
 }
