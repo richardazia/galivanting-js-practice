@@ -299,96 +299,96 @@
 // const [s, p, q, r] = ["senatus", "populus", "que"];
 // console.log(s, p, q, r);
 
-const climbing = {
-	name: "Totem Escalade",
-	location: "Gland",
-	categories: ["climbing", "indoor", "bouldering", "lessons", "fitness"],
-	requirements: ["chalk", "climbing shoes"],
-	climbingGrades: ["easy", "moderate", "hard"],
-	snackOption: ["crisps", "chips", "chocolate", "candy", "peanuts"],
-	drinkOption: [
-		"water",
-		"juice",
-		"coke",
-		"coffee",
-		"tea",
-		"hot chocolate",
-		"beer",
-		"wine",
-	],
-	openingHours: {
-		monday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		tuesday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		wednesday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		thursday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		friday: {
-			open: "9:00",
-			close: "22:00",
-		},
-		saturday: {
-			open: "9:00",
-			close: "22:00",
-		},
-		sunday: {
-			open: "9:00",
-			close: "22:00",
-		},
-	},
+// const climbing = {
+// 	name: "Totem Escalade",
+// 	location: "Gland",
+// 	categories: ["climbing", "indoor", "bouldering", "lessons", "fitness"],
+// 	requirements: ["chalk", "climbing shoes"],
+// 	climbingGrades: ["easy", "moderate", "hard"],
+// 	snackOption: ["crisps", "chips", "chocolate", "candy", "peanuts"],
+// 	drinkOption: [
+// 		"water",
+// 		"juice",
+// 		"coke",
+// 		"coffee",
+// 		"tea",
+// 		"hot chocolate",
+// 		"beer",
+// 		"wine",
+// 	],
+// 	openingHours: {
+// 		monday: {
+// 			open: "9:00",
+// 			close: "18:00",
+// 		},
+// 		tuesday: {
+// 			open: "9:00",
+// 			close: "18:00",
+// 		},
+// 		wednesday: {
+// 			open: "9:00",
+// 			close: "18:00",
+// 		},
+// 		thursday: {
+// 			open: "9:00",
+// 			close: "18:00",
+// 		},
+// 		friday: {
+// 			open: "9:00",
+// 			close: "22:00",
+// 		},
+// 		saturday: {
+// 			open: "9:00",
+// 			close: "22:00",
+// 		},
+// 		sunday: {
+// 			open: "9:00",
+// 			close: "22:00",
+// 		},
+// 	},
 
-	desire: function (categories, requirements) {
-		return [this.requirements[requirements], this.categories[categories]];
-	},
+// 	desire: function (categories, requirements) {
+// 		return [this.requirements[requirements], this.categories[categories]];
+// 	},
 
-	desireDelivery: function ({ snack, drink, time, location }) {
-		console.log(`Ready for delivery at ${time} in ${location}:
-		snack: ${this.snackOption[snack]},
-		drink: ${this.drinkOption[drink]}`);
-	},
-	orderPasta: function (ing1, ing2, ing3) {
-		console.log(
-			`Thank you for ordering the Pasta al ${ing1}, ${ing2} e ${ing3}`
-		);
-	},
-};
+// 	desireDelivery: function ({ snack, drink, time, location }) {
+// 		console.log(`Ready for delivery at ${time} in ${location}:
+// 		snack: ${this.snackOption[snack]},
+// 		drink: ${this.drinkOption[drink]}`);
+// 	},
+// 	orderPasta: function (ing1, ing2, ing3) {
+// 		console.log(
+// 			`Thank you for ordering the Pasta al ${ing1}, ${ing2} e ${ing3}`
+// 		);
+// 	},
+// };
 
-const climb1 = {
-	name: "Leukerbad",
-	numClimbers: 200,
-};
+// const climb1 = {
+// 	name: "Leukerbad",
+// 	numClimbers: 200,
+// };
 
-const climb2 = {
-	name: "Le Moléson",
-	canton: "Fribourg",
-};
+// const climb2 = {
+// 	name: "Le Moléson",
+// 	canton: "Fribourg",
+// };
 
-// climb1.numClimbers = climb1.numClimbers || 10;
-// climb2.numClimbers = climb2.numClimbers || 10;
+// // climb1.numClimbers = climb1.numClimbers || 10;
+// // climb2.numClimbers = climb2.numClimbers || 10;
 
-// climb1.numClimbers ||= 10;
-// climb2.numClimbers ||= 10;
-// Nullish assignment operator
-climb1.numClimbers ??= 10;
-climb2.numClimbers ??= 10;
+// // climb1.numClimbers ||= 10;
+// // climb2.numClimbers ||= 10;
+// // Nullish assignment operator
+// climb1.numClimbers ??= 10;
+// climb2.numClimbers ??= 10;
 
-// climb2.canton = climb2.canton && "Switzerland";
+// // climb2.canton = climb2.canton && "Switzerland";
 
-climb1.canton ??= "Switzerland";
-climb2.canton ??= "Switzerland";
+// climb1.canton ??= "Switzerland";
+// climb2.canton ??= "Switzerland";
 
-console.log(climb1);
-console.log(climb2);
+// console.log(climb1);
+// console.log(climb2);
 // climbing.desireDelivery({
 // 	time: "09:30",
 // 	date: "2020-05-01",
@@ -535,3 +535,87 @@ console.log(climb2);
 // let squirrels2 = 0;
 // const squirrelsCorrect = squirrels2 && 10;
 // console.log(squirrelsCorrect);
+
+//110. Coding challenge 1
+
+const game = {
+	team1: "Bayern Munich",
+	team2: "Borrussia Dortmund",
+	players: [
+		[
+			"Neuer",
+			"Pavard",
+			"Martinez",
+			"Alaba",
+			"Davies",
+			"Kimmich",
+			"Goretzka",
+			"Coman",
+			"Muller",
+			"Gnarby",
+			"Lewandowski",
+		],
+		[
+			"Burki",
+			"Schulz",
+			"Hummels",
+			"Akanji",
+			"Hakimi",
+			"Weigl",
+			"Witsel",
+			"Hazard",
+			"Brandt",
+			"Sancho",
+			"Gotze",
+		],
+	],
+	score: "4:0",
+	scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+	date: "9th November, 2037",
+	odds: {
+		team1: 1.33,
+		x: 3.25,
+		team2: 6.5,
+	},
+};
+
+let players1 = game.players[0];
+let players2 = game.players[1];
+
+team1GK = players1[0];
+let team1FieldPlayers = [...players1].slice(1, 11);
+team2GK = players2[0];
+let team2FieldPlayers = [...players2].slice(1, 11);
+const allPlayers = [...players1, ...players2];
+const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
+console.log(`Bayern Munchen: ${team1GK}, Borussia Dortmund: ${team2GK}`);
+console.log(team1FieldPlayers);
+console.log(team2FieldPlayers);
+console.log(allPlayers);
+console.log(players1Final);
+
+const gameOdds = game.odds;
+const team1 = gameOdds.team1;
+const draw = gameOdds.x;
+const team2 = gameOdds.team2;
+console.log(
+	`The odds: 
+	Munchen Victory: ${team1}: 
+	Team Draw ${draw}: 
+	Borussia Dortmund wins: ${team2}`
+);
+
+gameScored = game.scored;
+
+const printGoals = function () {
+	for (let i = 0; i < gameScored.length; i++) {
+		console.log(`Goal scored by ${gameScored[i]}`);
+	}
+	console.log(`The Final game score was :${game.score}`);
+};
+
+printGoals();
+
+console.log(team1 < team2 && draw < team2);
+console.log(team2 < team1 && draw < team1);
+console.log(draw < team1 && draw < team2);
