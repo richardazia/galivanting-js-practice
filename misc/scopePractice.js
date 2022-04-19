@@ -538,101 +538,174 @@
 
 //110. Coding challenge 1
 
-const game = {
-	team1: "Bayern Munich",
-	team2: "Borrussia Dortmund",
-	players: [
-		[
-			"Neuer",
-			"Pavard",
-			"Martinez",
-			"Alaba",
-			"Davies",
-			"Kimmich",
-			"Goretzka",
-			"Coman",
-			"Muller",
-			"Gnarby",
-			"Lewandowski",
-		],
-		[
-			"Burki",
-			"Schulz",
-			"Hummels",
-			"Akanji",
-			"Hakimi",
-			"Weigl",
-			"Witsel",
-			"Hazard",
-			"Brandt",
-			"Sancho",
-			"Gotze",
-		],
+// const game = {
+// 	team1: "Bayern Munich",
+// 	team2: "Borrussia Dortmund",
+// 	players: [
+// 		[
+// 			"Neuer",
+// 			"Pavard",
+// 			"Martinez",
+// 			"Alaba",
+// 			"Davies",
+// 			"Kimmich",
+// 			"Goretzka",
+// 			"Coman",
+// 			"Muller",
+// 			"Gnarby",
+// 			"Lewandowski",
+// 		],
+// 		[
+// 			"Burki",
+// 			"Schulz",
+// 			"Hummels",
+// 			"Akanji",
+// 			"Hakimi",
+// 			"Weigl",
+// 			"Witsel",
+// 			"Hazard",
+// 			"Brandt",
+// 			"Sancho",
+// 			"Gotze",
+// 		],
+// 	],
+// 	score: "4:0",
+// 	scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+// 	date: "9th November, 2037",
+// 	odds: {
+// 		team1: 1.33,
+// 		x: 3.25,
+// 		team2: 6.5,
+// 	},
+// };
+
+// // let players1 = game.players[0];
+// // let players2 = game.players[1];
+// const [players1, players2] = game.players;
+
+// // team1GK = players1[0];
+// // let team1FieldPlayers = [...players1].slice(1, 11);
+// // team2GK = players2[0];
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
+// const [gk2, ...FieldPlayers2] = players2;
+
+// // let team2FieldPlayers = [...players2].slice(1, 11);
+// const allPlayers = [...players1, ...players2];
+// const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
+// console.log(`Bayern Munchen: ${gk}, Borussia Dortmund: ${gk2}`);
+// console.log(fieldPlayers);
+// console.log(FieldPlayers2);
+// console.log(allPlayers);
+// console.log(players1Final);
+
+// // const gameOdds = game.odds;
+// // const team1 = gameOdds.team1;
+// // const draw = gameOdds.x;
+// // const team2 = gameOdds.team2;
+// // console.log(
+// // 	`The odds:
+// // 	Munchen Victory: ${team1}:
+// // 	Team Draw ${draw}:
+// // 	Borussia Dortmund wins: ${team2}`
+// // );
+
+// const {
+// 	odds: { team1, x, team2 },
+// } = game;
+// console.log(`The odds:
+// Munchen Victory: ${team1}:
+// Team Draw ${x}:
+// Borussia Dortmund wins: ${team2}`);
+
+// gameScored = game.scored;
+
+// const printGoals = function (...gameScored) {
+// 	console.log(gameScored);
+// 	console.log(`${gameScored.length} goals were scored`);
+// 	// for (let i = 0; i < gameScored.length; i++) {
+// 	// 	console.log(`Goal scored by ${gameScored[i]}`);
+// 	// }
+// };
+
+// printGoals(...gameScored);
+// // 7.
+// team1 < team2 && console.log("Team 1 is most likely to win");
+// team1 > team2 && console.log("Team 2 is most likely to win");
+
+// console.log(team1 < team2 && draw < team2);
+// console.log(team2 < team1 && draw < team1);
+// console.log(draw < team1 && draw < team2);
+
+// The For Of Loop
+
+const climbing = {
+	name: "Totem Escalade",
+	location: "Gland",
+	categories: ["climbing", "indoor", "bouldering", "lessons", "fitness"],
+	requirements: ["chalk", "climbing shoes"],
+	climbingGrades: ["easy", "moderate", "hard"],
+	snackOption: ["crisps", "chips", "chocolate", "candy", "peanuts"],
+	drinkOption: [
+		"water",
+		"juice",
+		"coke",
+		"coffee",
+		"tea",
+		"hot chocolate",
+		"beer",
+		"wine",
 	],
-	score: "4:0",
-	scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-	date: "9th November, 2037",
-	odds: {
-		team1: 1.33,
-		x: 3.25,
-		team2: 6.5,
+	openingHours: {
+		monday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		tuesday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		wednesday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		thursday: {
+			open: "9:00",
+			close: "18:00",
+		},
+		friday: {
+			open: "9:00",
+			close: "22:00",
+		},
+		saturday: {
+			open: "9:00",
+			close: "22:00",
+		},
+		sunday: {
+			open: "9:00",
+			close: "22:00",
+		},
+	},
+
+	desire: function (categories, requirements) {
+		return [this.requirements[requirements], this.categories[categories]];
+	},
+
+	desireDelivery: function ({ snack, drink, time, location }) {
+		console.log(`Ready for delivery at ${time} in ${location}:
+		snack: ${this.snackOption[snack]},
+		drink: ${this.drinkOption[drink]}`);
 	},
 };
 
-// let players1 = game.players[0];
-// let players2 = game.players[1];
-const [players1, players2] = game.players;
+const menu = [...climbing.snackOption, ...climbing.drinkOption];
+for (const item of menu) {
+	console.log(item);
+}
 
-// team1GK = players1[0];
-// let team1FieldPlayers = [...players1].slice(1, 11);
-// team2GK = players2[0];
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
-const [gk2, ...FieldPlayers2] = players2;
+for (const [i, el] of menu.entries()) {
+	// console.log(`${item[0] + 1}: ${item[1]}`);
+	console.log(`${i + 1}: ${el}`);
+}
 
-// let team2FieldPlayers = [...players2].slice(1, 11);
-const allPlayers = [...players1, ...players2];
-const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
-console.log(`Bayern Munchen: ${gk}, Borussia Dortmund: ${gk2}`);
-console.log(fieldPlayers);
-console.log(FieldPlayers2);
-console.log(allPlayers);
-console.log(players1Final);
-
-// const gameOdds = game.odds;
-// const team1 = gameOdds.team1;
-// const draw = gameOdds.x;
-// const team2 = gameOdds.team2;
-// console.log(
-// 	`The odds:
-// 	Munchen Victory: ${team1}:
-// 	Team Draw ${draw}:
-// 	Borussia Dortmund wins: ${team2}`
-// );
-
-const {
-	odds: { team1, x, team2 },
-} = game;
-console.log(`The odds: 
-Munchen Victory: ${team1}: 
-Team Draw ${x}: 
-Borussia Dortmund wins: ${team2}`);
-
-gameScored = game.scored;
-
-const printGoals = function (...gameScored) {
-	console.log(gameScored);
-	console.log(`${gameScored.length} goals were scored`);
-	// for (let i = 0; i < gameScored.length; i++) {
-	// 	console.log(`Goal scored by ${gameScored[i]}`);
-	// }
-};
-
-printGoals(...gameScored);
-// 7.
-team1 < team2 && console.log("Team 1 is most likely to win");
-team1 > team2 && console.log("Team 2 is most likely to win");
-
-console.log(team1 < team2 && draw < team2);
-console.log(team2 < team1 && draw < team1);
-console.log(draw < team1 && draw < team2);
+console.log([...menu.entries()]); // [entries] -> [iterator]
