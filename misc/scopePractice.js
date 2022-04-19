@@ -639,6 +639,47 @@
 
 // The For Of Loop
 
+const weekDays = [
+	"Monday",
+	"Tuesday",
+	"Wednesday",
+	"Thursday",
+	"Friday",
+	"Saturday",
+	"Sunday",
+];
+
+const openingHours = {
+	[weekDays[0]]: {
+		open: "9:00",
+		close: "18:00",
+	},
+	[weekDays[1]]: {
+		open: "9:00",
+		close: "18:00",
+	},
+	[weekDays[2]]: {
+		open: "9:00",
+		close: "18:00",
+	},
+	[weekDays[3]]: {
+		open: "9:00",
+		close: "18:00",
+	},
+	[weekDays[4]]: {
+		open: "9:00",
+		close: "22:00",
+	},
+	[weekDays[5]]: {
+		open: "9:00",
+		close: "22:00",
+	},
+	[weekDays[6]]: {
+		open: "9:00",
+		close: "22:00",
+	},
+};
+
 const climbing = {
 	name: "Totem Escalade",
 	location: "Gland",
@@ -656,42 +697,14 @@ const climbing = {
 		"beer",
 		"wine",
 	],
-	openingHours: {
-		monday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		tuesday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		wednesday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		thursday: {
-			open: "9:00",
-			close: "18:00",
-		},
-		friday: {
-			open: "9:00",
-			close: "22:00",
-		},
-		saturday: {
-			open: "9:00",
-			close: "22:00",
-		},
-		sunday: {
-			open: "9:00",
-			close: "22:00",
-		},
-	},
+	// ES6 Enhanced Object Literals
+	openingHours, // same as openingHours: openingHours
 
-	desire: function (categories, requirements) {
+	desire(categories, requirements) {
 		return [this.requirements[requirements], this.categories[categories]];
 	},
 
-	desireDelivery: function ({ snack, drink, time, location }) {
+	desireDelivery({ snack, drink, time, location }) {
 		console.log(`Ready for delivery at ${time} in ${location}:
 		snack: ${this.snackOption[snack]},
 		drink: ${this.drinkOption[drink]}`);
@@ -709,3 +722,6 @@ for (const [i, el] of menu.entries()) {
 }
 
 console.log([...menu.entries()]); // [entries] -> [iterator]
+
+// Enhanced Object literals
+console.log(climbing);
