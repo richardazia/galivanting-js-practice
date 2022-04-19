@@ -579,42 +579,59 @@ const game = {
 	},
 };
 
-let players1 = game.players[0];
-let players2 = game.players[1];
+// let players1 = game.players[0];
+// let players2 = game.players[1];
+const [players1, players2] = game.players;
 
-team1GK = players1[0];
-let team1FieldPlayers = [...players1].slice(1, 11);
-team2GK = players2[0];
-let team2FieldPlayers = [...players2].slice(1, 11);
+// team1GK = players1[0];
+// let team1FieldPlayers = [...players1].slice(1, 11);
+// team2GK = players2[0];
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+const [gk2, ...FieldPlayers2] = players2;
+
+// let team2FieldPlayers = [...players2].slice(1, 11);
 const allPlayers = [...players1, ...players2];
 const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
-console.log(`Bayern Munchen: ${team1GK}, Borussia Dortmund: ${team2GK}`);
-console.log(team1FieldPlayers);
-console.log(team2FieldPlayers);
+console.log(`Bayern Munchen: ${gk}, Borussia Dortmund: ${gk2}`);
+console.log(fieldPlayers);
+console.log(FieldPlayers2);
 console.log(allPlayers);
 console.log(players1Final);
 
-const gameOdds = game.odds;
-const team1 = gameOdds.team1;
-const draw = gameOdds.x;
-const team2 = gameOdds.team2;
-console.log(
-	`The odds: 
-	Munchen Victory: ${team1}: 
-	Team Draw ${draw}: 
-	Borussia Dortmund wins: ${team2}`
-);
+// const gameOdds = game.odds;
+// const team1 = gameOdds.team1;
+// const draw = gameOdds.x;
+// const team2 = gameOdds.team2;
+// console.log(
+// 	`The odds:
+// 	Munchen Victory: ${team1}:
+// 	Team Draw ${draw}:
+// 	Borussia Dortmund wins: ${team2}`
+// );
+
+const {
+	odds: { team1, x, team2 },
+} = game;
+console.log(`The odds: 
+Munchen Victory: ${team1}: 
+Team Draw ${x}: 
+Borussia Dortmund wins: ${team2}`);
 
 gameScored = game.scored;
 
-const printGoals = function () {
-	for (let i = 0; i < gameScored.length; i++) {
-		console.log(`Goal scored by ${gameScored[i]}`);
-	}
-	console.log(`The Final game score was :${game.score}`);
+const printGoals = function (...gameScored) {
+	console.log(gameScored);
+	console.log(`${gameScored.length} goals were scored`);
+	// for (let i = 0; i < gameScored.length; i++) {
+	// 	console.log(`Goal scored by ${gameScored[i]}`);
+	// }
 };
 
-printGoals();
+printGoals(...gameScored);
+// 7.
+team1 < team2 && console.log("Team 1 is most likely to win");
+team1 > team2 && console.log("Team 2 is most likely to win");
 
 console.log(team1 < team2 && draw < team2);
 console.log(team2 < team1 && draw < team1);
