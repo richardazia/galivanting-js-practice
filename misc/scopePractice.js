@@ -538,104 +538,150 @@
 
 //110. Coding challenge 1
 
-// const game = {
-// 	team1: "Bayern Munich",
-// 	team2: "Borrussia Dortmund",
-// 	players: [
-// 		[
-// 			"Neuer",
-// 			"Pavard",
-// 			"Martinez",
-// 			"Alaba",
-// 			"Davies",
-// 			"Kimmich",
-// 			"Goretzka",
-// 			"Coman",
-// 			"Muller",
-// 			"Gnarby",
-// 			"Lewandowski",
-// 		],
-// 		[
-// 			"Burki",
-// 			"Schulz",
-// 			"Hummels",
-// 			"Akanji",
-// 			"Hakimi",
-// 			"Weigl",
-// 			"Witsel",
-// 			"Hazard",
-// 			"Brandt",
-// 			"Sancho",
-// 			"Gotze",
-// 		],
-// 	],
-// 	score: "4:0",
-// 	scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-// 	date: "9th November, 2037",
-// 	odds: {
-// 		team1: 1.33,
-// 		x: 3.25,
-// 		team2: 6.5,
-// 	},
-// };
+const game = {
+	team1: "Bayern Munich",
+	team2: "Borrussia Dortmund",
+	players: [
+		[
+			"Neuer",
+			"Pavard",
+			"Martinez",
+			"Alaba",
+			"Davies",
+			"Kimmich",
+			"Goretzka",
+			"Coman",
+			"Muller",
+			"Gnarby",
+			"Lewandowski",
+		],
+		[
+			"Burki",
+			"Schulz",
+			"Hummels",
+			"Akanji",
+			"Hakimi",
+			"Weigl",
+			"Witsel",
+			"Hazard",
+			"Brandt",
+			"Sancho",
+			"Gotze",
+		],
+	],
+	score: "4:0",
+	scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+	date: "9th November, 2037",
+	odds: {
+		team1: 1.33,
+		x: 3.25,
+		team2: 6.5,
+	},
+};
 
-// // let players1 = game.players[0];
-// // let players2 = game.players[1];
-// const [players1, players2] = game.players;
+// let players1 = game.players[0];
+// let players2 = game.players[1];
+const [players1, players2] = game.players;
 
-// // team1GK = players1[0];
-// // let team1FieldPlayers = [...players1].slice(1, 11);
-// // team2GK = players2[0];
-// const [gk, ...fieldPlayers] = players1;
-// console.log(gk, fieldPlayers);
-// const [gk2, ...FieldPlayers2] = players2;
+// team1GK = players1[0];
+// let team1FieldPlayers = [...players1].slice(1, 11);
+// team2GK = players2[0];
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+const [gk2, ...FieldPlayers2] = players2;
 
-// // let team2FieldPlayers = [...players2].slice(1, 11);
-// const allPlayers = [...players1, ...players2];
-// const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
-// console.log(`Bayern Munchen: ${gk}, Borussia Dortmund: ${gk2}`);
-// console.log(fieldPlayers);
-// console.log(FieldPlayers2);
-// console.log(allPlayers);
-// console.log(players1Final);
+// let team2FieldPlayers = [...players2].slice(1, 11);
+const allPlayers = [...players1, ...players2];
+const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
+console.log(`Bayern Munchen: ${gk}, Borussia Dortmund: ${gk2}`);
+console.log(fieldPlayers);
+console.log(FieldPlayers2);
+console.log(allPlayers);
+console.log(players1Final);
 
-// // const gameOdds = game.odds;
-// // const team1 = gameOdds.team1;
-// // const draw = gameOdds.x;
-// // const team2 = gameOdds.team2;
-// // console.log(
-// // 	`The odds:
-// // 	Munchen Victory: ${team1}:
-// // 	Team Draw ${draw}:
-// // 	Borussia Dortmund wins: ${team2}`
-// // );
+// const gameOdds = game.odds;
+// const team1 = gameOdds.team1;
+// const draw = gameOdds.x;
+// const team2 = gameOdds.team2;
+// console.log(
+// 	`The odds:
+// 	Munchen Victory: ${team1}:
+// 	Team Draw ${draw}:
+// 	Borussia Dortmund wins: ${team2}`
+// );
 
-// const {
-// 	odds: { team1, x, team2 },
-// } = game;
-// console.log(`The odds:
-// Munchen Victory: ${team1}:
-// Team Draw ${x}:
-// Borussia Dortmund wins: ${team2}`);
+const {
+	odds: { team1, x, team2 },
+} = game;
+console.log(`The odds:
+Munchen Victory: ${team1}:
+Team Draw ${x}:
+Borussia Dortmund wins: ${team2}`);
 
-// gameScored = game.scored;
+gameScored = game.scored;
 
-// const printGoals = function (...gameScored) {
-// 	console.log(gameScored);
-// 	console.log(`${gameScored.length} goals were scored`);
-// 	// for (let i = 0; i < gameScored.length; i++) {
-// 	// 	console.log(`Goal scored by ${gameScored[i]}`);
-// 	// }
-// };
+const printGoals = function (...gameScored) {
+	console.log(gameScored);
+	console.log(`${gameScored.length} goals were scored`);
+	// for (let i = 0; i < gameScored.length; i++) {
+	// 	console.log(`Goal scored by ${gameScored[i]}`);
+	// }
+};
 
-// printGoals(...gameScored);
-// // 7.
-// team1 < team2 && console.log("Team 1 is most likely to win");
-// team1 > team2 && console.log("Team 2 is most likely to win");
+printGoals(...gameScored);
+// 7.
+team1 < team2 && console.log("Team 1 is most likely to win");
+team1 > team2 && console.log("Team 2 is most likely to win");
 
 // console.log(team1 < team2 && draw < team2);
 // console.log(team2 < team1 && draw < team1);
 // console.log(draw < team1 && draw < team2);
+
+// Challenge 2
+// 1.
+const keyGoal = Object.keys(game.scored);
+console.log(keyGoal);
+const playerGoals = Object.values(game.scored);
+console.log(`Goal: ${playerGoals}`);
+
+// Attempt 1
+// let openStr = `Goal ${keyGoal}: ${playerGoals}`;
+// console.log(openStr);
+// for (const playerGoal of playerGoals) {
+// 	openStr += `Goal:${keyGoal} ${playerGoal}`;
+// }
+// Attempt 2
+for (const [keygoal, playerGoal] of Object.entries(game.scored)) {
+	console.log(`Goal ${keygoal}: ${playerGoal}`); // This almost works
+}
+//2. I don't understand the question
+
+//3. Aim: to create a function that will print the game odds
+/* 
+odds of victory: team 1: [odds.team1]
+Odds of draw: [odds.x]
+Odds of victory team2: [odds.team2] 
+*/
+
+const printOdds = function (odds) {
+	console.log(`Odds of victory: ${game.team1}: ${odds.team1}`);
+	console.log(`Odds of draw: ${odds.x}`);
+	console.log(`Odds of victory: ${game.team2}: ${odds.team2}`);
+};
+
+printOdds(game.odds);
+
+// 4.
+/*
+Bonus: Create an object called 'scorers' which contains the names of the
+players who scored as properties, and the number of goals as the value. In this
+game, it will look like this:
+{
+ Gnarby: 1,
+ Hummels: 1,
+ Lewandowski: 2
+}
+*/
 
 // The For Of Loop
 
@@ -711,39 +757,39 @@ const climbing = {
 	},
 };
 
-// Property Names in Object Literals
-const properties = Object.keys(openingHours);
-console.log(properties);
+// // Property Names in Object Literals
+// const properties = Object.keys(openingHours);
+// console.log(properties);
 
-console.log(`We are open ${properties.length} days per week.`);
+// console.log(`We are open ${properties.length} days per week.`);
 
-let openStr = `We are open ${properties.length} days per week:`;
-for (const day of properties) {
-	openStr += `${day} from ${openingHours[day].open} to ${openingHours[day].close}, `;
-}
-console.log(openStr);
+// let openStr = `We are open ${properties.length} days per week:`;
+// for (const day of properties) {
+// 	openStr += `${day} from ${openingHours[day].open} to ${openingHours[day].close}, `;
+// }
+// console.log(openStr);
 
-//Property Values
-const values = Object.values(openingHours);
-console.log(values);
+// //Property Values
+// const values = Object.values(openingHours);
+// console.log(values);
 
-// Entire Object
-const entries = Object.entries(openingHours);
-console.log(entries);
+// // Entire Object
+// const entries = Object.entries(openingHours);
+// console.log(entries);
 
-for (const x of entries) {
-	console.log(x); // Shows the day of the week
-}
+// for (const x of entries) {
+// 	console.log(x); // Shows the day of the week
+// }
 
-// Option 1
-for (const [day, hours] of entries) {
-	console.log(`${day}: ${hours.open} to ${hours.close}`); // // Shows the day of the week and the opening and closing hours
-}
+// // Option 1
+// for (const [day, hours] of entries) {
+// 	console.log(`${day}: ${hours.open} to ${hours.close}`); // // Shows the day of the week and the opening and closing hours
+// }
 
-// Option 2
-for (const [key, { open, close }] of entries) {
-	console.log(`On ${key} we are open from ${open} to ${close}`);
-}
+// // Option 2
+// for (const [key, { open, close }] of entries) {
+// 	console.log(`On ${key} we are open from ${open} to ${close}`);
+// }
 
 // for (const day of properties) {
 // 	console.log(`${day}: ${openingHours[day].open} - ${openingHours[day].close}`);
