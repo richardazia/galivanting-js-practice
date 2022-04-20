@@ -651,31 +651,31 @@ const weekDays = [
 
 const openingHours = {
 	[weekDays[0]]: {
-		open: "9:00",
+		open: "09:00",
 		close: "18:00",
 	},
 	[weekDays[1]]: {
-		open: "9:00",
+		open: "09:00",
 		close: "18:00",
 	},
 	[weekDays[2]]: {
-		open: "9:00",
+		open: "09:00",
 		close: "18:00",
 	},
 	[weekDays[3]]: {
-		open: "9:00",
+		open: "09:00",
 		close: "18:00",
 	},
 	[weekDays[4]]: {
-		open: "9:00",
+		open: "09:00",
 		close: "22:00",
 	},
 	[weekDays[5]]: {
-		open: "9:00",
+		open: "09:00",
 		close: "22:00",
 	},
 	[weekDays[6]]: {
-		open: "9:00",
+		open: "09:00",
 		close: "22:00",
 	},
 };
@@ -711,17 +711,87 @@ const climbing = {
 	},
 };
 
-const menu = [...climbing.snackOption, ...climbing.drinkOption];
-for (const item of menu) {
-	console.log(item);
+// Property Names in Object Literals
+const properties = Object.keys(openingHours);
+console.log(properties);
+
+console.log(`We are open ${properties.length} days per week.`);
+
+let openStr = `We are open ${properties.length} days per week:`;
+for (const day of properties) {
+	openStr += `${day} from ${openingHours[day].open} to ${openingHours[day].close}, `;
+}
+console.log(openStr);
+
+//Property Values
+const values = Object.values(openingHours);
+console.log(values);
+
+// Entire Object
+const entries = Object.entries(openingHours);
+console.log(entries);
+
+for (const x of entries) {
+	console.log(x); // Shows the day of the week
 }
 
-for (const [i, el] of menu.entries()) {
-	// console.log(`${item[0] + 1}: ${item[1]}`);
-	console.log(`${i + 1}: ${el}`);
+// Option 1
+for (const [day, hours] of entries) {
+	console.log(`${day}: ${hours.open} to ${hours.close}`); // // Shows the day of the week and the opening and closing hours
 }
 
-console.log([...menu.entries()]); // [entries] -> [iterator]
+// Option 2
+for (const [key, { open, close }] of entries) {
+	console.log(`On ${key} we are open from ${open} to ${close}`);
+}
 
-// Enhanced Object literals
-console.log(climbing);
+// for (const day of properties) {
+// 	console.log(`${day}: ${openingHours[day].open} - ${openingHours[day].close}`);
+// }
+
+// const menu = [...climbing.snackOption, ...climbing.drinkOption];
+// for (const item of menu) {
+// 	console.log(item);
+// }
+
+// for (const [i, el] of menu.entries()) {
+// 	// console.log(`${item[0] + 1}: ${item[1]}`);
+// 	console.log(`${i + 1}: ${el}`);
+// }
+
+// console.log([...menu.entries()]); // [entries] -> [iterator]
+
+// // Enhanced Object literals
+// console.log(climbing);
+
+// if (climbing.openingHours && climbing.openingHours.monday)
+// 	console.log(climbing.openingHours.monday.open);
+
+// console.log(climbing.openingHours.monday?.open);
+// console.log(climbing.openingHours?.monday?.open);
+
+// const days = [
+// 	"Monday",
+// 	"Tuesday",
+// 	"Wednesday",
+// 	"Thursday",
+// 	"Friday",
+// 	"Saturday",
+// 	"Sunday",
+// ];
+
+// for (const day of days) {
+// 	const open = climbing.openingHours[day]?.open;
+// 	const close = climbing.openingHours[day]?.close;
+// 	console.log(`On ${day} the climbing gym is open from ${open} to ${close}`);
+// }
+
+// // if time = 0 then we can use climbing.openingHours[day]?.open ?? "closed"; to avoid errors
+
+// const users = [
+// 	{ name: "John", email: "john@example.com", fax: "123456789" },
+// 	{ name: "Mary", email: "theOne@trickle.com" },
+// ];
+
+// console.log(users[0]?.email ?? "No email");
+// console.log(users[1]?.fax ?? "No fax ");
