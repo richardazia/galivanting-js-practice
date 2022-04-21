@@ -835,6 +835,47 @@ console.log(
 	]).size
 );
 
+const sites = new Map();
+
+sites.set("name", "Tychodrome");
+sites.set("location", "Neuchatel");
+console.log(sites.set(2, "Echelles De La Mort"));
+
+sites
+	.set("categories", [
+		"climbing",
+		"outdoor",
+		"bouldering",
+		"lessons",
+		"fitness",
+	])
+	.set("season", "summer")
+	.set("price", "free")
+	.set("sunrise", 5)
+	.set("sunset", 19)
+	.set(true, "Climbing during the day is fine")
+	.set(false, "Night is not ideal");
+
+console.log(sites.get("name"));
+console.log(sites.get("categories"));
+console.log(sites.get("season"));
+console.log(sites.get("price"));
+
+const time = 9;
+console.log(
+	sites.get(time > sites.get("sunrise") && time < sites.get("sunset"))
+);
+
+console.log(sites.has("categories"));
+sites.delete(2);
+console.log(sites);
+
+const arr = [5, 6];
+sites.set(arr, "It works");
+sites.set(document.querySelector("h1"), "Heading");
+console.log(sites);
+console.log(sites.size);
+console.log(sites.get(arr));
 // These are not indexed.
 
 // // Property Names in Object Literals
