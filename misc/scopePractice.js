@@ -654,7 +654,24 @@ console.log(`Goal: ${playerGoals}`);
 for (const [keygoal, playerGoal] of Object.entries(game.scored)) {
 	console.log(`Goal ${keygoal}: ${playerGoal}`); // This almost works
 }
-//2. I don't understand the question
+
+// Course solution:
+for (const [i, player] of game.scored.entries())
+	console.log(`Goal ${i + 1}: ${player}`);
+//2.
+// My attempt
+const averageOdds = () => {
+	let average = (team1 + x + team2) / 3;
+	console.log(`The average odds are ${average.toFixed(2)}`);
+};
+averageOdds(team1, x, team2);
+
+//Course solution:
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+average /= odds.length;
+console.log(`The average odds are ${average.toFixed(2)}`);
 
 //3. Aim: to create a function that will print the game odds
 /* 
@@ -662,7 +679,7 @@ odds of victory: team 1: [odds.team1]
 Odds of draw: [odds.x]
 Odds of victory team2: [odds.team2] 
 */
-
+// My solution
 const printOdds = function (odds) {
 	console.log(`Odds of victory: ${game.team1}: ${odds.team1}`);
 	console.log(`Odds of draw: ${odds.x}`);
@@ -670,6 +687,13 @@ const printOdds = function (odds) {
 };
 
 printOdds(game.odds);
+
+//Course solution:
+console.log("Course solution: ");
+for (const [team, odd] of Object.entries(game.odds)) {
+	const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+	console.log(`Odds of ${teamStr} ${odd}`);
+}
 
 // 4.
 /*
