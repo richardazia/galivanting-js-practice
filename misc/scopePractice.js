@@ -1,4 +1,5 @@
 "use-strict";
+
 // Scope Practice
 // function calcAge(birthYear) {
 // 	const age = 2022 - birthYear;
@@ -538,162 +539,162 @@
 
 //110. Coding challenge 1
 
-const game = {
-	team1: "Bayern Munich",
-	team2: "Borrussia Dortmund",
-	players: [
-		[
-			"Neuer",
-			"Pavard",
-			"Martinez",
-			"Alaba",
-			"Davies",
-			"Kimmich",
-			"Goretzka",
-			"Coman",
-			"Muller",
-			"Gnarby",
-			"Lewandowski",
-		],
-		[
-			"Burki",
-			"Schulz",
-			"Hummels",
-			"Akanji",
-			"Hakimi",
-			"Weigl",
-			"Witsel",
-			"Hazard",
-			"Brandt",
-			"Sancho",
-			"Gotze",
-		],
-	],
-	score: "4:0",
-	scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
-	date: "9th November, 2037",
-	odds: {
-		team1: 1.33,
-		x: 3.25,
-		team2: 6.5,
-	},
-};
+// const game = {
+// 	team1: "Bayern Munich",
+// 	team2: "Borrussia Dortmund",
+// 	players: [
+// 		[
+// 			"Neuer",
+// 			"Pavard",
+// 			"Martinez",
+// 			"Alaba",
+// 			"Davies",
+// 			"Kimmich",
+// 			"Goretzka",
+// 			"Coman",
+// 			"Muller",
+// 			"Gnarby",
+// 			"Lewandowski",
+// 		],
+// 		[
+// 			"Burki",
+// 			"Schulz",
+// 			"Hummels",
+// 			"Akanji",
+// 			"Hakimi",
+// 			"Weigl",
+// 			"Witsel",
+// 			"Hazard",
+// 			"Brandt",
+// 			"Sancho",
+// 			"Gotze",
+// 		],
+// 	],
+// 	score: "4:0",
+// 	scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+// 	date: "9th November, 2037",
+// 	odds: {
+// 		team1: 1.33,
+// 		x: 3.25,
+// 		team2: 6.5,
+// 	},
+// };
 
-// let players1 = game.players[0];
-// let players2 = game.players[1];
-const [players1, players2] = game.players;
+// // let players1 = game.players[0];
+// // let players2 = game.players[1];
+// const [players1, players2] = game.players;
 
-// team1GK = players1[0];
-// let team1FieldPlayers = [...players1].slice(1, 11);
-// team2GK = players2[0];
-const [gk, ...fieldPlayers] = players1;
-console.log(gk, fieldPlayers);
-const [gk2, ...FieldPlayers2] = players2;
+// // team1GK = players1[0];
+// // let team1FieldPlayers = [...players1].slice(1, 11);
+// // team2GK = players2[0];
+// const [gk, ...fieldPlayers] = players1;
+// console.log(gk, fieldPlayers);
+// const [gk2, ...FieldPlayers2] = players2;
 
-// let team2FieldPlayers = [...players2].slice(1, 11);
-const allPlayers = [...players1, ...players2];
-const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
-console.log(`Bayern Munchen: ${gk}, Borussia Dortmund: ${gk2}`);
-console.log(fieldPlayers);
-console.log(FieldPlayers2);
-console.log(allPlayers);
-console.log(players1Final);
+// // let team2FieldPlayers = [...players2].slice(1, 11);
+// const allPlayers = [...players1, ...players2];
+// const players1Final = ["Thiago", "Coutinho", "Perisic", ...players1];
+// console.log(`Bayern Munchen: ${gk}, Borussia Dortmund: ${gk2}`);
+// console.log(fieldPlayers);
+// console.log(FieldPlayers2);
+// console.log(allPlayers);
+// console.log(players1Final);
 
-// const gameOdds = game.odds;
-// const team1 = gameOdds.team1;
-// const draw = gameOdds.x;
-// const team2 = gameOdds.team2;
-// console.log(
-// 	`The odds:
-// 	Munchen Victory: ${team1}:
-// 	Team Draw ${draw}:
-// 	Borussia Dortmund wins: ${team2}`
-// );
+// // const gameOdds = game.odds;
+// // const team1 = gameOdds.team1;
+// // const draw = gameOdds.x;
+// // const team2 = gameOdds.team2;
+// // console.log(
+// // 	`The odds:
+// // 	Munchen Victory: ${team1}:
+// // 	Team Draw ${draw}:
+// // 	Borussia Dortmund wins: ${team2}`
+// // );
 
-const {
-	odds: { team1, x, team2 },
-} = game;
-console.log(`The odds:
-Munchen Victory: ${team1}:
-Team Draw ${x}:
-Borussia Dortmund wins: ${team2}`);
+// const {
+// 	odds: { team1, x, team2 },
+// } = game;
+// console.log(`The odds:
+// Munchen Victory: ${team1}:
+// Team Draw ${x}:
+// Borussia Dortmund wins: ${team2}`);
 
-gameScored = game.scored;
+// gameScored = game.scored;
 
-const printGoals = function (...gameScored) {
-	console.log(gameScored);
-	console.log(`${gameScored.length} goals were scored`);
-	// for (let i = 0; i < gameScored.length; i++) {
-	// 	console.log(`Goal scored by ${gameScored[i]}`);
-	// }
-};
+// const printGoals = function (...gameScored) {
+// 	console.log(gameScored);
+// 	console.log(`${gameScored.length} goals were scored`);
+// 	// for (let i = 0; i < gameScored.length; i++) {
+// 	// 	console.log(`Goal scored by ${gameScored[i]}`);
+// 	// }
+// };
 
-printGoals(...gameScored);
-// 7.
-team1 < team2 && console.log("Team 1 is most likely to win");
-team1 > team2 && console.log("Team 2 is most likely to win");
+// printGoals(...gameScored);
+// // 7.
+// team1 < team2 && console.log("Team 1 is most likely to win");
+// team1 > team2 && console.log("Team 2 is most likely to win");
 
-// console.log(team1 < team2 && draw < team2);
-// console.log(team2 < team1 && draw < team1);
-// console.log(draw < team1 && draw < team2);
+// // console.log(team1 < team2 && draw < team2);
+// // console.log(team2 < team1 && draw < team1);
+// // console.log(draw < team1 && draw < team2);
 
-// Challenge 2
-// 1.
-const keyGoal = Object.keys(game.scored);
-console.log(keyGoal);
-const playerGoals = Object.values(game.scored);
-console.log(`Goal: ${playerGoals}`);
+// // Challenge 2
+// // 1.
+// const keyGoal = Object.keys(game.scored);
+// console.log(keyGoal);
+// const playerGoals = Object.values(game.scored);
+// console.log(`Goal: ${playerGoals}`);
 
-// Attempt 1
-// let openStr = `Goal ${keyGoal}: ${playerGoals}`;
-// console.log(openStr);
-// for (const playerGoal of playerGoals) {
-// 	openStr += `Goal:${keyGoal} ${playerGoal}`;
+// // Attempt 1
+// // let openStr = `Goal ${keyGoal}: ${playerGoals}`;
+// // console.log(openStr);
+// // for (const playerGoal of playerGoals) {
+// // 	openStr += `Goal:${keyGoal} ${playerGoal}`;
+// // }
+// // Attempt 2
+// for (const [keygoal, playerGoal] of Object.entries(game.scored)) {
+// 	console.log(`Goal ${keygoal}: ${playerGoal}`); // This almost works
 // }
-// Attempt 2
-for (const [keygoal, playerGoal] of Object.entries(game.scored)) {
-	console.log(`Goal ${keygoal}: ${playerGoal}`); // This almost works
-}
 
-// Course solution:
-for (const [i, player] of game.scored.entries())
-	console.log(`Goal ${i + 1}: ${player}`);
-//2.
-// My attempt
-const averageOdds = () => {
-	let average = (team1 + x + team2) / 3;
-	console.log(`The average odds are ${average.toFixed(2)}`);
-};
-averageOdds(team1, x, team2);
+// // Course solution:
+// for (const [i, player] of game.scored.entries())
+// 	console.log(`Goal ${i + 1}: ${player}`);
+// //2.
+// // My attempt
+// const averageOdds = () => {
+// 	let average = (team1 + x + team2) / 3;
+// 	console.log(`The average odds are ${average.toFixed(2)}`);
+// };
+// averageOdds(team1, x, team2);
 
-//Course solution:
-const odds = Object.values(game.odds);
-let average = 0;
-for (const odd of odds) average += odd;
-average /= odds.length;
-console.log(`The average odds are ${average.toFixed(2)}`);
+// //Course solution:
+// const odds = Object.values(game.odds);
+// let average = 0;
+// for (const odd of odds) average += odd;
+// average /= odds.length;
+// console.log(`The average odds are ${average.toFixed(2)}`);
 
-//3. Aim: to create a function that will print the game odds
-/* 
-odds of victory: team 1: [odds.team1]
-Odds of draw: [odds.x]
-Odds of victory team2: [odds.team2] 
-*/
-// My solution
-const printOdds = function (odds) {
-	console.log(`Odds of victory: ${game.team1}: ${odds.team1}`);
-	console.log(`Odds of draw: ${odds.x}`);
-	console.log(`Odds of victory: ${game.team2}: ${odds.team2}`);
-};
+// //3. Aim: to create a function that will print the game odds
+// /*
+// odds of victory: team 1: [odds.team1]
+// Odds of draw: [odds.x]
+// Odds of victory team2: [odds.team2]
+// */
+// // My solution
+// const printOdds = function (odds) {
+// 	console.log(`Odds of victory: ${game.team1}: ${odds.team1}`);
+// 	console.log(`Odds of draw: ${odds.x}`);
+// 	console.log(`Odds of victory: ${game.team2}: ${odds.team2}`);
+// };
 
-printOdds(game.odds);
+// printOdds(game.odds);
 
-//Course solution:
-console.log("Course solution: ");
-for (const [team, odd] of Object.entries(game.odds)) {
-	const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
-	console.log(`Odds of ${teamStr} ${odd}`);
-}
+// //Course solution:
+// console.log("Course solution: ");
+// for (const [team, odd] of Object.entries(game.odds)) {
+// 	const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+// 	console.log(`Odds of ${teamStr} ${odd}`);
+// }
 
 // 4.
 /*
@@ -780,6 +781,61 @@ const climbing = {
 		drink: ${this.drinkOption[drink]}`);
 	},
 };
+
+// Using Sets
+
+const climbGrade = new Set(["td", "ed", "d", "td", "ed", "d"]);
+console.log(climbGrade);
+
+console.log(new Set("supercalifragiexpialidocious"));
+
+console.log(new Set("The quick brown fox jumped over the lazy dog"));
+
+console.log(climbGrade.size);
+console.log(climbGrade.has("d"));
+console.log(climbGrade.has("td"));
+console.log(climbGrade.has("ve"));
+climbGrade.add("ve");
+climbGrade.add("ve");
+climbGrade.add("ve");
+console.log(climbGrade);
+climbGrade.delete("ve");
+console.log(climbGrade);
+// to clear the set
+// climbGrade.clear();
+
+for (const grade of climbGrade) {
+	console.log(grade);
+}
+
+const members = [
+	"instructor",
+	"climber",
+	"bar staff",
+	"cashier",
+	"cashier",
+	"route setter",
+	"instructor",
+	"cleaner",
+];
+
+const memberSet = [...new Set(members)];
+console.log(memberSet);
+
+console.log(
+	new Set([
+		"instructor",
+		"climber",
+		"bar staff",
+		"cashier",
+		"cashier",
+		"route setter",
+		"instructor",
+		"cleaner",
+	]).size
+);
+
+// These are not indexed.
 
 // // Property Names in Object Literals
 // const properties = Object.keys(openingHours);
