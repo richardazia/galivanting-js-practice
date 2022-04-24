@@ -784,98 +784,141 @@ const climbing = {
 
 // Using Sets
 
-const climbGrade = new Set(["td", "ed", "d", "td", "ed", "d"]);
-console.log(climbGrade);
+// const climbGrade = new Set(["td", "ed", "d", "td", "ed", "d"]);
+// console.log(climbGrade);
 
-console.log(new Set("supercalifragiexpialidocious"));
+// console.log(new Set("supercalifragiexpialidocious"));
 
-console.log(new Set("The quick brown fox jumped over the lazy dog"));
+// console.log(new Set("The quick brown fox jumped over the lazy dog"));
 
-console.log(climbGrade.size);
-console.log(climbGrade.has("d"));
-console.log(climbGrade.has("td"));
-console.log(climbGrade.has("ve"));
-climbGrade.add("ve");
-climbGrade.add("ve");
-climbGrade.add("ve");
-console.log(climbGrade);
-climbGrade.delete("ve");
-console.log(climbGrade);
-// to clear the set
-// climbGrade.clear();
+// console.log(climbGrade.size);
+// console.log(climbGrade.has("d"));
+// console.log(climbGrade.has("td"));
+// console.log(climbGrade.has("ve"));
+// climbGrade.add("ve");
+// climbGrade.add("ve");
+// climbGrade.add("ve");
+// console.log(climbGrade);
+// climbGrade.delete("ve");
+// console.log(climbGrade);
+// // to clear the set
+// // climbGrade.clear();
 
-for (const grade of climbGrade) {
-	console.log(grade);
+// for (const grade of climbGrade) {
+// 	console.log(grade);
+// }
+
+// const members = [
+// 	"instructor",
+// 	"climber",
+// 	"bar staff",
+// 	"cashier",
+// 	"cashier",
+// 	"route setter",
+// 	"instructor",
+// 	"cleaner",
+// ];
+
+// const memberSet = [...new Set(members)];
+// console.log(memberSet);
+
+// console.log(
+// 	new Set([
+// 		"instructor",
+// 		"climber",
+// 		"bar staff",
+// 		"cashier",
+// 		"cashier",
+// 		"route setter",
+// 		"instructor",
+// 		"cleaner",
+// 	]).size
+// );
+
+// const sites = new Map();
+
+// sites.set("name", "Tychodrome");
+// sites.set("location", "Neuchatel");
+// console.log(sites.set(2, "Echelles De La Mort"));
+
+// sites
+// 	.set("categories", [
+// 		"climbing",
+// 		"outdoor",
+// 		"bouldering",
+// 		"lessons",
+// 		"fitness",
+// 	])
+// 	.set("season", "summer")
+// 	.set("price", "free")
+// 	.set("sunrise", 5)
+// 	.set("sunset", 19)
+// 	.set(true, "Climbing during the day is fine")
+// 	.set(false, "Night is not ideal");
+
+// console.log(sites.get("name"));
+// console.log(sites.get("categories"));
+// console.log(sites.get("season"));
+// console.log(sites.get("price"));
+
+// const time = 9;
+// console.log(
+// 	sites.get(time > sites.get("sunrise") && time < sites.get("sunset"))
+// );
+
+// console.log(sites.has("categories"));
+// sites.delete(2);
+// console.log(sites);
+
+// const arr = [5, 6];
+// sites.set(arr, "It works");
+// sites.set(document.querySelector("h1"), "Heading");
+// console.log(sites);
+// console.log(sites.size);
+// console.log(sites.get(arr));
+
+//Maps: Iteration
+
+const question = new Map([
+	["question", "What is the official name of the latest major JS version?"],
+	[1, "ES5"],
+	[2, "ES6"],
+	[3, "ES7"],
+	["correct answer", 3],
+	[
+		true,
+		"Correct! 3 was the right answer. ES7 is the latest major version of JS.",
+	],
+	[false, "Bad luck, 3 is correct. ES7 is the latest major version of JS."],
+]);
+console.log(question);
+// Convert an object to a map
+console.log(Object.entries(openingHours));
+const hoursMap = new Map(Object.entries(openingHours));
+
+console.log(hoursMap);
+
+//Quiz app
+console.log(question.get("question"));
+for (const [key, value] of question) {
+	if (typeof key === "number") {
+		console.log(`Answer ${key}: ${value}`);
+	}
+	// const answer = Number(prompt("Please select the correct answer"));
+	const answer = 3;
+	if (answer === question.get("correct answer")) {
+		console.log(question.get(true));
+	} else {
+		console.log("You chose " + answer, ": " + question.get(false));
+	}
 }
 
-const members = [
-	"instructor",
-	"climber",
-	"bar staff",
-	"cashier",
-	"cashier",
-	"route setter",
-	"instructor",
-	"cleaner",
-];
+// convert map to array
+console.log([...question]);
+console.log(question.entries());
+console.log(question.keys());
+console.log(question.values());
 
-const memberSet = [...new Set(members)];
-console.log(memberSet);
-
-console.log(
-	new Set([
-		"instructor",
-		"climber",
-		"bar staff",
-		"cashier",
-		"cashier",
-		"route setter",
-		"instructor",
-		"cleaner",
-	]).size
-);
-
-const sites = new Map();
-
-sites.set("name", "Tychodrome");
-sites.set("location", "Neuchatel");
-console.log(sites.set(2, "Echelles De La Mort"));
-
-sites
-	.set("categories", [
-		"climbing",
-		"outdoor",
-		"bouldering",
-		"lessons",
-		"fitness",
-	])
-	.set("season", "summer")
-	.set("price", "free")
-	.set("sunrise", 5)
-	.set("sunset", 19)
-	.set(true, "Climbing during the day is fine")
-	.set(false, "Night is not ideal");
-
-console.log(sites.get("name"));
-console.log(sites.get("categories"));
-console.log(sites.get("season"));
-console.log(sites.get("price"));
-
-const time = 9;
-console.log(
-	sites.get(time > sites.get("sunrise") && time < sites.get("sunset"))
-);
-
-console.log(sites.has("categories"));
-sites.delete(2);
-console.log(sites);
-
-const arr = [5, 6];
-sites.set(arr, "It works");
-sites.set(document.querySelector("h1"), "Heading");
-console.log(sites);
-console.log(sites.size);
-console.log(sites.get(arr));
 // These are not indexed.
 
 // // Property Names in Object Literals
