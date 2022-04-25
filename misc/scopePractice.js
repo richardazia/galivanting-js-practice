@@ -878,7 +878,7 @@ const climbing = {
 // console.log(sites.get(arr));
 
 //Maps: Iteration
-
+/*
 const question = new Map([
 	["question", "What is the official name of the latest major JS version?"],
 	[1, "ES5"],
@@ -918,7 +918,7 @@ console.log([...question]);
 console.log(question.entries());
 console.log(question.keys());
 console.log(question.values());
-
+*/
 // These are not indexed.
 
 // // Property Names in Object Literals
@@ -1005,3 +1005,40 @@ console.log(question.values());
 
 // console.log(users[0]?.email ?? "No email");
 // console.log(users[1]?.fax ?? "No fax ");
+
+// Coding Challenge 3
+
+const gameEvents = new Map([
+	[17, "Goal"],
+	[36, "Substitution"],
+	[47, "Goal"],
+	[61, "Substitution"],
+	[64, "Yellow card"],
+	[69, "Red card"],
+	[70, "Substitution"],
+	[72, "Substitution"],
+	[76, "Goal"],
+	[80, "Goal"],
+	[92, "Yellow card"],
+]);
+
+// 1. Create an events array (no duplicates)
+
+// const eventsArray = gameEvents.values(); // [Goal, Substitution, Goal, Substitution, Yellow Card, Red Card, Substitution, Substitution, Goal, Goal, Yellow Card]
+// console.log(eventsArray); // Not quite what I want.
+
+// const eventsArray = [...gameEvents.values()];
+// console.log(eventsArray);
+
+const eventsArray = [...new Set(gameEvents.values())];
+console.log("Events array: " + eventsArray);
+
+// 2. Remove yellow card from minute 64
+console.log(gameEvents.delete(64) + ": event at minute 64 was removed"); // true
+
+// 3. Compute and log the following string "An event happened, on average, every 9 minutes"
+console.log(
+	`An event happened on average every ${92 / gameEvents.size} minutes`
+);
+
+// 4. Loop through events and mark whether they are in the first or second half.
