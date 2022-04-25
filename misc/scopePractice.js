@@ -1042,3 +1042,12 @@ console.log(
 );
 
 // 4. Loop through events and mark whether they are in the first or second half.
+// The first half is from 0 to 45 and the second half is from 45 to 90.
+
+for (const [minute, event] of gameEvents) {
+	if (minute < 45) {
+		console.log(`[First half]:  ${minute}: ${event} `);
+	} else {
+		console.log(`[Second half]: ${minute}: ${event} in `);
+	}
+}
