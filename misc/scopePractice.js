@@ -1007,7 +1007,7 @@ console.log(question.values());
 // console.log(users[1]?.fax ?? "No fax ");
 
 // Coding Challenge 3
-
+/*
 const gameEvents = new Map([
 	[17, "Goal"],
 	[36, "Substitution"],
@@ -1021,7 +1021,7 @@ const gameEvents = new Map([
 	[80, "Goal"],
 	[92, "Yellow card"],
 ]);
-
+*/
 // 1. Create an events array (no duplicates)
 
 // const eventsArray = gameEvents.values(); // [Goal, Substitution, Goal, Substitution, Yellow Card, Red Card, Substitution, Substitution, Goal, Goal, Yellow Card]
@@ -1029,7 +1029,7 @@ const gameEvents = new Map([
 
 // const eventsArray = [...gameEvents.values()];
 // console.log(eventsArray);
-
+/*
 const eventsArray = [...new Set(gameEvents.values())];
 console.log("Events array: " + eventsArray);
 
@@ -1040,10 +1040,18 @@ console.log(gameEvents.delete(64) + ": event at minute 64 was removed"); // true
 console.log(
 	`An event happened on average every ${92 / gameEvents.size} minutes`
 );
+const time = [...gameEvents.keys()].pop(); // Don't forget to write () after pop
+console.log("Game duration: " + time);
+console.log(
+	`An event happened on average every ${time / gameEvents.size} minutes`
+);
+
+//The part I struggled with.
 
 // 4. Loop through events and mark whether they are in the first or second half.
 // The first half is from 0 to 45 and the second half is from 45 to 90.
-
+/*
+// My code
 for (const [minute, event] of gameEvents) {
 	if (minute < 45) {
 		console.log(`[First half]:  ${minute}: ${event} `);
@@ -1051,3 +1059,58 @@ for (const [minute, event] of gameEvents) {
 		console.log(`[Second half]: ${minute}: ${event} in `);
 	}
 }
+*/
+/*
+// Course version
+for (const [min, event] of gameEvents) {
+	const half = min <= 45 ? "First" : "Second";
+	console.log(`[${half} half]: ${min}: ${event}`);
+}
+*/
+
+// Working With Strings: Part 1
+
+const airline = "LH Lufthansa Airline";
+const flightNumber = "LH1234";
+const aircraft = "Airbus A320";
+
+console.log(aircraft[0]);
+console.log(aircraft[1]);
+console.log(aircraft[2]);
+console.log(aircraft[3]);
+console.log(aircraft[4]);
+console.log(aircraft[5]);
+console.log(aircraft.indexOf("A"));
+console.log(aircraft.indexOf("A", 1));
+console.log(aircraft.lastIndexOf("A"));
+console.log(aircraft.slice(3, 7));
+console.log(aircraft.slice(0, -4));
+console.log(airline.slice(0, airline.indexOf(" ")));
+console.log(airline.slice(airline.indexOf(" ") + 1));
+console.log(airline.lastIndexOf(" "));
+console.log(airline.slice(1, -1));
+
+const checkMiddleSeat = function (seat) {
+	const s = seat.slice(-1);
+	if (s === "A" || s === "F") {
+		console.log("You got a window seat!");
+	} else if (s === "B" || s === "E") {
+		console.log("Bad luck, You got a middle seat!");
+	} else if (s === "C" || s === "D") {
+		console.log("You got an aisle seat!");
+	}
+};
+
+checkMiddleSeat("12A");
+checkMiddleSeat("15C");
+checkMiddleSeat("15A");
+checkMiddleSeat("15F");
+checkMiddleSeat("17B");
+checkMiddleSeat("19F");
+
+// Behind the scenes: What JS is doing.
+
+console.log(new String("I am a simple string"));
+console.log(typeof new String("I am a simple string"));
+
+//strings are turned into objects
