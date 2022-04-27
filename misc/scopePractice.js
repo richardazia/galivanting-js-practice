@@ -1114,3 +1114,69 @@ console.log(new String("I am a simple string"));
 console.log(typeof new String("I am a simple string"));
 
 //strings are turned into objects
+
+// Fix upper and lower case
+const passenger = "PyTHaGoRas";
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+	passengerLower.charAt(0).toUpperCase() + passengerLower.slice(1);
+console.log(passengerCorrect);
+
+// Option 2:
+const PassengerAlsoCorrect =
+	passengerLower[0].toUpperCase() + passengerLower.slice(1);
+console.log(PassengerAlsoCorrect);
+
+const email = "thequickduck@duck.io";
+const messyeMail = "   TheQUickDuck@DucK.Io   ";
+
+// const lowerEmail = messyeMail.toLowerCase();
+// const trimEmail = lowerEmail.trim();
+const normaliseEmail = messyeMail.trim().toLowerCase();
+console.log(normaliseEmail);
+
+const priceGB = "£12,99";
+console.log(priceGB);
+const priceCHF = priceGB.replace("£", "CHF ").replace(",", ".");
+console.log(priceCHF);
+
+const announcement =
+	"Hello this is atchooooom, iceman, please confirm when the brakes are set and the aircraft is configured for deicing, please also advise on the treatment required.";
+
+console.log(announcement.replace("atchooooom", "Deicer"));
+
+const mindTheGap =
+	"please mind the rat between the train and the platform when getting off the train, please mind the rat";
+
+console.log(mindTheGap.replaceAll("rat", "gap"));
+
+//Booleans
+const tractor = "Lamborghini";
+console.log(tractor.includes("ghini"));
+console.log(tractor.includes("Fer"));
+console.log(tractor.includes("rari"));
+console.log(tractor.includes("bor"));
+console.log(tractor.startsWith("Lamb"));
+
+const checkCabinBaggage = function (items) {
+	if (
+		items.includes("suitcase") ||
+		items.includes("tricycle") ||
+		items.includes("katana") ||
+		items.includes("sword") ||
+		items.includes("stinkbomb")
+	) {
+		console.log("You need to check your baggage for the hold");
+	} else {
+		console.log("You can carry on");
+	}
+};
+
+checkCabinBaggage("I have a stinkbomb and a katana");
+checkCabinBaggage("I have a sword and a tricycle");
+checkCabinBaggage("I have a katana and a tricycle");
+checkCabinBaggage("I have a katana and a sword");
+checkCabinBaggage("I have a katana and a sword and a tricycle");
+checkCabinBaggage("I have a katana and a tricycle and a suitcase");
+checkCabinBaggage("I have a laptop and some sandwhiches");
+checkCabinBaggage("I have a reason to live, and some flamingoes");
