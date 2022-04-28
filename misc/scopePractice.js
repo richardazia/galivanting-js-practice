@@ -1286,16 +1286,26 @@ const variableNames = [
 	"   delayed_departure",
 ];
 document.getElementsByTagName("textarea")[0].value = variableNames.join("\n");
-// First version
 
-variableNames.forEach((variableName) => {
-	const splitWords = variableName.split("_");
-	const capitaliseWords = [];
-	let n = 0;
-	for (const word of splitWords) {
-		capitaliseWords.push(word[0].toUpperCase() + word.slice(1));
-	}
-	const joinedWords =
-		capitaliseWords[0].toLowerCase() + capitaliseWords.slice(1).join("") + "✅";
-	console.log(joinedWords);
-});
+const cleanWords = function () {
+	addEventListener("click", () => {
+		const variableNames = document
+			.getElementsByTagName("textarea")[0]
+			.value.split("\n");
+		variableNames.forEach((variableName) => {
+			const splitWords = variableName.trim().toLowerCase().split("_");
+			const capitaliseWords = [];
+			let n = 0;
+			for (const word of splitWords) {
+				capitaliseWords.push(word[0].toUpperCase() + word.slice(1));
+			}
+			let joinedWords =
+				capitaliseWords[0].toLowerCase() +
+				capitaliseWords.slice(1).join("") +
+				"✅";
+			console.log(joinedWords);
+		});
+	});
+};
+
+cleanWords();
