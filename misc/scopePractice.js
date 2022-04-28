@@ -1069,7 +1069,7 @@ for (const [min, event] of gameEvents) {
 */
 
 // Working With Strings: Part 1
-
+/*
 const airline = "LH Lufthansa Airline";
 const flightNumber = "LH1234";
 const aircraft = "Airbus A320";
@@ -1180,3 +1180,94 @@ checkCabinBaggage("I have a katana and a sword and a tricycle");
 checkCabinBaggage("I have a katana and a tricycle and a suitcase");
 checkCabinBaggage("I have a laptop and some sandwhiches");
 checkCabinBaggage("I have a reason to live, and some flamingoes");
+*/
+/*
+// Split and Join
+console.log("the+quick+brown+fox+jumps+over+the+lazy+dog".split("+"));
+console.log("The flying goose, comes mainly from the north".split(" "));
+const [firstName, LastName] = "Winston Churchill".split(" ");
+console.log(firstName);
+console.log(LastName);
+const newName = ["Sir", firstName, LastName].join(" ");
+console.log(newName);
+
+const capitaliseName = function (name) {
+	const names = name.split(" ");
+	const namesUppper = [];
+
+	for (const n of names) {
+		namesUppper.push(n[0].toUpperCase() + n.slice(1));
+	}
+	console.log(namesUppper.join(" "));
+};
+
+capitaliseName("adam smith");
+capitaliseName("arsène lupin");
+capitaliseName("albert einstein");
+
+//Method two to capitalise name
+
+const capitaliseName2 = function (label) {
+	const labels = label.split(" ");
+	const nameFirstLetter = [];
+
+	for (const label of labels) {
+		// nameFirstLetter.push(label.charAt(0).toUpperCase() + label.slice(1));
+		nameFirstLetter.push(label.replace(label[0], label[0].toUpperCase()));
+	}
+	console.log(nameFirstLetter.join(" "));
+};
+
+capitaliseName2("adam smith");
+capitaliseName2("emile zola");
+capitaliseName2("start guide");
+capitaliseName2("coca cola");
+capitaliseName2("mac book pro");
+
+//Padding
+
+const message = "The text has been updated";
+console.log(
+	message.padStart(message.length + 4, "*") +
+		message.padEnd(message.length + 4, "*")
+);
+
+//Visa Mask
+
+const maskVisa = function (cardNumber) {
+	const str = cardNumber.toString();
+	const last = str.slice(-4);
+	return last.padStart(str.length, "*");
+};
+
+console.log(maskVisa(1234567890123456));
+console.log(maskVisa(1111222233334444));
+console.log(maskVisa(120027042020));
+*/
+// Coding Challenge #4
+
+const variableNames = [
+	"underscore_case",
+	"underscore_case",
+	"first_name",
+	"Some_Variable",
+	"calculate_AGE",
+	"delayed_departure",
+];
+
+variableNames.forEach((variableName) => {
+	const splitWords = variableName.split("_");
+	const capitaliseWords = [];
+	let n = 0;
+	for (const word of splitWords) {
+		capitaliseWords.push(word[0].toUpperCase() + word.slice(1));
+	}
+	const joinedWords =
+		capitaliseWords[0].toLowerCase() + capitaliseWords.slice(1).join("");
+	console.log(joinedWords);
+	document.body.append(document.createElement("textarea"));
+	document.body.append(document.createElement("btn"));
+});
+
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("btn"));
