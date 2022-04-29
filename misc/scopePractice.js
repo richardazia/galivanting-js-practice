@@ -1275,8 +1275,11 @@ Afterwards, test with your own test data!
 GOOD LUCK 😀
 */
 
+// My attempt
+/*
 document.body.append(document.createElement("textarea"));
 document.body.append(document.createElement("btn"));
+*/
 
 const variableNames = [
 	"underscore_case",
@@ -1285,6 +1288,8 @@ const variableNames = [
 	" calculate_AGE",
 	"   delayed_departure",
 ];
+
+/*
 document.getElementsByTagName("textarea")[0].value = variableNames.join("\n");
 
 const cleanWords = function () {
@@ -1296,16 +1301,41 @@ const cleanWords = function () {
 			const splitWords = variableName.trim().toLowerCase().split("_");
 			const capitaliseWords = [];
 			let n = 0;
-			for (const word of splitWords) {
+			for (const [n, word] of splitWords.entries()) {
 				capitaliseWords.push(word[0].toUpperCase() + word.slice(1));
 			}
 			let joinedWords =
 				capitaliseWords[0].toLowerCase() +
 				capitaliseWords.slice(1).join("") +
-				"✅";
+				"✅".repeat(n + 1);
 			console.log(joinedWords);
 		});
 	});
 };
 
 cleanWords();
+*/
+// Course Solution
+
+document.body.append(document.createElement("textarea"));
+document.body.append(document.createElement("button"));
+
+document.querySelector("button").addEventListener("click", () => {
+	const text = document.querySelector("textarea").value;
+	const rows = text.split("\n");
+
+	for (const [i, row] of rows.entries()) {
+		const [first, second] = row.toLowerCase().trim().split("_");
+
+		const output = `${first}${second[0].toUpperCase()}${second.slice(1)}`;
+		console.log(`${output.padEnd(20)}${"✅".repeat(i + 1)}`);
+	}
+});
+
+/*
+underscore_case
+ first_name
+Some_Variable 
+  calculate_AGE
+delayed_departure
+*/
