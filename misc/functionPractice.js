@@ -63,33 +63,33 @@
 
 // newIsbn(thePax);
 
-const oneWord = function (word) {
-	return word.replace(/ /g, "").toLowerCase();
-};
+// const oneWord = function (word) {
+// 	return word.replace(/ /g, "").toLowerCase();
+// };
 
-const upperFirstWord = function (word) {
-	const [first, ...others] = word.split(" ");
-	return [first.toUpperCase(), ...others].join(" ");
-};
+// const upperFirstWord = function (word) {
+// 	const [first, ...others] = word.split(" ");
+// 	return [first.toUpperCase(), ...others].join(" ");
+// };
 
-//higher order function
-const transformer = function (str, fn) {
-	console.log(`The original string is ${str}`);
-	console.log(`Transformed string: ${fn(str)}`);
+// //higher order function
+// const transformer = function (str, fn) {
+// 	console.log(`The original string is ${str}`);
+// 	console.log(`Transformed string: ${fn(str)}`);
 
-	console.log(`Transformed by ${fn.name}`);
-};
+// 	console.log(`Transformed by ${fn.name}`);
+// };
 
-transformer("Ducks are running amock in the world", upperFirstWord);
-transformer("Ducks are running amock in the world", oneWord);
+// transformer("Ducks are running amock in the world", upperFirstWord);
+// transformer("Ducks are running amock in the world", oneWord);
 
-const duckRow = function () {
-	console.log("🦆🦆🦆");
-};
+// const duckRow = function () {
+// 	console.log("🦆🦆🦆");
+// };
 
-document.body.addEventListener("click", duckRow);
+// document.body.addEventListener("click", duckRow);
 
-[("Lac de Lucerne", "Lac Léman", "Lac De Joux")].forEach(duckRow);
+// [("Lac de Lucerne", "Lac Léman", "Lac De Joux")].forEach(duckRow);
 
 //Playing with Closures
 /*
@@ -108,7 +108,7 @@ https://developer.mozilla.org/en-US/docs/web/javascript/reference/functions/arro
 
 */
 // My version - same as the course example given in the challenge solution.
-const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
+// const greet = (greeting) => (name) => console.log(`${greeting} ${name}`);
 
 /*
 const greet = function (greeting) {
@@ -117,6 +117,7 @@ const greet = function (greeting) {
 	};
 };
 */
+/*
 const quickHello = greet("Hi");
 
 quickHello("Brown Fox");
@@ -145,3 +146,56 @@ salve("Richard");
 morning("morning")("Amicus");
 morning("afternoon")("Amica");
 morning("swim")("Richard");
+*/
+
+const lufthansa = {
+	airline: "Lufthansa",
+	iataCode: "LH",
+	bookings: [],
+	book(flightNo, name) {
+		console.log(
+			`${name} is flying with ${this.airline} on flight ${this.iataCode}${flightNo}`
+		);
+		this.bookings.push({ flight: `${this.iataCode}${flightNo}`, name });
+	},
+};
+
+lufthansa.book("1712", "Andrea");
+lufthansa.book("1212", "Sophie");
+lufthansa.book("5712", "Herr Heinz");
+
+const easyjet = {
+	airline: "easyjet",
+	iataCode: "EZ",
+	bookings: [],
+};
+
+const book = lufthansa.book;
+
+// undefined error
+//book(23, "Andrea");
+
+// to use the Call function
+book.call(easyjet, 23, "Andrea");
+console.log(easyjet);
+
+book.call(lufthansa, "1712", "Andrea");
+console.log(lufthansa);
+
+const swiss = {
+	airline: "Swiss",
+	iataCode: "LX",
+	bookings: [],
+};
+
+book.call(swiss, 1242, "Heidi");
+console.log("Swiss:" + swiss);
+// Apply Method
+const flightdata = [367, "Lord Byron"];
+book.apply(easyjet, flightdata);
+console.log(easyjet);
+
+//New technique
+
+book.call(swiss, ...flightdata);
+console.log("Swiss 2: " + swiss, ...flightdata);
