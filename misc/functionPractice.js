@@ -199,3 +199,86 @@ console.log(easyjet);
 
 book.call(swiss, ...flightdata);
 console.log("Swiss 2: " + swiss, ...flightdata);
+
+const bookEz = book.bind(easyjet);
+const bookLh = book.bind(lufthansa);
+const bookCh = book.bind(swiss);
+
+bookEz(1033, "Heidi");
+bookEz(1035, "Thomy");
+bookEz(1036, "The Knight who says Ni");
+
+bookLh(1712, "Andrea");
+bookLh(1212, "Sophie");
+bookLh(5712, "Herr Heinz");
+
+bookCh(1242, "Heidi");
+bookCh(1243, "Sophie");
+bookCh(1244, "Herr Heinz");
+
+// You can also use the bind method to create a copy of a function that has a preset context. We can preset a flight number, for example.
+
+const bookCH1242 = book.bind(swiss, 1242);
+bookCH1242("Heidi");
+bookCH1242("Sophie");
+bookCH1242("Herr Heinz");
+bookCH1242("Steve");
+bookCH1242("John");
+
+// Using event listeners
+
+lufthansa.planes = 400;
+lufthansa.buyPlane = function () {
+	console.log(this);
+	this.planes++;
+	console.log(this.plane);
+};
+
+// lufthansa.buyPlane();
+
+document
+	.querySelector(".buyPlane")
+	.addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(`Inclusive of tax: ${addTax(0.25, 3541)}`);
+
+const addVAT = addTax.bind(null, 0.23);
+// long form version: addVAT = value => value + value * 0.23;
+
+console.log(addVAT(3541));
+console.log(addVAT(10));
+console.log(addVAT(100));
+
+// Challenge attempt
+function addMarkup(rate, value) {
+	return value + value * rate;
+}
+
+console.log(addMarkup(0.25, 3541));
+
+// Second attempt
+
+function earlyAdopterTax() {
+	return function calc(cost) {
+		return cost + cost * 0.7;
+	};
+}
+
+var optimistPrice = earlyAdopterTax();
+console.log(optimistPrice(100));
+console.log(optimistPrice(4500));
+
+// Course solution
+const addTaxRate = function (rate) {
+	return function (value) {
+		return value + value * rate;
+	};
+};
+
+const addVAT2 = addTaxRate(0.23);
+
+console.log(addVAT2(100));
+console.log(addVAT2(10));
