@@ -330,19 +330,24 @@ const poll = {
 	registerNewAnswer() {
 		const answer = Number(
 			prompt(
-				`${this.question}\n${this.options.join("\n")}\n(Write option number)`
+				// \n is used as a line break. The question has a line, then the option and finally when all the options are listed we create a new line for "write option number."
+				`${this.question}\n
+        ${this.options.join("\n")}
+        \n(Write option number)`
 			)
 		);
 		console.log(answer);
-
+		// If the answer is a number and it is between 0 and 3 then we update the number at the relevant position by 1. If it does not meet these two conditions the number is not updated.
 		typeof answer === "number" &&
 			answer < this.answers.length &&
 			this.answers[answer]++;
 
+		// This is where we call the displayResults method.
 		this.displayResults();
 		this.displayResults("string");
 	},
-
+	// This method displays the results.
+	// If the results are given as an array then we display the array. If the results are given as a string then we display the string.
 	displayResults(type = "array") {
 		if (type === "array") {
 			console.log(this.answers);
@@ -356,6 +361,8 @@ console.log(poll);
 // 	console.log("poll clicked");
 document
 	.querySelector(".poll")
+	// We use the bind method to preset the context of the function.
+	// If we run the function without binding then we will get an error message.
 	.addEventListener("click", poll.registerNewAnswer.bind(poll));
 
 const survey = {
@@ -431,6 +438,7 @@ document
 	.querySelector(".watches")
 	.addEventListener("click", watches.registerNewAnswer.bind(watches));
 
+// We use the call method to preset the context of the function. We provide the array of numbers as an argument.
 watches.displayResults.call({ answers: [5, 2, 3] }, "string");
 watches.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
 watches.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
