@@ -317,7 +317,7 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 
 GOOD LUCK 😀
 */
-
+/*
 const poll = {
 	// Create the object with the question, and within the object create the array of options.
 	question: "What is your favourite programming language?",
@@ -442,3 +442,162 @@ document
 watches.displayResults.call({ answers: [5, 2, 3] }, "string");
 watches.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, "string");
 watches.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+*/
+
+const runOnce = function () {
+	console.log("runOnce will actually run as many times as we call it");
+};
+runOnce();
+
+// an immediately invoked function expression is put within () to run as soon as it is defined.The () at the end is called an invocation. It is a way to run a function immediately.
+
+(function () {
+	console.log(
+		"I am so excited that I was read that I want to tell the world immediately!"
+	);
+})();
+
+// We can also use the arrow function.
+
+(() =>
+	console.log(
+		"I am so excited that, fast as an arrow, I want to tell the world immediately!"
+	))();
+
+// Using Closures
+
+//The data within can only be used within the function
+/*
+const privatePaxNumber = function () {
+	let privatePaxNumber = 0;
+
+	return function () {
+		privatePaxNumber++;
+		if (privatePaxNumber > 1) {
+			console.log(`The number of passengers is ${privatePaxNumber}`);
+		} else {
+			console.log(`There is ${privatePaxNumber} passenger`);
+		}
+
+		return privatePaxNumber;
+	};
+};
+
+const paxLog = privatePaxNumber();
+
+paxLog();
+paxLog();
+paxLog();
+paxLog();
+paxLog();
+console.dir(paxLog);
+
+// [[scope]] means that this is an internal property that cannot be accessed externally.
+
+// A function has access to the variable environment (VE) of the function that created it.
+// Closure: The VE of the function that created it is the VE of the function that created it.
+
+//MDN definition: A closure is the combination of a function bundled together (enclosed) with references to its surrounding state (the lexical environment). In other words, a closure gives you access to an outer function's scope from an inner function. In JavaScript, closures are created every time a function is created, at function creation time.
+// Try 1.
+const planeDeIce = function (n, duration) {
+	const perAircraft = n / 2;
+
+	setTimeout(function () {
+		console.log(`We are now deicing with ${perAircraft} trucks per aircraft`);
+		console.log(
+			`There are five aircrafts in the pattern, with ${n} teams available`
+		);
+	}, duration * 1000);
+	console.log(
+		`The Deicer is deicing ${perAircraft} aircrafts per ${duration} seconds`
+	);
+};
+
+planeDeIce(10, 30);
+
+planeDeIce(2, 90);
+
+// Try 2.
+const renderTime = function (n, process) {
+	const perPhoto = n / 6;
+
+	setTimeout(function () {
+		console.log(`We are now rendering ${perPhoto} photos per folder`);
+		console.log(`There are ${n} photos to render`);
+	}, process * 1000);
+	console.log(
+		`The renderer is rendering ${perPhoto} photos per ${process} seconds`
+	);
+};
+
+renderTime(6000, 4);
+renderTime(100, 2);
+
+// Try 3
+const pancakeTimer = function (pc, cookingTime) {
+	setTimeout(function () {
+		console.log(`We are now cooking ${pc} pancakes per hour`);
+		console.log(`There are ${pc} pancakes to cook`);
+	}, cookingTime * 1000);
+	console.log(
+		`The pancake timer is cooking ${pc} pancakes per ${cookingTime} seconds`
+	);
+};
+
+pancakeTimer(10, 30);
+pancakeTimer(15, 90);
+
+console.dir(pancakeTimer);
+console.dir(planeDeIce);
+console.dir(renderTime);
+
+// Course code
+const boardPassengers = function (n, wait) {
+	const perGroup = n / 4;
+
+	setTimeout(function () {
+		console.log(`We are now boarding all ${n} passengers`);
+		console.log(
+			`There are 4 groups, each with ${perGroup} passengers to board`
+		);
+	}, wait * 1000);
+	console.log(
+		`The flight is boarding ${perGroup} passengers per ${wait} seconds`
+	);
+};
+
+// If we redefine perGroup, it will not be accessible to the function. Closure has priority over global scope.
+const perGroup = 3600;
+
+boardPassengers(100, 3);
+boardPassengers(200, 5);
+boardPassengers(300, 7);
+boardPassengers(400, 9);
+console.dir(boardPassengers);
+*/
+
+/* 
+
+Coding Challenge 2: 
+This is more of a thinking challenge than a coding challenge 🤓
+
+Take the IIFE below and at the end of the function, attach an event listener that changes the color of the selected h1 element ('header') to blue, each time the BODY element is clicked. Do NOT select the h1 element again!
+
+And now explain to YOURSELF (or someone around you) WHY this worked! Take all the time you need. Think about WHEN exactly the callback function is executed, and what that means for the variables involved in this example.
+
+GOOD LUCK 😀
+*/
+
+(function () {
+	const header = document.querySelector("h1");
+	header.style.color = "red";
+})();
+
+(function () {
+	const header = document.querySelector("h1");
+	header.style.color = "red";
+
+	document.querySelector("body").addEventListener("click", function () {
+		header.style.color = "blue";
+	});
+})();
