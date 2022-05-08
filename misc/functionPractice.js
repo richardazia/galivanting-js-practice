@@ -588,10 +588,10 @@ And now explain to YOURSELF (or someone around you) WHY this worked! Take all th
 GOOD LUCK 😀
 */
 
-(function () {
-	const header = document.querySelector("h1");
-	header.style.color = "red";
-})();
+// (function () {
+// 	const header = document.querySelector("h1");
+// 	header.style.color = "red";
+// })();
 
 (function () {
 	const header = document.querySelector("h1");
@@ -601,3 +601,5 @@ GOOD LUCK 😀
 		header.style.color = "blue";
 	});
 })();
+
+// The event listener is set and waiting for the click event to finish its execution. I think it is an await statement.
