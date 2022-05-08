@@ -64,6 +64,61 @@ const inputClosePin = document.querySelector('.form__input--pin');
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
+/////////////////////////////////////////////////
+
+/*
+let arr = [
+  'duck',
+  'cat',
+  'dog',
+  'mouse',
+  'chicken',
+  'goat',
+  'cow',
+  'bear',
+  'moose',
+  'monkey',
+];
+
+console.log(arr.slice(2, 4)); // ['dog', 'mouse'] (from 2 to 4 but excluding four)
+
+console.log(arr.slice(-2));
+console.log(arr.slice(-1));
+console.log(arr.slice()); // for a shallow copy of the array
+console.log([...arr]); // Same result, but different tool for a shallow copy of the array
+console.log(arr);
+console.log(arr.splice(2, 4)); // ['dog', 'mouse'] (from 2 to 4 but excluding four)
+console.log(arr);
+
+arr.splice(-1);
+console.log(arr);
+
+arr.splice(1, 2);
+
+// Reverse the array
+arr = ['a', 'b', 'c', 'd', 'e'];
+const arr2 = ['k', 'j', 'i', 'h', 'g', 'f'];
+console.log(arr2.reverse()); // This modifies the original array
+console.log(arr2);
+
+// Concatenation
+const letters = arr.concat(arr2);
+console.log(letters);
+console.log([...arr, ...arr2]);
+console.log(letters.join(' '));
+
+//The at method
+console.log(letters[0]);
+console.log(letters.at(0));
+console.log(letters[4]);
+console.log(letters.at(4));
+
+console.log(arr[arr.length - 1]);
+console.log(arrx.slice(-1));
+console.log(arr.last());
+*/
+
+/*
 
 const currencies = new Map([
   ['USD', 'United States dollar'],
@@ -73,4 +128,42 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-/////////////////////////////////////////////////
+
+// for (const movement of movements) {
+for (const [i, movement] of movements.entries()) {
+  if (movement > 0) {
+    console.log(`Transaction ${i + 1}: ${movement} deposit.`);
+  } else {
+    console.log(`Transaction ${i + 1}: ${Math.abs(movement)} withdrawal.`);
+  }
+}
+console.log('And now forEach...');
+movements.forEach(function (movement, index, array) {
+  if (movement > 0) {
+    console.log(`Transaction ${index + 1}: ${movement} deposit.`);
+  } else {
+    console.log(`Transaction ${index + 1}: ${Math.abs(movement)} withdrawal.`);
+  }
+});
+*/
+
+// forEach with Maps and Sets
+/*
+const currencies = new Map([
+  ['USD', 'United States dollar'],
+  ['EUR', 'Euro'],
+  ['GBP', 'Pound sterling'],
+  ['CHF', 'Swiss franc'],
+]);
+//Map
+currencies.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+
+//Set
+const currenciesUnique = new Set(['USD', 'EUR', 'GBP', 'CHF']);
+console.log(currenciesUnique);
+currenciesUnique.forEach(function (value, key, map) {
+  console.log(`${key}: ${value}`);
+});
+*/
