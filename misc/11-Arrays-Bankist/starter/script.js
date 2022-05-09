@@ -190,3 +190,33 @@ currenciesUnique.forEach(function (value, key, map) {
   console.log(`${key}: ${value}`);
 });
 */
+
+//Coding Challenge #1
+// Data Set 1
+// const dogsJulia = [3, 5, 2, 12, 7];
+// const dogsKate = [4, 1, 15, 8, 3];
+
+//Data Set 2
+const dogsJulia = [9, 16, 6, 8, 3];
+const dogsKate = [10, 5, 6, 1, 6];
+//
+
+// Create an array with Julia's corrected data, shallow and constant
+const correcteDogsJulia = dogsJulia.slice(1, -2);
+console.log(correcteDogsJulia);
+
+// Concatenate the two arrays
+const dogs = correcteDogsJulia.concat(dogsKate);
+console.log(dogs);
+
+const checkDogs = function (dogs) {
+  for (const [i, dog] of dogs.entries()) {
+    if (dog > 3) {
+      console.log(`Dog number ${i + 1} is an adult and is ${dog} years old.`);
+    } else {
+      console.log(`Dog number ${i + 1} is still a puppy.`);
+    }
+  }
+};
+
+checkDogs(dogs);
