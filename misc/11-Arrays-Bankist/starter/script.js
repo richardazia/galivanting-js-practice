@@ -82,7 +82,26 @@ const displayMovements = function (movements) {
 };
 displayMovements(account1.movements);
 
-console.log(containerMovements.innerHTML);
+const calcDisplayBalance = function (movements) {
+  const balance = movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${balance}€`;
+};
+
+calcDisplayBalance(account1.movements);
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+// createUsernames('accounts'); I spent time trying to debug the function. I had 'accounts'. This broke the app.
+
+createUsernames(accounts);
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -141,6 +160,8 @@ console.log(arrx.slice(-1));
 console.log(arr.last());
 */
 
+/////////////////////////////////////////////////
+
 /*
 
 const currencies = new Map([
@@ -149,7 +170,7 @@ const currencies = new Map([
   ['GBP', 'Pound sterling'],
 ]);
 
-const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
 
 
 // for (const movement of movements) {
@@ -191,25 +212,29 @@ currenciesUnique.forEach(function (value, key, map) {
 });
 */
 
+/////////////////////////////////////////////////
+
+/*
 //Coding Challenge #1
 // Data Set 1
-// const dogsJulia = [3, 5, 2, 12, 7];
-// const dogsKate = [4, 1, 15, 8, 3];
+const dogsJulia = [3, 5, 2, 12, 7];
+const dogsKate = [4, 1, 15, 8, 3];
 
 //Data Set 2
-const dogsJulia = [9, 16, 6, 8, 3];
-const dogsKate = [10, 5, 6, 1, 6];
+// const dogsJulia = [9, 16, 6, 8, 3];
+// const dogsKate = [10, 5, 6, 1, 6];
 //
 
-// Create an array with Julia's corrected data, shallow and constant
-const correcteDogsJulia = dogsJulia.slice(1, -2);
-console.log(correcteDogsJulia);
+const checkDogs = function (dogsJulia, dogsKate) {
+  // Create an array with Julia's corrected data, shallow and constant
+  const correcteDogsJulia = dogsJulia.slice(1, -2);
+  // correcteDogsJulia.splice(0,1);
+  // correcteDogsJulia.splice(-2);
+  console.log(correcteDogsJulia);
 
-// Concatenate the two arrays
-const dogs = correcteDogsJulia.concat(dogsKate);
-console.log(dogs);
-
-const checkDogs = function (dogs) {
+  // Concatenate the two arrays
+  const dogs = correcteDogsJulia.concat(dogsKate);
+  console.log(dogs);
   for (const [i, dog] of dogs.entries()) {
     if (dog > 3) {
       console.log(`Dog number ${i + 1} is an adult and is ${dog} years old.`);
@@ -219,4 +244,141 @@ const checkDogs = function (dogs) {
   }
 };
 
-checkDogs(dogs);
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+
+*/
+
+/////////////////////////////////////////////////
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUSD = 1.05;
+const eurToCHF = 1.04;
+const eurToGBP = 0.86;
+
+const movementsUSD = movements.map(function (mov) {
+  return mov * eurToUSD;
+});
+
+// arrow challenge
+// Remove function and replace it with an arrow, remove curly braces as this fits to one line and remove the return statement. When code is on one line it is automatically returned.
+/*
+const movementsUSDArrow = movements.map(mov => mov * eurToUSD);
+console.log(`Arrow version: ${movementsUSDArrow}`);
+console.log(movements);
+console.log(movementsUSD);
+
+const movementsCHF = movements.map(function (mov) {
+  return mov * eurToCHF;
+});
+// Arrow practice
+const movementsCHFArrow = movements.map(mov => mov * eurToCHF);
+console.log(`Arrow version: ${movementsCHFArrow}`);
+console.log(movementsCHF);
+
+const movementsGBP = movements.map(function (mov) {
+  return mov * eurToGBP;
+});
+// Arrow practice
+const movementsGBParrow = movements.map(mov => mov * eurToGBP);
+console.log(movementsGBP);
+console.log(`Arrow version: ${movementsGBParrow}`);
+
+// Compare this to the for method
+
+const movementsCHFFor = [];
+for (const mov of movements) movementsCHFFor.push(mov * eurToCHF);
+console.log(movementsCHFFor);
+
+const movDescs = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )} euros.`
+);
+
+console.log(movDescs);
+*/
+
+/////////////////////////////////////////////////
+
+const deposits = movements.filter(function (mov) {
+  return mov > 0;
+});
+
+const withdrawals = movements.filter(function (mov) {
+  return mov < 0;
+});
+
+console.log(movements);
+console.log(deposits);
+console.log(withdrawals);
+
+// And with the For loop
+console.log('Using the for loop');
+const depositsFor = [];
+for (const mov of movements) if (mov > 0) depositsFor.push(mov);
+console.log(depositsFor);
+
+const withdrawalsFor = [];
+for (const mov of movements) if (mov < 0) withdrawalsFor.push(mov);
+console.log(withdrawalsFor);
+
+// The Reduce Method
+
+const balance = movements.reduce(function (acc, mov) {
+  return acc + mov;
+}, 0);
+console.log(balance);
+// Arrow version
+const balanceArrow = movements.reduce((acc, mov) => acc + mov, 0);
+console.log(balanceArrow);
+
+let balanceAcc = 0;
+for (const mov of movements) balanceAcc += mov;
+console.log(`For Loop: ${balanceAcc}`);
+
+//Maximum value
+
+const max = movements.reduce((acc, mov) => {
+  if (acc > mov) return acc;
+  else return mov;
+}, movements[0]);
+console.log(max);
+
+/////////////////////////////////////////////////
+////// Challenge 2 Attempt //////////////////////
+/////////////////////////////////////////////////
+
+const data = [5, 2, 4, 1, 15, 8, 3];
+const data2 = [16, 6, 10, 5, 6, 1, 4];
+// let dogAges = data;
+const dogAges = data2;
+const humanAge = [];
+const adultDogs = [];
+console.log(data);
+console.log(data2);
+console.log(dogAges);
+
+const calcAverageHumanAge = function (ages) {
+  console.log(`Dog ages are ${dogAges}`);
+  for (const [dogAge] of dogAges.entries()) {
+    if (dogAge <= 2) {
+      humanAge.push(2 * dogAge);
+    } else if (dogAge > 2) {
+      humanAge.push(16 + dogAge * 4);
+    }
+  }
+  const adultDogs = humanAge.filter(function (age) {
+    return age > 18;
+  });
+  console.log(`Adult Dogs: ${adultDogs}`);
+  const TotAdultAge = adultDogs.reduce(function (acc, age) {
+    return acc + age;
+  }, 0);
+  console.log(`Average age of adult dogs: ${TotAdultAge / adultDogs.length}`);
+};
+
+console.log(calcAverageHumanAge());
+console.log('couac couac');
