@@ -80,36 +80,32 @@ const displayMovements = function (movements) {
     containerMovements.insertAdjacentHTML('afterbegin', html);
   });
 };
-displayMovements(account1.movements);
 
 const calcDisplayBalance = function (movements) {
   const balance = movements.reduce((acc, mov) => acc + mov, 0);
   labelBalance.textContent = `${balance}€`;
 };
 
-calcDisplayBalance(account1.movements);
-
-const calcDisplaySummary = function (movements) {
-  const income = movements
+const calcDisplaySummary = function (acc) {
+  const income = acc.movements
     .filter(mov => mov > 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumIn.textContent = `${income}€`;
-  const outGoing = movements
+
+  const outGoing = acc.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
   labelSumOut.textContent = `${Math.abs(outGoing)}€`;
-  const interest = movements
+
+  const interest = acc.movements
     .filter(mov => mov > 0)
-    .map(deposit => (deposit * account1.interestRate) / 100)
+    .map(deposit => (deposit * acc.interestRate) / 100)
     .filter((int, i, arr) => {
-      console.log(arr);
       return int >= 1;
     })
     .reduce((acc, int) => acc + int, 0);
   labelSumInterest.textContent = `${interest}€`;
 };
-
-calcDisplaySummary(account1.movements);
 
 const createUsernames = function (accs) {
   accs.forEach(function (acc) {
@@ -120,6 +116,40 @@ const createUsernames = function (accs) {
       .join('');
   });
 };
+
+// Event Handler
+let currentAccount;
+
+btnLogin.addEventListener('click', function (e) {
+  e.preventDefault();
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+  console.log(currentAccount);
+
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // Display the UI and message
+    labelWelcome.textContent = `Welcome back ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    // Clear the text fields
+
+    inputLoginUsername.value = inputLoginPin.value = '';
+
+    inputLoginPin.blur();
+
+    // Display movements
+    displayMovements(currentAccount.movements);
+    // Display balance
+    calcDisplayBalance(currentAccount.movements);
+    // Display summary
+    calcDisplaySummary(currentAccount);
+  } else {
+    alert('Wrong pin');
+  }
+});
 
 // createUsernames('accounts'); I spent time trying to debug the function. I had 'accounts'. This broke the app.
 
@@ -400,8 +430,6 @@ console.log('couac couac');
 
 // Course solution:
 /*
-const data = [5, 2, 4, 1, 15, 8, 3];
-const data2 = [16, 6, 10, 5, 6, 1, 4];
 
 const calcAverageHumanAge = function (ages) {
   const humanAges = ages.map(age => (age <= 2 ? 2 * age : 16 + age * 4));
@@ -421,9 +449,6 @@ const calcAverageHumanAge = function (ages) {
   // return average;
 };
 
-const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
-const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
-
 console.log(avg1, avg2);
 */
 
@@ -441,4 +466,52 @@ const TotDepUSD = movements
 console.log(TotDepUSD);
 */
 
+/////////////////////////////////////////////////
+// Coding Challenge 3 - chaining
+/*
+const data = [5, 2, 4, 1, 15, 8, 3];
+const data2 = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverageHumanAge = ages => {
+  const humanAges = ages
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(age => age >= 18);
+  const average =
+    humanAges.reduce((acc, age, i, arr) => acc + age, 0) / arr.length;
+  return average, humanAges;
+};
+*/
+
+// Course solution - I still need to practice chaining
+/*
+const calcAverageHumanAge = ages =>
+  ages
+    .map(age => (age <= 2 ? 2 * age : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
+
+// To chain the events we run each function in a chain, without going through the step of creating a variable. We map the ages according the reqquirements, then filter the ages to keep just the dogs of the right age, and when this is done we work out the average age of the dogs via the reduce method.
+// We go from having three or four functions to one function and cut out the middle constants.
+
+const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
+const avg2 = calcAverageHumanAge([16, 6, 10, 5, 6, 1, 4]);
+
+console.log(avg1, avg2);
+*/
+
+/////////////////////////////////////////////////
+// The Find method
+/*
+const firstWithdrawal = movements.find(mov => mov < 0);
+console.log(firstWithdrawal);
+console.log(movements);
+
+console.log(accounts);
+
+const account = accounts.find(acc => acc.owner === 'Jessica Davis');
+console.log(account);
+*/
+
+/////////////////////////////////////////////////
+//// Implement the login ///////////////////////
 /////////////////////////////////////////////////
