@@ -63,9 +63,14 @@ const inputClosePin = document.querySelector('.form__input--pin');
 
 // The Application
 
-const displayMovements = function (movements) {
+const displayMovements = function (movements, sort = false) {
   containerMovements.innerHTML = '';
-  movements.forEach(function (mov, i) {
+
+  const movementlist = sort
+    ? movements.slice().sort((a, b) => a - b)
+    : movements;
+
+  movementlist.forEach(function (mov, i) {
     const type = mov > 0 ? 'deposit' : 'withdrawal';
 
     const html = `
@@ -81,9 +86,9 @@ const displayMovements = function (movements) {
   });
 };
 
-const calcDisplayBalance = function (movements) {
-  const balance = movements.reduce((acc, mov) => acc + mov, 0);
-  labelBalance.textContent = `${balance}€`;
+const calcDisplayBalance = function (acc) {
+  acc.balance = acc.movements.reduce((acc, mov) => acc + mov, 0);
+  labelBalance.textContent = `${acc.balance}€`;
 };
 
 const calcDisplaySummary = function (acc) {
@@ -117,6 +122,15 @@ const createUsernames = function (accs) {
   });
 };
 
+const updateUI = function (acc) {
+  // Display movements
+  displayMovements(acc.movements);
+  // Display balance
+  calcDisplayBalance(acc);
+  // Display summary
+  calcDisplaySummary(acc);
+};
+
 // Event Handler
 let currentAccount;
 
@@ -140,15 +154,82 @@ btnLogin.addEventListener('click', function (e) {
 
     inputLoginPin.blur();
 
-    // Display movements
-    displayMovements(currentAccount.movements);
-    // Display balance
-    calcDisplayBalance(currentAccount.movements);
-    // Display summary
-    calcDisplaySummary(currentAccount);
+    updateUI(currentAccount);
   } else {
     alert('Wrong pin');
   }
+});
+
+btnTransfer.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiverAcc = accounts.find(
+    acc => acc.username === inputTransferTo.value
+  );
+  inputTransferAmount.value = inputTransferTo.value = '';
+
+  if (
+    amount > 0 &&
+    receiverAcc && // receiverAcc is not undefined
+    currentAccount.balance >= amount &&
+    receiverAcc?.username !== currentAccount.username
+  ) {
+    console.log('Transfer OK');
+    currentAccount.movements.push(-amount);
+    receiverAcc.movements.push(amount);
+    updateUI(currentAccount);
+  } else {
+    alert('Invalid amount or receiver');
+  }
+});
+
+btnLoan.addEventListener('click', function (e) {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if (amount > 0 && currentAccount.balance >= amount * 0.1) {
+    // Add the movement
+    currentAccount.movements.push(amount);
+    // Update the UI
+    updateUI(currentAccount);
+  } else {
+    alert('Invalid amount: Computer says no');
+  }
+  inputLoanAmount.value = '';
+});
+
+btnClose.addEventListener('click', function (e) {
+  e.preventDefault();
+  if (
+    currentAccount.username === inputCloseUsername.value &&
+    currentAccount.pin === Number(inputClosePin.value)
+  ) {
+    console.log('Close OK');
+    // // Find account number
+    // console.log(
+    //   `Index position of current account: = ${accounts.indexOf(currentAccount)}`
+    // );
+    // FindIndex method
+    const index = accounts.findIndex(
+      acc => acc.username === currentAccount.username
+    );
+    console.log(index);
+    // remove the account number from the array
+    accounts.splice(accounts.indexOf(currentAccount), 1);
+    // remove the account from the UI
+    containerApp.style.opacity = 0;
+    // Update welcome message
+    labelWelcome.textContent = 'Account deleted successfully';
+  } else {
+    alert('Invalid username or pin');
+  }
+});
+
+let sorted = false;
+btnSort.addEventListener('click', function (e) {
+  e.preventDefault();
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
 
 // createUsernames('accounts'); I spent time trying to debug the function. I had 'accounts'. This broke the app.
@@ -515,3 +596,92 @@ console.log(account);
 /////////////////////////////////////////////////
 //// Implement the login ///////////////////////
 /////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+////////////// Some and Very ////////////////////
+/////////////////////////////////////////////////
+/*
+console.log(movements);
+console.log(movements.includes(200));
+
+// Conditional statements: Some
+console.log(movements.some(mov => mov === 840));
+
+const findDeposits = movements.some(mov => mov > 6000);
+const findWithdrawals = movements.some(mov => mov < -12);
+console.log(findDeposits, findWithdrawals);
+
+// The Every method - returns true if all the elements in the array pass the test implemented by the provided function.
+
+console.log(movements.every(mov => mov > 0));
+console.log(accounts4.movements.every(mov => mov > 0));
+
+// Seperate callback
+
+const deposit = mov => mov > 0;
+const withdrawal = mov => mov < 0;
+console.log(movements.some(deposit));
+console.log(movements.every(deposit));
+console.log(movements.filter(deposit));
+console.log(movements.some(withdrawal));
+*/
+
+/////////////////////////////////////////////////
+//Working with Nested arrays via flat and flatMap
+/////////////////////////////////////////////////
+/*
+const arr = [1, 2, 3, [4, 5, 6], [7, 8, 9]];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [[5]], 6], 7, 8, 9];
+console.log(arrDeep.flat(2));
+
+const accountMovements = accounts.map(acc => acc.movements);
+console.log(accountMovements);
+const allMovements = accountMovements.flat();
+console.log(allMovements);
+
+const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalance);
+
+// Chain all the methods together
+
+const overallBalanceChain = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalanceChain);
+
+// How to use FlatMap
+const overallBalanceFlatMap = accounts
+  .flatMap(acc => acc.movements)
+  .reduce((acc, mov) => acc + mov, 0);
+console.log(overallBalanceFlatMap);
+*/
+/////////////////////////////////////////////////
+////////////// Sorting Arrays ///////////////////
+/////////////////////////////////////////////////
+/*
+const people = ['Richard', 'Jean', 'Paul', 'Marie', 'Jeanne'];
+console.log(people);
+console.log(people.sort());
+console.log(people); // It has been mutated
+
+// Sort works with strings
+
+// Working with Numbers
+
+// Change the order of the list by inverting which value is 1 and which is -1
+
+const sortedNumbers = movements.sort((a, b) => {
+  if (a > b) return 1;
+  if (a < b) return -1;
+  return 0;
+});
+console.log(sortedNumbers);
+
+// Short hand version
+
+movements.sort((a, b) => a - b);
+console.log(`Shorthand sort: ${movements}`);
+*/
