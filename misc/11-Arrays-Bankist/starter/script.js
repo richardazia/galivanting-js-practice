@@ -685,3 +685,42 @@ console.log(sortedNumbers);
 movements.sort((a, b) => a - b);
 console.log(`Shorthand sort: ${movements}`);
 */
+
+// Ways to create and fill arrays
+const arr = [1, 2, 3, 4, 5, 6, 7];
+
+const x = Array(10);
+console.log(x); // [undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined] Empty * 10
+
+const y = new Array(7);
+console.log(y); // [undefined, undefined, undefined, undefined, undefined, undefined, undefined] //Empty * 7
+
+// The Fill method
+x.fill(1, 3);
+console.log(x); // [undefined, undefined, undefined, 1, 1, 1, undefined, undefined, undefined, undefined]
+
+arr.fill(23, 4, 6);
+console.log(arr); // [1, 2, 3, 4, 23, 23, 23]
+
+const r = Array.from({ length: 10 }, () => 1);
+console.log(r); // [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+
+const card = Array.from({ length: 12 }, (_, i) => i + 1);
+console.log(card); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+// useful for solitaire games
+
+// How to read numbers from a page element
+labelBalance.addEventListener('click', () => {
+  const movementsUI = Array.from(
+    document.querySelectorAll('.movements__value'),
+    el => el.textContent.replace('€', '')
+  );
+  console.log(movementsUI);
+
+  // The second option is to use the map method and then expand the array
+  const movementsUI2 = [...document.querySelectorAll('.movements__value')].map(
+    el => el.textContent.replace('€', '')
+  );
+
+  console.log(movementsUI2);
+});
