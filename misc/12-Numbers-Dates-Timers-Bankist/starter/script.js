@@ -185,14 +185,37 @@ const updateUI = function (acc) {
   calcDisplaySummary(acc);
 };
 
+const startLogOutTimer = function () {
+  const tick = function () {
+    const min = String(Math.trunc(time / 60)).padStart(2, '0');
+    const sec = String(time % 60).padStart(2, 0);
+    // for each call print time remaining to UI
+    labelTimer.textContent = `${min}:${sec}`;
+
+    // When timer = 0 stop timer and log out.
+    if (time === 0) {
+      clearInterval(timer);
+      labelWelcome.textContent = 'Login to get started';
+      containerApp.style.opacity = 0;
+    }
+
+    // Decrease by 1s
+    time--;
+  };
+
+  // Set the time to 5 minutes
+  let time = 300;
+
+  // call the timer every second
+  tick();
+  const timer = setInterval(tick, 1000);
+
+  return time;
+};
+
 ///////////////////////////////////////
 // Event handlers
-let currentAccount;
-
-// Spoof logged in status
-currentAccount = account1;
-updateUI(currentAccount);
-containerApp.style.opacity = 100;
+let currentAccount, timer;
 
 // // API experiment
 // const now = new Date();
@@ -249,7 +272,9 @@ btnLogin.addEventListener('click', function (e) {
     // Clear input fields
     inputLoginUsername.value = inputLoginPin.value = '';
     inputLoginPin.blur();
-
+    //Clear timer before starting a new one.
+    if (timer) clearInterval(timer);
+    timer = startLogOutTimer();
     // Update UI
     updateUI(currentAccount);
   }
@@ -279,6 +304,10 @@ btnTransfer.addEventListener('click', function (e) {
 
     // Update UI
     updateUI(currentAccount);
+
+    //reset timer
+    clearInterval(timer);
+    timer = startLogOutTimer();
   }
 });
 
@@ -297,6 +326,10 @@ btnLoan.addEventListener('click', function (e) {
 
       // Update UI
       updateUI(currentAccount);
+
+      //reset timer
+      clearInterval(timer);
+      timer = startLogOutTimer();
     }, 2500);
   }
   inputLoanAmount.value = '';
@@ -513,6 +546,7 @@ console.log(days2);
 */
 
 /////////////////////////////////////////////////
+/*
 const num = 3884764.23;
 
 const options = {
@@ -549,6 +583,11 @@ setInterval(function () {
   const now = new Date();
   console.log(now);
 }, 1000);
+*/
+/////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+
 /////////////////////////////////////////////////
 
 /////////////////////////////////////////////////
