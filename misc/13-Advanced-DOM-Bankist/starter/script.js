@@ -31,6 +31,67 @@ document.addEventListener('keydown', function(e) {
 });
 
 /////////////////////////////////////////////////
+//Scrolling
+
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+
+btnScrollTo.addEventListener('click', function(e) {
+  const s1coords = section1.getBoundingClientRect();
+  console.log(s1coords);
+
+  console.log(e.target.getBoundingClientRect);
+
+  console.log('current scroll (X/Y)', window.pageXOffset, pageYOffset);
+
+  console.log(
+    'height/width viewport',
+    document.documentElement.clientHeight,
+    document.documentElement.clientWidth
+  );
+  // Scrolling
+  /*
+  window.scrollTo(
+    s1coords.left + window.pageXOffset,
+    s1coords.top + window.pageYOffset
+  );
+  */
+  /*
+  window.scrollTo({
+    left: s1coords.left + window.pageXOffset,
+    top: s1coords.top + window.pageYOffset,
+    behavior: 'smooth'
+  });
+  */
+  // section1.scrollIntoView({ behavior: smooth });
+});
+/////////////////////////////////////////////////
+// Page Navigation
+
+// The inefficicent way
+// document.querySelectorAll('.nav__link').forEach(function(el) {
+//   el.addEventListener('click', function(e) {
+//     e.preventDefault();
+//     const id = this.getAttribute('href');
+//     console.log(id);
+//     document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+//   });
+// });
+
+// 1. Add event listener to common parent element.
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  e.preventDefault();
+  if (e.target.classList.contains('nav__link')) {
+    const id = e.target.getAttribute('href');
+    console.log(id);
+    document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+  }
+});
+// 2. Who made the request
+
+// 3.
+
+/////////////////////////////////////////////////
 
 // Lesson 186
 console.log(document.documentElement);
@@ -118,4 +179,102 @@ logo.classList.remove('bye');
 logo.classList.toggle('active');
 logo.classList.contains('ogl');
 
+/////////////////////////////////////////////////
+// Events and Event Handlers
+const h1 = document.querySelector('h1');
+h1.addEventListener('mouseenter', function(e) {
+  console.log('addEventListener: This is the header');
+});
+h1.onmouseenter = function(e) {
+  console.log('I am the old method: onmouseenter');
+};
+
+const logH1 = function(e) {
+  console.log("Ceçi n'est pas un H1");
+
+  h1.removeEventListener('mouseenter', logH1);
+};
+
+h1.addEventListener('mouseenter', logH1);
+
+setTimeout(() => h1.removeEventListener('mouseenter', logH1), 3000);
+
+//Bubbling and capturing
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+const randomColor = () =>
+  `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
+console.log(randomColor(0, 255));
+
+document.querySelector('.nav__link').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor();
+  console.log('link', e.target, e.currentTarget);
+  console.log(e.currentTarget === this);
+
+  // To stop propagation up to parents
+  // e.stopPropagation();
+});
+
+document.querySelector('.nav__links').addEventListener('click', function(e) {
+  this.style.backgroundColor = randomColor();
+  console.log('container', e.target, e.currentTarget);
+  console.log(e.currentTarget === this);
+});
+
+document.querySelector('.nav').addEventListener(
+  'click',
+  function(e) {
+    this.style.backgroundColor = randomColor();
+    console.log('navbar', e.target, e.currentTarget);
+    console.log(e.currentTarget === this);
+  },
+  true
+);
+/*
+Capturing
+When an event occurs it is captured it descends from the document to the anchor or other element.
+Bubbling
+As in scuba diving when an event has taken place, for example a click on a hyperlink it is released and bubbles back to the surface through the different elements until it reaches the document.
+*/
+
+//Event Delegation - Smooth Scrolling
+
+//Look up
+
+// DOM traversing
+// Downwards
+console.log(h1.querySelector('.highlight'));
+
+console.log(h1.childNodes);
+console.log(h1.children);
+console.log((h1.firstElementChild.style.color = 'white'));
+console.log((h1.lastElementChild.style.color = 'orange'));
+
+//Going up
+console.log(h1.parentNode);
+console.log(h1.parentElement);
+
+h1.closest('.header').style.background = 'var(--gradient-secondary)';
+
+h1.closest('h1').style.background = 'var(--gradient-primary)';
+
+// Sibling selection - Sideways
+
+console.log(h1.previousElementSibling);
+console.log(h1.nextElementSibling);
+
+console.log(h1.previousSibling);
+console.log(h1.nextSibling);
+
+console.log(h1.parentElement.children);
+
+[...h1.parentElement.children].forEach(function(el) {
+  if (el !== h1) el.style.transform = 'scale(0.5)';
+});
+
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
+/////////////////////////////////////////////////
 /////////////////////////////////////////////////
