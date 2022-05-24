@@ -1,20 +1,24 @@
 'use strict';
 
-///////////////////////////////////////
-// Modal window
-
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
 const btnsOpenModal = document.querySelectorAll('.btn--show-modal');
+const btnScrollTo = document.querySelector('.btn--scroll-to');
+const section1 = document.querySelector('#section--1');
+const tabs = document.querySelectorAll('.operations__tab');
+const tabsContainer = document.querySelector('.operations__tab-container');
+const tabsContent = document.querySelectorAll('.operations__content');
+///////////////////////////////////////
+// Modal window
 
-const openModal = function(e) {
+const openModal = function (e) {
   e.preventDefault();
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
 };
 
-const closeModal = function() {
+const closeModal = function () {
   modal.classList.add('hidden');
   overlay.classList.add('hidden');
 };
@@ -24,7 +28,7 @@ btnsOpenModal.forEach(btn => btn.addEventListener('click', openModal));
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
 
-document.addEventListener('keydown', function(e) {
+document.addEventListener('keydown', function (e) {
   if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
     closeModal();
   }
@@ -33,10 +37,7 @@ document.addEventListener('keydown', function(e) {
 /////////////////////////////////////////////////
 //Scrolling
 
-const btnScrollTo = document.querySelector('.btn--scroll-to');
-const section1 = document.querySelector('#section--1');
-
-btnScrollTo.addEventListener('click', function(e) {
+btnScrollTo.addEventListener('click', function (e) {
   const s1coords = section1.getBoundingClientRect();
   console.log(s1coords);
 
@@ -79,7 +80,7 @@ btnScrollTo.addEventListener('click', function(e) {
 // });
 
 // 1. Add event listener to common parent element.
-document.querySelector('.nav__links').addEventListener('click', function(e) {
+document.querySelector('.nav__links').addEventListener('click', function (e) {
   e.preventDefault();
   if (e.target.classList.contains('nav__link')) {
     const id = e.target.getAttribute('href');
@@ -92,11 +93,6 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 // 3.
 
 // Tabbed components
-const tabs = document.querySelectorAll('.operations__tab');
-
-const tabsContainer = document.querySelector('.operations__tab-container');
-
-const tabsContent = document.querySelectorAll('._operations__content');
 
 // Optional solution - this option is a "bad practice"
 
@@ -104,7 +100,7 @@ const tabsContent = document.querySelectorAll('._operations__content');
 
 // Use event delegation instead
 
-tabsContainer.addEventListener('click', function(e) {
+tabsContainer.addEventListener('click', function (e) {
   const clicked = e.target.closest('.operations__tab');
   // const clicked = e.target; // If we click on the numbers we get the span element
   // const clicked = e.target.parentElement; // also does not work as it selects the parent element one layer too highligh
@@ -162,7 +158,7 @@ header.after(message);
 // Deleting Elements
 document
   .querySelector('.btn-btn--close-cookie')
-  .addEventListener('click', function() {
+  .addEventListener('click', function () {
     // message.remove();
     message.parentElement.removeChild(message);
   });
@@ -216,14 +212,14 @@ logo.classList.contains('ogl');
 /////////////////////////////////////////////////
 // Events and Event Handlers
 const h1 = document.querySelector('h1');
-h1.addEventListener('mouseenter', function(e) {
+h1.addEventListener('mouseenter', function (e) {
   console.log('addEventListener: This is the header');
 });
-h1.onmouseenter = function(e) {
+h1.onmouseenter = function (e) {
   console.log('I am the old method: onmouseenter');
 };
 
-const logH1 = function(e) {
+const logH1 = function (e) {
   console.log("Ceçi n'est pas un H1");
 
   h1.removeEventListener('mouseenter', logH1);
@@ -241,7 +237,7 @@ const randomColor = () =>
   `rgb(${randomInt(0, 255)}, ${randomInt(0, 255)}, ${randomInt(0, 255)})`;
 console.log(randomColor(0, 255));
 
-document.querySelector('.nav__link').addEventListener('click', function(e) {
+document.querySelector('.nav__link').addEventListener('click', function (e) {
   this.style.backgroundColor = randomColor();
   console.log('link', e.target, e.currentTarget);
   console.log(e.currentTarget === this);
@@ -250,7 +246,7 @@ document.querySelector('.nav__link').addEventListener('click', function(e) {
   // e.stopPropagation();
 });
 
-document.querySelector('.nav__links').addEventListener('click', function(e) {
+document.querySelector('.nav__links').addEventListener('click', function (e) {
   this.style.backgroundColor = randomColor();
   console.log('container', e.target, e.currentTarget);
   console.log(e.currentTarget === this);
@@ -258,7 +254,7 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 
 document.querySelector('.nav').addEventListener(
   'click',
-  function(e) {
+  function (e) {
     this.style.backgroundColor = randomColor();
     console.log('navbar', e.target, e.currentTarget);
     console.log(e.currentTarget === this);
@@ -303,7 +299,7 @@ console.log(h1.nextSibling);
 
 console.log(h1.parentElement.children);
 
-[...h1.parentElement.children].forEach(function(el) {
+[...h1.parentElement.children].forEach(function (el) {
   if (el !== h1) el.style.transform = 'scale(0.5)';
 });
 
