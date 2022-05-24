@@ -91,6 +91,40 @@ document.querySelector('.nav__links').addEventListener('click', function(e) {
 
 // 3.
 
+// Tabbed components
+const tabs = document.querySelectorAll('.operations__tab');
+
+const tabsContainer = document.querySelector('.operations__tab-container');
+
+const tabsContent = document.querySelectorAll('._operations__content');
+
+// Optional solution - this option is a "bad practice"
+
+// tabs.forEach(t => t.addEventListener('click', () => console.log('TAB')));
+
+// Use event delegation instead
+
+tabsContainer.addEventListener('click', function(e) {
+  const clicked = e.target.closest('.operations__tab');
+  // const clicked = e.target; // If we click on the numbers we get the span element
+  // const clicked = e.target.parentElement; // also does not work as it selects the parent element one layer too highligh
+  // Guard clause
+  if (!clicked) return;
+
+  //Remove Active classes
+  tabs.forEach(t => t.classList.remove('operations__tab--active'));
+  tabsContent.forEach(c => c.classList.remove('operations__content--active'));
+
+  // Make tab active
+  clicked.classList.add('operations__tab--active');
+
+  // Active tab content
+  console.log(clicked.dataset.tab);
+  document
+    .querySelector(`.operations__content--${clicked.dataset.tab}`)
+    .classList.add('operations__content--active');
+});
+
 /////////////////////////////////////////////////
 
 // Lesson 186
