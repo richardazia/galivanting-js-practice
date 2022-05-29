@@ -504,7 +504,21 @@ As in scuba diving when an event has taken place, for example a click on a hyper
 // });
 
 /////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
-/////////////////////////////////////////////////
+
+document.addEventListener('DOMContentLoaded', function(e) {
+  console.log('HTML parsed and DOM Tree built');
+});
+
+window.addEventListener('load', function(e) {
+  console.log('Page fully loaded', e);
+});
+
+// window.addEventListener('beforeunload', function(e) {
+//   e.preventDefault();
+//   console.log(e);
+//   e.returnValue = '';
+// });
+
+// Loading javascript
+
+// regular / async / defer
