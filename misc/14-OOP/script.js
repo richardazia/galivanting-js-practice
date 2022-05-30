@@ -90,22 +90,40 @@ const Car = function(make, speed) {
   this.speed = speed;
 };
 
-const car1 = new Car("BMW", 120);
-const car2 = new Car("Mercedes", 95);
+const bmw = new Car("BMW", 120);
+const mercedes = new Car("Mercedes", 95);
 // 2.
-console.log(car1, car2);
+console.log(bmw, mercedes);
 Car.prototype.accelerate = function() {
-  console.log(this.speed + 10);
+  this.speed += 10;
+  console.log(`The ${this.make} is going at ${this.speed} km/h.`);
 };
 
-car1.accelerate();
-car2.accelerate();
+bmw.accelerate();
+mercedes.accelerate();
 // 3.
 Car.prototype.brake = function() {
-  console.log(this.speed - 5);
+  this.speed -= 5;
+  console.log(`The ${this.make} is going at ${this.speed} km/h.`);
 };
 
-car1.brake();
-car2.brake();
+bmw.brake();
+mercedes.brake();
 
 // 4.
+
+// In my own code I did not write += and -= so it did not compound the speed increase and speed decrease.
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.accelerate();
+
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
