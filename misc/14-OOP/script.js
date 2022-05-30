@@ -1,4 +1,5 @@
 "use strict";
+
 let duck = "Mallard";
 const Individual = function(firstName, birthYear) {
   // Instance Properties
@@ -23,6 +24,13 @@ const balisto = new Individual("Balisto", 1962);
 const jack = new Individual("Jack", 1732);
 
 console.log(balisto, jack, placide);
+
+Individual.hey = function() {
+  console.log("Hey there");
+};
+
+Individual.hey();
+// balisto.hey(); // Can't inherit .hey
 
 console.log(jack instanceof Individual);
 console.log(duck instanceof Individual);
@@ -71,6 +79,7 @@ const h1 = document.querySelector("h1");
 console.dir(h1);
 console.dir(x => x + 1);
 */
+////////////////////////////////////////
 /*
 Object Oriented Programming (OOP)
 Coding Challenge #1
@@ -84,6 +93,7 @@ Test data:
 § Data car 2: 'Mercedes' going at 95 km/h
 GOOD LUCK 😀
 */
+/*
 // 1.
 const Car = function(make, speed) {
   this.make = make;
@@ -127,3 +137,109 @@ mercedes.brake();
 mercedes.brake();
 mercedes.brake();
 mercedes.brake();
+*/
+////////////////////////////////////////
+// class Expression
+// const PersonCL = class{}
+
+// Class declaration
+class PersonCL {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+  // Add methods here
+  calcAge() {
+    console.log(2022 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.fullName}, draft behind me`);
+  }
+
+  get age() {
+    return 2022 - this.birthYear;
+  }
+  // For when we want to set a property that already exists
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(" ")) this._fullName = name;
+    // if (name.includes(" ")) this.fullName = name; // Too many recursions with this code
+    else alert(`${name} is not a full name`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+
+  static hey() {
+    console.log("Hey you, wake up, this isn't nap time.");
+    console.log(this);
+  }
+}
+
+const remora = new PersonCL("Cycling Remora", 1986);
+console.log(remora);
+remora.calcAge();
+
+console.log(remora.__proto__ === PersonCL.prototype);
+
+// personCL.prototype.greet = function() {
+//   console.log(`Hey ${this.firstName}, draft behind me`);
+// };
+
+remora.greet();
+console.log(remora.age);
+
+// Classes are not hoisted
+// Classes are first class citizens
+// classes are executed in strict mode.
+
+const simon = new PersonCL("Simon Scarrow", 1973);
+
+PersonCL.hey();
+
+// The GetSet ;-)
+
+const account = {
+  owner: "Richard",
+  bikeRides: [30, 45, 50, 32, 15],
+
+  get latest() {
+    return this.bikeRides.slice(-1).pop();
+  },
+
+  set latest(ride) {
+    this.bikeRides.push(ride);
+  }
+};
+
+console.log(`The latest cycle distance was: ${account.latest} kilometres.`);
+
+account.latest = 48.7;
+console.log(account.bikeRides);
+
+const PersonProto = {
+  calcAge() {
+    console.log(2028 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+
+steven.name = "Steven";
+steven.birthYear = 1989;
+steven.calcAge();
+
+console.log(steven.__proto__ === PersonProto);
+
+const farah = Object.create(PersonProto);
+farah.init("Farah", 1982);
+farah.calcAge();
+////////////////////////////////////////
