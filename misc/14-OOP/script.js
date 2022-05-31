@@ -292,7 +292,7 @@ console.log(ford.accelerate);
 
 // #4
 */
-
+/*
 // 1.
 class CarCL {
   // Swap function for constructor and the rest stays the same.
@@ -337,5 +337,41 @@ ford.brake();
 ford.brake();
 ford.speedUS = 50;
 console.log(ford);
-
+*/
 // In my own code I did not write += and -= so it did not compound the speed increase and speed decrease.
+
+// Class inheritance
+
+const Student = function(firstName, birthYear, course, courseDuration) {
+  // this.firstName = firstName;
+  // this.birthYear = birthYear;
+  Individual.call(this, firstName, birthYear); // call individual and call this, to get access to firstName and birthyear
+  this.course = course;
+  this.courseDuration = courseDuration;
+};
+
+// Make student inherit all features from Individual, including calcAge etc.
+Student.prototype = Object.create(Individual.prototype);
+
+Student.prototype.introduce = function() {
+  console.log(
+    `Hi, my name is ${this.firstName} and I am studying: ${this.course} for the next ${this.courseDuration}.`
+  );
+};
+
+const pascal = new Student("Pascal", 1970, "Machine Language", "three years");
+console.log(pascal);
+pascal.introduce();
+pascal.calcAge();
+
+console.log(pascal.__proto__);
+console.log(pascal.__proto__.__proto__);
+
+console.log(pascal instanceof Student);
+console.log(pascal instanceof Individual);
+console.log(pascal instanceof Object);
+
+console.dir(Student.prototype.constructor);
+// We fix this issue via
+Student.prototype.constructor = Student;
+console.dir(Student.prototype.constructor);
