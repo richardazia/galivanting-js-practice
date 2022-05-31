@@ -259,7 +259,7 @@ Test data:
 
 */
 console.log("Challenge #2");
-
+/*
 // #1
 class CarCL {
   constructor(brand, speed) {
@@ -283,7 +283,7 @@ class CarCL {
   set speedUS(miles) {
     this.speed.push(miles);
   }
-
+}
 
 const ford = new CarCL("Ford", 120);
 console.log(ford);
@@ -291,3 +291,48 @@ ford.calcMph();
 console.log(ford.accelerate);
 
 // #4
+*/
+
+// 1.
+const Car = function(make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+const bmw = new Car("BMW", 120);
+const mercedes = new Car("Mercedes", 95);
+// 2.
+console.log(bmw, mercedes);
+Car.prototype.accelerate = function() {
+  this.speed += 10;
+  console.log(`The ${this.make} is going at ${this.speed} km/h.`);
+};
+
+bmw.accelerate();
+mercedes.accelerate();
+// 3.
+Car.prototype.brake = function() {
+  this.speed -= 5;
+  console.log(`The ${this.make} is going at ${this.speed} km/h.`);
+};
+
+bmw.brake();
+mercedes.brake();
+
+// 4.
+
+// In my own code I did not write += and -= so it did not compound the speed increase and speed decrease.
+
+bmw.accelerate();
+bmw.accelerate();
+bmw.accelerate();
+
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
+mercedes.brake();
