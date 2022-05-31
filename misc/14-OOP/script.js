@@ -294,45 +294,48 @@ console.log(ford.accelerate);
 */
 
 // 1.
-const Car = function(make, speed) {
-  this.make = make;
-  this.speed = speed;
-};
+class CarCL {
+  // Swap function for constructor and the rest stays the same.
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
 
-const bmw = new Car("BMW", 120);
-const mercedes = new Car("Mercedes", 95);
-// 2.
-console.log(bmw, mercedes);
-Car.prototype.accelerate = function() {
-  this.speed += 10;
-  console.log(`The ${this.make} is going at ${this.speed} km/h.`);
-};
+  accelerate() {
+    this.speed += 10;
+    console.log(`The ${this.make} is going at ${this.speed} km/h.`);
+  }
 
-bmw.accelerate();
-mercedes.accelerate();
-// 3.
-Car.prototype.brake = function() {
-  this.speed -= 5;
-  console.log(`The ${this.make} is going at ${this.speed} km/h.`);
-};
+  // 3.
 
-bmw.brake();
-mercedes.brake();
+  brake() {
+    this.speed -= 5;
+    console.log(`The ${this.make} is going at ${this.speed} km/h.`);
+  }
+
+  // #2
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    // this.speed.push(miles);
+    this.speed = speed * 1.6; // The correct method
+  }
+}
 
 // 4.
 
+const ford = new CarCL("Ford", 120);
+console.log(ford.speedUS);
+ford.accelerate();
+ford.accelerate();
+ford.accelerate();
+ford.accelerate();
+ford.brake();
+ford.brake();
+ford.brake();
+ford.speedUS = 50;
+console.log(ford);
+
 // In my own code I did not write += and -= so it did not compound the speed increase and speed decrease.
-
-bmw.accelerate();
-bmw.accelerate();
-bmw.accelerate();
-
-mercedes.brake();
-mercedes.brake();
-mercedes.brake();
-mercedes.brake();
-mercedes.brake();
-mercedes.brake();
-mercedes.brake();
-mercedes.brake();
-mercedes.brake();
