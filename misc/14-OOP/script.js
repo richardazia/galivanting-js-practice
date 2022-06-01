@@ -376,32 +376,6 @@ console.dir(Student.prototype.constructor);
 Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
 
-////////////////////////////////////////////////////////////////////////////
-// Coding Challenge #3
-
-// 1.
-
-const EV = function(make, speed, charge) {
-  this.make = make;
-  this.speed = speed;
-  // CarCl.call(this, make, speed);
-  this.charge = charge;
-};
-
-EV.prototype = Object.create(CarCL.prototype);
-
-EV.prototype.constructor = EV;
-
-EV.prototype.introduce = function() {
-  console.log(`${make} going at ${speed} km/h, with a charge of ${charge}%`);
-};
-
-const tesla = new EV("Tesla", 120, 23);
-console.log(tesla);
-
-// const CarProto = {
-//   init(make, speed) {
-//     this.make = make;
-//     this.speed = speed;
-//   }
-// };
+/////////////////////////////////////
+// Challenge No. 3
+// See constructor.js
