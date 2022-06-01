@@ -379,3 +379,131 @@ console.dir(Student.prototype.constructor);
 /////////////////////////////////////
 // Challenge No. 3
 // See constructor.js
+
+/////////////////////////////////////
+// ES 6 Classes
+
+// Extend keyword and super Function
+class StudentCL extends PersonCL {
+  constructor(fullName, birthYear, course) {
+    // This creates the required this keyword
+    super(fullName, birthYear); // Constructor function of parent class
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this._fullName} and I study ${this.course}`);
+  }
+
+  calcAge() {
+    console.log(
+      `I am ${2042 -
+        this
+          .birthYear} years old, but as a student I feel as knackered as a ${2042 -
+        this.birthYear +
+        10} year old.`
+    );
+  }
+}
+
+const martha = new StudentCL("Martha Jones", 2012, "Meteorology");
+console.log(martha);
+martha.introduce();
+martha.calcAge();
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function(firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function() {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init("Jay", 2010, "geology");
+
+jay.introduce();
+
+jay.calcAge();
+
+// Another class example
+
+// Public Fields
+// Private Fields
+// Public methods
+// Private methods
+
+class Account {
+  // Public fields (instances, not in the prototype)
+  locace = navigator.language;
+
+  // Private fields
+  #movements = [];
+  #pin;
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    // protected
+    this.#pin = pin;
+    // this._movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account ${owner}!`);
+  }
+  // Public Interface
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  requestLoan(val) {
+    // if (this.#approveLoan(val)) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Your ${val}€ loan has been approved.`);
+    } else {
+      console.log(`Your loan request has been denied.`);
+    }
+  }
+
+  static helper() {
+    console.log("Helper");
+  }
+  // Private Methods
+  // #approveLoan(val) {
+  _approveLoan(val) {
+    return true;
+  }
+}
+
+const acc1 = new Account("Paul", "EUR", 3322);
+
+// acc1._movements.push(250);
+// acc1._movements.push(270);
+// acc1._movements.push(350);
+// acc1._movements.push(-300);
+
+acc1.deposit(239);
+acc1.deposit(3200);
+acc1.withdraw(82.55);
+acc1.withdraw(110.3);
+acc1.deposit(1240);
+acc1.requestLoan(300);
+
+console.log(acc1.getMovements());
+
+console.log(acc1);
+// console.log(acc1.#pin);
+// console.log(acc1.#movements);
+// console.log(acc1.#approveLoan(350000));
+Account.helper();
