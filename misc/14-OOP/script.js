@@ -377,7 +377,7 @@ Student.prototype.constructor = Student;
 console.dir(Student.prototype.constructor);
 
 ////////////////////////////////////////////////////////////////////////////
-// Coding Challenge #
+// Coding Challenge #3
 
 // 1.
 
