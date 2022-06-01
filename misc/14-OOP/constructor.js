@@ -60,7 +60,7 @@ EV.prototype.status = function() {
   );
 };
 // 2.
-EV.prototype.chargeBattery = function() {
+EV.prototype.chargeBattery = function(chargeTo) {
   this.charge = chargeTo;
 };
 
@@ -69,7 +69,8 @@ EV.prototype.accelerate = function() {
   console.log(
     `The ${
       this.make
-    } is going at ${(this.speed += 20)}km/h and the battery is at ${(this.charge -= 1)}`
+    } is going at ${(this.speed += 20)}km/h and the battery is at ${this
+      .charge--}`
   );
 };
 
@@ -86,6 +87,7 @@ const tesla = new EV("Tesla", 120, 23);
 console.log(tesla);
 tesla.accelerate();
 tesla.accelerate();
+tesla.brake();
 tesla.accelerate();
 tesla.accelerate();
 tesla.brake();
@@ -94,3 +96,6 @@ tesla.brake();
 tesla.brake();
 tesla.brake();
 tesla.brake();
+
+tesla.chargeBattery(90);
+console.log(tesla);
