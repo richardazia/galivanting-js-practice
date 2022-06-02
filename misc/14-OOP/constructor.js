@@ -146,32 +146,39 @@ class CarCL {
 }
 
 class EVCl extends CarCL {
+  // define private fields here
+  #charge;
   constructor(make, speed, charge) {
     // Instead of Car.call we use super
     //constructor function of the parent class
     super(make, speed);
-    this._charge = charge;
+    this.#charge = charge;
   }
-  chargeBattery(charge) {
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
     console.log(
-      `The ${this.make}'s battery has been charged to ${charge} percent'`
+      `The ${this.make}'s battery has been charged to ${this.#charge} percent'`
     );
+    return this;
   }
 
   accelerate() {
-    this.speed += 10;
+    this.speed += 20;
+    this.#charge--;
     console.log(
-      `The ${this.make} is going at ${
-        this.speed
-      } km/h. The battery is now at ${this._charge--}`
+      `The ${this.make} is going at ${this.speed} km/h. The battery is now at ${
+        this.#charge
+      }`
     );
     return this;
   }
   brake() {
     this.speed -= 5;
-    this._charge += 1;
+    this.#charge += 1;
     console.log(
-      `The ${this.make} is going at ${this.speed} km/h. The battery has recovered to ${this._charge}`
+      `The ${this.make} is going at ${
+        this.speed
+      } km/h. The battery has recovered to ${this.#charge}`
     );
     return this;
   }
@@ -201,4 +208,8 @@ rivian
   .brake()
   .brake()
   .brake()
-  .chargeBattery(98.7);
+  .chargeBattery(97.4)
+  .brake()
+  .brake();
+
+console.log(rivian.speedUS);
