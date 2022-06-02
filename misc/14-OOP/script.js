@@ -460,10 +460,12 @@ class Account {
 
   deposit(val) {
     this.#movements.push(val);
+    return this;
   }
 
   withdraw(val) {
     this.deposit(-val);
+    return this;
   }
 
   requestLoan(val) {
@@ -471,6 +473,7 @@ class Account {
     if (this._approveLoan(val)) {
       this.deposit(val);
       console.log(`Your ${val}€ loan has been approved.`);
+      return this;
     } else {
       console.log(`Your loan request has been denied.`);
     }
@@ -501,9 +504,19 @@ acc1.deposit(1240);
 acc1.requestLoan(300);
 
 console.log(acc1.getMovements());
-
 console.log(acc1);
 // console.log(acc1.#pin);
 // console.log(acc1.#movements);
 // console.log(acc1.#approveLoan(350000));
 Account.helper();
+
+// Chaining With return this; we make them chainable.
+
+acc1
+  .deposit(230)
+  .deposit(2300)
+  .withdraw(30)
+  .requestLoan(365)
+  .withdraw(245);
+
+console.log(acc1.getMovements());
