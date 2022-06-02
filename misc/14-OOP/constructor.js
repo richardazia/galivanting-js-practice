@@ -42,6 +42,7 @@ console.dir(Student.prototype.constructor);
 /////////////////////////////////////
 // Challenge No. 3
 // Part 1
+/*
 const CarCL = function(make, speed) {
   this.make = make;
   this.speed = speed;
@@ -99,3 +100,105 @@ tesla.brake();
 
 tesla.chargeBattery(90);
 console.log(tesla);
+*/
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/*
+1. Re-create challenge #3, but this time using ES6 classes: create an 'EVCl' child class of the 'CarCl' class
+2. Make the 'charge' property private;
+3. Implement the ability to chain the 'accelerate' and 'chargeBattery' methods of this class, and also update the 'brake' method in the 'CarCl' class. They experiment with chining!
+DATA CAR 1: 'Rivian' going at 120 km/h, with a charge of 23%
+*/
+
+class CarCL {
+  // Swap function for constructor and the rest stays the same.
+  constructor(make, speed) {
+    this.make = make;
+    this.speed = speed;
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(`The ${this.make} is going at ${this.speed} km/h.`);
+    return this;
+  }
+
+  // 3.
+
+  brake() {
+    this.speed -= 5;
+    console.log(`The ${this.make} is going at ${this.speed} km/h.`);
+    return this;
+  }
+
+  // #2
+  get speedUS() {
+    return this.speed / 1.6;
+  }
+
+  set speedUS(speed) {
+    // this.speed.push(miles);
+    this.speed = speed * 1.6; // The correct method
+    return this;
+  }
+}
+
+class EVCl extends CarCL {
+  constructor(make, speed, charge) {
+    // Instead of Car.call we use super
+    //constructor function of the parent class
+    super(make, speed);
+    this._charge = charge;
+  }
+  chargeBattery(charge) {
+    console.log(
+      `The ${this.make}'s battery has been charged to ${charge} percent'`
+    );
+  }
+
+  accelerate() {
+    this.speed += 10;
+    console.log(
+      `The ${this.make} is going at ${
+        this.speed
+      } km/h. The battery is now at ${this._charge--}`
+    );
+    return this;
+  }
+  brake() {
+    this.speed -= 5;
+    this._charge += 1;
+    console.log(
+      `The ${this.make} is going at ${this.speed} km/h. The battery has recovered to ${this._charge}`
+    );
+    return this;
+  }
+
+  // accelerate() {}
+}
+// 4.
+
+// DATA CAR 1: 'Rivian' going at 120 km/h, with a charge of 23%
+
+const rivian = new EVCl("Rivian", 120, 23);
+
+console.log(rivian);
+rivian.accelerate();
+rivian.brake();
+rivian
+  .accelerate()
+  .accelerate()
+  .accelerate()
+  .accelerate()
+  .accelerate()
+  .brake()
+  .brake()
+  .brake()
+  .brake()
+  .brake()
+  .brake()
+  .brake()
+  .brake()
+  .chargeBattery(98.7);
