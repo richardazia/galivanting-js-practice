@@ -54,8 +54,6 @@ const renderCountry = function(data, className = "") {
 </div>
 </article>
 `;
-  console.log(data.languages[0]);
-
   countriesContainer.insertAdjacentHTML("beforeend", html);
   countriesContainer.style.opacity = 1;
 };
@@ -160,7 +158,18 @@ setTimeout(() => {
 const getCountryData = function(country) {
   fetch(`https://restcountries.com/v2/name/${country}`)
     .then(response => response.json())
-    .then(data => renderCountry(data[0]));
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders?.[0];
+
+      if (!neighbour) return;
+
+      // Fetch the neighbour
+      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+    })
+    .then(response => response.json())
+    .then(data => renderCountry(data, "neighbour"));
 };
 
-getCountryData("jamaica");
+// getCountryData("jamaica");
+getCountryData("switzerland");
