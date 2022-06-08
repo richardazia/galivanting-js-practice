@@ -162,32 +162,75 @@ setTimeout(() => {
 // };
 // Simplified
 
+const getJSON = function(url, errorMsg = "something went wrong") {
+  return fetch(url).then(response => {
+    if (!response.ok)
+      throw new Error(
+        `Country: ${country} not found: ${errorMsg}. Try one more time`
+      );
+    return response.json();
+  });
+};
+
 const getCountryData = function(country) {
-  fetch(`https://restcountries.com/v2/name/${country}`)
-    .then(response => response.json())
+  // Primary country
+  getJSON(`https://restcountries.com/v2/name/${country}`, "country not found")
     .then(data => {
       renderCountry(data[0]);
-      const neighbour = data[0].borders?.[0];
+      // const [neighbour] = data.borders?.[0];
+      // console.log(data[0].borders[0]);
+      const neighbour = data[0].borders[0];
+      // console.log(neighbour);
+      // const neighbour = "askdwe";
 
-      if (!neighbour) return;
+      if (!neighbour) throw new Error("No neighbour found!");
 
-      // Fetch the neighbour
-      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+      // Country 2
+      return getJSON(
+        `https://restcountries.com/v2/alpha/${neighbour}`,
+        "country not found"
+      );
     })
-    .then(response => response.json())
     .then(data => renderCountry(data, "neighbour"))
     .catch(err => {
-      console.log(`${err} connection lost, please try again`);
-      renderError(
-        `Something went wrong - please check your connection, or try again: ...${err.message} `
-      );
+      console.error(`${err} try again`);
+      renderError(`Something went wrong ${err.message}. Try again `);
     })
     .finally(() => {
       countriesContainer.style.opacity = 1;
     });
 };
 
-// getCountryData("jamaica");
 btn.addEventListener("click", function() {
-  getCountryData("romania");
+  getCountryData("China");
 });
+
+// const getCountryData = function(country) {
+//   fetch(`https://restcountries.com/v2/name/${country}`)
+//     .then(response => {
+//       console.log(response);
+//
+//
+//     .then(data => {
+//       renderCountry(data[0]);
+//       const neighbour = data[0].borders?.[0];
+//
+//       if (!neighbour) return;
+//
+//       // Fetch the neighbour
+//       return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+//     })
+//     .then(response => response.json())
+//     .then(data => renderCountry(data, "neighbour"))
+//     .catch(err => {
+//       console.log(`${err} connection lost, please try again`);
+//       renderError(
+//         `Something went wrong - please check your connection, or try again: ...${err.message} `
+//       );
+//     })
+//     .finally(() => {
+//       countriesContainer.style.opacity = 1;
+//     });
+// };
+
+// getCountryData("jamaica");
