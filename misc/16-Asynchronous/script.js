@@ -249,30 +249,34 @@ PART 1
 
 const whereAmI = function(lat, lng) {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
-    .then(function(response) {
-      // if (!response.ok) throw new Error(`error: ${errorMsg}`);
-      // if (!response.ok) throw new Error("Invalid geocode");
-      if (!response.ok) throw new Error("error");
-      return response.json();
+    .then(res => {
+      if (!res.ok) throw new Error(`oups: error ${res.status}`);
+      return res.json();
     })
-    .then(function(data) {
+    .then(data => {
+      console.log(data);
       console.log(
         `According to these coordinates you are in ${data.city}, ${data.country}.`
       );
+      return fetch(`https://restcountries.com/v2/name/${data.country}`);
     })
+    .then(res => {
+      if (!res.ok) throw new Error(`Country not found (${response.status})`);
+
+      return res.json();
+    })
+    .then(data => renderCountry(data[0]))
     .catch(err => {
-      console.error(`${err}: try again`);
-      renderError(`There was an error. ${err.message}.`);
+      console.error(`${err.message}: try again`);
     })
     .finally(() => {
-      console.log("Request complete");
+      countriesContainer.style.opacity = 1;
     });
 };
 
 whereAmI(52.508, 13.381);
 whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
-whereAmI("The Quick Brown Fox jumped over the lazy dog");
 
 /*
 2. Do 'reverse geocoding' of the provided coordinates. Reverse geocoding means to convert coordinates to a meaningful location, like a city and country name. Use this API to do reverse geocoding: https://geocode.xyz/api.
