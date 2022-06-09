@@ -1,0 +1,18 @@
+I am learning to use vim
+
+i for insert mode
+
+:qa! to quit instantly
+
+esc to escape from i
+
+The trick to learning is enjoying
+
+to write a new file write :w filename.txt
+
+To change file we write :e filename.txt
+
+ctrl g to see which file is being edited
+
+:wq and enter
+

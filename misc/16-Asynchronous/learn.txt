@@ -1,0 +1,71 @@
+Learning Vim
+
+I am learning to use vim
+
+i for insert mode
+
+:qa! to quit instantly
+
+esc to escape from i
+
+The trick to learning is enjoying
+
+to write a new file write :w filename.txt
+
+To change file we write :e filename.txt
+
+ctrl g to see which file is being edited
+
+:wq and enter to quit
+
+w to go to the next word
+
+e to move to the end of a word
+
+4 w would move you forward by four words. 
+
+Use braces to  move to the next sentence or previous one. This is to see how it works. I think it works. 
+
+use { } to move between paragraphs
+
+To move around we would use 3 } to move forward by three paragraphs
+To move back two sentences we would write 2
+3w to reach the third word.
+
+To search /tra to search for words starting with tra like training. 
+
+The quick brown fox jumped over the lazy dog.
+
+Press n to see the next word
+
+Use question mark to search backwards through text.
+
+The word is in England for challenge search word
+
+Shift g to move to the end of the file
+press gg: "g" twice.
+
+ctrl + f to move forward, one screen at a time. 
+
+ctrl b to move backwards by one screen at a time
+
+ctrl + f to move forward, one screen at a time. 
+
+ctrl b to move backwards by one screen at a time.
+
+We can search for an error by typing 8 for line 8
+
+We can also use 8 and shift g
+
+
+We can search for an error by typing 8 for line 8
+
+We can also use 8 and shift g
+
+vim hello.go +8 to open a file at a specific line number. 
+
+The word is woman
+
+3j 6w to move down three lines down and six words across
+
+Use n until you find the repeat word you are looking for.   
