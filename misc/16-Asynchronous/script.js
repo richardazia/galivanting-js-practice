@@ -246,7 +246,7 @@ Here are your tasks:
 PART 1
 1. Create a function 'whereAmI' which takes as inputs a latitude value (lat) and a longitude value (lng) (these are GPS coordinates, examples are below).
 */
-
+/*
 const whereAmI = function(lat, lng) {
   fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then(res => {
@@ -277,7 +277,7 @@ const whereAmI = function(lat, lng) {
 whereAmI(52.508, 13.381);
 whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
-
+*/
 /*
 2. Do 'reverse geocoding' of the provided coordinates. Reverse geocoding means to convert coordinates to a meaningful location, like a city and country name. Use this API to do reverse geocoding: https://geocode.xyz/api.
 The AJAX call will be done to a URL with this format: https://geocode.xyz/52.508,13.381?geoit=json. Use the  API and promises to get the data. Do NOT use the getJSON function we created, that is cheating 😉
@@ -301,3 +301,51 @@ TEST COORDINATES 2: -33.933, 18.474
 
 GOOD LUCK 😀
 */
+//////////////////////////
+// Event Loop in practice
+/*
+console.log('test start');
+setTimeout(() => console.log('0 sec timer'), 0); 
+Promise.resolve('resolved Promise 1').then(res => 
+console.log(res));
+
+Promise.resolve('Resolved promise 2').then(res => {
+	for (let i = 0; i <1000000; i++) {
+		
+	};
+	console.log(res);
+});
+console.log('Test end');
+*/
+/*
+const lotteryPromise = new Promise(function(resolve, reject) {
+	console.log('lottery draw is happening!');
+	setTimeout(function() {
+		if(Math.random() >= 0.5) {
+		resolve('You win')
+		} else {
+		reject('You lost - keep playing');
+		}
+	}, 2000)
+
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+*/
+
+const wait = function(seconds) {
+	return new Promise(function(resolve){
+	setTimeout(resolve, seconds * 10000) 
+	});
+};
+
+wait(2).then(() => {
+	console.log('I waited for two seconds!');
+	return wait(1);
+}).then(() => console.log('I waited for one second'));
+// static constructor - this will resolve immediately.
+Promise.resolve('abc').then(x => console.log(x));
+Promise.reject('abc').catch(x => console.error(x));
+Promise.reject(new Error('Alarme! Aalarme! Alarme!')).catch(x => console.log(x));
+
+
