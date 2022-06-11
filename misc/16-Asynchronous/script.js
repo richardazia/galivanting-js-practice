@@ -246,9 +246,26 @@ Here are your tasks:
 PART 1
 1. Create a function 'whereAmI' which takes as inputs a latitude value (lat) and a longitude value (lng) (these are GPS coordinates, examples are below).
 */
-/*
-const whereAmI = function(lat, lng) {
-  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+const getPosition = function() {
+	return new Promise(function(resolve, reject){
+	// navigator.geolocation.getCurrentPosition(
+	//	position => resolve(position), 
+	//	err => reject(err)
+	navigator.geolocation.getCurrentPosition(resolve, reject);
+	});
+};
+
+getPosition().then(pos => console.log(pos));
+
+//const whereAmI = function(lat, lng) {
+
+const whereAmI = function () { 
+	getPosition().then(pos => {
+	const {latitude: lat, longitude:  lng } = pos.coords;
+	return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
+
+})
+//  fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then(res => {
       if (!res.ok) throw new Error(`oups: error ${res.status}`);
       return res.json();
@@ -277,7 +294,8 @@ const whereAmI = function(lat, lng) {
 whereAmI(52.508, 13.381);
 whereAmI(19.037, 72.873);
 whereAmI(-33.933, 18.474);
-*/
+
+
 /*
 2. Do 'reverse geocoding' of the provided coordinates. Reverse geocoding means to convert coordinates to a meaningful location, like a city and country name. Use this API to do reverse geocoding: https://geocode.xyz/api.
 The AJAX call will be done to a URL with this format: https://geocode.xyz/52.508,13.381?geoit=json. Use the  API and promises to get the data. Do NOT use the getJSON function we created, that is cheating 😉
@@ -344,8 +362,27 @@ wait(2).then(() => {
 	return wait(1);
 }).then(() => console.log('I waited for one second'));
 // static constructor - this will resolve immediately.
+/*
 Promise.resolve('abc').then(x => console.log(x));
 Promise.reject('abc').catch(x => console.error(x));
 Promise.reject(new Error('Alarme! Aalarme! Alarme!')).catch(x => console.log(x));
 
+navigator.geolocation.getCurrentPosition(position => console.log(position),
+	err => console.log(err) 
+);
+*/
+/*
+const getPosition = function() {
+	return new Promise(function(resolve, reject){
+	// navigator.geolocation.getCurrentPosition(
+	//	position => resolve(position), 
+	//	err => reject(err)
+	navigator.geolocation.getCurrentPosition(resolve, reject);
+	});
+};
 
+getPosition().then(pos => console.log(pos));
+*/
+
+
+btn.addEventListener('click', whereAmI);
