@@ -1,0 +1,49 @@
+#JavaScript Algorithms and Data Structures Masterclass
+
+## Big O Notation
+
+## Analysing performance of Arrays and Objects
+
+## Problem Solving Approach
+
+## Optional challenges
+
+## Recursion Problem set
+
+## Bubble Sort
+
+## Selection sort
+
+## Insertion Sort
+
+## Merge soirt
+
+## Quick Sort
+
+## Radix sort
+
+## Data Structures intro
+
+## Singly linked lists
+
+## Doubly linked lists
+
+## Stacks and Queues
+
+## Binary Search Trees
+
+## Tree traversal
+
+## Binary heaps
+
+## Hash tables
+
+## Graphs
+
+## Graph traversal
+
+## Dijkstra's Algorithm
+
+## Dynamic Programming
+
+## The Wild West
