@@ -9,11 +9,116 @@
 - refine the solution over time, to make it more efficient, and less prone to crashing. (bottle necks etc). 
 - often comes up in interviews
 
+### What makes it better? 
+
+- speed
+- less resource intensive, less memory
+- easier to understand
+
+### Timing
+- can be different between machines
+- can be different between executions
+- may not be fast enough to measure what needs to be measured
+
+- instead of counting time we can count the number of operations required to get a result
+
+We count the operations as multiplication, adding, division and more. We count the times when a computer has to do something. 
+
+In the simple solution there are 3 steps. In the complex solution there are n operations. 
+
+As a list we have
+- n additions
+- n assignments
+- 1 assignment
+- n comparisons
+- n additions
+- n additions
+- 1 assignment
+
+So in theory n + n + 1 + n + n + n + 1. At the simplest it will take seven operations to get a result.
+
+So what looks like a simple operation to us, when broken down into tasks or steps becomes a much bigger task. 
+
+Think of automating a task rather than doing it manually, like filling a log sheet. 
+
+Big O formalises fuzzy counting. 
+
+It formalises how we evaluate algorithm runtime as data size increases. 
+
+It focuses on broad trends.
+
+Definition: "We say that an algorithm is O(f(n)) if the number of simple operations the computer has to do is ecentually less than a constant times f(n), as n increases."
+
+f(n) can be: 
+- linear
+- quadratic
+- constant
+- something else
+
+Big O shorthands
+
+1. Arithmetic operations are constant
+2. Variables are also constant
+3. Accessing array elements is constant (by index or object key). 
+4. With a loop it depends on the complexity of the loop. 
+
+## Space Complexity
+
+"How much additional memory do we need to allocate in order to run the code in our algorithm".
+
+additional term: Auxiliary space complexity 
+
+### Rules of thumb
+
+- Primitives are constant space
+- Strings: require O(n) space - n = string length
+- Reference types O(n), n is the length of the array or the number of object keys. 
+
+"The logarithm of a number roughly measures the number of times you can divive that number by 2 before you get a value that's less than or equal to one. 
+
+To consider
+
+- certain search algorithms have logarithmic complexity
+- efficient sorting algorithms involve logarithms
+recursion sometimes involves logarithmic space complexity. 
+
+Summary
+
+- Big O helps is analyse performance
+- Big O noation provides a high angle overview of algorithm time and space requirements
+- Looks at the big picture, not the details
+- device agnostic. 
 
 
-## Analysing performance of Arrays and Objects
+
+0(1) is constant time (push and pop)
+0(n) is linear time (shift, unshift, concat, slice, splice, forEach, map, filter, reduce etc)
+0(N * log N) - there are seven of them. (sort)
 
 ## Problem Solving Approach
+- Define Algorithms
+A process or set of steps to accomplich a certain task
+
+Ride a bike: Find a bike, make sure it has wheels, make sure the tires are inflated. Pedal forward faster than you fall over sideways, keep going etc. 
+
+"It is the foundation for being a successful problem solver and developer."
+
+- Plan how to solve algorithms
+
+Think back to the Rescue diver course
+
+1. Devise a plan for solving problems
+
+2. Master common problem solving patterns
+	- Understand the problem
+	- Explore concrete examples
+	- break it down
+	- solve/simplify the problem (I think a better step could be defined here)
+	- review and refactor
+
+
+- evaluate different approaches
+
 
 ## Optional challenges
 
