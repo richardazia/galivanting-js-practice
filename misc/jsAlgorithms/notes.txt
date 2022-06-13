@@ -2,6 +2,15 @@
 
 ## Big O Notation
 
+- Big O is about determining which approach is best. 
+
+- Use pricse words about what the code should do
+- define the strengths and weaknesses of solutions
+- refine the solution over time, to make it more efficient, and less prone to crashing. (bottle necks etc). 
+- often comes up in interviews
+
+
+
 ## Analysing performance of Arrays and Objects
 
 ## Problem Solving Approach
