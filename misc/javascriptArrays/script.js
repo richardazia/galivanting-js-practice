@@ -83,6 +83,9 @@ students.sort(function (a,b) {
 });
 console.log(students);
 
+// Course solution
+console.log(students.reverse()); 
+
 // 1. Reverse the order of the array
 students.sort(function(a,b) {
 	return b.grade - a.grade;
@@ -90,9 +93,36 @@ students.sort(function(a,b) {
 console.log(students);
 
 // 3. Find a student in the array who has a grade over 90
-
+/*
 grade = [students.grade[0]];
 console.log(grade);
 const overNinety = students.find((e) => e < 90);
 console.log(overNinety); 
- 
+*/
+
+// Course solution 
+// I needed to do: In student look at student.grade, and within this narrow parameter look for values above 90. I missed two steps. 
+
+//How it should be formulated. 
+
+const overNinety = students.find((student) => student.grade > 90 );
+console.log(overNinety); 
+
+// Extra practice
+
+const dives = [
+	{name: 'Hermance', depth: 38 },
+	{name: 'Chindrieux', depth: 45 },
+	{name: 'El Ratos', depth: 20 },
+	{name: 'Gouille Du Duzillet', depth: 9 },
+];
+
+const deepestDive = dives.find((dive) => dive.depth > 40 );
+console.log(deepestDive);
+
+dives.sort(function(a, b) {
+	return a.depth - b.depth;
+});
+console.log(dives);
+console.log(dives.reverse());
+
