@@ -126,3 +126,26 @@ dives.sort(function(a, b) {
 console.log(dives);
 console.log(dives.reverse());
 
+const careers = ['luggage handler', 'deicer', 'duty free store room worker', 'camera operator', 'video editor', 'network resource manager']
+
+const deicerIncluded = careers.includes('deicer');
+
+console.log(deicerIncluded); // returns true
+
+const cantons = [
+	'Vaud',
+	'Gemève',
+	'Fribourg',
+	'Valais',
+	'Neuchatel', 
+	'Bern', 
+	'Zurich', 
+];
+
+const someCanton = cantons.some((canton) => canton.startsWith('Neu'));
+
+console.log(someCanton); //Yes, because at least one canton does. 
+
+const everyCanton = cantons.every((canton) => canton.startsWith('Neu'));
+console.log(everyCanton); // False, because only one Canton does
+
