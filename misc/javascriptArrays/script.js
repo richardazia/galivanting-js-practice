@@ -149,3 +149,23 @@ console.log(someCanton); //Yes, because at least one canton does.
 const everyCanton = cantons.every((canton) => canton.startsWith('Neu'));
 console.log(everyCanton); // False, because only one Canton does
 
+// Challenge 2
+
+// Bowling scores
+
+const bowlingScores = [154, 204, 300, 184, 286]
+
+// 1. 
+
+const bowlingInclude = bowlingScores.includes(300);
+
+console.log(`Does it contain a 300: ${bowlingInclude}`);
+
+// 2. 
+const underOneFifty = bowlingScores.includes((e) => e < 150);
+console.log(underOneFifty);
+
+// 3. Is every score even?
+
+const evenScores = bowlingScores.every((bowlingScore) => (bowlingScore % 2) === true);
+console.log(evenScores); 
