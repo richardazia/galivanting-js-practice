@@ -163,9 +163,11 @@ console.log(`Does it contain a 300: ${bowlingInclude}`);
 
 // 2. 
 const underOneFifty = bowlingScores.includes((e) => e < 150);
-console.log(underOneFifty);
+console.log(`Someone did terribly by scoring under 150: ${underOneFifty}`);
 
 // 3. Is every score even?
-
-const evenScores = bowlingScores.every((bowlingScore) => (bowlingScore % 2) === true);
-console.log(evenScores); 
+// My code
+// const evenScores = bowlingScores.every((bowlingScore) => (bowlingScore % 2) === true);
+// Course solution
+const evenScores = bowlingScores.every((score) => score % 2 === 0);
+console.log(`Are all scores even? ${evenScores}`); 
