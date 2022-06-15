@@ -1,5 +1,7 @@
 'use strict'
 
+//press esc and then type 'set number to display line numbers in VIM'
+
 // practicing with vim at the same time
 
 const sports = ['hiking', 'caving', 'cycling', 'snowboarding', 'scuba diving', 'snorkeling']
@@ -170,4 +172,60 @@ console.log(`Someone did terribly by scoring under 150: ${underOneFifty}`);
 // const evenScores = bowlingScores.every((bowlingScore) => (bowlingScore % 2) === true);
 // Course solution
 const evenScores = bowlingScores.every((score) => score % 2 === 0);
-console.log(`Are all scores even? ${evenScores}`); 
+console.log(`Are all scores even? ${evenScores}`);
+
+const flowers = ['daisies', 'roses', 'dandelions'];
+
+flowers.push('pansies');
+console.log(flowers); 
+
+const seasons = ['spring', 'summer', 'autumn', 'winter'];
+const poppedSeasons = seasons.pop();
+console.log(poppedSeasons);
+console.log(seasons);
+
+const distances = [200, 300, 500, 1000, 2000, 5000];
+
+distances.unshift(10000);
+console.log(distances);
+
+const villages = ['Versoix', 'Mies', 'Tannay', 'La Rippe'];
+const shiftedVillage = villages.shift();
+console.log(shiftedVillage);
+console.log(villages);
+
+// Challenge, stacks and queues
+//Push, Pop, Unshift and Pop challenge
+
+const foods = [
+	{ food: 'raspberries', type: 'fruit' },
+	{ food: 'orange', type: 'fruit' },
+	{ food: 'broccoli', type: 'vegetable'},
+	{ food: 'quinoa', type: 'grain'}
+];
+
+const blackBeans = { food: 'black beans', type: 'legume' };
+const chiaSeeds = { food: 'chia seeds', type: 'seed'};
+
+console.log(foods);
+
+// 1. 
+console.log('Question 1');
+const lastFoodPop = foods.pop();
+console.log(lastFoodPop);
+
+// 2.
+console.log('Question 2');
+const firstFoodShift = foods.shift();
+console.log(firstFoodShift);
+
+//3. 
+console.log('Question 3');
+foods.unshift(blackBeans);
+console.log(foods);
+
+// 4. 
+console.log('Question 4');
+foods.push(chiaSeeds);
+console.log(foods);
+
