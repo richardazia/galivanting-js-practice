@@ -229,3 +229,67 @@ console.log('Question 4');
 foods.push(chiaSeeds);
 console.log(foods);
 
+// Advanced methods
+
+const friends = [
+	{ firstname: 'Doctor', lastname: 'Strangelove' },
+	{ firstname: 'Topper', lastname: 'Harley' }, 
+	{ firstname: 'Hawkeye', lastname: 'Pierce' },
+];
+/*
+const fullName = friends.map((friend) => {
+	return friend.firstname + " "  + friend.lastname;
+});
+*/
+
+const fullName = friends.map((friend) => `${friend.firstname} ${friend.lastname}`
+);
+console.log(fullName);
+
+// Filtering arrays
+
+const groceries = [
+	{ item: 'apples', type: 'fruit' },
+	{ item: 'cereal', type: 'pantry' },
+	{ item: 'rice', type: 'pantry' },
+	{ item: 'pork chops', type: 'meat' },
+	{ item: 'Cordon Bleu Chicken', type: 'meat'},
+	{ item: 'bananas', type: 'fruit' },
+	{ item: 'broccoli', type: 'vegetables' },
+];
+
+const fruit = groceries.filter((item) => {
+ return item.type === 'fruit';
+});
+
+console.log(fruit);
+
+const meat = groceries.filter((item) => {
+  return item.type === 'meat';
+});
+console.log(meat)
+
+const pantry = groceries.filter((item) => item.type === 'pantry');
+console.log(pantry);
+
+const notMeat = groceries.filter((item) => item.type !== 'meat');
+console.log(notMeat);
+
+// Playing with Reduce
+
+const diveTime = [22, 32, 28, 53, 25, 16, 45, 67, 33];
+
+const totalDiveTime = diveTime.reduce((minutes, time) => minutes + time);
+console.log(totalDiveTime);
+
+const cyclingTime = [63, 92, 54, 34, 120, 15, 9, 32, 68];
+
+const totalCycleTime = cyclingTime.reduce((totDuration, time) => totDuration + time);
+console.log(totalCycleTime);
+
+// flatMap()
+
+const wordScramble = ['sing', 'glance', 'chase', 'glaze', 'struggle', 'learn', 'educate'];
+
+const splitWords = wordScramble.flatMap((word) => word.split(''));
+console.log(splitWords);
