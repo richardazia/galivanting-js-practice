@@ -48,17 +48,39 @@ console.log(factorial(5));
 console.log(factorial(1));
 
 function fibonacci(n) {
+
+let cache = {};
+
+  if(cache[n]) { 
+    return cache[n]
+  }
+
+  let result = n
+
   if(n === 0 || n === 1) {
     return n;
-  }
+  } else {
+  
   return fibonacci(n-1) + fibonacci(n-2);
-};
+  }
+
+  return result
+
+}
 
 console.log(fibonacci(5));
 
 console.log(fibonacci(24));
 
 // head recursion and tail recursion - find definitions
+/*
+Intuitive approach
 
+- Define the desired outcome
+
+- break up the desired outcome into steps
+
+- find the efficient and elegant solution
+*/
 
 
