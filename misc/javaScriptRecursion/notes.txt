@@ -5,4 +5,10 @@
 - while loops
 ## Recursion
 
+Binary trees
+
+Depth first search (DFS)
+
+BReadth first search (BFS)
+
 
