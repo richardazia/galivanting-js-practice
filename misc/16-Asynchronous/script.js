@@ -6,7 +6,7 @@ const newImage = document.querySelector(".images");
 
 const renderError = function(msg) {
   countriesContainer.insertAdjacentText("beforeend", msg);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 // Using V2
@@ -25,7 +25,7 @@ const renderCountry = function(data, className = "") {
 </article>
 `;
   countriesContainer.insertAdjacentHTML("beforeend", html);
-  // countriesContainer.style.opacity = 1;
+  countriesContainer.style.opacity = 1;
 };
 
 ///////////////////////////////////////
@@ -64,7 +64,6 @@ const renderCountry = function(data, className = "") {
 };
 */
 
-/*
 const getCountryAndNeighbour = function(country) {
   // Country 1 request
   const request = new XMLHttpRequest();
@@ -248,19 +247,19 @@ PART 1
 1. Create a function 'whereAmI' which takes as inputs a latitude value (lat) and a longitude value (lng) (these are GPS coordinates, examples are below).
 */
 const getPosition = function() {
-	return new Promise(function(resolve, reject){
-	// navigator.geolocation.getCurrentPosition(
-	//	position => resolve(position), 
-	//	err => reject(err)
-	navigator.geolocation.getCurrentPosition(resolve, reject);
-	});
+  return new Promise(function(resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //	position => resolve(position),
+    //	err => reject(err)
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
 };
 
 getPosition().then(pos => console.log(pos));
 
 //const whereAmI = function(lat, lng) {
 /*
-const whereAmI = function () { 
+const whereAmI = function () {
 	getPosition().then(pos => {
 	const {latitude: lat, longitude:  lng } = pos.coords;
 	return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
@@ -326,13 +325,13 @@ GOOD LUCK 😀
 // Event Loop in practice
 /*
 console.log('test start');
-setTimeout(() => console.log('0 sec timer'), 0); 
-Promise.resolve('resolved Promise 1').then(res => 
+setTimeout(() => console.log('0 sec timer'), 0);
+Promise.resolve('resolved Promise 1').then(res =>
 console.log(res));
 
 Promise.resolve('Resolved promise 2').then(res => {
 	for (let i = 0; i <1000000; i++) {
-		
+
 	};
 	console.log(res);
 });
@@ -356,7 +355,7 @@ lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
 /*
 const wait = function(seconds) {
 	return new Promise(function(resolve){
-	setTimeout(resolve, seconds * 10000) 
+	setTimeout(resolve, seconds * 10000)
 	});
 };
 
@@ -372,14 +371,14 @@ Promise.reject('abc').catch(x => console.error(x));
 Promise.reject(new Error('Alarme! Aalarme! Alarme!')).catch(x => console.log(x));
 
 navigator.geolocation.getCurrentPosition(position => console.log(position),
-	err => console.log(err) 
+	err => console.log(err)
 );
 */
 /*
 const getPosition = function() {
 	return new Promise(function(resolve, reject){
 	// navigator.geolocation.getCurrentPosition(
-	//	position => resolve(position), 
+	//	position => resolve(position),
 	//	err => reject(err)
 	navigator.geolocation.getCurrentPosition(resolve, reject);
 	});
@@ -388,11 +387,9 @@ const getPosition = function() {
 getPosition().then(pos => console.log(pos));
 */
 
-
-
 // Coding Challenge 2
 
-/* 
+/*
 Build the image loading functionality that I just showed you on the screen.
 Tasks are not super-descriptive this time, so that you can figure out some stuff on your own. Pretend you're working on your own 😉
 PART 1
@@ -408,7 +405,7 @@ TEST DATA: Images in the img folder. Test the error handler by passing a wrong i
 GOOD LUCK 😀
 */
 // Part 1
-
+/*
 const wait = function(seconds) {
   return new Promise(function (resolve) {
     setTimeout(resolve, seconds * 1000);
@@ -418,7 +415,7 @@ const wait = function(seconds) {
 const imgContainer = document.querySelector('.images');
 
 const createImage = function( imgPath ) {
-  return new Promise(function (resolve, reject) {	
+  return new Promise(function (resolve, reject) {
 	const img = document.createElement('img');
 	img.src = imgPath;
 
@@ -459,18 +456,16 @@ createImage('img/img-1.jpeg')
 console.log(createImage("I am an image path"));
 
 console.log(newImage);
-
+*/
 // For the challenge I followed the git file but used VIM as an editor, rather than atom or VS code, both to practice this skill, but also because it requires me to think more carefully about code.
 
 const whereAmI = async function(country) {
   await fetch(`https://restcountries.com/v2/name/${country}`);
-  console.log(res); 
-}
+  console.log(res);
+};
 
-whereAmI('Tanzania');
-console.log('heatwave');
+console.log("Getting location");
+whereAmI("Tanzania");
+console.log("I know where we are");
 
-
-
-btn.addEventListener('click', whereAmI);
-
+btn.addEventListener("click", whereAmI);
