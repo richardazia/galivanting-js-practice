@@ -196,7 +196,7 @@ const LoadNPause = async function () {
     console.log('Image 1 loaded');
     await wait(2)
     img.style.display = 'none';
-
+    // reassign, to load image 2
     img = await createImage('img/img-2.jpg');
     console.log('Image 2 Loaded');
     await wait(2);
@@ -206,8 +206,10 @@ const LoadNPause = async function () {
   }
 };
 
+// Part 2 - load all the images at once
 const loadAll = async function (imgArr) {
   try {
+    // We need to use async with await together. 
     const imgs = imgArr.map(async img => await createImage(img));
     const imgsEl = await Promise.all(imgs);
     console.log(imgsEl);
