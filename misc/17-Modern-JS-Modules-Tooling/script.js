@@ -1,7 +1,12 @@
 'use strict'
 
-import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
+// import cloneDeep from './node_modules/lodash-es/cloneDeep.js';
 
+import cloneDeep from 'lodash-es';
+import 'core-js/stable/array/find';
+import 'core-js/stable/promise';
+// For polifilling async functions
+import 'regenerator-runtime/runtime';
 // import { addToCart, totalPrice as price, totalQuantity }   from  './shoppingCart.js';
 // addToCart('chicken', 7);
 // console.log(price, totalQuantity);
@@ -110,5 +115,40 @@ state.user.loggedIn = false;
 
 console.log(`stateClone: ${stateClone}`);
 console.log(`stateDeepClone: ${stateDeepClone}`);
+
+if(module.hot) {
+  module.hot.accept()
+}
+
+// npx parcel index.html to run parcel
+
+class Person {
+  greeting = 'hey'
+  constructor(name) {
+    this.name = name;
+    console.log(`${this.greeting}, ${this.name}`);
+    }
+  };
+
+const richard = new Person('Richard');
+
+console.log('Richard' ?? null);
+
+console.log(cart.find(el => el.quantity >= 2)); // finds the first element
+
+// ES6 will not be translated to ES5 if it does not have an equivalent. 
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
