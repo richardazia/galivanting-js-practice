@@ -1,0 +1,22 @@
+{
+  "name": "18-forkify",
+  "version": "0.0.6",
+  "description": "Recipe Application",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": [
+    "food",
+    "recipes",
+    "ingredients"
+  ],
+  "author": "Richard Azia",
+  "license": "ISC",
+  "dependencies": {
+    "parcel": "^2.6.2"
+  },
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.6.2"
+  }
+}
