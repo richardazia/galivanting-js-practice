@@ -1,7 +1,7 @@
 import icons from 'url:../../img/icons.svg';
 
 class recipeView {
-	#parentElement = document.querySelector('./recipe');
+	#parentElement = document.querySelector('.recipe');
 	#data;
 
 	render(data) {
@@ -119,4 +119,4 @@ class recipeView {
 	} 
 }
 
-export default new RecipeView();
+export default new recipeView();

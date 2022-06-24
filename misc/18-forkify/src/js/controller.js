@@ -28,11 +28,13 @@ const controlRecipes = async function() {
       if(!id) return;
       recipeView.renderSpinner();
       
-      // 1. Fetch the recipe
+      // 1. Fetch/load the recipe
       await model.loadRecipe(id);
+      const { recipe } = model.state;
       
       // 2. Render the recipe
       recipeView.render(model.state.recipe);
+
 
       
   } catch (err) {
