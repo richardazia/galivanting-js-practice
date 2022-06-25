@@ -15,24 +15,23 @@ const recipeContainer = document.querySelector(".recipe");
 const controlRecipes = async function() {
   try {
     const id = window.location.hash.slice(1);
+    console.log(id);
 
     if (!id) return;
     recipeView.renderSpinner();
 
     // 1. Fetch/load the recipe
     await model.loadRecipe(id);
-    const { recipe } = model.state;
+    // const { recipe } = model.state;
 
     // 2. Render the recipe
     recipeView.render(model.state.recipe);
   } catch (err) {
-    console.log(err);
+    recipeView.renderError();
   }
 };
 
-["hashchange", "load"].forEach(ev =>
-  window.addEventListener(ev, controlRecipes)
-);
-
-// window.addEventListener('hashchange', controlRecipes);
-// window.addEventListener('load', controlRecipes);
+const init = function () {
+  recipeView.addHandlerRender(controlRecipes); 
+}
+init();
