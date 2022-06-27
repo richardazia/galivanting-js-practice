@@ -59,25 +59,51 @@ class RecipeView extends View {
             </svg>
           </button>
         </div>
-        `;
-      }
+        
+      <div class="recipe__ingredients">
+        <h2 class="heading--2">Recipe ingredients</h2>
+        <ul class="recipe__ingredient-list">
+          ${this._data.ingredients.map(this._generateMarkupIngredient).join('')}
+      </div>
+      <div class="recipe__directions">
+        <h2 class="heading--2">How to cook it</h2>
+        <p class="recipe__directions-text">
+          This recipe was carefully designed and tested by
+          <span class="recipe__publisher">${
+            this._data.publisher
+          }</span>. Please check out
+          directions at their website.
+        </p>
+        <a
+          class="btn--small recipe__btn"
+          href="${this._data.sourceUrl}"
+          target="_blank"
+        >
+          <span>Directions</span>
+          <svg class="search__icon">
+            <use href="${icons}#icon-arrow-right"></use>
+          </svg>
+        </a>
+      </div>
+    `;
+  }
 
-      _generateMarkupIngredient(ing) {
-        return `
-        <li class="recipe__ingredient">
-        <svg class="recipe__icon">
-          <use href="${icons}#icon-check"></use>
-        </svg>
-        <div class="recipe__quantity">${
-          ing.quantity ? new Fraction(ing.quantity).toString() : '' 
-        }</div>
-                <div class="recipe__description">
-                  <span class="recipe__unit">${ing.unit}</span>
-                  ${ing.description}
-                </div>
-              </li>
-        `;
-        }
-      }
+  _generateMarkupIngredient(ing) {
+    return `
+    <li class="recipe__ingredient">
+      <svg class="recipe__icon">
+        <use href="${icons}#icon-check"></use>
+      </svg>
+      <div class="recipe__quantity">${
+        ing.quantity ? new Fraction(ing.quantity).toString() : ''
+      }</div>
+      <div class="recipe__description">
+        <span class="recipe__unit">${ing.unit}</span>
+        ${ing.description}
+      </div>
+    </li>
+  `;
+  }
+}
 
 export default new RecipeView();
