@@ -18,12 +18,10 @@ class PaginationView extends View {
 		const curPage = this._data.page;
 		const numPages = Math.ceil(
 			this._data.results.length / this._data.resultsPerPage
-			);
+		);
 
 		// Situation 1: Page 1 of several
 		if(curPage === 1 && numPages > 1) {
-			console.log('situation 1')
-			console.log(`${curPage}/${numPages}`)
 			return `
           		<button data-goto="${
           			curPage + 1
@@ -35,8 +33,8 @@ class PaginationView extends View {
           		</button>
 
 				`;
-		}
-		// Situation 3: Intermediate page
+			}
+		// Situation 2: Intermediate page
 		if(curPage < numPages) {
 			console.log('situation 3')
 			console.log(`${curPage}/${numPages}`)
@@ -60,7 +58,7 @@ class PaginationView extends View {
 			`;
 		}
 
-		// Situation 4: Final page
+		// Situation 3: Final page
 		if(curPage === numPages && numPages > 1) {
 			console.log('situation 4')
 			console.log(`${curPage}/${numPages}`)
@@ -77,7 +75,7 @@ class PaginationView extends View {
 		}
 
 
-		// Situation 2: Page 1 of 1
+		// Situation 4: Page 1 of 1
 		return ''
 
 	}

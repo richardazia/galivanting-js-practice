@@ -8,17 +8,17 @@ import paginationView from "./views/paginationView.js";
 
 import "core-js/stable";
 import "regenerator-runtime/runtime";
+import { async } from 'regenerator-runtime';
 
-if (module.hot) {
-  module.hot.accept();
-}
-
-const controlRecipes = async function() {
+const controlRecipes = async function () {
   try {
     const id = window.location.hash.slice(1);
 
     if (!id) return;
     recipeView.renderSpinner();
+
+    // 0. Update Results view to mark selected search result
+    resultsView.update(model.getSearchResultsPage());
 
     // 1. Fetch/load the recipe
     await model.loadRecipe(id);
@@ -28,13 +28,14 @@ const controlRecipes = async function() {
     recipeView.render(model.state.recipe);
   } catch (err) {
     recipeView.renderError();
+    console.error(err);
   }
 };
 
-const controlSearchResults = async function() {
+const controlSearchResults = async function () {
   try {
     resultsView.renderSpinner();
-    console.log(resultsView);
+
     // 1. Search for term
     const query = searchView.getQuery();
     if (!query) return;
@@ -43,7 +44,6 @@ const controlSearchResults = async function() {
     await model.loadSearchResults(query);
 
     // 3. Render results
-    // resultsView.render(model.state.search.results);
     resultsView.render(model.getSearchResultsPage());
 
     // 4 Render initial pagination
@@ -57,6 +57,7 @@ const controlSearchResults = async function() {
 const controlPagination = function(goToPage) {
   // 1. Render new Results
   resultsView.render(model.getSearchResultsPage(goToPage));
+
   // 2. Render new page numbers
   paginationView.render(model.state.search);
 };
