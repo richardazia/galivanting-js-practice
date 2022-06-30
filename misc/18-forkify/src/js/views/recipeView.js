@@ -19,16 +19,15 @@ class RecipeView extends View {
       if (!btn) return
       const { updateTo } = btn.dataset; //the plus converts this to a number rather than a string. 
       if (+updateTo > 0)handler(+updateTo);
-      console.log('upgrade to')
     });
   }
 
   addHandlerAddBookmark(handler) {
     this._parentElement.addEventListener('click', function(e) {
       const btn = e.target.closest('.btn--bookmark');
-      if(!btn) return
+      if(!btn) return;
       handler();
-    })
+    });
   }
 
 	_generateMarkup() {
@@ -75,7 +74,7 @@ class RecipeView extends View {
           </div>
           <button class="btn--round btn--bookmark">
             <svg class="">
-              <use href="${icons}#icon-bookmark"></use>
+              <use href="${icons}#icon-bookmark${this._data.bookmarked ? '-fill' : '' }"></use>
             </svg>
           </button>
         </div>
