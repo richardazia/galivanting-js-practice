@@ -1,5 +1,3 @@
-"use strict";
-
 import * as model from "./model.js";
 import { MODAL_CLOSE_SEC} from './config.js';
 import recipeView from "./views/recipeView.js";
@@ -78,14 +76,15 @@ const controlServings = function(newServings) {
   recipeView.update(model.state.recipe);
 };
 
-const controlAddBookmark = function() {
-  // 1. Add or remove bookmarks
+const controlAddBookmark = function () {
+  // 1) Add/remove bookmark
   if (!model.state.recipe.bookmarked) model.addBookmark(model.state.recipe);
   else model.deleteBookmark(model.state.recipe.id);
 
-  // 2. Update recipe view
+  // 2) Update recipe view
   recipeView.update(model.state.recipe);
-  // 3 Render bookmarks
+
+  // 3) Render bookmarks
   bookmarksView.render(model.state.bookmarks);
 };
 
