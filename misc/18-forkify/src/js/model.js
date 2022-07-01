@@ -109,9 +109,26 @@ const init = function () {
   if (storage) state.bookmarks = JSON.parse(storage);
 };
 init();
+console.log(state.bookmarks);
 
 const clearBookmarks = function () {
   localStorage.clear('bookmarks');
 };
 
+export const uploadRecipe = async function (newRecipe) {
+  try {
+  const ingredients = Onject.entries(newRecipe)
+  .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
+  .map(ing => {
+    const ingArr = ing[1].replaceAll(' ', '').split('.');
+    if(ingArr.length !== 3) throw new Error('Requires quantity, unit, description. Please use this format');
 
+    const [quantity, unit, description] = ingArr;
+
+    return { quantity: quantity ? +quantity : null, unit, description };
+  });
+  console.log(ingredients);
+  } catch (err) {
+    throw err;
+  }
+};
