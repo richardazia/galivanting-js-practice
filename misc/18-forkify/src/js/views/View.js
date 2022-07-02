@@ -3,17 +3,17 @@ import icons from 'url:../../img/icons.svg';
 export default class View {
     _data;
 
-  render(data) {
-    if(!data || (Array.isArray(data) && data.length === 0)) 
+  render(data, render = true) {
+    if (!data || (Array.isArray(data) && data.length === 0))
       return this.renderError();
 
     this._data = data;
     const markup = this._generateMarkup();
 
-    // if (!render) return markup;
+    if (!render) return markup;
 
     this._clear();
-    this._parentElement.insertAdjacentHTML('afterbegin', markup)
+    this._parentElement.insertAdjacentHTML('afterbegin', markup);
   }
 
   update(data) {
@@ -50,9 +50,8 @@ export default class View {
   }
 
   _clear() {
-        this._parentElement.innerHTML = '';
-    }
-
+    this._parentElement.innerHTML = '';
+  }
     renderSpinner() {
     const markup = `
     <div class="spinner">

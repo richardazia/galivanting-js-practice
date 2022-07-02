@@ -7,7 +7,7 @@ class BookmarksView extends View {
 	_errorMessage = 'No bookmarks saved. Start collecting recipes.';
 	_message = '';
 
-	addHanderRender(handler) {
+	addHandlerRender(handler) {
 		window.addEventListener('load', handler);
 	}
 	
