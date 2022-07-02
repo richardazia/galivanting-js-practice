@@ -1,25 +1,20 @@
-'use strict';
+"use strict";
 
-let days = ['Sunday', 
-  'Monday', 
-  'Tuesday', 
-  'Wednesday', 
-  'Thursday', 
-  'Friday', 
-  'Saturday'
-],
- times_of_day = [
-  'morning',
-  'afternoon',
-  'evening',
-  'night',
-],
- today = new Date();
-const local_date = today.toLocaleDateString();
-const Dow_value = today.getDay();
-const Dow_name = days[Dow_value];
-var report_date = () => {
-  console.log(`Today is ${Dow_name} ${local_date}`);
+const days = ["Sunday", 
+  "Monday", 
+  "Tuesday", 
+  "Wednesday", 
+  "Thursday", 
+  "Friday", 
+  "Saturday"
+];
+
+const today = new Date();
+const localDate = today.toLocaleDateString();
+const dowValue = today.getDay();
+const dowName = days[dowValue];
+const reportDate = () => {
+  console.log(`Today is ${dowName} ${localDate}`);
 };
 
-report_date();
+reportDate();
