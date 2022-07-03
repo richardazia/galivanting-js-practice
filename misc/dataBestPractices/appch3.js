@@ -1,22 +1,24 @@
-"use strict";
+'use strict';
 
 const user = 'yourname';
 let firstChoice;
 let secondChoice;
 let thirdChoice;
-const choices = new Array(
+const choices = [
   'watch TV for an hour',
   'nap for an hour',
   'take a short walk',
   'catch up on news',
   'chat with a friend',
   'listen to music'
-);
-const selections = new Object();
+];
+const selections = {};
 
 const choose = () => choices[Math.floor(Math.random() * choices.length)];
 
-firstChoice = secondChoice = thirdChoice = "";
+firstChoice = '';
+secondChoice = '';
+thirdChoice = '';
 
 firstChoice = choose();
 secondChoice = choose();
