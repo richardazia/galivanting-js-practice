@@ -10,9 +10,14 @@ module.exports = {
     'camelcase': 'error', 
     'no-unused-vars': 'error',
     'no-whitespace-before-property': "error",
+    'no-multi-assign': 'error',
 
     "semi": ["error", "always"],
-    "quotes": ["error", "double"],
+    "quotes": ['error', 'single'],
+    'no-array-constructor': 'error',
+    'no-new-object': 'error',
+    'quote-props': ['error', 'as-needed'],
+
 
 
   },
