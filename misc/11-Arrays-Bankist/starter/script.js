@@ -853,13 +853,13 @@ console.log(
 // This is buggy. I need to isolate the issue.
 console.log(dogs);
 const ownersEatTooMuch = dogs
-  .filter(dog => dog.curfood > dog.recommendedFood) // This is the buggy line
+  .filter(dog => dog.curFood > dog.recommendedFood) // This is the buggy line
   .flatMap(dog => dog.owners);
 // .filter((owner, i, arr) => arr.indexOf(owner) === i);
 console.log(ownersEatTooMuch); // It still gives me an empty set.
 
 const ownersEatTooLittle = dogs
-  .filter(dog => dog.curfood < dog.recommendedFood)
+  .filter(dog => dog.curFood < dog.recommendedFood)
   .flatMap(dog => dog.owners);
 console.log(ownersEatTooLittle);
 */
@@ -890,8 +890,8 @@ console.log(exactFood); // false
 // Attempt 1.
 // const okayFood = dogs.some(
 //   dog =>
-//     dog.curfood > dog.recommendedFood - 10 ||
-//     dog.curfood < dog.recommendedFood + 10
+//     dog.curFood > dog.recommendedFood - 10 ||
+//     dog.curFood < dog.recommendedFood + 10
 // );
 // console.log(okayFood); // true
 
